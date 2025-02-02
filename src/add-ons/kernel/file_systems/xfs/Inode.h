@@ -8,6 +8,7 @@
 
 
 #include "system_dependencies.h"
+#include "CacheBlock.h"
 #include "Volume.h"
 #include "xfs_types.h"
 
@@ -184,7 +185,7 @@ enum xfs_dinode_fmt_t {
  */
 class Inode {
 public:
-	typedef struct Dinode{
+	struct Dinode{
 	public:
 		uint16				di_magic;
 		uint16				di_mode;
@@ -310,14 +311,14 @@ public:
 									{ return fNode->di_nextents; }
 			xfs_extnum_t		AttrExtentsCount() const
 									{ return fNode->di_naextents; }
-			uint64				FileSystemBlockToAddr(uint64 block);
+			xfs_fsblock_t				FileSystemBlockToAddr(uint64 block);
 			uint8				ForkOffset() const
 									{ return fNode->di_forkoff; }
 			status_t			ReadExtents();
 			status_t			ReadAt(off_t pos, uint8* buffer, size_t* length);
 			status_t			GetNodefromTree(uint16& levelsInTree,
 									Volume* volume, ssize_t& len,
-									size_t DirBlockSize, char* block);
+									size_t DirBlockSize, char* &block);
 			int					SearchMapInAllExtent(uint64 blockNo);
 			void				UnWrapExtentFromWrappedEntry(
 									uint64 wrappedExtent[2],
@@ -340,6 +341,7 @@ private:
 			Volume*				fVolume;
 			char*				fBuffer;
 				// Contains the disk inode in BE format
+			CachedBlock			fCache;
 			ExtentMapEntry*		fExtents;
 };
 

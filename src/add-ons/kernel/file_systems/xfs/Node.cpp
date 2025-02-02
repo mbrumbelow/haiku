@@ -17,7 +17,8 @@ NodeDirectory::NodeDirectory(Inode* inode)
 	fOffset(0),
 	fDataBuffer(NULL),
 	fLeafBuffer(NULL),
-	fCurBlockNumber(-1)
+	fCurBlockNumber(-1),
+	fCache(fInode->GetVolume())
 {
 	fFirstLeafMapIndex = FirstLeafMapIndex();
 }
@@ -27,8 +28,8 @@ NodeDirectory::~NodeDirectory()
 {
 	delete fDataMap;
 	delete fLeafMap;
-	delete fDataBuffer;
-	delete fLeafBuffer;
+	fDataBuffer = nullptr;
+	fLeafBuffer = nullptr;
 }
 
 
@@ -107,6 +108,7 @@ NodeDirectory::FillMapEntry(int num, ExtentMapEntry* fMap)
 status_t
 NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 {
+	TRACE("here");
 	TRACE("FILLBUFFER\n");
 	ExtentMapEntry* map;
 	if (type == DATA)
@@ -119,24 +121,17 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 	if (map->br_state != 0)
 		return B_BAD_VALUE;
 
-	ssize_t len = fInode->DirBlockSize();
-	if (blockBuffer == NULL) {
-		blockBuffer = new(std::nothrow) char[len];
-		if (blockBuffer == NULL)
-			return B_NO_MEMORY;
-	}
-
-	xfs_daddr_t readPos = fInode->FileSystemBlockToAddr(map->br_startblock
-		+ howManyBlocksFurthur);
-
-	if (read_pos(fInode->GetVolume()->Device(), readPos, blockBuffer, len)
-		!= len) {
+	uint64 requiredBlock = fInode->FileSystemBlockToAddr(map->br_startblock
+									+ howManyBlocksFurthur);
+	status_t status = fCache.SetTo(requiredBlock);
+	if(status != B_OK ) {
 		ERROR("NodeDirectory::FillBlockBuffer(): IO Error");
-		return B_IO_ERROR;
+		return status;
 	}
+	const uint8* block_data = fCache.Block();
 
 	if (type == DATA) {
-		fDataBuffer = blockBuffer;
+		fDataBuffer =(char*) block_data;
 		ExtentDataHeader* header = ExtentDataHeader::Create(fInode, fDataBuffer);
 		if(header == NULL)
 			return B_NO_MEMORY;
@@ -149,7 +144,7 @@ NodeDirectory::FillBuffer(int type, char* blockBuffer, int howManyBlocksFurthur)
 		delete header;
 
 	} else if (type == LEAF) {
-		fLeafBuffer = blockBuffer;
+		fLeafBuffer = (char*) block_data;
 		/*
 			This could be leaf or node block perform check for both
 			based on magic number found.
