@@ -179,6 +179,7 @@ private:
 			uint32				fOffset;
 			char*				fBlockBuffer;
 				// This isn't inode data. It holds the directory block.
+			CachedBlock			fCache;
 };
 
 #endif
