@@ -104,6 +104,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e199fca_e32e8363",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-02T20:41:07Z",
+      "side": 1,
+      "message": "I think gBlack and gWhite have a justification, if only to say this is deliberate in this case. It also makes it very easy to figure out where the intention, semantically, was to use black or white. black and white in tracker are often used as pairs to match the dark/light more when no semantic colors are fitting.\n\nIn the past I suggested adding an api so that userspace apps can register more semantic colors for their own use, and that of compatible applications, So now I am confused why you are  against this change. We only have a limited ammount of semantic colors, and the api is not made better by forcing apps to to the make_color dance themselves.\n\nCurrently there are severall cases where I simply cannot use semantic colors for the lack of an api for those.\n-\u003e Terminal Colors for following the system\n-\u003e Debugger Colors for following the system\n-\u003e system console colors\n\nFor some those can be infered, like AboutSystem red for B of Be and blue for the e. based on text color, but not for all of them. Especially not syntax colors for programming languages, since those are abstract. (and for third-party apps, vision for example, in the default install, also has way too many colors that are not infered either. And could be more easily if we had 2 or 3 vision registered colors that don\u0027t have to match our current color constants)\n\n\nSome of the code in this changeset should probably get their usage of gBlack or gWhite removed at some point, but the solution isn\u0027t to make them define it on their own.",
+      "parentUuid": "4c6efd29_499d5538",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "959336f2_807eb6fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-02T20:41:07Z",
+      "side": 1,
+      "message": "I don\u0027t want any more global specific colors than those two. If we can make an api to produce specific colors (matching your Text/background) based on semantic colors that would be fine however. (i.e Give me a Red text for my textview (based on current text color)",
+      "parentUuid": "2f0789b6_7e3dc4d1",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
