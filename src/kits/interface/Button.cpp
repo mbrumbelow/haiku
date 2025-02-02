@@ -129,6 +129,15 @@ BButton::Archive(BMessage* data, bool deep) const
 
 
 void
+BButton::AdoptSystemColors()
+{
+	SetViewUIColor(B_CONTROL_BACKGROUND_COLOR);
+	SetLowUIColor(B_CONTROL_BACKGROUND_COLOR);
+	SetHighUIColor(B_CONTROL_TEXT_COLOR);
+}
+
+
+void
 BButton::Draw(BRect updateRect)
 {
 	BRect rect(Bounds());
@@ -157,6 +166,17 @@ BButton::Draw(BRect updateRect)
 
 	be_control_look->DrawLabel(this, Label(), icon, rect, updateRect, base, flags,
 		BAlignment(B_ALIGN_CENTER, B_ALIGN_MIDDLE));
+}
+
+
+bool
+BButton::HasSystemColors() const
+{
+	float tint = B_NO_TINT;
+
+	return ViewUIColor(&tint) == B_DOCUMENT_BACKGROUND_COLOR && tint == B_NO_TINT
+		&& LowUIColor(&tint) == B_DOCUMENT_BACKGROUND_COLOR && tint == B_NO_TINT
+		&& HighUIColor(&tint) == B_DOCUMENT_TEXT_COLOR && tint == B_NO_TINT;
 }
 
 
@@ -222,11 +242,7 @@ BButton::AttachedToWindow()
 {
 	BControl::AttachedToWindow();
 
-	// tint low color to match background
-	if (ViewColor().IsLight())
-		SetLowUIColor(B_CONTROL_BACKGROUND_COLOR, 1.115);
-	else
-		SetLowUIColor(B_CONTROL_BACKGROUND_COLOR, 0.885);
+	SetLowUIColor(B_CONTROL_BACKGROUND_COLOR);
 	SetHighUIColor(B_CONTROL_TEXT_COLOR);
 
 	if (IsDefault())
