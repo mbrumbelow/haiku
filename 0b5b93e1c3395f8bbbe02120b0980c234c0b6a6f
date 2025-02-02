@@ -158,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe7fad05_5cd1ea59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-02T21:02:58Z",
+      "side": 1,
+      "message": "The coding guidelines disagree though?\nB_ style is not mentioned anywhere, and as far as I am aware the consensus was to not add any more.\n\n\u003e Global variables are prefixed with a g, static variables with an s using the same scheme as above.\n\nGraphicsDefs.h Could make sense, but i think this is really only usefull for code that uses the interface kit anyway.",
+      "parentUuid": "0b4f4960_11b8eafe",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
