@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d34e2cb5_4e575da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-03T16:10:23Z",
+      "side": 1,
+      "message": "\u003e I still think this behavior doesn\u0027t make sense.\n\nThe end goal is to have double clicking the anyboot image just mount it. I think that behavior makes sense and is more intuitive than just registering the image and then having to mount the partitions. Here it is implemented by associating disk images with the mountvolume command.\n\nHowever, I have already commented in a previous version of this patch, that this should be handled by the diskimage command. Ideally it should all work automatically:\n\n- \u0027diskimage register\u0027 registers the image\n- according to the \"automatically mount disks\" setting, Tracker notices the new volumes (just like when anactual CD is inserted in a machine) and mounts either BFS partitions, all partitions, or nothing at all, depending on the setting\n- Optionally, we could add a BNotification to tell the user that the disk image is registered in the case where there is no automount. This avoids the \"nothing happens\" situation in that case.\n\nMy suggestion was rejected, and now we\u0027re trying to have mountvolume do more things than it is supposed to, and it doesn\u0027t really have the right interface to handle all cases.\n\nSo I repeat my suggestion: this would be better implemented in the diskimage tool instead of in mountvolume. I think that way we will be able to make everyone happy with the behavior.",
+      "parentUuid": "583137ff_a4165039",
+      "revId": "030374ff342d282846f579888fb4858d2e7f3104",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f87b341_9aecc166",
