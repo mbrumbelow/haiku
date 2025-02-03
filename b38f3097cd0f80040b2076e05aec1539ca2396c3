@@ -33,6 +33,24 @@
       "message": "This PS has been updated to put the button color back but take away the tint. Do not submit this yet or it will lighten the color of all button. nephele promises that he\u0027s going to adjust the tints in HaikuControlLook to make the button color match again, then both can be submitted at once.",
       "revId": "b38f3097cd0f80040b2076e05aec1539ca2396c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "949ab6ff_ae1b35f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T17:22:20Z",
+      "side": 1,
+      "message": "I have added an equivalent change to https://review.haiku-os.org/c/haiku/+/8878. It is mostly done apart from the color constant and color generation code having to be updated. This could be submitted without the tint removeal so we have all \"rendering\" changes in one commit.",
+      "parentUuid": "4d5281b5_04db2c22",
+      "revId": "b38f3097cd0f80040b2076e05aec1539ca2396c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
