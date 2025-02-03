@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efcaab3d_d36afac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T12:07:47Z",
+      "side": 1,
+      "message": "This is missing the corresponding \"Making the control color right\" patch. But this is out of scope IMO. because that touches on the code generating the colors first and foremost. The defaults can then afterwards be set to match what the generation code spits out roughly for controls.",
+      "revId": "e016235cc551c3cd1a450aa22eee935bfb58ab33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
