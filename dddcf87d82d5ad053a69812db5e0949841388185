@@ -142,6 +142,24 @@
       "parentUuid": "9fd99f82_34c93b65",
       "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d22753d_01e404d8",
+        "filename": "build/scripts/build_haiku_image",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-02-03T14:13:28Z",
+      "side": 1,
+      "message": "\u003e When does test check and stdout output? I thought it only operates on stuff on it\u0027s argv commandline.\n\nIt does. Command substitution (`$(...)`) replaces the command for its output, so in `if [ $(command -v xorriso) ];` the arguments for `test` are the output from `command -v xorriso`. When you don\u0027t have `xorriso`, `test` runs without arguments, fails and `if` takes the \"else\" path. When you have `/bin/xorriso`, `test` is called with one argument, checks string non-emptyness, succeeds and `if` takes the main path. When you have `/opt/I deserve it bin/xorriso`, `test` is called with several arguments not conforming to expected syntax and fails, `if` taking the \"else\" path.",
+      "parentUuid": "64c6f725_331ba6ae",
+      "revId": "dddcf87d82d5ad053a69812db5e0949841388185",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
