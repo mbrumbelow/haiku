@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "444a9e9e_4514ce13",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T20:58:55Z",
+      "side": 1,
+      "message": "This must match BTextWidget::CalcRect() or you\u0027ll get drawing artifacts. Perhaps we should move the code to BPoseView so that both the BPose and BTextWidget() may share the same code.",
+      "revId": "2e34617eda3465c4d3c4be2f9049b7d2babdb5f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
