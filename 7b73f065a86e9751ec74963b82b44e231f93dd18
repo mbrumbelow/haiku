@@ -177,6 +177,24 @@
       "parentUuid": "82cac5e4_f8d2a215",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7553f9ef_2e1098f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T18:15:30Z",
+      "side": 1,
+      "message": "Skipp argued against this because it is (ment to be) a virtual class only. And some derived class of BControl should not draw with Control colors.\n\nI guess BControl and Controls themselves is not a 1:1 mapping after all :/ (also in the other direction, controls not derived froom BControl)",
+      "parentUuid": "824004be_f4d1e246",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
