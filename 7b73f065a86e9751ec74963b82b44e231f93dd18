@@ -69,6 +69,24 @@
       "parentUuid": "01336248_61b7bfb5",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "593bade5_ec2f3855",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-03T00:19:47Z",
+      "side": 1,
+      "message": "Well, this change doesn\u0027t change color constants, so as-is it will lead to different renderings than before with default colors. I prefer jscipione\u0027s solution here.",
+      "parentUuid": "22825c94_8f73e02d",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
