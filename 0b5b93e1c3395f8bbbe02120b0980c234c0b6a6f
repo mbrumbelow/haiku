@@ -212,6 +212,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d359069_d8f04675",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T01:17:44Z",
+      "side": 1,
+      "message": "From conversations in irc where I asked that. But seeing as you both seem to disagree I guess i was wrong here. I would then rename those to the B_ variant. But only after reachiing a consensus if we then want these constants or not. : )\n\nfor point 2) what does tracker code for labels for example fit into? Should it not use B_BLACK color? Not every color neccesarily needs to be defined in the system preferences, sometimes contrast requirements take precedent and we should use Contrast() to determine if user colors are useable, and if not then not use them.\n\nWould you in such an instance agree to use K_BLACK, or rather take the (broken) user color and modify it with hsl?\n\nI guess if your answer is to always use the user color and modify that then the global would be uneccesary indeed.",
+      "parentUuid": "b30f1ee3_be52a2be",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
