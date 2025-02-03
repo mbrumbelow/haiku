@@ -945,6 +945,12 @@ AudioControlInterface::Init(size_t interface, usb_interface_info* Interface)
 			continue;
 		}
 
+		if (Header->bcd_release_no != USB_AUDIO_CLASS_VERSION_1) {
+			TRACE(ERR, "Ignore Audio Control of "
+				"unknown version %#04x.\n",	Header->bcd_release_no);
+			continue;
+		}
+
 		_AudioControl* control = NULL;
 
 		switch(Header->descriptor_subtype) {
