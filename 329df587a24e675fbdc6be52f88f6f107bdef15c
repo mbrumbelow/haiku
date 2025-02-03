@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "93d57a9b_2521294c",
+        "filename": "src/kits/tracker/DesktopPoseView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T19:26:49Z",
+      "side": 1,
+      "message": "I\u0027m sorry I meant we skew the Desktop pose text color towards WHITE text on Desktop unless your background color is very light, much lighter than would be usual for a regular window, and the select box background color is skewed black.\n\nYou get white text on Desktop poses by default.\n\nThe selection box goes the other way so if your Desktop background is either black or white you won\u0027t be able to see the selection box, but that\u0027s ok, that edge case should be pretty rare as you\u0027ll either have a Desktop background image or it won\u0027t be pure white or pure black. Even in this edge case you\u0027ll still be able to tell the pose is selected by the icon which is tinted on selection as well.",
+      "parentUuid": "322642e0_ae156e3e",
+      "revId": "329df587a24e675fbdc6be52f88f6f107bdef15c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "354381b4_9a9a6128",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 16
