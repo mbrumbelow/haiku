@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29127f47_446afad2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T19:20:15Z",
+      "side": 1,
+      "message": "I accidentally broke \"X-ray vision\" highlighting, fixed. I also updated how I\u0027m detecting whether to use black or white text on Desktop poses based on the default background color as set by B_DESKTOP_COLOR. I\u0027m using the setting instead of hardcoding... which would make a difference if we ever decide to change the default background color.\n\nDesktop pose colors are now updated when you push the Apply button in Backgrounds or whenever you switch workspaces.",
+      "revId": "329df587a24e675fbdc6be52f88f6f107bdef15c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "322642e0_ae156e3e",
+        "filename": "src/kits/tracker/DesktopPoseView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T19:20:15Z",
+      "side": 1,
+      "message": "This yields black text on top of Desktop when using the default background color. We only calculate the high color here, the low color is set to your Desktop background color. When we do selection on the Desktop we set the low color to the inverted high color, draw over the selection box, invert the high color, then invert the whole thing either full if window is active or using B_MIXED_COLORS if window is inactive (in the background) producing a light gray background. This should be the same behavior as was previously happening. Using a color that is only black or white on Desktop ensures we don\u0027t get a funky select box background color on the Desktop. The Desktop text color is skewed heavily towards black unless you have a very light Desktop background, much lighter than is typical for a regular window. Because the text color is skewed to black so heavily the default background color\u0027s brightness is the cutoff for whether you get black or white text on Desktop poses.",
+      "revId": "329df587a24e675fbdc6be52f88f6f107bdef15c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "354381b4_9a9a6128",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 9220,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T19:20:15Z",
+      "side": 1,
+      "message": "This fixes up text color updating after a column drag. This would be insufficient if we were doing column drags on Desktop, but luckily we\u0027re not doing that. However in a regular tracker window or file panel or Open with window this does the right thing. I am taking a bit of a shortcut here because I don\u0027t want to PushState() and PopState() on each BPose during a column resize.",
+      "revId": "329df587a24e675fbdc6be52f88f6f107bdef15c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea502f11_6288622b",
+        "filename": "src/kits/tracker/TextWidget.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T19:20:15Z",
+      "side": 1,
+      "message": "\"X-ray vision\" highlighting is done above here where the comment talks about \"shine through\". In the next PS this is restricted to being done only when not dragging since on a drag the high color and drawing mode is already set in BPoseView::MakeDragBitmap() and high color overridden on cut items in BPose::Draw(). This should basically fix the garbled cut drag issue on its own along with the changes to BPose::DrawIcon() but in the next PS we only set the high color and drawing mode here if not dragging since we are properly detecting a drag and we turn on text outline on drag as well.",
+      "revId": "329df587a24e675fbdc6be52f88f6f107bdef15c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
