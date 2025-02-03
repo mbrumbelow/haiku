@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e3b764_f41be662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T17:53:52Z",
+      "side": 1,
+      "message": "Having just been tested control colors in light/dark mode I see what motivated this and I approve of this change. (I see that this has already been submitted so it is too late for me to complain anyway.) Using PANEL colors for now is ok, we have work to do before we can get CONTROL colors to work instead.",
+      "revId": "6670202514af1a16f6055522bf9911393d4b48c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
