@@ -155,6 +155,10 @@ VirtualKeyboardWindow::_LoadFonts()
 void
 VirtualKeyboardWindow::MessageReceived(BMessage* message)
 {
+	if (message->what == B_KEY_MAP_CHANGED) {
+		fCurrentKeymap.SetToCurrent();
+		fKeyboardView->SetKeymap(&fCurrentKeymap);
+	}
 	BWindow::MessageReceived(message);
 }
 
