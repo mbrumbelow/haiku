@@ -105,6 +105,24 @@
       "parentUuid": "593bade5_ec2f3855",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcac070a_0339dcd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-03T00:40:33Z",
+      "side": 1,
+      "message": "I fail to see how the corresponding changes that fix the rendering back to what it is now can\u0027t just be done all in one commit. I.e. how is this changeset series going to be so \"complex\"?",
+      "parentUuid": "6242974b_ac8a78f1",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
