@@ -258,6 +258,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "448f0869_fff5e975",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T11:50:54Z",
+      "side": 1,
+      "message": "Also, a note here: The code does NOT use the control colors for the thumb. It uses B_SCROLL_BAR_THUMB_COLOR, which is different. And this is how it should be I think, unless we decide to deprecate it. In which case it could use Control color directly.",
+      "parentUuid": "3c3d8bf2_84b0f16f",
+      "revId": "60d9833f0fd8751e8bfd548562a2013f79f4bc98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f6abae4e_c5b0ee8e",
         "filename": "src/kits/interface/ScrollBar.cpp",
         "patchSetId": 3
