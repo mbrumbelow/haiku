@@ -248,6 +248,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "34e74810_fa893f55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T10:06:57Z",
+      "side": 1,
+      "message": "any scenarion where you shift a user color to some other value, where fg and bg contrast fine, but no longer do after you shift the foreground. In such a scenario you can discard the fg color and pick a different one.\n\nI vehemently disagree that users selecting colors is \"their problem\". If we shift colors in code we have to ensure sufficient contrast prevails, even if that means breaking the user color.",
+      "parentUuid": "2d4f5d8f_e6766ff9",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
