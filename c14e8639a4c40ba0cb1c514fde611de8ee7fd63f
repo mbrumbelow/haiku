@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "886fb153_f856020e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-03T17:16:40Z",
+      "side": 1,
+      "message": "You may need to adjust https://grok.nikisoft.one/opengrok/xref/haiku/src/add-ons/kernel/drivers/audio/usb/Stream.cpp?r\u003db785b0cf1ccb28e2a40bf5ef797c98b112534edf#165 also here.",
+      "revId": "c14e8639a4c40ba0cb1c514fde611de8ee7fd63f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "53da1a9c_91491d52",
