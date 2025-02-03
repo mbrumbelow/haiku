@@ -87,6 +87,24 @@
       "parentUuid": "22825c94_8f73e02d",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6242974b_ac8a78f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T00:37:16Z",
+      "side": 1,
+      "message": "We can make changes in the nightlies, and aren\u0027t forced to make sure every commit is as stable as the nightlies. So Not sure what your point is. Do you have a technical reason why you think this is wrong? I really want to avoid having to make huge unriewable patchsets just because individual changes in a complex chain *obviously* change the rendering.",
+      "parentUuid": "593bade5_ec2f3855",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
