@@ -123,6 +123,24 @@
       "parentUuid": "6242974b_ac8a78f1",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d80cdd_7c8ca57f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T01:04:39Z",
+      "side": 1,
+      "message": "In my experience bigger patchsets tend to be unreviewed for weeks, so I\u0027d usually rather not do them.\n\nAnyhow, the changes would be:\n* HaikuControlLook gradient (this change)\n* BMenuField rendering (Comboboxes)\n* ScrollbarButton + Thumb\n(Changing webkit to properly use these two also)\n* change the control color to the apropriate value\n* Fix \"fake scrollbars\" in appearence\n* potentially tabs in applications\n* BSpinner butttons\n* Channel sliders\n* Thumbs of some other sliders (like in pref/appearence)\n\nAnd probably other controls I have missed here.",
+      "parentUuid": "fcac070a_0339dcd7",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
