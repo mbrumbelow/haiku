@@ -266,6 +266,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ac6c584_918a8c0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-03T16:28:10Z",
+      "side": 1,
+      "message": "I agree with Waddlesplash here, either these constants are defined by an application, and it\u0027s up to that application to define it as it needs. Or, it\u0027s some type of system color, and it should go throuh ui_color to make sure that if we change the color, we don\u0027t have to recompile all apps to update them to the new one.\n\nThere is a separate question of what do we do inside Haiku sources: we have many apps that just need a black or white color, and we may want to group these together. We can do this with a private header, for use just in our own apps, and not with a public API in InterfaceDefs.h. That is a quite different thing, and may be a good idea to ease searching for that color when doing code changes or theming changes.",
+      "parentUuid": "34e74810_fa893f55",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
@@ -328,6 +346,30 @@
       "side": 1,
       "message": "That probably won\u0027t work for global constants like this. You will need to use `static const` for GCC2 anyway.",
       "parentUuid": "280d1f12_8f6dd7bd",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 0
+      },
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdf82230_fbf30435",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-03T16:28:10Z",
+      "side": 1,
+      "message": "Do we want these as hardcoded constants? This means if we ever want to change the color, we have to recompile all applications",
+      "parentUuid": "fb0b441d_4ced4c91",
       "range": {
         "startLine": 393,
         "startChar": 0,
