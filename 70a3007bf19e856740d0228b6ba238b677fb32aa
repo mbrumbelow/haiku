@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14a97e63_415b196f",
+        "filename": "docs/user/interface/Button.dox",
+        "patchSetId": 4
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T16:58:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38c90a7e_edae7468",
+      "revId": "70a3007bf19e856740d0228b6ba238b677fb32aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1598196_ef987058",
@@ -48,6 +66,24 @@
       "writtenOn": "2025-02-03T11:44:58Z",
       "side": 1,
       "message": "Copy\u0026Paste: this has to be Control color",
+      "revId": "70a3007bf19e856740d0228b6ba238b677fb32aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb79d4d_029fd172",
+        "filename": "src/kits/interface/Button.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T16:58:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1598196_ef987058",
       "revId": "70a3007bf19e856740d0228b6ba238b677fb32aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
