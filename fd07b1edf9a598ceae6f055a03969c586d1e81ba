@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a700e3_8194fa50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-03T17:23:19Z",
+      "side": 1,
+      "message": "If these are whole directories, why bother importing them at all, if we aren\u0027t using them?",
+      "revId": "fd07b1edf9a598ceae6f055a03969c586d1e81ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
