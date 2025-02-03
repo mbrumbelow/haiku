@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "583137ff_a4165039",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-03T15:54:31Z",
+      "side": 1,
+      "message": "I imagine most of the time an ISO image a \u0027regular\u0027 user mounts has a single partition, or in case of an OS image like our anyboot, a small EFI partition and the big data partition.\nSo, most of the time I\u0027d prefer to have a double-click actually mount all partitions, instead of just registering them and having me to manually mount the partition I need. Worst case: I\u0027ll have to unmount the unneeded partitions. I suppose normally, I\u0027ll just select them all together when I\u0027m done and do the unmounting (or I just leave them mounted until I reboot).\n\nBest solution IMO would be to mount all on double-click of the ISO, but add a \"Mount \u003e\" menu when I right-click the ISO to select a specific partition. Dunno how much effort that is though...",
+      "parentUuid": "373b9a29_fb199ed1",
+      "revId": "030374ff342d282846f579888fb4858d2e7f3104",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f87b341_9aecc166",
