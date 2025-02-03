@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "126eff18_a2d61da8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-03T17:37:30Z",
+      "side": 1,
+      "message": "These shortcuts only apply in Terminal, not in regular applications, right? So to have the comments is misleading at best.\n\nI\u0027m not sure if we should actually define these constants. Maybe having them in comments would make sense, but if they have no actual use, then let\u0027s not clutter the global namespace...",
+      "revId": "87c36cd3ac77c8faf17c070e74ec4464a14136c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d968585c_5ba9e887",
