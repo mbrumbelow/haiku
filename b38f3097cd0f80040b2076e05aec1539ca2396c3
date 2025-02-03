@@ -105,6 +105,24 @@
       "parentUuid": "3ba66798_11d50f26",
       "revId": "b38f3097cd0f80040b2076e05aec1539ca2396c3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17df40d6_fbbd6a51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-03T21:08:59Z",
+      "side": 1,
+      "message": "To clairfy: I don\u0027t think 245 is the correct color, but As I am changing the rendering of HaikuControlLook I will have to calculate the correct one. \n\nPreviously 216 plus the gradient produced the rendering we have now, the gradient however no longer tints as heavily so the new color has to be some other color than 216. I doubt this will be 245 but it could be accidentally.\n\nI will let you know (in the other change) when I have calculated the new color.",
+      "parentUuid": "ebb65c0e_ddc1097b",
+      "revId": "b38f3097cd0f80040b2076e05aec1539ca2396c3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
