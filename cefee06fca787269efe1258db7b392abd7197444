@@ -16,6 +16,24 @@
       "message": "B_KEY_MAP_CHANGED \u003d\u003d 1. It may not be such a good idea to post a message with such a low value, it may be reserved for something else?",
       "revId": "cefee06fca787269efe1258db7b392abd7197444",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf0e809a_6417a609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-03T18:23:49Z",
+      "side": 1,
+      "message": "Right.\nIt also seems the current keymap isn\u0027t correctly loaded on start.",
+      "parentUuid": "52a43019_fabbc6e9",
+      "revId": "cefee06fca787269efe1258db7b392abd7197444",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
