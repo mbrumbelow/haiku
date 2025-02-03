@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "906e9d12_7a370a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-03T23:46:29Z",
+      "side": 1,
+      "message": "I\u0027m implementing the feature described in #15759 which is to mount anyboot images on double click. I tried to associate diskimage register with the anyboot MIME type but that did not work for me so I returned to mountvolume, the one that works.\n\nI have updated this patch to only mount the first partition unless you specify -all -allbfs -allhfs or -alldos parameters from the command line. Tracker mount settings are not considered. Could I read those Tracker settings in mountvolume and set the appropriate mountvolume command line options (-allbfs or -all) on double click somehow?\n\nThis only mounts the first partition if multiple are found which should alleviate waddlesplash\u0027s main complain. Only the \"Haiku\" partition is mounted when you double click on an anyboot image, not the \"Haiku esp\" partition.",
+      "parentUuid": "d34e2cb5_4e575da4",
+      "revId": "030374ff342d282846f579888fb4858d2e7f3104",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f87b341_9aecc166",
