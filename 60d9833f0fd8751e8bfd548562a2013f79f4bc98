@@ -119,6 +119,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b288567a_9a8bf5bd",
+        "filename": "src/add-ons/control_look/FlatControlLook/FlatControlLook.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-02-03T08:09:57Z",
+      "side": 1,
+      "message": "It does always decrease contrast a bit, and that seems wanted in that decorator. If the background is dark (and text light), it makes text a bit darker so that it isn\u0027t bright white, but some very light grey. Otherwise (text is dark), it makes text a bit lighter so that it isn\u0027t black, but some very dark grey.",
+      "parentUuid": "dbe2e5a4_cd22c849",
+      "revId": "60d9833f0fd8751e8bfd548562a2013f79f4bc98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ff325588_7a46e2fd",
@@ -180,6 +198,24 @@
       "writtenOn": "2025-02-02T23:22:11Z",
       "side": 1,
       "message": "Doesn\u0027t have to be in this patchset, but this should be B_CONTROL_BACKGROUND_COLOR",
+      "revId": "60d9833f0fd8751e8bfd548562a2013f79f4bc98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b7cd8a_fcc899cb",
+        "filename": "src/kits/interface/ScrollBar.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-02-03T08:09:57Z",
+      "side": 1,
+      "message": "I think B_PANEL_BACKGROUND_COLOR is correct here, and I should have used B_PANEL_TEXT_COLOR instead. Have a look at a screenshot with completely different Panel and Control colors, here: https://discuss.haiku-os.org/t/post-your-haiku-screenshot/3064/469 The current code uses Control color only for the thumb, everything else in the scrollbar is Panel color and I think that looks good as-is, changing the buttons to control color would probably look worse in that case.",
+      "parentUuid": "96a22bdf_4140dd54",
       "revId": "60d9833f0fd8751e8bfd548562a2013f79f4bc98",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
