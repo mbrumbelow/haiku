@@ -176,6 +176,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f5b628_88f13396",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-03T00:18:15Z",
+      "side": 1,
+      "message": "\u003e and as far as I am aware the consensus was to not add any more.\n\nWhere do you think this consensus was reached? We have added more just in the last few months even, so this certainly not the case.",
+      "parentUuid": "fe7fad05_5cd1ea59",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b30f1ee3_be52a2be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-03T00:18:15Z",
+      "side": 1,
+      "message": "\u003e In the past I suggested adding an api so that userspace apps can register more semantic colors for their own use\n\nWell, that\u0027s a completely separate question from this patch altogether, I think.\n\n\u003e but the solution isn\u0027t to make them define it on their own.\n\nMy point in my original reply in this chain is that there are only 2 cases where applications would have these colors hardcoded: 1. they use a hardcoded set of colors deliberately for a specific look independent of system colorscheme (like screensavers may do), or 2. they incorrectly hardcode colors that they should fetch from a system color scheme.\n\nIn either case, no new global is needed, so none should be introduced.",
+      "parentUuid": "36fa233c_54d3c879",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
