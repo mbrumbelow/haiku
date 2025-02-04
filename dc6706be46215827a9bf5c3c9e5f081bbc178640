@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87bec2e3_9793cc95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-04T17:44:26Z",
+      "side": 1,
+      "message": "I missed this, I explained better in the commit message where these numbers came from. I had to track the numbers down in the code from a long time ago to make sense of them. The numbers 6 and 18 were there without explanation, but if you look in BMenu and BMenuBar code from a long time ago in the repo you\u0027ll be able to see where these numbers come from.",
+      "parentUuid": "722f3b8f_fe01264f",
+      "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0c79dd1_3767a114",
