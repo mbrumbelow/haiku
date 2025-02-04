@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "610befa7_c57e32d8",
+        "filename": "headers/private/shared/HSP.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-04T20:21:19Z",
+      "side": 1,
+      "message": "commented out, needs implementation.",
+      "revId": "15eccb912cf893c0fada7fdd1882dd9c88cc5eee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
