@@ -16,6 +16,57 @@
       "message": "// The \u0027fExtraPad\u0027 field is used to when this menu item is added to\n// a menubar instead of a menu. Menus and MenuBars space out items\n// differently (more space around items in a menu). This class wants\n// to be able to space item the same, no matter where they are. The\n// fExtraPad field allows for that.",
       "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "722f3b8f_fe01264f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-02-04T16:29:01Z",
+      "side": 1,
+      "message": "Additionally, the numbers in the commit message also seem to come out of nowhere; the actual numbers don\u0027t mean anything IMO, only how they were (and still are) computated is important.",
+      "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0c79dd1_3767a114",
+        "filename": "src/kits/tracker/IconMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-02-04T16:29:01Z",
+      "side": 1,
+      "message": "The examples are completely unnecessary; if you really want to keep those numbers in there, you could write \"Used to be\".",
+      "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1feb4db_cfafe073",
+        "filename": "src/kits/tracker/IconMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-02-04T16:29:01Z",
+      "side": 1,
+      "message": "There is a lot of duplicated code between ExtraPadding(), and ExtraLeftPadding(). I would add another (private) method that contains the ugly code.",
+      "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
