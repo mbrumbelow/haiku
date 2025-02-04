@@ -15,10 +15,7 @@
 
 #include <kernel.h>
 
-
-extern "C" {
-#	include "acpi.h"
-}
+#include <uacpi/acpi.h>
 
 
 struct als_driver_cookie {
@@ -81,11 +78,12 @@ acpi_GetInteger(als_driver_cookie *device,
 }
 
 
-void
-als_notify_handler(acpi_handle device, uint32 value, void *context)
+int
+als_notify_handler(void* context, acpi_handle device, unsigned long value)
 {
 	TRACE("als_notify_handler event 0x%" B_PRIx32 "\n", value);
 	sALSCondition.NotifyAll();
+	return 0;
 }
 
 
@@ -259,8 +257,8 @@ acpi_als_init_driver(device_node *node, void **driverCookie)
 
 	uint64 sta;
 	status_t status = acpi_GetInteger(device, "_STA", &sta);
-	uint64 mask = ACPI_STA_DEVICE_PRESENT | ACPI_STA_DEVICE_ENABLED
-		| ACPI_STA_DEVICE_FUNCTIONING;
+	uint64 mask = ACPI_STA_RESULT_DEVICE_PRESENT | ACPI_STA_RESULT_DEVICE_ENABLED
+		| ACPI_STA_RESULT_DEVICE_FUNCTIONING;
 	if (status == B_OK && (sta & mask) != mask) {
 		ERROR("acpi_als_init_driver device disabled\n");
 		return B_ERROR;

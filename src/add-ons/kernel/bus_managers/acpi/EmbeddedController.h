@@ -40,10 +40,7 @@
 #include <lock.h>
 
 extern "C" {
-#	include "acpi.h"
-#	include "accommon.h"
-#	include "acnamesp.h"
-#	include "actypes.h"
+#	include "uacpi/acpi.h"
 #	include "ACPIPrivate.h"
 }
 
@@ -127,7 +124,7 @@ typedef uint8							EC_EVENT;
 		bus_space_write_1((sc)->ec_csr_pci_address, (v))
 
 #define ACPI_PKG_VALID(pkg, size) \
-		((pkg) != NULL && (pkg)->object_type == ACPI_TYPE_PACKAGE && \
+		((pkg) != NULL && uacpi_object_is(pkg, UACPI_OBJECT_PACKAGE) && \
 		(pkg)->package.count >= (size))
 
 
@@ -210,8 +207,6 @@ EcUnlock(struct acpi_ec_cookie *sc)
 static uint32			EcGpeHandler(acpi_handle gpeDevice, uint32 gpeNumber,
 							void *context);
 
-static acpi_status		EcSpaceSetup(acpi_handle region, uint32 function,
-							void *context, void **return_Context);
 static acpi_status		EcSpaceHandler(uint32 function,
 							acpi_physical_address address,
 							uint32 width, int *value,

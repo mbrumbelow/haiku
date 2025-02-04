@@ -14,7 +14,7 @@
 
 #include <bus/PCI.h>
 #include <ACPI.h>
-#include "acpi.h"
+#include <uacpi/resources.h>
 
 #include <KernelExport.h>
 
@@ -38,20 +38,20 @@
 #define SDHCI_ACPI_MMC_BUS_MODULE_NAME "busses/mmc/sdhci/acpi/device/v1"
 
 static acpi_status
-sdhci_acpi_scan_parse_callback(ACPI_RESOURCE *res, void *context)
+sdhci_acpi_scan_parse_callback(uacpi_resource *res, void *context)
 {
 	struct sdhci_crs* crs = (struct sdhci_crs*)context;
 
-	if (res->Type == ACPI_RESOURCE_TYPE_FIXED_MEMORY32) {
-		crs->addr_bas = res->Data.FixedMemory32.Address;
-		crs->addr_len = res->Data.FixedMemory32.AddressLength;
-	} else if (res->Type == ACPI_RESOURCE_TYPE_IRQ) {
-		crs->irq = res->Data.Irq.Interrupt;
+	if (res->type == UACPI_RESOURCE_TYPE_FIXED_MEMORY32) {
+		crs->addr_bas = res->fixed_memory32.address;
+		crs->addr_len = res->fixed_memory32.length;
+	} else if (res->type == UACPI_RESOURCE_TYPE_IRQ) {
+		crs->irq = res->irq.irqs[0];
 		//crs->irq_triggering = res->Data.Irq.Triggering;
 		//crs->irq_polarity = res->Data.Irq.Polarity;
 		//crs->irq_shareable = res->Data.Irq.Shareable;
-	} else if (res->Type == ACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
-		crs->irq = res->Data.ExtendedIrq.Interrupt;
+	} else if (res->type == UACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
+		crs->irq = res->extended_irq.irqs[0];
 		//crs->irq_triggering = res->Data.ExtendedIrq.Triggering;
 		//crs->irq_polarity = res->Data.ExtendedIrq.Polarity;
 		//crs->irq_shareable = res->Data.ExtendedIrq.Shareable;
@@ -80,7 +80,7 @@ init_bus_acpi(device_node* node, void** bus_cookie)
 	TRACE("Register SD bus\n");
 
 	struct sdhci_crs crs;
-	if(acpi->walk_resources(device, (ACPI_STRING)"_CRS",
+	if(acpi->walk_resources(device, "_CRS",
 			sdhci_acpi_scan_parse_callback, &crs) != B_OK) {
 		ERROR("Couldn't scan ACPI register set\n");
 		return B_IO_ERROR;

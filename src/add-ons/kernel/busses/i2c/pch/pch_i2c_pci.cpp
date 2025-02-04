@@ -265,7 +265,7 @@ pci_scan_bus(i2c_bus_cookie cookie)
 		(void **)&acpiDevice) == B_OK) {
 		// find out I2C device nodes
 		acpi->walk_namespace(acpiDevice, ACPI_TYPE_DEVICE, 1,
-			pch_i2c_scan_bus_callback, NULL, bus, NULL);
+			pch_i2c_scan_bus_callback, NULL, bus);
 	}
 
 	return B_OK;

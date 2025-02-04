@@ -5,6 +5,7 @@ SubDirC++Flags -fno-rtti ;
 UsePrivateKernelHeaders ;
 
 SubDirHdrs $(HAIKU_TOP) src system kernel arch generic ;
+SubDirSysHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi uacpi include ;
 
 KernelAddon <pci>ecam :
 	ECAMPCIController.cpp

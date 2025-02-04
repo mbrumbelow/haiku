@@ -39,8 +39,8 @@ private:
 			status_t			_GetDevState(uint32 devId, uint32* value);
 			status_t			_SetDevState(uint32 devId, uint32 arg,
 									uint32* value);
-	static	void				_NotifyHandler(acpi_handle handle,
-									uint32 notify, void *context);
+	static	int					_NotifyHandler(void* context, acpi_handle handle,
+									unsigned long notify);
 			void				_Notify(acpi_handle handle, uint32 notify);
 			status_t			_EnableAls(uint32 enable);
 private:
@@ -169,11 +169,13 @@ WMIAsus::_SetDevState(uint32 devId, uint32 arg, uint32 *value)
 }
 
 
-void
-WMIAsus::_NotifyHandler(acpi_handle handle, uint32 notify, void *context)
+int
+WMIAsus::_NotifyHandler(void* context, acpi_handle handle, unsigned long notify)
 {
 	WMIAsus* device = (WMIAsus*)context;
 	device->_Notify(handle, notify);
+
+	return 0;
 }
 
 

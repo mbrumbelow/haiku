@@ -125,8 +125,8 @@ private:
 			status_t			_EvaluateMethodSimple(const char* method,
 									uint64 integer);
 			void				_Notify(acpi_handle device, uint32 value);
-	static	void				_NotifyHandler(acpi_handle device,
-									uint32 value, void *context);
+	static	int					_NotifyHandler(void* context, acpi_handle device,
+									uint64 value);
 
 			void				_GuidToGuidString(uint8 guid[16],
 									char* guidString);

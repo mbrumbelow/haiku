@@ -1,6 +1,7 @@
 SubDir HAIKU_TOP src system kernel arch arm ;
 
-SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi acpica include ;
+SubDirSysHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi uacpi include ;
+SubDirSysHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi uacpi include uacpi ;
 SubDirHdrs $(SUBDIR) $(DOTDOT) generic ;
 UsePrivateKernelHeaders ;
 

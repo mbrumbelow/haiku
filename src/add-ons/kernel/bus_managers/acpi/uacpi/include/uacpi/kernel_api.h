@@ -2,6 +2,7 @@
 
 #include <uacpi/types.h>
 #include <uacpi/platform/arch_helpers.h>
+#include <uacpi/platform/config.h>
 
 #ifdef __cplusplus
 extern "C" {
