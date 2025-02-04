@@ -141,6 +141,41 @@
       "parentUuid": "ffac69d0_589daf89",
       "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe6e7cff_547ca817",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-04T22:00:43Z",
+      "side": 1,
+      "message": "Presumably if the math is different it will generate different results, so it may need to be adjusted to produce identical results for the default colors.",
+      "parentUuid": "5efaf1da_f5f01bb8",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38aaf1a7_529753cf",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-04T22:00:43Z",
+      "side": 1,
+      "message": "`1/6` will give a result in integers, this isn\u0027t what you want. You need to use `.f` here.\n\n(And it would be nice if () were used throughout rather than relying on operator precedence.)",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
