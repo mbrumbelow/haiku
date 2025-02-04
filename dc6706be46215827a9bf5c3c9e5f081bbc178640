@@ -52,6 +52,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9157aa7b_f6c2b6f3",
+        "filename": "src/kits/tracker/IconMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-04T17:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c79dd1_3767a114",
+      "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1feb4db_cfafe073",
@@ -65,6 +83,24 @@
       "writtenOn": "2025-02-04T16:29:01Z",
       "side": 1,
       "message": "There is a lot of duplicated code between ExtraPadding(), and ExtraLeftPadding(). I would add another (private) method that contains the ugly code.",
+      "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ae3bfa5_5cbb21a6",
+        "filename": "src/kits/tracker/IconMenuItem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-04T17:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1feb4db_cfafe073",
       "revId": "dc6706be46215827a9bf5c3c9e5f081bbc178640",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
