@@ -16,6 +16,24 @@
       "message": "Some more details on the advantages of \"HSP\" color over \"HSL\" would be nice (is it really that significant that we should add a whole new algorithm? HSL is really not sufficient for this?). And where the algorithm comes from, what copyright it has, etc.",
       "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dccb330d_6e801971",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-04T20:42:56Z",
+      "side": 1,
+      "message": "The only \"difference\" to HSV is how brightness is calculated. The brightness function is the same we use now for rgb_color::Brightness(). The alghorythm gives better results than HSL for matching what brightness color produces for human vision.\n\nThe original C code I partially based the if-else chain on is in public domain. But alghorythms themselves are not copyrightable.\n\nMore details here: http://alienryderflex.com/hsp.html",
+      "parentUuid": "571dab01_b8160d1e",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
