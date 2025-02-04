@@ -40,6 +40,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			DragTrackingFilter.cpp
 			DriverSettingsMessageAdapter.cpp
 			HSL.cpp
+			HSP.cpp
 			HashString.cpp
 			IconButton.cpp
 			IconView.cpp
