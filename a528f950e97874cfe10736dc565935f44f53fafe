@@ -34,6 +34,24 @@
       "parentUuid": "571dab01_b8160d1e",
       "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41d8fd1c_4b4e6700",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-04T21:13:50Z",
+      "side": 1,
+      "message": "\u003e The alghorythm gives better results than HSL for matching what brightness color produces for human vision.\n\nAccording to who?\n\nBut if the algorithm is really identical to rgb_color::Brightness(), then what\u0027s the value of a new class?\n\n\u003e The original C code I partially based the if-else chain on is in public domain. But alghorythms themselves are not copyrightable.\n\nCopyright laws differ across the world. If the code was released into the public domain, that\u0027s great, but we should still cite it no matter what.",
+      "parentUuid": "dccb330d_6e801971",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
