@@ -46,8 +46,8 @@ typedef struct acpi_ns_device_info {
 } acpi_button_device_info;
 
 
-static void
-acpi_button_notify_handler(acpi_handle _device, uint32 value, void *context)
+static int
+acpi_button_notify_handler(void* context, acpi_handle _device, long unsigned int value)
 {
 	acpi_button_device_info *device = (acpi_button_device_info *)context;
 	if (value == ACPI_NOTIFY_BUTTON_SLEEP) {
@@ -61,6 +61,7 @@ acpi_button_notify_handler(acpi_handle _device, uint32 value, void *context)
 		ERROR("unknown notification\n");
 	}
 
+	return 0;
 }
 
 

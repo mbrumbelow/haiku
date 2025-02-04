@@ -4,6 +4,7 @@ SubDirC++Flags -fno-rtti -DECAM_PCI_CONTROLLER_NO_INIT ;
 
 UsePrivateKernelHeaders ;
 SubDirHdrs $(HAIKU_TOP) src system kernel arch generic ;
+SubDirSysHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi uacpi include ;
 
 KernelAddon <pci>x86 :
 	X86PCIController.cpp

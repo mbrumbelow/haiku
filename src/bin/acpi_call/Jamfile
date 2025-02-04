@@ -1,8 +1,30 @@
 SubDir HAIKU_TOP src bin acpi_call ;
 
-SubDirHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) add-ons kernel bus_managers acpi acpica include ] ;
-SubDirHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) add-ons kernel bus_managers acpi acpica include platform ] ;
+SubDirSysHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) add-ons kernel bus_managers acpi uacpi include ] ;
+
+SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons kernel bus_managers acpi ] ;
+SEARCH_SOURCE += [ FDirName $(HAIKU_TOP) src add-ons kernel bus_managers acpi uacpi source ] ;
 
 BinCommand acpi_call :
 	acpi_call.cpp
+
+	default_handlers.c
+	event.c
+	interpreter.c
+	io.c
+	mutex.c
+	namespace.c
+	notify.c
+	opcodes.c
+	opregion.c
+	osi.c
+	registers.c
+	resources.c
+	shareable.c
+	stdlib.c
+	tables.c
+	types.c
+	uacpi.c
+	utilities.c
+	ACPICAHaiku.cpp
 	;

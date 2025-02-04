@@ -9,10 +9,6 @@
 
 #include "pch_i2c_hardware.h"
 
-extern "C" {
-#	include "acpi.h"
-}
-
 #include <i2c.h>
 #include <lock.h>
 

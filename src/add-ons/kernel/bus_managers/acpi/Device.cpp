@@ -12,15 +12,18 @@
 #include "ACPIPrivate.h"
 extern "C" {
 #include "acpi.h"
+#include <uacpi/notify.h>
+#include <uacpi/opregion.h>
+#include <uacpi/types.h>
+#include <uacpi/utilities.h>
 }
 
 
 static status_t
-acpi_install_notify_handler(acpi_device device,	uint32 handlerType,
+acpi_install_notify_handler(acpi_device device, uint32 handlerType,
 	acpi_notify_handler handler, void *context)
 {
-	return install_notify_handler(device->handle, handlerType, handler,
-		context);
+	return install_notify_handler(device->handle, handlerType, handler, context);
 }
 
 static status_t
@@ -33,10 +36,9 @@ acpi_remove_notify_handler(acpi_device device, uint32 handlerType,
 
 static status_t
 acpi_install_address_space_handler(acpi_device device, uint32 spaceId,
-	acpi_adr_space_handler handler,	acpi_adr_space_setup setup,	void *data)
+	acpi_adr_space_handler handler, void *data)
 {
-	return install_address_space_handler(device->handle, spaceId, handler,
-		setup, data);
+	return install_address_space_handler(device->handle, spaceId, handler, data);
 }
 
 static status_t
@@ -70,14 +72,14 @@ acpi_get_object(acpi_device device, const char *path, acpi_object_type **return_
 
 static status_t
 acpi_evaluate_method(acpi_device device, const char *method,
-	acpi_objects *args, acpi_data *returnValue)
+	const uacpi_object_array *args, uacpi_object **returnValue)
 {
 	return evaluate_method(device->handle, method, args, returnValue);
 }
 
 
 static status_t
-acpi_walk_resources(acpi_device device, char *method,
+acpi_walk_resources(acpi_device device, const char *method,
 	acpi_walk_resources_callback callback, void* context)
 {
 	return walk_resources(device->handle, method, callback, context);
@@ -87,17 +89,17 @@ acpi_walk_resources(acpi_device device, char *method,
 static status_t
 acpi_walk_namespace(acpi_device device, uint32 objectType, uint32 maxDepth,
 	acpi_walk_callback descendingCallback,
-	acpi_walk_callback ascendingCallback, void* context, void** returnValue)
+	acpi_walk_callback ascendingCallback, void* context)
 {
 	return walk_namespace(device->handle, objectType, maxDepth,
-		descendingCallback, ascendingCallback, context, returnValue);
+		descendingCallback, ascendingCallback, context);
 }
 
 
 static status_t
 acpi_device_init_driver(device_node *node, void **cookie)
 {
-	ACPI_HANDLE handle = NULL;
+	uacpi_namespace_node* handle = NULL;
 	const char *path = NULL;
 	uint32 type;
 
@@ -111,7 +113,7 @@ acpi_device_init_driver(device_node *node, void **cookie)
 
 	memset(device, 0, sizeof(*device));
 
-	if (path != NULL && AcpiGetHandle(NULL, (ACPI_STRING)path, &handle) != AE_OK) {
+	if (path != NULL && uacpi_find_devices(path, [](void* cookie, uacpi_namespace_node* node, uacpi_u32 depth) { *(uacpi_namespace_node**)cookie = node; return UACPI_ITERATION_DECISION_BREAK;}, &handle) != UACPI_STATUS_OK) {
 		free(device);
 		return B_ENTRY_NOT_FOUND;
 	}

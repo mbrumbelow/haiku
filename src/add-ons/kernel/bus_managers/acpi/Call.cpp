@@ -31,7 +31,7 @@ typedef struct {
 struct acpi_call_desc
 {
 	char*			path;
-	acpi_objects	args;
+	uacpi_object_array	args;
 	acpi_status	retval;
 	acpi_data	result;
 	acpi_size	reslen;
@@ -130,13 +130,12 @@ acpi_call_control(void *_device, uint32 op, void *buffer, size_t length)
 			|| user_memcpy(path, params.path, sizeof(path)) != B_OK) {
 			return B_BAD_ADDRESS;
 		}
-		acpi_data result;
-		result.length = ACPI_ALLOCATE_BUFFER;
-		result.pointer = NULL;
+		uacpi_object* result;
 
 		acpi_status retval = device->acpi->evaluate_method(NULL, path, &params.args, &result);
 		if (retval == 0) {
-			if (result.pointer != NULL) {
+			if (result != NULL) {
+				// TODO with uacpi_object being an opaque type, how do we get results copied to userspace here?
 				if (params.result.pointer != NULL) {
 					params.result.length = min_c(params.result.length, result.length);
 					if (result.length >= sizeof(acpi_object_type))
@@ -147,7 +146,7 @@ acpi_call_control(void *_device, uint32 op, void *buffer, size_t length)
 						return B_BAD_ADDRESS;
 					}
 				}
-				free(result.pointer);
+				uacpi_object_unref(result);
 			}
 		}
 		return B_OK;

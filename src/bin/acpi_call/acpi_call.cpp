@@ -38,16 +38,20 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "acpi.h"
+#include <SupportDefs.h>
+
+#include <uacpi/acpi.h>
+#include <uacpi/types.h>
+#include <uacpi/uacpi.h>
 
 
 struct acpi_call_descr
 {
 	char*		path;
-	ACPI_OBJECT_LIST	args;
-	ACPI_STATUS	retval;
-	ACPI_BUFFER	result;
-	ACPI_SIZE	reslen;
+	uacpi_object_array	args;
+	uacpi_status	retval;
+	uacpi_data_view	result;
+	size_t	reslen;
 };
 
 
@@ -61,15 +65,15 @@ char output_format = 'o';
 
 int verbose;
 
-ACPI_OBJECT args[MAX_ACPI_ARGS];
+uacpi_object* args[MAX_ACPI_ARGS];
 struct acpi_call_descr params;
 
 void parse_opts(int, char *[]);
 void show_help(FILE*);
-int parse_buffer(ACPI_OBJECT*, char*);
+int parse_buffer(uacpi_object**, char*);
 void print_params(struct acpi_call_descr*);
-void print_acpi_object(ACPI_OBJECT*);
-void print_acpi_buffer(ACPI_BUFFER*, char);
+void print_acpi_object(uacpi_object*);
+void print_acpi_buffer(uacpi_data_view*, char);
 
 int main(int argc, char * argv[])
 {
@@ -77,17 +81,17 @@ int main(int argc, char * argv[])
 
 	bzero(&params, sizeof(params));
 	params.path = method_path;
-	params.args.Count = 0;
-	params.args.Pointer = args;
+	params.args.count = 0;
+	params.args.objects = args;
 
 	verbose = 0;
 
 	parse_opts(argc, argv);
 
-	params.result.Length = result_buf_size;
-	params.result.Pointer = malloc(result_buf_size);
+	params.result.length = result_buf_size;
+	params.result.data = malloc(result_buf_size);
 
-	if (params.result.Pointer == NULL)
+	if (params.result.data == NULL)
 	{
 		perror("malloc");
 		return 1;
@@ -147,7 +151,7 @@ void parse_opts(int argc, char * argv[])
 		case 'i':
 		case 's':
 		case 'b':
-			i = params.args.Count;
+			i = params.args.count;
 			if (i >= MAX_ACPI_ARGS)
 			{
 				fprintf(stderr, "Maximum number of arguments exceeded\n");
@@ -156,13 +160,10 @@ void parse_opts(int argc, char * argv[])
 			switch (optopt)
 			{
 			case 'i':
-				args[i].Type = ACPI_TYPE_INTEGER;
-				args[i].Integer.Value = strtol(optarg, NULL, 10);
+				args[i] = uacpi_object_create_integer(strtol(optarg, NULL, 10));
 				break;
 			case 's':
-				args[i].Type = ACPI_TYPE_STRING;
-				args[i].String.Length = strlen(optarg);
-				args[i].String.Pointer = optarg;
+				args[i] = uacpi_object_create_cstring(optarg);
 				break;
 			case 'b':
 				if (parse_buffer(&args[i], optarg))
@@ -172,7 +173,7 @@ void parse_opts(int argc, char * argv[])
 				}
 				break;
 			}
-			params.args.Count++;
+			params.args.count++;
 			break;
 		case 'o':
 			output_format = optarg[0];
@@ -209,14 +210,14 @@ void show_help(FILE* f)
 	fprintf(f, "  -o i|s|b|o      - print result as integer|string|hexstring|object\n");
 }
 
-int parse_buffer(ACPI_OBJECT *dst, char *src)
+int parse_buffer(uacpi_object **dst, char *src)
 {
 	char tmp[3] = {0};
 	size_t len = strlen(src)/2, i;
 
-	dst->Type = ACPI_TYPE_BUFFER;
-	dst->Buffer.Length = len;
-	if ((dst->Buffer.Pointer = (UINT8*)malloc(len)) == NULL)
+	uacpi_data_view dataview;
+	dataview.length = len;
+	if ((dataview.data = (uint8_t*)malloc(len)) == NULL)
 	{
 		fprintf(stderr, "parse_buffer: Failed to allocate %" B_PRIuSIZE " bytes\n", len);
 		exit(1);
@@ -226,75 +227,72 @@ int parse_buffer(ACPI_OBJECT *dst, char *src)
 	{
 		tmp[0] = src[i*2];
 		tmp[1] = src[i*2+1];
-		dst->Buffer.Pointer[i] = strtol(tmp, NULL, 16);
+		dataview.bytes[i] = strtol(tmp, NULL, 16);
 	}
 
+	*dst = uacpi_object_create_buffer(dataview);
 	return 0;
 }
 
 void print_params(struct acpi_call_descr* p)
 {
 	printf("Path: %s\n", p->path);
-	printf("Number of arguments: %d\n", p->args.Count);
-	for(uint32 i = 0; i < p->args.Count; i++)
+	printf("Number of arguments: %ld\n", p->args.count);
+	for(uint32 i = 0; i < p->args.count; i++)
 	{
-		switch (p->args.Pointer[i].Type)
-		{
-		case ACPI_TYPE_INTEGER:
+		if (uacpi_object_is(p->args.objects[i], UACPI_OBJECT_INTEGER))
 			printf("Argument %d type: Integer\n", i+1);
-			break;
-		case ACPI_TYPE_STRING:
+		else if (uacpi_object_is(p->args.objects[i], UACPI_OBJECT_STRING))
 			printf("Argument %d type: String\n", i+1);
-			break;
-		case ACPI_TYPE_BUFFER:
+		else if (uacpi_object_is(p->args.objects[i], UACPI_OBJECT_BUFFER))
 			printf("Argument %d type: Buffer\n", i+1);
-			break;
-		}
+
 		printf("Argument %d value: ", i+1);
-		print_acpi_object(&(p->args.Pointer[i]));
+		print_acpi_object((p->args.objects[i]));
 		printf("\n");
 	}
 }
 
-void print_acpi_object(ACPI_OBJECT* obj)
+void print_acpi_object(uacpi_object* obj)
 {
-	switch (obj->Type)
-	{
-	case ACPI_TYPE_INTEGER:
-		printf("%" B_PRIu64, obj->Integer.Value);
-		break;
-	case ACPI_TYPE_STRING:
-		printf("%s", obj->String.Pointer);
-		break;
-	case ACPI_TYPE_BUFFER:
-		for(uint32 i = 0; i < obj->Buffer.Length; i++)
+	if (uacpi_object_is(obj, UACPI_OBJECT_INTEGER)) {
+		uacpi_u64 value;
+		uacpi_object_get_integer(obj, &value);
+		printf("%" B_PRIu64, value);
+	} else if (uacpi_object_is(obj, UACPI_OBJECT_STRING)) {
+		uacpi_data_view view;
+		uacpi_object_get_string(obj, &view);
+		printf("%s", view.text);
+	} else if (uacpi_object_is(obj, UACPI_OBJECT_BUFFER)) {
+		uacpi_data_view view;
+		uacpi_object_get_buffer(obj, &view);
+		for(uint32 i = 0; i < view.length; i++)
 		{
-			printf("%02X", obj->Buffer.Pointer[i]);
+			printf("%02X", view.bytes[i]);
 		}
-		break;
-	default:
-		printf("Unknown object type '%d'", obj->Type);
+	} else {
+		printf("Unknown object type '%d'", uacpi_object_get_type(obj));
 	}
 }
 
-void print_acpi_buffer(ACPI_BUFFER* buf, char format)
+void print_acpi_buffer(uacpi_data_view* buf, char format)
 {
 	switch (format)
 	{
 	case 'i':
-		printf("%" B_PRIu64, *((ACPI_INTEGER*)(buf->Pointer)));
+		printf("%" B_PRIu64, *((uint64_t*)(buf->data)));
 		break;
 	case 's':
-		printf("%s", (char*)buf->Pointer);
+		printf("%s", (char*)buf->text);
 		break;
 	case 'b':
-		for(uint32 i = 0; i < buf->Length; i++)
+		for(uint32 i = 0; i < buf->length; i++)
 		{
-			printf("%02X", ((UINT8*)(buf->Pointer))[i]);
+			printf("%02X", ((uint8_t*)(buf->data))[i]);
 		}
 		break;
 	case 'o':
-		print_acpi_object((ACPI_OBJECT*)(buf->Pointer));
+		print_acpi_object((uacpi_object*)(buf->data));
 		break;
 	}
 }
