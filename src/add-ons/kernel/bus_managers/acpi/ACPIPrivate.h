@@ -42,8 +42,8 @@ typedef struct acpi_device_cookie {
 } acpi_device_cookie;
 
 
-typedef struct acpi_resource acpi_resource;
-typedef acpi_status (*acpi_walk_resources_callback)(acpi_resource* resource,
+typedef struct uacpi_resource uacpi_resource;
+typedef acpi_status (*acpi_walk_resources_callback)(uacpi_resource* resource,
 	void* context);
 
 
@@ -86,8 +86,7 @@ typedef struct acpi_root_info {
 
 	status_t	(*install_address_space_handler)(acpi_handle handle,
 					uint32 spaceId,
-					acpi_adr_space_handler handler,
-					acpi_adr_space_setup setup,	void *data);
+					acpi_adr_space_handler handler, void *data);
 	status_t	(*remove_address_space_handler)(acpi_handle handle,
 					uint32 spaceId,
 					acpi_adr_space_handler handler);
@@ -136,15 +135,15 @@ typedef struct acpi_root_info {
 	/* Resource info */
 
 	status_t	(*get_irq_routing_table)(acpi_handle busDeviceHandle,
-					acpi_data *retBuffer);
+					uacpi_pci_routing_table **retBuffer);
 	status_t	(*get_current_resources)(acpi_handle busDeviceHandle,
-					acpi_data *retBuffer);
+					uacpi_resources **retBuffer);
 	status_t	(*get_possible_resources)(acpi_handle busDeviceHandle,
-					acpi_data *retBuffer);
+					uacpi_resources **retBuffer);
 	status_t	(*set_current_resources)(acpi_handle busDeviceHandle,
-					acpi_data *buffer);
+					uacpi_resources **buffer);
 	status_t	(*walk_resources)(acpi_handle busDeviceHandle,
-					char *method, acpi_walk_resources_callback callback,
+					const char *method, acpi_walk_resources_callback callback,
 					void* context);
 
 	/* Power state setting */
@@ -197,7 +196,7 @@ status_t remove_gpe_handler(acpi_handle handle, uint32 gpeNumber,
 	acpi_gpe_handler address);
 
 status_t install_address_space_handler(acpi_handle handle, uint32 spaceID,
-	acpi_adr_space_handler handler, acpi_adr_space_setup setup, void* data);
+	acpi_adr_space_handler handler, void* data);
 status_t remove_address_space_handler(acpi_handle handle, uint32 spaceID,
 	acpi_adr_space_handler handler);
 
@@ -237,14 +236,14 @@ status_t evaluate_method(acpi_handle handle, const char* method,
 	acpi_objects* args, acpi_data* returnValue);
 
 status_t get_irq_routing_table(acpi_handle busDeviceHandle,
-	acpi_data* returnValue);
+	uacpi_pci_routing_table** returnValue);
 status_t get_current_resources(acpi_handle busDeviceHandle,
-	acpi_data* returnValue);
+	uacpi_resources** returnValue);
 status_t get_possible_resources(acpi_handle busDeviceHandle,
-	acpi_data* returnValue);
+	uacpi_resources** returnValue);
 status_t set_current_resources(acpi_handle busDeviceHandle,
-	acpi_data* buffer);
-status_t walk_resources(acpi_handle busDeviceHandle, char* method,
+	uacpi_resources** buffer);
+status_t walk_resources(acpi_handle busDeviceHandle, const char* method,
 	acpi_walk_resources_callback callback, void* context);
 
 status_t prepare_sleep_state(uint8 state, void (*wakeFunc)(void), size_t size);
