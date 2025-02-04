@@ -13,6 +13,11 @@
 typedef struct acpi_module_info acpi_module_info;
 typedef union acpi_object_type acpi_object_type;
 
+// Opaque definitions of uacpi types, so that client code can use the functions without having to
+// include uacpi headers.
+typedef struct uacpi_pci_routing_table uacpi_pci_routing_table;
+typedef struct uacpi_resources uacpi_resources;
+
 #define B_ACPI_MODULE_NAME "bus_managers/acpi/v1"
 
 typedef phys_addr_t acpi_physical_address;
@@ -147,9 +152,9 @@ enum {
 /*
  * acpi_status should return ACPI specific error codes, not BeOS ones.
  */
-typedef uint32 acpi_status;
+typedef int acpi_status;
 
-typedef struct acpi_resource acpi_resource;
+typedef struct uacpi_resource uacpi_resource;
 
 #define ACPI_REENABLE_GPE	0x80
 
@@ -171,7 +176,7 @@ typedef acpi_status (*acpi_adr_space_setup)(acpi_handle regionHandle,
 typedef void (*acpi_notify_handler)(acpi_handle device, uint32 value,
 	void *context);
 
-typedef acpi_status (*acpi_walk_resources_callback)(acpi_resource* resource,
+typedef acpi_status (*acpi_walk_resources_callback)(uacpi_resource* resource,
 	void* context);
 
 typedef acpi_status (*acpi_walk_callback) (acpi_handle object, uint32 nestingLevel,
@@ -217,8 +222,7 @@ struct acpi_module_info {
 
 	status_t	(*install_address_space_handler)(acpi_handle handle,
 					uint32 spaceId,
-					acpi_adr_space_handler handler,
-					acpi_adr_space_setup setup,	void *data);
+					acpi_adr_space_handler handler, void *data);
 	status_t	(*remove_address_space_handler)(acpi_handle handle,
 					uint32 spaceId,
 					acpi_adr_space_handler handler);
@@ -239,10 +243,12 @@ struct acpi_module_info {
 
 	/* Namespace Access */
 
+#if 0
 	status_t	(*get_next_entry)(uint32 objectType, const char *base,
 					char *result, size_t length, void **_counter);
 	status_t	(*get_next_object)(uint32 objectType, acpi_handle parent,
 					acpi_handle* currentChild);
+#endif
 	status_t	(*walk_namespace)(acpi_handle busDeviceHandle,
 					uint32 objectType, uint32 maxDepth,
 					acpi_walk_callback descendingCallback,
@@ -272,15 +278,15 @@ struct acpi_module_info {
 	/* Resource Management */
 
 	status_t	(*get_irq_routing_table)(acpi_handle busDeviceHandle,
-					acpi_data *retBuffer);
+					uacpi_pci_routing_table **retBuffer);
 	status_t	(*get_current_resources)(acpi_handle busDeviceHandle,
-					acpi_data *retBuffer);
+					uacpi_resources **retBuffer);
 	status_t	(*get_possible_resources)(acpi_handle busDeviceHandle,
-					acpi_data *retBuffer);
+					uacpi_resources **retBuffer);
 	status_t	(*set_current_resources)(acpi_handle busDeviceHandle,
-					acpi_data *buffer);
+					uacpi_resources **buffer);
 	status_t	(*walk_resources)(acpi_handle busDeviceHandle,
-					char *method, acpi_walk_resources_callback callback,
+					const char *method, acpi_walk_resources_callback callback,
 					void* context);
 
 	/* Power state setting */
@@ -295,8 +301,8 @@ struct acpi_module_info {
 					void **tableHeader);
 
 	/* Register Access */
-	status_t	(*read_bit_register)(uint32 regid, uint32 *val);
-	status_t	(*write_bit_register)(uint32 regid, uint32 val);
+	status_t	(*read_bit_register)(int regid, uint64 *val);
+	status_t	(*write_bit_register)(int regid, uint64 val);
 };
 
 
@@ -338,8 +344,7 @@ typedef struct acpi_device_module_info {
 	/* Address Space Handler */
 	status_t	(*install_address_space_handler)(acpi_device device,
 					uint32 spaceId,
-					acpi_adr_space_handler handler,
-					acpi_adr_space_setup setup,	void *data);
+					acpi_adr_space_handler handler, void *data);
 	status_t	(*remove_address_space_handler)(acpi_device device,
 					uint32 spaceId,
 					acpi_adr_space_handler handler);
@@ -359,7 +364,7 @@ typedef struct acpi_device_module_info {
 					acpi_objects *args, acpi_data *returnValue);
 
 	/* Resource Management */
-	status_t	(*walk_resources)(acpi_device device, char *method,
+	status_t	(*walk_resources)(acpi_device device, const char *method,
 					acpi_walk_resources_callback callback, void* context);
 } acpi_device_module_info;
 

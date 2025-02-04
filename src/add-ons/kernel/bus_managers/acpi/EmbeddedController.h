@@ -40,10 +40,7 @@
 #include <lock.h>
 
 extern "C" {
-#	include "acpi.h"
-#	include "accommon.h"
-#	include "acnamesp.h"
-#	include "actypes.h"
+#	include "uacpi/acpi.h"
 #	include "ACPIPrivate.h"
 }
 
@@ -210,8 +207,6 @@ EcUnlock(struct acpi_ec_cookie *sc)
 static uint32			EcGpeHandler(acpi_handle gpeDevice, uint32 gpeNumber,
 							void *context);
 
-static acpi_status		EcSpaceSetup(acpi_handle region, uint32 function,
-							void *context, void **return_Context);
 static acpi_status		EcSpaceHandler(uint32 function,
 							acpi_physical_address address,
 							uint32 width, int *value,

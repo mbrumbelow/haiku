@@ -51,14 +51,16 @@ UACPI_BUILD_BUG_ON_WITH_MSG(
  * Convenience initialization/deinitialization hooks that will be called by
  * uACPI automatically when appropriate if compiled-in.
  */
-// #define UACPI_KERNEL_INITIALIZATION
+#define UACPI_KERNEL_INITIALIZATION
 
 /*
  * Makes kernel api logging callbacks work with unformatted printf-style
  * strings and va_args instead of a pre-formatted string. Can be useful if
  * your native logging is implemented in terms of this format as well.
  */
-// #define UACPI_FORMATTED_LOGGING
+#ifdef __HAIKU__
+#define UACPI_FORMATTED_LOGGING
+#endif
 
 /*
  * Makes uacpi_kernel_free take in an additional 'size_hint' parameter, which
