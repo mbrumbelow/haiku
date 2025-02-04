@@ -16,6 +16,23 @@
       "message": "... stray newline pointed out by the format bot removed",
       "revId": "e28fb3fb240fe972544320c4b1560e0422a7b8f8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5db478_1c62b91b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-02-04T21:20:04Z",
+      "side": 1,
+      "message": "Thanks! I have one more nitpick, I did notice before: we usually prefix private methods with \u0027_\u0027. As long as the method is private, it shouldn\u0027t matter if the base class implements it, too.",
+      "revId": "e28fb3fb240fe972544320c4b1560e0422a7b8f8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
