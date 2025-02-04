@@ -16,6 +16,24 @@
       "message": "If these are whole directories, why bother importing them at all, if we aren\u0027t using them?",
       "revId": "fd07b1edf9a598ceae6f055a03969c586d1e81ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd83e4e4_0ef28684",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-04T07:31:10Z",
+      "side": 1,
+      "message": "We are using some but not all files in them (and we may add more later).\n\nImporting the entire directory makes it easier to synchronize with ACPICA upstream.\n\nWe may also want to incorporate the debugger and disassembler in some tools later, either as userspace tools or KDL commands. So we may as well have the code. It\u0027s not that much files.\n\nIn the include/platform directory, of course we use only the achaiku.h file. Having the other ones for reference could still be useful, but if there\u0027s preference for removing them, I can do that.",
+      "parentUuid": "76a700e3_8194fa50",
+      "revId": "fd07b1edf9a598ceae6f055a03969c586d1e81ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
