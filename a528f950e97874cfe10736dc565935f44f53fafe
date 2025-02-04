@@ -69,6 +69,42 @@
       "message": "still no TypeConstants.h value I see",
       "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bddd6d0c_caa4fc18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-04T21:26:47Z",
+      "side": 1,
+      "message": "This isn\u0027t HSL. And I still don\u0027t understand for what you want to use this.",
+      "parentUuid": "f48f77aa_26da7331",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2b201f_4f9d9b68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-04T21:26:47Z",
+      "side": 1,
+      "message": "Sure they do. For example there is no such thing as copyright asignment where I live (It is impossible to \"loose copyright\", you can only license it to others), or any concept of public domain.\n\nBut that is irrelevant. I did not copy any code, I re-implemented an alghorythm.\n\nAs for your first question, this is already answered in the link I send, but this matches my perception aswell (and I assume pulkomandy since he originally added the perceptual_brightness function with which I replaced the original rgb_color::Brightness with)\n\n\u003e But if the algorithm is really identical to rgb_color::Brightness(), then what\u0027s the value of a new class.\n\nWell no, not entirely, rgb_color is constrained to one byte per channel, and its Brightness function matches this, this one uses a float 0-1 instead.\n\nThe other two components hue and saturation are not obtainable in rgb_color, and to copy the brightness of one color to another we need the hsp representation with hue and saturation.\n\nSince hue, saturation and new brightness are all required components to calculate the red green and blue channels.",
+      "parentUuid": "41d8fd1c_4b4e6700",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
