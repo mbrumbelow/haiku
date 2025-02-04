@@ -34,6 +34,24 @@
       "parentUuid": "76a700e3_8194fa50",
       "revId": "fd07b1edf9a598ceae6f055a03969c586d1e81ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b243207_6845ec09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-04T17:28:33Z",
+      "side": 1,
+      "message": "The \"components\" directories, I guess that makes sense.\n\nBut I think the debugger/disassembler we are less likely to use in KDL, and in userspace we should package them via HaikuPorts instead. So I think it makes more sense to drop those. And yes, the other platform headers too.",
+      "parentUuid": "bd83e4e4_0ef28684",
+      "revId": "fd07b1edf9a598ceae6f055a03969c586d1e81ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
