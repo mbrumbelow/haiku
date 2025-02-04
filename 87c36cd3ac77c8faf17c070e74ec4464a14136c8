@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0fe5d18_fd0b3ec9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-04T07:34:27Z",
+      "side": 1,
+      "message": "\u003e These shortcuts only apply in Terminal, not in regular applications, right? So to have the comments is misleading at best.\n\nThey are defined this way in the system keymaps. They do have actual use (in Terminal, but not only there), and the goal of this change is precisely to make their existence more explicit, because people seem to not be aware of it.\n\nNo specific application support is needed.",
+      "parentUuid": "94102890_5b3e3b9e",
+      "revId": "87c36cd3ac77c8faf17c070e74ec4464a14136c8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d968585c_5ba9e887",
