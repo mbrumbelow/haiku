@@ -12,6 +12,8 @@
 #include <ByteOrder.h>
 #include <condition_variable.h>
 
+#include <uacpi/resources.h>
+
 #include "pch_i2c.h"
 
 
@@ -59,23 +61,23 @@ pch_i2c_acpi_set_powerstate(pch_i2c_acpi_sim_info* info, uint8 power)
 
 
 static acpi_status
-pch_i2c_scan_parse_callback(ACPI_RESOURCE *res, void *context)
+pch_i2c_scan_parse_callback(uacpi_resource *res, void *context)
 {
 	struct pch_i2c_crs* crs = (struct pch_i2c_crs*)context;
 
-	if (res->Type == ACPI_RESOURCE_TYPE_IRQ) {
-		crs->irq = res->Data.Irq.Interrupts[0];
-		crs->irq_triggering = res->Data.Irq.Triggering;
-		crs->irq_polarity = res->Data.Irq.Polarity;
-		crs->irq_shareable = res->Data.Irq.Shareable;
-	} else if (res->Type == ACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
-		crs->irq = res->Data.ExtendedIrq.Interrupts[0];
-		crs->irq_triggering = res->Data.ExtendedIrq.Triggering;
-		crs->irq_polarity = res->Data.ExtendedIrq.Polarity;
-		crs->irq_shareable = res->Data.ExtendedIrq.Shareable;
-	} else if (res->Type == ACPI_RESOURCE_TYPE_FIXED_MEMORY32) {
-		crs->addr_bas = res->Data.FixedMemory32.Address;
-		crs->addr_len = res->Data.FixedMemory32.AddressLength;
+	if (res->type == UACPI_RESOURCE_TYPE_IRQ) {
+		crs->irq = res->irq.irqs[0];
+		crs->irq_triggering = res->irq.triggering;
+		crs->irq_polarity = res->irq.polarity;
+		crs->irq_shareable = res->irq.sharing;
+	} else if (res->type == UACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
+		crs->irq = res->extended_irq.irqs[0];
+		crs->irq_triggering = res->extended_irq.triggering;
+		crs->irq_polarity = res->extended_irq.polarity;
+		crs->irq_shareable = res->extended_irq.sharing;
+	} else if (res->type == UACPI_RESOURCE_TYPE_FIXED_MEMORY32) {
+		crs->addr_bas = res->fixed_memory32.address;
+		crs->addr_len = res->fixed_memory32.length;
 	}
 
 	return B_OK;
@@ -92,7 +94,7 @@ acpi_scan_bus(i2c_bus_cookie cookie)
 	pch_i2c_acpi_sim_info* bus = (pch_i2c_acpi_sim_info*)cookie;
 
 	bus->acpi->walk_namespace(bus->device, ACPI_TYPE_DEVICE, 1,
-		pch_i2c_scan_bus_callback, NULL, bus, NULL);
+		pch_i2c_scan_bus_callback, NULL, bus);
 
 	return B_OK;
 }
@@ -168,7 +170,7 @@ init_device(device_node* node, void** device_cookie)
 
 	// Attach devices for I2C resources
 	struct pch_i2c_crs crs;
-	status = acpi->walk_resources(device, (ACPI_STRING)"_CRS",
+	status = acpi->walk_resources(device, "_CRS",
 		pch_i2c_scan_parse_callback, &crs);
 	if (status != B_OK) {
 		ERROR("Error while getting I2C devices\n");

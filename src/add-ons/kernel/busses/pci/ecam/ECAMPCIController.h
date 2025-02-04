@@ -149,8 +149,8 @@ protected:
 private:
 	friend class X86PCIControllerMethPcie;
 
-	static acpi_status AcpiCrsScanCallback(acpi_resource *res, void *context);
-	inline acpi_status AcpiCrsScanCallbackInt(acpi_resource *res);
+	static acpi_status AcpiCrsScanCallback(uacpi_resource *res, void *context);
+	inline acpi_status AcpiCrsScanCallbackInt(uacpi_resource *res);
 };
 
 

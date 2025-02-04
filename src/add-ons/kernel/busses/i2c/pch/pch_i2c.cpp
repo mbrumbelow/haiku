@@ -13,6 +13,10 @@
 #include <condition_variable.h>
 #include <bus/PCI.h>
 
+#include <uacpi/acpi.h>
+#include <uacpi/resources.h>
+#include <uacpi/types.h>
+
 
 #include "pch_i2c.h"
 
@@ -254,29 +258,30 @@ exec_command(i2c_bus_cookie cookie, i2c_op op, i2c_addr slaveAddress,
 }
 
 
-static acpi_status
-pch_i2c_scan_parse_callback(ACPI_RESOURCE *res, void *context)
+static uacpi_iteration_decision
+pch_i2c_scan_parse_callback(uacpi_resource *res, void *context)
 {
 	struct pch_i2c_crs* crs = (struct pch_i2c_crs*)context;
 
-	if (res->Type == ACPI_RESOURCE_TYPE_SERIAL_BUS &&
-	    res->Data.CommonSerialBus.Type == ACPI_RESOURCE_SERIAL_TYPE_I2C) {
+	// FIXME how is the main "type" set for I2C resoruces? There is no "serial common" type?
+	if (res->type == UACPI_RESOURCE_TYPE_SERIAL_I2C_CONNECTION &&
+	    res->serial_bus_common.type == UACPI_RESOURCE_TYPE_SERIAL_I2C_CONNECTION) {
 		crs->i2c_addr = B_LENDIAN_TO_HOST_INT16(
-			res->Data.I2cSerialBus.SlaveAddress);
-		return AE_CTRL_TERMINATE;
-	} else if (res->Type == ACPI_RESOURCE_TYPE_IRQ) {
-		crs->irq = res->Data.Irq.Interrupts[0];
-		crs->irq_triggering = res->Data.Irq.Triggering;
-		crs->irq_polarity = res->Data.Irq.Polarity;
-		crs->irq_shareable = res->Data.Irq.Shareable;
-	} else if (res->Type == ACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
-		crs->irq = res->Data.ExtendedIrq.Interrupts[0];
-		crs->irq_triggering = res->Data.ExtendedIrq.Triggering;
-		crs->irq_polarity = res->Data.ExtendedIrq.Polarity;
-		crs->irq_shareable = res->Data.ExtendedIrq.Shareable;
+			res->i2c_connection.slave_address);
+		return UACPI_ITERATION_DECISION_BREAK;
+	} else if (res->type == UACPI_RESOURCE_TYPE_IRQ) {
+		crs->irq = res->irq.irqs[0];
+		crs->irq_triggering = res->irq.triggering;
+		crs->irq_polarity = res->irq.polarity;
+		crs->irq_shareable = res->irq.sharing;
+	} else if (res->type == UACPI_RESOURCE_TYPE_EXTENDED_IRQ) {
+		crs->irq = res->extended_irq.irqs[0];
+		crs->irq_triggering = res->extended_irq.triggering;
+		crs->irq_polarity = res->extended_irq.polarity;
+		crs->irq_shareable = res->extended_irq.sharing;
 	}
 
-	return B_OK;
+	return UACPI_ITERATION_DECISION_CONTINUE;
 }
 
 
@@ -312,13 +317,13 @@ pch_i2c_scan_bus_callback(acpi_handle object, uint32 nestingLevel,
 	// skip absent devices
 	int64 sta;
 	status_t status = acpi_GetInteger(object, "_STA", &sta);
-	if (status == B_OK && (sta & ACPI_STA_DEVICE_PRESENT) == 0)
+	if (status == B_OK && (sta & ACPI_STA_RESULT_DEVICE_PRESENT) == 0)
 		return B_OK;
 
 	// Attach devices for I2C resources
 	struct pch_i2c_crs crs;
-	status = gACPI->walk_resources(object, (ACPI_STRING)"_CRS",
-		pch_i2c_scan_parse_callback, &crs);
+	status = gACPI->walk_resources(object, "_CRS",
+		(acpi_walk_resources_callback)pch_i2c_scan_parse_callback, &crs);
 	if (status != B_OK) {
 		ERROR("Error while getting I2C devices\n");
 		return status;
@@ -326,9 +331,7 @@ pch_i2c_scan_bus_callback(acpi_handle object, uint32 nestingLevel,
 
 	TRACE("pch_i2c_scan_bus_callback deviceAddress %x\n", crs.i2c_addr);
 
-	acpi_data buffer;
-	buffer.pointer = NULL;
-	buffer.length = ACPI_ALLOCATE_BUFFER;
+	const char* buffer;
 	status = gACPI->ns_handle_to_pathname(object, &buffer);
 	if (status != B_OK) {
 		ERROR("pch_i2c_scan_bus_callback ns_handle_to_pathname failed\n");
@@ -337,7 +340,7 @@ pch_i2c_scan_bus_callback(acpi_handle object, uint32 nestingLevel,
 
 	char* hid = NULL;
 	char* cidList[8] = { NULL };
-	status = gACPI->get_device_info((const char*)buffer.pointer, &hid,
+	status = gACPI->get_device_info(buffer, &hid,
 		(char**)&cidList, 8, NULL, NULL);
 	if (status != B_OK) {
 		ERROR("pch_i2c_scan_bus_callback get_device_info failed\n");
@@ -349,7 +352,7 @@ pch_i2c_scan_bus_callback(acpi_handle object, uint32 nestingLevel,
 	free(hid);
 	for (int i = 0; cidList[i] != NULL; i++)
 		free(cidList[i]);
-	free(buffer.pointer);
+	free((void*)buffer);
 
 	TRACE("pch_i2c_scan_bus_callback registered device: %s\n", strerror(status));
 

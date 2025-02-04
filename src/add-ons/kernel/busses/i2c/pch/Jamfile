@@ -5,8 +5,7 @@ SubDirC++Flags -fno-rtti ;
 UsePrivateHeaders i2c ;
 UsePrivateKernelHeaders ;
 
-SubDirHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) $(DOTDOT) bus_managers acpi acpica include ] ;
-SubDirHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) $(DOTDOT) bus_managers acpi acpica include platform ] ;
+SubDirSysHdrs [ FDirName $(SUBDIR) $(DOTDOT) $(DOTDOT) $(DOTDOT) bus_managers acpi uacpi include ] ;
 
 KernelAddon pch_i2c :
 	pch_i2c.cpp

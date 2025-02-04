@@ -12,9 +12,7 @@
 #include <ByteOrder.h>
 #include <condition_variable.h>
 
-extern "C" {
-#	include "acpi.h"
-}
+#include <uacpi/resources.h>
 
 
 #define DRIVER_NAME "ccp_rng_acpi"
@@ -36,13 +34,13 @@ struct ccp_crs {
 
 
 static acpi_status
-ccp_scan_parse_callback(ACPI_RESOURCE *res, void *context)
+ccp_scan_parse_callback(uacpi_resource *res, void *context)
 {
 	struct ccp_crs* crs = (struct ccp_crs*)context;
 
-	if (res->Type == ACPI_RESOURCE_TYPE_FIXED_MEMORY32) {
-		crs->addr_bas = res->Data.FixedMemory32.Address;
-		crs->addr_len = res->Data.FixedMemory32.AddressLength;
+	if (res->type == UACPI_RESOURCE_TYPE_FIXED_MEMORY32) {
+		crs->addr_bas = res->fixed_memory32.address;
+		crs->addr_len = res->fixed_memory32.length;
 	}
 
 	return B_OK;
@@ -76,7 +74,7 @@ init_device(device_node* node, void** device_cookie)
 	bus->device = device;
 
 	struct ccp_crs crs;
-	status = acpi->walk_resources(device, (ACPI_STRING)"_CRS",
+	status = acpi->walk_resources(device, "_CRS",
 		ccp_scan_parse_callback, &crs);
 	if (status != B_OK) {
 		ERROR("Error while getting resouces\n");

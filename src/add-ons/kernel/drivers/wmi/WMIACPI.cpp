@@ -51,7 +51,7 @@ WMIACPI::WMIACPI(device_node *node)
 	}
 
 	fStatus = acpi->install_address_space_handler(acpi_cookie,
-		ACPI_ADR_SPACE_EC, wmi_acpi_adr_space_handler, NULL, this);
+		ACPI_ADR_SPACE_EC, wmi_acpi_adr_space_handler, this);
 	if (fStatus != B_OK) {
 		ERROR("wmi_acpi_adr_space_handler failed\n");
 		return;
@@ -333,11 +333,12 @@ WMIACPI::_EvaluateMethodSimple(const char* method, uint64 integer)
 }
 
 
-void
-WMIACPI::_NotifyHandler(acpi_handle device, uint32 value, void *context)
+int
+WMIACPI::_NotifyHandler(void* context, acpi_handle device, long unsigned int value)
 {
 	WMIACPI* bus = (WMIACPI*)context;
 	bus->_Notify(device, value);
+	return 0;
 }
 
 
@@ -351,7 +352,7 @@ WMIACPI::_Notify(acpi_handle device, uint32 value)
 			if (wmi->handler != NULL) {
 				TRACE("_Notify found handler for event 0x%" B_PRIx32 "\n",
 					value);
-				wmi->handler(device, value, wmi->handler_context);
+				wmi->handler(wmi->handler_context, device, value);
 			}
 			break;
 		}

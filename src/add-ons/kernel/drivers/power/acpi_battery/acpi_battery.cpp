@@ -254,11 +254,12 @@ EstimatedRuntime(battery_driver_cookie* cookie, acpi_battery_info* info)
 }
 
 
-void
-battery_notify_handler(acpi_handle device, uint32 value, void *context)
+int
+battery_notify_handler(void* context, acpi_handle device, unsigned long value)
 {
 	TRACE("battery_notify_handler event 0x%x\n", int(value));
 	sBatteryCondition.NotifyAll();
+	return 0;
 }
 
 

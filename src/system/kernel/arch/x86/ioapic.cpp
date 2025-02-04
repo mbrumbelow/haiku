@@ -22,7 +22,7 @@
 #include <arch/x86/pic.h>
 
 // to gain access to the ACPICA types
-#include "acpi.h"
+#include "uacpi/acpi.h"
 
 
 //#define TRACE_IOAPIC
@@ -422,22 +422,21 @@ ioapic_source_override_handler(void* data)
 
 
 static status_t
-acpi_enumerate_ioapics(acpi_table_madt* madt)
+acpi_enumerate_ioapics(struct acpi_madt* madt)
 {
 	struct ioapic* lastIOAPIC = sIOAPICs;
 
-	acpi_subtable_header* apicEntry
-		= (acpi_subtable_header*)((uint8*)madt + sizeof(acpi_table_madt));
-	void* end = ((uint8*)madt + madt->Header.Length);
+	struct acpi_entry_hdr* apicEntry = madt->entries;
+	void* end = ((uint8*)madt + madt->hdr.length);
 	while (apicEntry < end) {
-		switch (apicEntry->Type) {
-			case ACPI_MADT_TYPE_IO_APIC:
+		switch (apicEntry->type) {
+			case ACPI_MADT_ENTRY_TYPE_IOAPIC:
 			{
-				acpi_madt_io_apic* info = (acpi_madt_io_apic*)apicEntry;
+				struct acpi_madt_ioapic* info = (struct acpi_madt_ioapic*)apicEntry;
 				dprintf("found io-apic with address 0x%08" B_PRIx32 ", global "
 					"interrupt base %" B_PRIu32 ", apic-id %u\n",
-					(uint32)info->Address, (uint32)info->GlobalIrqBase,
-					info->Id);
+					(uint32)info->address, (uint32)info->gsi_base,
+					info->id);
 
 				struct ioapic* ioapic
 					= (struct ioapic*)malloc(sizeof(struct ioapic));
@@ -449,14 +448,14 @@ acpi_enumerate_ioapics(acpi_table_madt* madt)
 
 				ioapic->number
 					= lastIOAPIC != NULL ? lastIOAPIC->number + 1 : 0;
-				ioapic->apic_id = info->Id;
-				ioapic->global_interrupt_base = info->GlobalIrqBase;
+				ioapic->apic_id = info->id;
+				ioapic->global_interrupt_base = info->gsi_base;
 				ioapic->registers = NULL;
 				ioapic->next = NULL;
 
 				dprintf("mapping io-apic %u at physical address %#" B_PRIx32
-					"\n", ioapic->number, (uint32)info->Address);
-				status_t status = ioapic_map_ioapic(*ioapic, info->Address);
+					"\n", ioapic->number, (uint32)info->address);
+				status_t status = ioapic_map_ioapic(*ioapic, info->address);
 				if (status != B_OK) {
 					free(ioapic);
 					break;
@@ -473,29 +472,29 @@ acpi_enumerate_ioapics(acpi_table_madt* madt)
 				break;
 			}
 
-			case ACPI_MADT_TYPE_NMI_SOURCE:
+			case ACPI_MADT_ENTRY_TYPE_NMI_SOURCE:
 			{
 				acpi_madt_nmi_source* info
 					= (acpi_madt_nmi_source*)apicEntry;
 				dprintf("found nmi source global irq %" B_PRIu32 ", flags "
-					"0x%04x\n", (uint32)info->GlobalIrq,
-					(uint16)info->IntiFlags);
+					"0x%04x\n", (uint32)info->gsi,
+					(uint16)info->flags);
 
-				struct ioapic* ioapic = find_ioapic(info->GlobalIrq);
+				struct ioapic* ioapic = find_ioapic(info->gsi);
 				if (ioapic == NULL) {
 					dprintf("nmi source for gsi that is not mapped to any "
 						" io-apic\n");
 					break;
 				}
 
-				uint8 pin = info->GlobalIrq - ioapic->global_interrupt_base;
+				uint8 pin = info->gsi - ioapic->global_interrupt_base;
 				ioapic->nmi_mask |= (uint64)1 << pin;
 				break;
 			}
 		}
 
 		apicEntry
-			= (acpi_subtable_header*)((uint8*)apicEntry + apicEntry->Length);
+			= (acpi_entry_hdr*)((uint8*)apicEntry + apicEntry->length);
 	}
 
 	return B_OK;
@@ -514,20 +513,20 @@ acpi_madt_convert_inti_flags(uint16 flags)
 			dprintf("invalid polarity in inti flags\n");
 			// fall through and assume active high
 		case ACPI_MADT_POLARITY_ACTIVE_HIGH:
-		case ACPI_MADT_POLARITY_CONFORMS:
+		case ACPI_MADT_POLARITY_CONFORMING:
 			config = B_HIGH_ACTIVE_POLARITY;
 			break;
 	}
 
-	switch (flags & ACPI_MADT_TRIGGER_MASK) {
-		case ACPI_MADT_TRIGGER_LEVEL:
+	switch (flags & ACPI_MADT_TRIGGERING_MASK) {
+		case ACPI_MADT_TRIGGERING_LEVEL:
 			config |= B_LEVEL_TRIGGERED;
 			break;
 		default:
 			dprintf("invalid trigger mode in inti flags\n");
 			// fall through and assume edge triggered
-		case ACPI_MADT_TRIGGER_CONFORMS:
-		case ACPI_MADT_TRIGGER_EDGE:
+		case ACPI_MADT_TRIGGERING_CONFORMING:
+		case ACPI_MADT_TRIGGERING_EDGE:
 			config |= B_EDGE_TRIGGERED;
 			break;
 	}
@@ -537,57 +536,56 @@ acpi_madt_convert_inti_flags(uint16 flags)
 
 
 static void
-acpi_configure_source_overrides(acpi_table_madt* madt)
+acpi_configure_source_overrides(acpi_madt* madt)
 {
-	acpi_subtable_header* apicEntry
-		= (acpi_subtable_header*)((uint8*)madt + sizeof(acpi_table_madt));
-	void* end = ((uint8*)madt + madt->Header.Length);
+	acpi_entry_hdr* apicEntry = madt->entries;
+	void* end = ((uint8*)madt + madt->hdr.length);
 	while (apicEntry < end) {
-		switch (apicEntry->Type) {
-			case ACPI_MADT_TYPE_INTERRUPT_OVERRIDE:
+		switch (apicEntry->type) {
+			case ACPI_MADT_ENTRY_TYPE_INTERRUPT_SOURCE_OVERRIDE:
 			{
-				acpi_madt_interrupt_override* info
-					= (acpi_madt_interrupt_override*)apicEntry;
+				acpi_madt_interrupt_source_override* info
+					= (acpi_madt_interrupt_source_override*)apicEntry;
 				dprintf("found interrupt override for bus %u, source irq %u, "
 					"global irq %" B_PRIu32 ", flags 0x%08" B_PRIx32 "\n",
-					info->Bus, info->SourceIrq, (uint32)info->GlobalIrq,
-					(uint32)info->IntiFlags);
+					info->bus, info->source, (uint32)info->gsi,
+					(uint32)info->flags);
 
-				if (info->SourceIrq >= ISA_INTERRUPT_COUNT) {
+				if (info->source >= ISA_INTERRUPT_COUNT) {
 					dprintf("source override exceeds isa interrupt count\n");
 					break;
 				}
 
-				if (info->SourceIrq != info->GlobalIrq) {
+				if (info->source != info->gsi) {
 					// we need a vector mapping
-					install_io_interrupt_handler(info->GlobalIrq,
+					install_io_interrupt_handler(info->gsi,
 						&ioapic_source_override_handler,
-						(void*)(addr_t)info->SourceIrq, B_NO_ENABLE_COUNTER);
+						(void*)(addr_t)info->source, B_NO_ENABLE_COUNTER);
 
-					sSourceOverrides[info->SourceIrq] = info->GlobalIrq;
+					sSourceOverrides[info->source] = info->gsi;
 				}
 
 				// configure non-standard polarity/trigger modes
-				uint32 config = acpi_madt_convert_inti_flags(info->IntiFlags);
-				ioapic_configure_io_interrupt(info->GlobalIrq, config);
+				uint32 config = acpi_madt_convert_inti_flags(info->flags);
+				ioapic_configure_io_interrupt(info->gsi, config);
 				break;
 			}
 
-			case ACPI_MADT_TYPE_NMI_SOURCE:
+			case ACPI_MADT_ENTRY_TYPE_NMI_SOURCE:
 			{
 				acpi_madt_nmi_source* info
 					= (acpi_madt_nmi_source*)apicEntry;
 				dprintf("found nmi source global irq %" B_PRIu32 ", flags "
-					"0x%04x\n", (uint32)info->GlobalIrq,
-					(uint16)info->IntiFlags);
+					"0x%04x\n", (uint32)info->gsi,
+					(uint16)info->flags);
 
-				struct ioapic* ioapic = find_ioapic(info->GlobalIrq);
+				struct ioapic* ioapic = find_ioapic(info->gsi);
 				if (ioapic == NULL)
 					break;
 
-				uint8 pin = info->GlobalIrq - ioapic->global_interrupt_base;
-				uint32 config = acpi_madt_convert_inti_flags(info->IntiFlags);
-				ioapic_configure_pin(*ioapic, pin, info->GlobalIrq, config,
+				uint8 pin = info->gsi - ioapic->global_interrupt_base;
+				uint32 config = acpi_madt_convert_inti_flags(info->flags);
+				ioapic_configure_pin(*ioapic, pin, info->gsi, config,
 					IO_APIC_DELIVERY_MODE_NMI);
 				break;
 			}
@@ -632,7 +630,7 @@ acpi_configure_source_overrides(acpi_table_madt* madt)
 		}
 
 		apicEntry
-			= (acpi_subtable_header*)((uint8*)apicEntry + apicEntry->Length);
+			= (acpi_entry_hdr*)((uint8*)apicEntry + apicEntry->length);
 	}
 }
 
@@ -719,8 +717,8 @@ ioapic_init()
 	BPrivate::CObjectDeleter<const char, status_t, put_module>
 		acpiModulePutter(B_ACPI_MODULE_NAME);
 
-	acpi_table_madt* madt = NULL;
-	if (acpiModule->get_table(ACPI_SIG_MADT, 0, (void**)&madt) != B_OK) {
+	acpi_madt* madt = NULL;
+	if (acpiModule->get_table(ACPI_MADT_SIGNATURE, 0, (void**)&madt) != B_OK) {
 		dprintf("failed to get MADT from ACPI, not configuring io-apics\n");
 		return;
 	}
