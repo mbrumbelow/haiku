@@ -302,6 +302,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5ee00b_2e8b569c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-04T07:43:25Z",
+      "side": 1,
+      "message": "Yes, my point is I see two cases here:\n\n- Either this is some system global color, and in this case, it should go through ui_color, so that we can change it later without recompiling all apps,\n- Or, it\u0027s something more private to applications and not part of the ABI. In that case, we can have it in a shared header for our own apps, so we don\u0027t repeat the constant everywhere, but if we want to change it, we only have to recompile Haiku (that is easy enough to do).\n\nI don\u0027t know which one is right, but I think having a fixed constant in a public header that then ends up being hardcoded in each compiled app is not it. Or maybe it is, because the definition of \u0027black\u0027 and \u0027white\u0027 is very unlikely to ever need changing? But that seems a bit surprising considering all the work on theming and making all the colors behaving nicely together?",
+      "parentUuid": "0cd881a0_02d5e993",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
