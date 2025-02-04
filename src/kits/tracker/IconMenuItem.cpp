@@ -40,7 +40,9 @@ All rights reserved.
 #include <ControlLook.h>
 #include <Debug.h>
 #include <Menu.h>
+#include <MenuBar.h>
 #include <MenuField.h>
+#include <MenuPrivate.h>
 #include <NodeInfo.h>
 
 #include "IconCache.h"
@@ -126,10 +128,10 @@ ModelMenuItem::DrawContent()
 {
 	if (fDrawText) {
 		BPoint drawPoint(ContentLocation());
-		drawPoint.x += ListIconSize() + (ListIconSize() / 4)
-			+ (fExtraPad ? 6 : 0);
+		drawPoint.x += ListIconSize() + ListIconSize() / 4 + ExtraLeftPadding();
 		if (fHeightDelta > 0)
-			drawPoint.y += ceil(fHeightDelta / 2);
+			drawPoint.y += ceilf(fHeightDelta / 2);
+
 		Menu()->MovePenTo(drawPoint);
 		_inherited::DrawContent();
 	}
@@ -154,10 +156,9 @@ ModelMenuItem::DrawIcon()
 	// center icon with text.
 
 	float deltaHeight = fHeightDelta < 0 ? -fHeightDelta : 0;
-	where.y += ceil(deltaHeight / 2);
+	where.y += ceilf(deltaHeight / 2);
 
-	if (fExtraPad)
-		where.x += 6;
+	where.x += ExtraLeftPadding();
 
 	Menu()->SetDrawingMode(B_OP_OVER);
 	Menu()->SetLowColor(B_TRANSPARENT_32_BIT);
@@ -177,6 +178,54 @@ ModelMenuItem::DrawIcon()
 }
 
 
+float
+ModelMenuItem::ExtraLeftPadding()
+{
+	if (!fExtraPad)
+		return 0;
+
+	// BMenu and BMenuBar have different margins,
+	// we want to make them the same, see fExtraPad.
+	float left;
+
+	BMenu tempMenu("temp");
+	BPrivate::MenuPrivate menuPrivate(&tempMenu);
+	menuPrivate.GetItemMargins(&left, NULL, NULL, NULL);
+	float menuLeft = left;
+
+	BPrivate::MenuPrivate menuBarPrivate(Menu());
+	menuBarPrivate.GetItemMargins(&left, NULL, NULL, NULL);
+	float menuBarLeft = left;
+
+	// e.g. 14 - 8 = 6
+	return menuLeft - menuBarLeft;
+}
+
+
+float
+ModelMenuItem::ExtraPadding()
+{
+	if (!fExtraPad)
+		return 0;
+
+	// BMenu and BMenuBar have different margins,
+	// we want to make them the same, see fExtraPad.
+	float left, right;
+
+	BMenu tempMenu("temp");
+	BPrivate::MenuPrivate menuPrivate(&tempMenu);
+	menuPrivate.GetItemMargins(&left, NULL, &right, NULL);
+	float menuMargins = left + right;
+
+	BPrivate::MenuPrivate menuBarPrivate(Menu());
+	menuBarPrivate.GetItemMargins(&left, NULL, &right, NULL);
+	float menuBarMargins = left + right;
+
+	// e.g. (14 + 20) - (8 + 8) = 18
+	return menuMargins - menuBarMargins;
+}
+
+
 void
 ModelMenuItem::GetContentSize(float* width, float* height)
 {
@@ -186,7 +235,8 @@ ModelMenuItem::GetContentSize(float* width, float* height)
 	fHeightDelta = iconSize - *height;
 	if (*height < iconSize)
 		*height = iconSize;
-	*width += iconSize / 4 + iconSize + (fExtraPad ? 18 : 0);
+
+	*width += iconSize + iconSize / 4 + ExtraPadding();
 }
 
 
