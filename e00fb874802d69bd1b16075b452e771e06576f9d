@@ -144,6 +144,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "12d3cfc3_a920fa81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-02-04T09:05:53Z",
+      "side": 1,
+      "message": "I don\u0027t know how (the change-id was set) but this review got duplicated. Jerome pushed some style fixes and already merged it. Im going to abandon this review. However, there are more things to get fixed/improved in this driver so we will have the time to fix it.",
+      "parentUuid": "4000e17f_acabe999",
+      "revId": "e00fb874802d69bd1b16075b452e771e06576f9d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1b2a540e_cb2fd801",
         "filename": "src/add-ons/kernel/busses/i2c/pch/pch_i2c.cpp",
         "patchSetId": 1
