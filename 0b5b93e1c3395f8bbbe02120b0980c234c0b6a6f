@@ -338,6 +338,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "12ffa23f_c1994b67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-04T22:05:51Z",
+      "side": 1,
+      "message": "black and white can change. If the 8bit per color channel is ever too little for some applications. Though I guess this is an argument against adding it.\n\nFrom the discussion thus far I\u0027d be in favor of adding this to a private header as pulkomandy suggested. Later on we can review which of these usages are wrong, and which ones can stay. (Tracker for example has severall which I think are perfectly fine)",
+      "parentUuid": "1abd5941_d0580beb",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
