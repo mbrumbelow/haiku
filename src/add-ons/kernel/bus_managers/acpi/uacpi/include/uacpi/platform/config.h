@@ -58,7 +58,9 @@ UACPI_BUILD_BUG_ON_WITH_MSG(
  * strings and va_args instead of a pre-formatted string. Can be useful if
  * your native logging is implemented in terms of this format as well.
  */
-// #define UACPI_FORMATTED_LOGGING
+#ifdef __HAIKU__
+#define UACPI_FORMATTED_LOGGING
+#endif
 
 /*
  * Makes uacpi_kernel_free take in an additional 'size_hint' parameter, which

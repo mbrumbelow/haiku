@@ -8,7 +8,6 @@
 
 extern "C" {
 #include "acpi.h"
-#include "accommon.h"
 }
 
 #include "arch_init.h"

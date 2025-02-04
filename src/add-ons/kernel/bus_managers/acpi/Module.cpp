@@ -12,7 +12,8 @@
 
 #include "ACPIPrivate.h"
 extern "C" {
-#include "acpi.h"
+#include <uacpi/acpi.h>
+#include <uacpi/tables.h>
 }
 #include <dpc.h>
 #include <PCI.h>
@@ -187,7 +188,11 @@ acpi_module_register_child_devices(void* cookie)
 	if (status != B_OK)
 		return status;
 
-	if ((AcpiGbl_FADT.Flags & ACPI_FADT_POWER_BUTTON) == 0) {
+	struct acpi_fadt* fadt = nullptr;
+	if (uacpi_table_fadt(&fadt) != UACPI_STATUS_OK)
+		return B_NO_INIT;
+
+	if ((fadt->flags & ACPI_PWR_BUTTON) == 0) {
 		dprintf("registering power button\n");
 		device_attr attrs[] = {
 			// info about device
@@ -205,7 +210,7 @@ acpi_module_register_child_devices(void* cookie)
 		gDeviceManager->register_node(node, ACPI_DEVICE_MODULE_NAME, attrs,
 				NULL, &deviceNode);
 	}
-	if ((AcpiGbl_FADT.Flags & ACPI_FADT_SLEEP_BUTTON) == 0) {
+	if ((fadt->flags & ACPI_SLP_BUTTON) == 0) {
 		dprintf("registering sleep button\n");
 		device_attr attrs[] = {
 			// info about device

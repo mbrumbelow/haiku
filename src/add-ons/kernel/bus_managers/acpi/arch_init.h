@@ -12,7 +12,7 @@
  *
  * For example on x86, search for it in the BIOS.
  */
-ACPI_PHYSICAL_ADDRESS arch_init_find_root_pointer();
+phys_addr_t arch_init_find_root_pointer();
 
 
 /** Initialize platform specific interrupt controller configuration.

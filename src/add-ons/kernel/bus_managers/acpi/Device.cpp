@@ -12,6 +12,8 @@
 #include "ACPIPrivate.h"
 extern "C" {
 #include "acpi.h"
+#include <uacpi/types.h>
+#include <uacpi/utilities.h>
 }
 
 
@@ -33,10 +35,9 @@ acpi_remove_notify_handler(acpi_device device, uint32 handlerType,
 
 static status_t
 acpi_install_address_space_handler(acpi_device device, uint32 spaceId,
-	acpi_adr_space_handler handler,	acpi_adr_space_setup setup,	void *data)
+	acpi_adr_space_handler handler, void *data)
 {
-	return install_address_space_handler(device->handle, spaceId, handler,
-		setup, data);
+	return install_address_space_handler(device->handle, spaceId, handler, data);
 }
 
 static status_t
@@ -77,7 +78,7 @@ acpi_evaluate_method(acpi_device device, const char *method,
 
 
 static status_t
-acpi_walk_resources(acpi_device device, char *method,
+acpi_walk_resources(acpi_device device, const char *method,
 	acpi_walk_resources_callback callback, void* context)
 {
 	return walk_resources(device->handle, method, callback, context);
@@ -97,7 +98,7 @@ acpi_walk_namespace(acpi_device device, uint32 objectType, uint32 maxDepth,
 static status_t
 acpi_device_init_driver(device_node *node, void **cookie)
 {
-	ACPI_HANDLE handle = NULL;
+	uacpi_handle handle = NULL;
 	const char *path = NULL;
 	uint32 type;
 
@@ -111,7 +112,7 @@ acpi_device_init_driver(device_node *node, void **cookie)
 
 	memset(device, 0, sizeof(*device));
 
-	if (path != NULL && AcpiGetHandle(NULL, (ACPI_STRING)path, &handle) != AE_OK) {
+	if (path != NULL && uacpi_find_devices(path, NULL, &handle) != UACPI_STATUS_OK) {
 		free(device);
 		return B_ENTRY_NOT_FOUND;
 	}
