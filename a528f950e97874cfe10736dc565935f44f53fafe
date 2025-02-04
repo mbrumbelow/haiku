@@ -123,6 +123,24 @@
       "parentUuid": "ef2b201f_4f9d9b68",
       "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5efaf1da_f5f01bb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-04T21:43:44Z",
+      "side": 1,
+      "message": "Well, it is called HSP after \"perceptual brightness\", but i think that is a bit of a mouthfull in code. I can use P however and perceptualBrightness in code if you prefer.\n\nFor the usecases I\u0027ve had untill now this should work better than HSL, so this would be replaceable. The question then is only if the automatic color code you wrote would also work with HSP.",
+      "parentUuid": "ffac69d0_589daf89",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
