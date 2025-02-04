@@ -4,9 +4,7 @@ SubDirHdrs [ FDirName $(TARGET_COMMON_DEBUG_OBJECT_DIR_$(TARGET_PACKAGING_ARCH))
 	system kernel ] ;
 	# for syscall_numbers.h
 SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers ps2 ;
-SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi acpica include ;
-SubDirHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi acpica include
-	platform ;
+SubDirSysHdrs $(HAIKU_TOP) src add-ons kernel bus_managers acpi uacpi include ;
 SubDirHdrs $(SUBDIR) timers ;
 
 UsePrivateKernelHeaders ;
