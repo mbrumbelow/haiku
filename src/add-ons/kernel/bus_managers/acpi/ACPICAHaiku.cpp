@@ -134,16 +134,12 @@
 
 __BEGIN_DECLS
 #include "acpi.h"
-#include "accommon.h"
-#include "amlcode.h"
-#include "acparser.h"
-#include "acdebug.h"
+#include <uacpi/status.h>
+#include <uacpi/kernel_api.h>
 __END_DECLS
 
 #include "arch_init.h"
 
-
-ACPI_MODULE_NAME("Haiku ACPI Module")
 
 #define _COMPONENT ACPI_OS_SERVICES
 
@@ -184,7 +180,7 @@ extern void *gDPCHandle;
 extern FILE *AcpiGbl_DebugFile;
 FILE *AcpiGbl_OutputFile;
 
-static ACPI_PHYSICAL_ADDRESS sACPIRoot = 0;
+static phys_addr_t sACPIRoot = 0;
 static void *sInterruptHandlerData[32];
 
 
@@ -199,8 +195,8 @@ static void *sInterruptHandlerData[32];
  * DESCRIPTION: Init and terminate.  Nothing to do.
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsInitialize()
+uacpi_status
+uacpi_kernel_initialize()
 {
 #ifndef _KERNEL_MODE
 	AcpiGbl_OutputFile = stdout;
@@ -208,15 +204,14 @@ AcpiOsInitialize()
 	AcpiGbl_OutputFile = NULL;
 #endif
 	DEBUG_FUNCTION();
-	return AE_OK;
+	return UACPI_STATUS_OK;
 }
 
 
-ACPI_STATUS
-AcpiOsTerminate()
+void
+uacpi_kernel_deinitialize()
 {
 	DEBUG_FUNCTION();
-	return AE_OK;
 }
 
 
@@ -231,8 +226,8 @@ AcpiOsTerminate()
  * DESCRIPTION: Gets the root pointer (RSDP)
  *
  *****************************************************************************/
-ACPI_PHYSICAL_ADDRESS
-AcpiOsGetRootPointer()
+phys_addr_t
+uacpi_kernel_get_rdsp(uacpi_phys_addr* out_rdsp_address)
 {
 #ifdef _KERNEL_MODE
 	DEBUG_FUNCTION();
@@ -241,93 +236,11 @@ AcpiOsGetRootPointer()
 		if (acpiRootPointer != NULL)
 			sACPIRoot = *acpiRootPointer;
 	}
-	return sACPIRoot;
+	*out_rdsp_address = sACPIRoot;
 #else
-	return AeLocalGetRootPointer();
+	*out_rdsp_address = AeLocalGetRootPointer();
 #endif
-}
-
-
-/******************************************************************************
- *
- * FUNCTION:    AcpiOsPredefinedOverride
- *
- * PARAMETERS:  initVal     - Initial value of the predefined object
- *              newVal      - The new value for the object
- *
- * RETURN:      Status, pointer to value.  Null pointer returned if not
- *              overriding.
- *
- * DESCRIPTION: Allow the OS to override predefined names
- *
- *****************************************************************************/
-ACPI_STATUS
-AcpiOsPredefinedOverride(const ACPI_PREDEFINED_NAMES *initVal,
-		ACPI_STRING *newVal)
-{
-	DEBUG_FUNCTION();
-	if (!initVal || !newVal)
-		return AE_BAD_PARAMETER;
-
-	*newVal = NULL;
-	return AE_OK;
-}
-
-
-/******************************************************************************
- *
- * FUNCTION:    AcpiOsTableOverride
- *
- * PARAMETERS:  existingTable   - Header of current table (probably firmware)
- *              newTable        - Where an entire new table is returned.
- *
- * RETURN:      Status, pointer to new table.  Null pointer returned if no
- *              table is available to override
- *
- * DESCRIPTION: Return a different version of a table if one is available
- *
- *****************************************************************************/
-ACPI_STATUS
-AcpiOsTableOverride(ACPI_TABLE_HEADER *existingTable,
-		ACPI_TABLE_HEADER **newTable)
-{
-	DEBUG_FUNCTION();
-	if (!existingTable || !newTable)
-		return AE_BAD_PARAMETER;
-
-	*newTable = NULL;
-
-#ifdef ACPI_EXEC_APP
-	AeTableOverride(existingTable, newTable);
-	return AE_OK;
-#else
-	return AE_NO_ACPI_TABLES;
-#endif
-}
-
-
-/******************************************************************************
- *
- * FUNCTION:    AcpiOsPhysicalTableOverride
- *
- * PARAMETERS:  existingTable       - Header of current table (probably firmware)
- *              newAddress          - Where new table address is returned
- *                                    (Physical address)
- *              newTableLength      - Where new table length is returned
- *
- * RETURN:      Status, address/length of new table. Null pointer returned
- *              if no table is available to override.
- *
- * DESCRIPTION: Returns AE_SUPPORT, function not used in user space.
- *
- *****************************************************************************/
-
-ACPI_STATUS
-AcpiOsPhysicalTableOverride(ACPI_TABLE_HEADER *existingTable,
-	ACPI_PHYSICAL_ADDRESS *newAddress, UINT32 *newTableLength)
-{
-	DEBUG_FUNCTION();
-    return (AE_SUPPORT);
+	return UACPI_STATUS_OK;
 }
 
 
@@ -352,29 +265,6 @@ AcpiOsRedirectOutput(void *destination)
 
 /******************************************************************************
  *
- * FUNCTION:    AcpiOsPrintf
- *
- * PARAMETERS:  fmt, ...            Standard printf format
- *
- * RETURN:      None
- *
- * DESCRIPTION: Formatted output
- *
- *****************************************************************************/
-void ACPI_INTERNAL_VAR_XFACE
-AcpiOsPrintf(const char *fmt, ...)
-{
-	va_list args;
-
-	DEBUG_FUNCTION();
-	va_start(args, fmt);
-	AcpiOsVprintf(fmt, args);
-	va_end(args);
-}
-
-
-/******************************************************************************
- *
  * FUNCTION:    AcpiOsVprintf
  *
  * PARAMETERS:  fmt                 Standard printf format
@@ -386,7 +276,7 @@ AcpiOsPrintf(const char *fmt, ...)
  *
  *****************************************************************************/
 void
-AcpiOsVprintf(const char *fmt, va_list args)
+uacpi_kernel_vlog(uacpi_log_level level, const char *fmt, va_list args)
 {
 #ifndef _KERNEL_MODE
 	UINT8 flags;
@@ -442,6 +332,29 @@ AcpiOsVprintf(const char *fmt, va_list args)
 
 /******************************************************************************
  *
+ * FUNCTION:    AcpiOsPrintf
+ *
+ * PARAMETERS:  fmt, ...            Standard printf format
+ *
+ * RETURN:      None
+ *
+ * DESCRIPTION: Formatted output
+ *
+ *****************************************************************************/
+void
+uacpi_kernel_log(uacpi_log_level level, const char *fmt, ...)
+{
+	va_list args;
+
+	DEBUG_FUNCTION();
+	va_start(args, fmt);
+	uacpi_kernel_vlog(level, fmt, args);
+	va_end(args);
+}
+
+
+/******************************************************************************
+ *
  * FUNCTION:    AcpiOsGetLine
  *
  * PARAMETERS:  fmt                 Standard printf format
@@ -452,7 +365,7 @@ AcpiOsVprintf(const char *fmt, va_list args)
  * DESCRIPTION: Formatted input with argument list pointer
  *
  *****************************************************************************/
-UINT32
+uint32
 AcpiOsGetLine(char *buffer)
 {
 	uint32 i = 0;
@@ -488,7 +401,7 @@ AcpiOsGetLine(char *buffer)
  *
  *****************************************************************************/
 void *
-AcpiOsMapMemory(ACPI_PHYSICAL_ADDRESS where, ACPI_SIZE length)
+AcpiOsMapMemory(phys_addr_t where, size_t length)
 {
 #ifdef _KERNEL_MODE
 	// map_physical_memory() defaults to uncached memory if no type is specified.
@@ -541,9 +454,9 @@ AcpiOsMapMemory(ACPI_PHYSICAL_ADDRESS where, ACPI_SIZE length)
  *
  *****************************************************************************/
 void
-AcpiOsUnmapMemory(void *where, ACPI_SIZE length)
+AcpiOsUnmapMemory(void *where, size_t length)
 {
-	DEBUG_FUNCTION_F("mapped: %p; length: %lu", where, (size_t)length);
+	DEBUG_FUNCTION_F("mapped: %p; length: %lu", where, length);
 	delete_area(area_for(where));
 }
 
@@ -560,7 +473,7 @@ AcpiOsUnmapMemory(void *where, ACPI_SIZE length)
  *
  *****************************************************************************/
 void *
-AcpiOsAllocate(ACPI_SIZE size)
+AcpiOsAllocate(size_t size)
 {
 	void *mem = (void *) malloc(size);
 	DEBUG_FUNCTION_VF("result: %p", mem);
@@ -591,29 +504,16 @@ AcpiOsFree(void *mem)
  *
  * FUNCTION:    AcpiOsCreateSemaphore
  *
- * PARAMETERS:  initialUnits        - Units to be assigned to the new semaphore
- *              outHandle           - Where a handle will be returned
- *
  * RETURN:      Status
  *
  * DESCRIPTION: Create an OS semaphore
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsCreateSemaphore(UINT32 maxUnits, UINT32 initialUnits,
-		ACPI_SEMAPHORE *outHandle)
+uacpi_handle
+uacpi_kernel_create_event()
 {
-	if (!outHandle)
-    	return AE_BAD_PARAMETER;
-
-	*outHandle = create_sem(initialUnits, "acpi_sem");
-	DEBUG_FUNCTION_F("max: %" B_PRIu32 "; count: %" B_PRIu32 "; result: %" PRId32,
-		(uint32)maxUnits, (uint32)initialUnits, *outHandle);
-
-	if (*outHandle >= B_OK)
-		return AE_OK;
-
-	return *outHandle == B_BAD_VALUE ? AE_BAD_PARAMETER : AE_NO_MEMORY;
+	DEBUG_FUNCTION();
+	return (uacpi_handle)(uintptr_t)create_sem(0, "acpi_sem");
 }
 
 
@@ -628,11 +528,11 @@ AcpiOsCreateSemaphore(UINT32 maxUnits, UINT32 initialUnits,
  * DESCRIPTION: Delete an OS semaphore
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsDeleteSemaphore(ACPI_SEMAPHORE handle)
+void
+uacpi_kernel_free_event(uacpi_handle handle)
 {
 	DEBUG_FUNCTION_F("sem: %" B_PRId32, handle);
-	return delete_sem(handle) == B_OK ? AE_OK : AE_BAD_PARAMETER;
+	delete_sem((sem_id)(uintptr_t)handle);
 }
 
 
@@ -649,35 +549,38 @@ AcpiOsDeleteSemaphore(ACPI_SEMAPHORE handle)
  * DESCRIPTION: Wait for units
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsWaitSemaphore(ACPI_SEMAPHORE handle, UINT32 units, UINT16 timeout)
+#define ACPI_WAIT_FOREVER 0xFFFF
+#define ACPI_DO_NOT_WAIT 0x0000
+
+uacpi_bool
+uacpi_kernel_wait_for_event(uacpi_handle handle, uacpi_u16 timeout)
 {
-	ACPI_STATUS result = AE_OK;
+	uacpi_bool result = UACPI_FALSE;
 	DEBUG_FUNCTION_VF("sem: %ld; count: %lu; timeout: %u",
-		handle, (uint32)units, timeout);
+		handle, 1, timeout);
 
 	if (timeout == ACPI_WAIT_FOREVER) {
-		result = acquire_sem_etc(handle, units, 0, 0)
-			== B_OK ? AE_OK : AE_BAD_PARAMETER;
+		result = acquire_sem_etc((sem_id)(uintptr_t)handle, 1, 0, 0)
+			== B_OK ? UACPI_TRUE : UACPI_FALSE;
 	} else {
-		switch (acquire_sem_etc(handle, units, B_RELATIVE_TIMEOUT,
+		switch (acquire_sem_etc((sem_id)(uintptr_t)handle, 1, B_RELATIVE_TIMEOUT,
 			(bigtime_t)timeout * 1000)) {
 			case B_OK:
-				result = AE_OK;
+				result = UACPI_TRUE;
 				break;
 			case B_INTERRUPTED:
 			case B_TIMED_OUT:
 			case B_WOULD_BLOCK:
-				result = AE_TIME;
+				result = UACPI_FALSE;
 				break;
 			case B_BAD_VALUE:
 			default:
-				result = AE_BAD_PARAMETER;
+				result = UACPI_FALSE;
 				break;
 		}
 	}
 	DEBUG_FUNCTION_VF("sem: %ld; count: %lu; timeout: %u result: %lu",
-		handle, (uint32)units, timeout, (uint32)result);
+		handle, 1, timeout, (uint32)result);
 	return result;
 }
 
@@ -694,14 +597,12 @@ AcpiOsWaitSemaphore(ACPI_SEMAPHORE handle, UINT32 units, UINT16 timeout)
  * DESCRIPTION: Send units
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsSignalSemaphore(ACPI_SEMAPHORE handle, UINT32 units)
+void
+uacpi_kernel_signal_event(uacpi_handle handle)
 {
-	status_t result;
-	DEBUG_FUNCTION_VF("sem: %ld; count: %lu", handle, (uint32)units);
+	DEBUG_FUNCTION_VF("sem: %ld", handle);
 	// We can be called from interrupt handler, so don't reschedule
-	result = release_sem_etc(handle, units, B_DO_NOT_RESCHEDULE);
-	return result == B_OK ? AE_OK : AE_BAD_PARAMETER;
+	release_sem_etc((sem_id)(uintptr_t)handle, 1, B_DO_NOT_RESCHEDULE);
 }
 
 
@@ -712,42 +613,42 @@ AcpiOsSignalSemaphore(ACPI_SEMAPHORE handle, UINT32 units)
  * DESCRIPTION: Map these interfaces to semaphore interfaces
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsCreateLock(ACPI_SPINLOCK *outHandle)
+uacpi_handle
+uacpi_kernel_create_spinlock()
 {
-	*outHandle = (ACPI_SPINLOCK) malloc(sizeof(spinlock));
-	DEBUG_FUNCTION_F("result: %p", *outHandle);
-	if (*outHandle == NULL)
-		return AE_NO_MEMORY;
+	uacpi_handle* outHandle = (uacpi_handle*) malloc(sizeof(spinlock));
+	DEBUG_FUNCTION_F("result: %p", outHandle);
+	if (outHandle == NULL)
+		return NULL;
 
-	B_INITIALIZE_SPINLOCK(*outHandle);
-	return AE_OK;
+	B_INITIALIZE_SPINLOCK((spinlock*)outHandle);
+	return outHandle;
 }
 
 
 void
-AcpiOsDeleteLock(ACPI_SPINLOCK handle)
+uacpi_kernel_free_spinlock(uacpi_handle handle)
 {
 	DEBUG_FUNCTION();
 	free((void*)handle);
 }
 
 
-ACPI_CPU_FLAGS
-AcpiOsAcquireLock(ACPI_SPINLOCK handle)
+uacpi_cpu_flags
+uacpi_kernel_lock_spinlock(uacpi_handle handle)
 {
 	cpu_status cpu;
 	DEBUG_FUNCTION_F("spinlock: %p", handle);
 	cpu = disable_interrupts();
-	acquire_spinlock(handle);
+	acquire_spinlock((spinlock*)handle);
 	return cpu;
 }
 
 
 void
-AcpiOsReleaseLock(ACPI_SPINLOCK handle, ACPI_CPU_FLAGS flags)
+uacpi_kernel_unlock_spinlock(uacpi_handle handle, uacpi_cpu_flags flags)
 {
-	release_spinlock(handle);
+	release_spinlock((spinlock*)handle);
 	restore_interrupts(flags);
 	DEBUG_FUNCTION_F("spinlock: %p", handle);
 }
@@ -767,13 +668,13 @@ AcpiOsReleaseLock(ACPI_SPINLOCK handle, ACPI_CPU_FLAGS flags)
  *              OS-independent handler.
  *
  *****************************************************************************/
-UINT32
-AcpiOsInstallInterruptHandler(UINT32 interruptNumber,
-		ACPI_OSD_HANDLER serviceRoutine, void *context)
+uacpi_status
+uacpi_kernel_install_interrupt_handler(uacpi_u32 interruptNumber,
+	uacpi_interrupt_handler serviceRoutine, uacpi_handle context, uacpi_handle* outHandle)
 {
 	status_t result;
 	DEBUG_FUNCTION_F("vector: %" B_PRIu32 "; handler: %p context %p",
-		(uint32)interruptNumber, serviceRoutine, context);
+		interruptNumber, serviceRoutine, context);
 
 #ifdef _KERNEL_MODE
 	// It so happens that the Haiku and ACPI-CA interrupt handler routines
@@ -783,11 +684,12 @@ AcpiOsInstallInterruptHandler(UINT32 interruptNumber,
 		(interrupt_handler)serviceRoutine, context, 0);
 
 	DEBUG_FUNCTION_F("vector: %" B_PRIu32 "; handler: %p context %p returned %" B_PRId32,
-		(uint32)interruptNumber, serviceRoutine, context, (uint32)result);
+		interruptNumber, serviceRoutine, context, (uint32)result);
 
-	return result == B_OK ? AE_OK : AE_BAD_PARAMETER;
+	*outHandle = (uacpi_handle)(uintptr_t)interruptNumber;
+	return result == B_OK ? UACPI_STATUS_OK : UACPI_STATUS_INVALID_ARGUMENT;
 #else
-	return AE_BAD_PARAMETER;
+	return UACPI_STATUS_UNIMPLEMENTED;
 #endif
 }
 
@@ -803,16 +705,14 @@ AcpiOsInstallInterruptHandler(UINT32 interruptNumber,
  * DESCRIPTION: Uninstalls an interrupt handler.
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsRemoveInterruptHandler(UINT32 interruptNumber,
-		ACPI_OSD_HANDLER serviceRoutine)
+uacpi_status
+acpi_kernel_uninstall_interrupt_handler(uacpi_interrupt_handler serviceRoutine, uacpi_handle handle)
 {
-	DEBUG_FUNCTION_F("vector: %" B_PRIu32 "; handler: %p", (uint32)interruptNumber,
-		serviceRoutine);
+	int32 interruptNumber = *(uint32*)handle;
+	DEBUG_FUNCTION_F("vector: %" B_PRIu32 "; handler: %p", handle, serviceRoutine);
 #ifdef _KERNEL_MODE
-	return remove_io_interrupt_handler(interruptNumber,
-		(interrupt_handler)serviceRoutine,
-		sInterruptHandlerData[interruptNumber]) == B_OK ? AE_OK : AE_ERROR;
+	return remove_io_interrupt_handler(interruptNumber, (interrupt_handler)serviceRoutine,
+		sInterruptHandlerData[interruptNumber]) == B_OK ? UACPI_STATUS_OK : UACPI_STATUS_INVALID_ARGUMENT;
 #else
 	return AE_ERROR;
 #endif
@@ -832,9 +732,9 @@ AcpiOsRemoveInterruptHandler(UINT32 interruptNumber,
  * DESCRIPTION: Execute a new thread
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsExecute(ACPI_EXECUTE_TYPE type, ACPI_OSD_EXEC_CALLBACK  function,
-		void *context)
+uacpi_status
+uacpi_kernel_schedule_work(uacpi_work_type type, uacpi_work_handler function,
+		uacpi_handle context)
 {
 	DEBUG_FUNCTION();
 /* TODO: Prioritize urgent?
@@ -852,9 +752,9 @@ AcpiOsExecute(ACPI_EXECUTE_TYPE type, ACPI_OSD_EXEC_CALLBACK  function,
 	if (gDPC->queue_dpc(gDPCHandle, function, context) != B_OK) {
 		DEBUG_FUNCTION_F("Serious failure in AcpiOsExecute! function: %p",
 			function);
-		return AE_BAD_PARAMETER;
+		return UACPI_STATUS_INVALID_ARGUMENT;
 	}
-	return AE_OK;
+	return UACPI_STATUS_OK;
 }
 
 
@@ -870,7 +770,7 @@ AcpiOsExecute(ACPI_EXECUTE_TYPE type, ACPI_OSD_EXEC_CALLBACK  function,
  *
  *****************************************************************************/
 void
-AcpiOsStall(UINT32 microseconds)
+uacpi_kernel_stall(uacpi_u8 microseconds)
 {
 	DEBUG_FUNCTION_F("microseconds: %" B_PRIu32, (uint32)microseconds);
 	if (microseconds)
@@ -890,7 +790,7 @@ AcpiOsStall(UINT32 microseconds)
  *
  *****************************************************************************/
 void
-AcpiOsSleep(ACPI_INTEGER milliseconds)
+uacpi_kernel_sleep(uacpi_u64 milliseconds)
 {
 	DEBUG_FUNCTION_F("milliseconds: %" B_PRIu32, (uint32)milliseconds);
 	if (gKernelStartup)
@@ -906,16 +806,16 @@ AcpiOsSleep(ACPI_INTEGER milliseconds)
  *
  * PARAMETERS:  None
  *
- * RETURN:      Current time in 100 nanosecond units
+ * RETURN:      Current time in nanosecond units
  *
  * DESCRIPTION: Get the current system time
  *
  *****************************************************************************/
-UINT64
-AcpiOsGetTimer()
+uint64_t
+uacpi_kernel_get_nanoseconds_since_boot()
 {
 	DEBUG_FUNCTION();
-	return system_time() * 10;
+	return system_time() * 1000;
 }
 
 
@@ -933,28 +833,45 @@ AcpiOsGetTimer()
  * DESCRIPTION: Read data from PCI configuration space
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsReadPciConfiguration(ACPI_PCI_ID *pciId, UINT32 reg, UINT64 *value,
-		UINT32 width)
+uacpi_status
+uacpi_kernel_pci_read8(uacpi_handle handle, uacpi_size reg, uacpi_u8* value)
 {
 #ifdef _KERNEL_MODE
-	DEBUG_FUNCTION();
-
-	switch (width) {
-		case 8:
-		case 16:
-		case 32:
-			*value = gPCIManager->read_pci_config(
-				pciId->Bus, pciId->Device, pciId->Function, reg, width / 8);
-			break;
-		default:
-			return AE_ERROR;
-	}
-	return AE_OK;
+	uacpi_pci_address* pciId = (uacpi_pci_address*)handle;
+	*value = gPCIManager->read_pci_config(
+		pciId->bus, pciId->device, pciId->function, reg, 1);
+	return UACPI_STATUS_OK;
 #else
-	return AE_ERROR;
+	return UACPI_STATUS_UNIMPLEMENTED;
 #endif
 }
+
+uacpi_status
+uacpi_kernel_pci_read16(uacpi_handle handle, uacpi_size reg, uacpi_u8* value)
+{
+#ifdef _KERNEL_MODE
+	uacpi_pci_address* pciId = (uacpi_pci_address*)handle;
+	*value = gPCIManager->read_pci_config(
+		pciId->bus, pciId->device, pciId->function, reg, 2);
+	return UACPI_STATUS_OK;
+#else
+	return UACPI_STATUS_UNIMPLEMENTED;
+#endif
+}
+
+uacpi_status
+uacpi_kernel_pci_read32(uacpi_handle handle, uacpi_size reg, uacpi_u8* value)
+{
+#ifdef _KERNEL_MODE
+	uacpi_pci_address* pciId = (uacpi_pci_address*)handle;
+	*value = gPCIManager->read_pci_config(
+		pciId->bus, pciId->device, pciId->function, reg, 4);
+	return UACPI_STATUS_OK;
+#else
+	return UACPI_STATUS_UNIMPLEMENTED;
+#endif
+}
+
 
 
 /******************************************************************************
@@ -971,15 +888,43 @@ AcpiOsReadPciConfiguration(ACPI_PCI_ID *pciId, UINT32 reg, UINT64 *value,
  * DESCRIPTION: Write data to PCI configuration space
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsWritePciConfiguration(ACPI_PCI_ID *pciId, UINT32 reg,
-		ACPI_INTEGER value, UINT32 width)
+uacpi_status
+uacpi_kernel_pci_write8(uacpi_handle device, uacpi_size reg, uacpi_u8 value)
 {
 #ifdef _KERNEL_MODE
 	DEBUG_FUNCTION();
+	uacpi_pci_address* pciId = (uacpi_pci_address*)device;
 	gPCIManager->write_pci_config(
-		pciId->Bus, pciId->Device, pciId->Function, reg, width / 8, value);
-	return AE_OK;
+		pciId->bus, pciId->device, pciId->function, reg, 1, value);
+	return UACPI_STATUS_OK;
+#else
+	return AE_ERROR;
+#endif
+}
+
+uacpi_status
+uacpi_kernel_pci_write8(uacpi_handle device, uacpi_size reg, uacpi_u16 value)
+{
+#ifdef _KERNEL_MODE
+	DEBUG_FUNCTION();
+	uacpi_pci_address* pciId = (uacpi_pci_address*)device;
+	gPCIManager->write_pci_config(
+		pciId->bus, pciId->device, pciId->function, reg, 2, value);
+	return UACPI_STATUS_OK;
+#else
+	return AE_ERROR;
+#endif
+}
+
+uacpi_status
+uacpi_kernel_pci_write8(uacpi_handle device, uacpi_size reg, uacpi_u32 value)
+{
+#ifdef _KERNEL_MODE
+	DEBUG_FUNCTION();
+	uacpi_pci_address* pciId = (uacpi_pci_address*)device;
+	gPCIManager->write_pci_config(
+		pciId->bus, pciId->device, pciId->function, reg, 4, value);
+	return UACPI_STATUS_OK;
 #else
 	return AE_ERROR;
 #endif
@@ -999,29 +944,40 @@ AcpiOsWritePciConfiguration(ACPI_PCI_ID *pciId, UINT32 reg,
  * DESCRIPTION: Read data from an I/O port or register
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsReadPort(ACPI_IO_ADDRESS address, UINT32 *value, UINT32 width)
+uacpi_status
+uacpi_kernel_io_read8(uacpi_handle, uacpi_size address, uint32 *value)
 {
 #ifdef _KERNEL_MODE
-	DEBUG_FUNCTION_F("addr: 0x%08lx; width: %" B_PRIu32, (addr_t)address, (uint32)width);
-	switch (width) {
-		case 8:
-			*value = gPCIManager->read_io_8(address);
-			break;
+	DEBUG_FUNCTION_F("addr: 0x%08lx; width: %" B_PRIu32, (addr_t)address);
+	*value = gPCIManager->read_io_8(address);
 
-		case 16:
-			*value = gPCIManager->read_io_16(address);
-			break;
+	return UACPI_STATUS_OK;
+#else
+	return AE_ERROR;
+#endif
+}
 
-		case 32:
-			*value = gPCIManager->read_io_32(address);
-			break;
+uacpi_status
+uacpi_kernel_io_read16(uacpi_handle, uacpi_size address, uint32 *value)
+{
+#ifdef _KERNEL_MODE
+	DEBUG_FUNCTION_F("addr: 0x%08lx; width: %" B_PRIu32, (addr_t)address);
+	*value = gPCIManager->read_io_16(address);
 
-		default:
-			return AE_ERROR;
-	}
+	return UACPI_STATUS_OK;
+#else
+	return AE_ERROR;
+#endif
+}
 
-	return AE_OK;
+uacpi_status
+uacpi_kernel_io_read32(uacpi_handle, uacpi_size address, uint32 *value)
+{
+#ifdef _KERNEL_MODE
+	DEBUG_FUNCTION_F("addr: 0x%08lx; width: %" B_PRIu32, (addr_t)address);
+	*value = gPCIManager->read_io_32(address);
+
+	return UACPI_STATUS_OK;
 #else
 	return AE_ERROR;
 #endif
@@ -1041,8 +997,8 @@ AcpiOsReadPort(ACPI_IO_ADDRESS address, UINT32 *value, UINT32 width)
  * DESCRIPTION: Write data to an I/O port or register
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsWritePort(ACPI_IO_ADDRESS address, UINT32 value, UINT32 width)
+uacpi_status
+AcpiOsWritePort(phys_addr_t address, uint32 value, uint32 width)
 {
 #ifdef _KERNEL_MODE
 	DEBUG_FUNCTION_F("addr: 0x%08lx; value: %" B_PRIu32 "; width: %" B_PRIu32,
@@ -1061,12 +1017,12 @@ AcpiOsWritePort(ACPI_IO_ADDRESS address, UINT32 value, UINT32 width)
 			break;
 
 		default:
-			return AE_ERROR;
+			return UACPI_STATUS_INVALID_ARGUMENT;
 	}
 
-	return AE_OK;
+	return UACPI_STATUS_OK;
 #else
-	return AE_ERROR;
+	return UACPI_STATUS_UNIMPLEMENTED;
 #endif
 }
 
@@ -1084,17 +1040,17 @@ AcpiOsWritePort(ACPI_IO_ADDRESS address, UINT32 value, UINT32 width)
  * DESCRIPTION: Read data from a physical memory address
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsReadMemory(ACPI_PHYSICAL_ADDRESS address, UINT64 *value, UINT32 width)
+uacpi_status
+AcpiOsReadMemory(phys_addr_t address, uint64 *value, uint32 width)
 {
 #ifdef _KERNEL_MODE
 	if (vm_memcpy_from_physical(value, (phys_addr_t)address, width / 8, false)
 		!= B_OK) {
-		return AE_ERROR;
+		return UACPI_STATUS_DENIED;
 	}
-	return AE_OK;
+	return UACPI_STATUS_OK;
 #else
-	return AE_ERROR;
+	return UACPI_STATUS_UNIMPLEMENTED;
 #endif
 }
 
@@ -1112,15 +1068,15 @@ AcpiOsReadMemory(ACPI_PHYSICAL_ADDRESS address, UINT64 *value, UINT32 width)
  * DESCRIPTION: Write data to a physical memory address
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsWriteMemory(ACPI_PHYSICAL_ADDRESS address, UINT64 value, UINT32 width)
+uacpi_status
+AcpiOsWriteMemory(phys_addr_t address, uint64 value, uint32 width)
 {
 #ifdef _KERNEL_MODE
 	if (vm_memcpy_to_physical((phys_addr_t)address, &value, width / 8, false)
 			!= B_OK) {
-		return AE_ERROR;
+		return UACPI_STATUS_INVALID_ARGUMENT;
 	}
-	return AE_OK;
+	return UACPI_STATUS_OK;
 #else
 	return AE_ERROR;
 #endif
@@ -1139,8 +1095,8 @@ AcpiOsWriteMemory(ACPI_PHYSICAL_ADDRESS address, UINT64 value, UINT32 width)
  * DESCRIPTION: Verify that a pointer is valid for reading
  *
  *****************************************************************************/
-BOOLEAN
-AcpiOsReadable(void *pointer, ACPI_SIZE length)
+bool
+AcpiOsReadable(void *pointer, size_t length)
 {
 #ifdef _KERNEL_MODE
 	return true;
@@ -1171,8 +1127,8 @@ AcpiOsReadable(void *pointer, ACPI_SIZE length)
  * DESCRIPTION: Verify that a pointer is valid for writing
  *
  *****************************************************************************/
-BOOLEAN
-AcpiOsWritable(void *pointer, ACPI_SIZE length)
+bool
+AcpiOsWritable(void *pointer, size_t length)
 {
 #ifdef _KERNEL_MODE
 	return true;
@@ -1206,14 +1162,14 @@ AcpiOsWritable(void *pointer, ACPI_SIZE length)
  *                  #define ACPI_THREAD_ID pthread_t
  *
  *****************************************************************************/
-ACPI_THREAD_ID
-AcpiOsGetThreadId()
+uacpi_thread_id
+uacpi_kernel_get_thread_id()
 {
 	thread_id thread = find_thread(NULL);
 	// TODO: We arn't allowed threads with id 0, handle this case.
-	// ACPI treats a 0 return as an error,
+	// ACPICA treats a 0 return as an error,
 	// but we are thread 0 in early boot
-	return thread;
+	return (uacpi_thread_id)(uintptr_t)thread;
 }
 
 
@@ -1222,133 +1178,81 @@ AcpiOsGetThreadId()
  * FUNCTION:    AcpiOsSignal
  *
  * PARAMETERS:  function            ACPI CA signal function code
- *              info                Pointer to function-dependent structure
  *
  * RETURN:      Status
  *
  * DESCRIPTION: Miscellaneous functions. Example implementation only.
  *
  *****************************************************************************/
-ACPI_STATUS
-AcpiOsSignal(UINT32 function, void *info)
+uacpi_status
+uacpi_kernel_handle_firmware_request(uacpi_firmware_request* request)
 {
 	DEBUG_FUNCTION();
 
-	switch (function) {
-		case ACPI_SIGNAL_FATAL:
+	switch (request->type) {
+		case UACPI_FIRMWARE_REQUEST_TYPE_FATAL:
 #ifdef _KERNEL_MODE
-			panic("%s", info == NULL ? "AcpiOsSignal: fatal" : (const char*)info);
+			panic("ACPI FATAL event: %d %d %ld", request->fatal.type, request->fatal.code, request->fatal.arg);
 			break;
 #endif
-		case ACPI_SIGNAL_BREAKPOINT:
-			if (info != NULL)
-				AcpiOsPrintf("AcpiOsBreakpoint: %s ****\n", (const char*)info);
+		case UACPI_FIRMWARE_REQUEST_TYPE_BREAKPOINT:
+			if (request->breakpoint.ctx != NULL)
+				uacpi_kernel_log(UACPI_LOG_INFO, "AcpiOsBreakpoint: %s ****\n", (const char*)request->breakpoint.ctx);
 			else
-				AcpiOsPrintf("At AcpiOsBreakpoint ****\n");
+				uacpi_kernel_log(UACPI_LOG_INFO, "At AcpiOsBreakpoint ****\n");
 			break;
 	}
 
-	return AE_OK;
+	return UACPI_STATUS_OK;
 }
 
 
-/*
- * Adapted from FreeBSD since the documentation of its intended impl
- * is lacking.
- *  Section 5.2.10.1: global lock acquire/release functions */
-
-/*
- * Adapted from FreeBSD since the documentation of its intended impl
- * is lacking.
- * Acquire the global lock.  If busy, set the pending bit.  The caller
- * will wait for notification from the BIOS that the lock is available
- * and then attempt to acquire it again.
- */
-int
-AcpiOsAcquireGlobalLock(volatile uint32_t *lock)
+uacpi_handle
+uacpi_kernel_create_mutex()
 {
-	uint32_t newValue;
-	uint32_t oldValue;
-
-	do {
-		oldValue = *lock;
-		newValue = ((oldValue & ~ACPI_GLOCK_PENDING) | ACPI_GLOCK_OWNED);
-		if ((oldValue & ACPI_GLOCK_OWNED) != 0)
-			newValue |= ACPI_GLOCK_PENDING;
-	} while (atomic_test_and_set((int32*)lock, newValue, oldValue) != (int32)oldValue);
-
-	return (newValue & ACPI_GLOCK_PENDING) == 0;
-}
-
-
-/*
- * Adapted from FreeBSD since the documentation of its intended impl
- * is lacking.
- * Release the global lock, returning whether there is a waiter pending.
- * If the BIOS set the pending bit, OSPM must notify the BIOS when it
- * releases the lock.
- */
-int
-AcpiOsReleaseGlobalLock(volatile uint32_t *lock)
-{
-	uint32 newValue;
-	uint32 oldValue;
-
-	do {
-		oldValue = *lock;
-		newValue = oldValue & ~(ACPI_GLOCK_PENDING | ACPI_GLOCK_OWNED);
-	} while (atomic_test_and_set((int32*)lock, newValue, oldValue) != (int32)oldValue);
-
-	return (oldValue & ACPI_GLOCK_PENDING) != 0;
-}
-
-
-ACPI_STATUS
-AcpiOsCreateMutex(ACPI_MUTEX* outHandle)
-{
-	*outHandle = (ACPI_MUTEX) malloc(sizeof(mutex));
+	mutex* outHandle = (mutex*) malloc(sizeof(mutex));
 	DEBUG_FUNCTION_F("result: %p", *outHandle);
-	if (*outHandle == NULL)
-		return AE_NO_MEMORY;
+	if (outHandle == NULL)
+		return NULL;
 
-	mutex_init(*outHandle, "acpi mutex");
-	return AE_OK;
+	mutex_init(outHandle, "acpi mutex");
+	return outHandle;
 }
 
 
 void
-AcpiOsDeleteMutex(ACPI_MUTEX handle)
+AcpiOsDeleteMutex(uacpi_handle handle)
 {
 	DEBUG_FUNCTION_F("mutex: %ld", (addr_t)handle);
-	mutex_destroy(handle);
+	mutex_destroy((mutex*)handle);
 	free((void*)handle);
 }
 
 
-ACPI_STATUS
-AcpiOsAcquireMutex(ACPI_MUTEX handle, UINT16 timeout)
+uacpi_status
+AcpiOsAcquireMutex(uacpi_handle handle, uint16 timeout)
 {
-	ACPI_STATUS result = AE_OK;
+	uacpi_status result = UACPI_STATUS_OK;
 	DEBUG_FUNCTION_VF("mutex: %p; timeout: %u", handle, timeout);
 
 	if (timeout == ACPI_WAIT_FOREVER) {
-		result = (mutex_lock(handle) == B_OK) ? AE_OK : AE_BAD_PARAMETER;
+		result = (mutex_lock((mutex*)handle) == B_OK) ? UACPI_STATUS_OK : UACPI_STATUS_INVALID_ARGUMENT;
 	} else if (timeout == ACPI_DO_NOT_WAIT) {
-		result = (mutex_trylock(handle) == B_OK) ? AE_OK : AE_TIME;
+		result = (mutex_trylock((mutex*)handle) == B_OK) ? UACPI_STATUS_OK : UACPI_STATUS_TIMEOUT;
 	} else {
-		switch (mutex_lock_with_timeout(handle, B_RELATIVE_TIMEOUT,
+		switch (mutex_lock_with_timeout((mutex*)handle, B_RELATIVE_TIMEOUT,
 			(bigtime_t)timeout * 1000)) {
 			case B_OK:
-				result = AE_OK;
+				result = UACPI_STATUS_OK;
 				break;
 			case B_INTERRUPTED:
 			case B_TIMED_OUT:
 			case B_WOULD_BLOCK:
-				result = AE_TIME;
+				result = UACPI_STATUS_TIMEOUT;
 				break;
 			case B_BAD_VALUE:
 			default:
-				result = AE_BAD_PARAMETER;
+				result = UACPI_STATUS_INVALID_ARGUMENT;
 				break;
 		}
 	}
@@ -1359,10 +1263,10 @@ AcpiOsAcquireMutex(ACPI_MUTEX handle, UINT16 timeout)
 
 
 void
-AcpiOsReleaseMutex(ACPI_MUTEX handle)
+AcpiOsReleaseMutex(uacpi_handle handle)
 {
 	DEBUG_FUNCTION_F("mutex: %p", handle);
-	mutex_unlock(handle);
+	mutex_unlock((mutex*)handle);
 }
 
 
@@ -1402,11 +1306,11 @@ AcpiOsWaitEventsComplete()
  *
  *****************************************************************************/
 
-ACPI_STATUS
+uacpi_status
 AcpiOsEnterSleep (
-	UINT8                   SleepState,
-	UINT32                  RegaValue,
-	UINT32                  RegbValue)
+	uint8                   SleepState,
+	uint32                  RegaValue,
+	uint32                  RegbValue)
 {
-	return (AE_OK);
+	return (UACPI_STATUS_OK);
 }
