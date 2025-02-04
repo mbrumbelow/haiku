@@ -103,6 +103,9 @@ class ModelMenuItem : public BMenuItem {
 
 	private:
 		void DrawIcon();
+		float ExtraLeftPadding();
+		float ExtraPadding();
+		void GetHorizontalItemMarginDelta(float* leftDelta, float* rightDelta);
 
 		Model fModel;
 		float fHeightDelta;
