@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6848041_ec09f9eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:58:08Z",
+      "side": 1,
+      "message": "Okay, I\u0027ll fix it then.\n\nany particular reason why we build any end user applications with gcc2?",
+      "parentUuid": "34106c8a_c0e7671e",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "585cb36e_9c850a0b",
         "filename": "src/kits/shared/HSP.cpp",
         "patchSetId": 3
