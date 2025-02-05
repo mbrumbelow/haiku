@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef90bc44_19c2773f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-05T21:06:19Z",
+      "side": 1,
+      "message": "Rename new methods BuildAddOnMenus() and RebuildAddOnMenus() because these build and rebuild multiple add-on menus in a menu bar as compared to BuildAddOnsMenu() which builds a single Add-ons menu, well most of the time anyway...",
+      "revId": "2a14e8d575dd99b9d9599c95cad52af5ad867fc4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
