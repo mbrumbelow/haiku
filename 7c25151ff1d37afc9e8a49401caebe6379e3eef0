@@ -52,6 +52,24 @@
       "parentUuid": "f79ffa4f_40410eb5",
       "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78e25787_65fb3d5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-05T18:03:03Z",
+      "side": 1,
+      "message": "I agree with nephele here: We have nothing that initiates any network traffic whatsoever without direct user input, and I definitely don\u0027t think we should add any. Maybe we should add some logic for captive portal detection to the web browsers, but not to net_server.\n\nIf the DHCP specifies a captive portal URL, then making a request to it as part of initiating a network connection can make sense, at least (especially if it\u0027s an address on the local network). But trying to do detection when nothing was specified, I think is absolutely the wrong move.",
+      "parentUuid": "e9204a71_d627dbda",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
