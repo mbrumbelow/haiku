@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3f69bd8_b40bf0ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-05T21:09:50Z",
+      "side": 1,
+      "message": "Well, in this case, the problem is actually a lot of -Werrors:\n\n```\nassignment to `uint8\u0027 from `double\u0027\n```\n\nYou should fix those anyway. (And this code should not be using doubles at all, only floats, so you should look at that too.)",
+      "parentUuid": "8ded3c68_f9acfe3a",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "585cb36e_9c850a0b",
         "filename": "src/kits/shared/HSP.cpp",
         "patchSetId": 3
