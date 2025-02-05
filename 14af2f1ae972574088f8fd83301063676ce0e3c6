@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04484d3f_aa1ee2c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-05T20:09:13Z",
+      "side": 1,
+      "message": "... don\u0027t checkout ShouldAddMenus() only check ShouldHaveTrackerAddOnsMenus() in these methods, it doesn\u0027t make a difference but to be consistent we assume this has already been checked or we\u0027re in a context menu and don\u0027t care about ShouldAddMenus().",
+      "revId": "14af2f1ae972574088f8fd83301063676ce0e3c6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
