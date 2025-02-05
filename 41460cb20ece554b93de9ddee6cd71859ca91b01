@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34106c8a_c0e7671e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-05T20:35:46Z",
+      "side": 1,
+      "message": "No. Appearance preferences are built on GCC2 on 32-bit x86.\n\nThis code is pretty simple, making it work with GCC2 should not be hard.",
+      "parentUuid": "c5491842_12b5389c",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "585cb36e_9c850a0b",
         "filename": "src/kits/shared/HSP.cpp",
         "patchSetId": 3
