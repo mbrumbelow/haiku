@@ -16,6 +16,24 @@
       "message": "Related ticket: https://dev.haiku-os.org/ticket/17567\n\nNice work on the dhcp stuff!\n\nI\u0027ve not reviewed the code in detail yet, but -2 for network requests to foreign servers. \n(and even if we use our own this should be off by default) *especially* mozilla servers\n\nAs it stands now this code will phone home to mozilla each time I start my computer because I do not have a captive portal at home.",
       "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f79ffa4f_40410eb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-05T16:49:53Z",
+      "side": 1,
+      "message": "What are you worried about exactly?\n\nConsider the following scenarios:\n\nScenario 1: Use of Mozilla captive portal.\n- Mozilla does not learn a lot about you, just that your machine made an HTTP request (no cookie, no data sent).\n- Your ISP learns that you have something doing connectivity checks (as everyone does). Also not very valuable\n\nScenario 2: Use of Haiku specific portal:\n- Mozilla does not learn anything, but on the other hand, Haiku (or someone else who provides the portal) does.\n- Your ISP learns that you are using Haiku, because no one else would request that specific portal.\n\nIf you don\u0027t like Mozilla, it seems better to make them pay for that infrastructure and have it handle the traffic of a few hundred Haiku users. And you become less traceable compared to other people, as your machine behaves more like others.\n\nI guess it wouldn\u0027t be so hard to set up a similar page on our website, but then it\u0027s Netlify who gets to know specifically about all Haiku users, alongside with anyone who happens to see the traffic pass by on the interet. Is that better than Mozilla seeing it mixed together with everything else?",
+      "parentUuid": "2c6a90b9_a3c7701f",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
