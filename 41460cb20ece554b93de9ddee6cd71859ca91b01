@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ded3c68_f9acfe3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T21:02:39Z",
+      "side": 1,
+      "message": "Hmm, this way creates headaches in the other direction.\n\nPersonally I don\u0027t think we should build anything with gcc2 where this is not required for abi compatibility.",
+      "parentUuid": "d05dd593_95fdae80",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "585cb36e_9c850a0b",
         "filename": "src/kits/shared/HSP.cpp",
         "patchSetId": 3
