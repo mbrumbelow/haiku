@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6a90b9_a3c7701f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T11:45:00Z",
+      "side": 1,
+      "message": "Related ticket: https://dev.haiku-os.org/ticket/17567\n\nNice work on the dhcp stuff!\n\nI\u0027ve not reviewed the code in detail yet, but -2 for network requests to foreign servers. \n(and even if we use our own this should be off by default) *especially* mozilla servers\n\nAs it stands now this code will phone home to mozilla each time I start my computer because I do not have a captive portal at home.",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
