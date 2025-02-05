@@ -34,6 +34,24 @@
       "parentUuid": "2c6a90b9_a3c7701f",
       "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9204a71_d627dbda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T17:22:48Z",
+      "side": 1,
+      "message": "I\u0027m not sure what your point is. Are you suggesting we should use their service solely because it costs them money? why in that case we should pick a more evil company to leach off!\n\nI don\u0027t get that argument at all.\n\nOne thing to keep in mind is that adding more datapoints *NEVER* makes you more anonymous. There is no such thing as becoming less traceable becausemy machine behaves more like others. Not sending data is easy, it is not traceable, no conenction is made.\nIf you make a connection however you become immidiently traceable.\n\nThe HTTP request already has a user-agent of the services kit, and HTTP impelementatitions tend to differ subtly in their implementation meaning it is absolutely trivial for mozilla to identify which requests are from Haiku or not.\n\nThe low number of Haiku users does not help at all. As one fun example, i used to use links2 on FreeBSD, no javascript, no nothing. But websites telling you how unique your user agent are could identify me, uniquely, based on solely my links2 and FreeBSD version.\n\nI don\u0027t see why the onus of proof on why you *shouldn\u0027t* do a network request to a random company every time you bring up a network interface is on me. (refering to the \"what are you worried about\" part)\n\nThere should be no netowrk requests outside of the techincal neccesity (i.e DHCP/mDNS) without use intervention in the default installation. Ever. That includes me pluggin in my LAN cable. Sure there are technically LANs that have a captive portal, but those can use the proper DHCP mechanism. It is makes no sense why I should phone home to mozilla each time just for this extremely unlikely case.",
+      "parentUuid": "f79ffa4f_40410eb5",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
