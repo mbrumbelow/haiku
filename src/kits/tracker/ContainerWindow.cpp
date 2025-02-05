@@ -94,6 +94,7 @@ All rights reserved.
 #include "Thread.h"
 #include "TitleView.h"
 #include "Tracker.h"
+#include "TrackerAddOn.h"
 #include "TrackerSettings.h"
 
 
@@ -710,7 +711,7 @@ BContainerWindow::RepopulateMenus()
 		if (ShouldAddMenus()) {
 			AddMenus();
 			if (PoseView()->ViewMode() == kListMode)
-				fMenuBar->AddItem(fAttrMenu);
+				fMenuBar->AddItem(fAttrMenu, 2);
 		}
 	}
 
@@ -814,15 +815,20 @@ BContainerWindow::Init(const BMessage* message)
 	else
 		RestoreState();
 
-	if (ShouldAddMenus() && PoseView()->ViewMode() == kListMode) {
+	bool isListMode = PoseView()->ViewMode() == kListMode;
+	if (ShouldAddMenus() && isListMode) {
 		// for now only show attributes in list view
 		// eventually enable attribute menu to allow users to select
 		// using different attributes as titles in icon view modes
 		ShowAttributesMenu();
 	}
+
+	// load Tracker add-on menus into main menu bar
+	if (ShouldAddMenus() && ShouldHaveTrackerAddOnsMenus())
+		BuildAddOnsMenu(fMenuBar);
+
 	CheckScreenIntersect();
 
-	bool isListMode = PoseView()->ViewMode() == kListMode;
 	if (fBackgroundImage != NULL && !PoseView()->IsDesktop() && !isListMode)
 		fBackgroundImage->Show(PoseView(), current_workspace());
 
@@ -1010,6 +1016,9 @@ BContainerWindow::SwitchDirectory(const entry_ref* ref)
 
 	// Update window title
 	UpdateTitle();
+
+	// Tracker add-on menus may have changed
+	RebuildAddOnsMenu(fMenuBar);
 }
 
 
@@ -1699,10 +1708,10 @@ BContainerWindow::AddMenus()
 {
 	fFileMenu = new TLiveFileMenu(B_TRANSLATE("File"), this);
 	AddFileMenu(fFileMenu);
-	fMenuBar->AddItem(fFileMenu);
+	fMenuBar->AddItem(fFileMenu, 0);
 
 	fWindowMenu = new TLiveWindowMenu(B_TRANSLATE("Window"), this);
-	fMenuBar->AddItem(fWindowMenu);
+	fMenuBar->AddItem(fWindowMenu, 1);
 	AddWindowMenu(fWindowMenu);
 
 	// create Attributes menu, add it later
@@ -1917,6 +1926,9 @@ BContainerWindow::MenusBeginning()
 
 	if (fWindowMenu != NULL)
 		UpdateMenu(fWindowMenu, kWindowMenuContext);
+
+	// Tracker add-on menus may have changed
+	RebuildAddOnsMenu(fMenuBar);
 }
 
 
@@ -2764,6 +2776,48 @@ BContainerWindow::BuildMimeTypeList(BStringList& mimeTypes)
 
 
 void
+BContainerWindow::BuildAddOnsMenu(BMenuBar* parent)
+{
+	BObjectList<BMenuItem> primaryList;
+	BObjectList<BMenuItem> secondaryList;
+	BStringList mimeTypes(10);
+
+	AddOneAddOnParams params;
+	params.primaryList = &primaryList;
+	params.secondaryList = &secondaryList;
+
+	EachAddOn(AddOneAddOn, &params, mimeTypes, parent);
+
+	primaryList.SortItems(CompareLabels);
+	secondaryList.SortItems(CompareLabels);
+
+	int32 parentCount = parent->CountItems();
+	int32 count = primaryList.CountItems();
+	for (int32 index = 0; index < count; index++)
+		parent->AddItem(primaryList.ItemAt(parentCount + index));
+}
+
+
+void
+BContainerWindow::RebuildAddOnsMenu(BMenuBar* parent)
+{
+	if (parent == NULL || !ShouldHaveTrackerAddOnsMenus())
+		return;
+
+	int32 addOnsIndex = (PoseView()->ViewMode() == kListMode) ? 3 : 2;
+	if (parent->CountItems() >= addOnsIndex) {
+		BMenuItem* addOnsItem;
+		while ((addOnsItem = parent->ItemAt(addOnsIndex)) != NULL) {
+			parent->RemoveItem(addOnsItem);
+			delete addOnsItem;
+		}
+	}
+	if (ShouldAddMenus())
+		BuildAddOnsMenu(parent);
+}
+
+
+void
 BContainerWindow::BuildAddOnsMenu(BMenu* parent)
 {
 	BMenuItem* addOnsItem = parent->FindItem(Shortcuts()->AddOnsLabel());
@@ -3109,6 +3163,13 @@ BContainerWindow::ShouldHaveNewFolderItem()
 }
 
 
+bool
+BContainerWindow::ShouldHaveTrackerAddOnsMenus()
+{
+	return !(PoseView()->IsFilePanel() || TargetModel()->IsQuery());
+}
+
+
 //	#pragma mark - BContainerWindow private methods
 
 
@@ -3310,7 +3371,7 @@ void
 BContainerWindow::ShowAttributesMenu()
 {
 	ASSERT(fAttrMenu);
-	fMenuBar->AddItem(fAttrMenu);
+	fMenuBar->AddItem(fAttrMenu, 2);
 }
 
 
