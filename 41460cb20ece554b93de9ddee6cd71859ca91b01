@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5491842_12b5389c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T19:55:30Z",
+      "side": 1,
+      "message": "Can I \"simply\" exclude this on gcc2? I don\u0027t see why this code needs to be build for gcc2.",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
