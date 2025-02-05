@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81642482_4bce2b49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T21:31:20Z",
+      "side": 1,
+      "message": "-Werror creates a dependance on a particular compiler toolchain and version, fixing warnings makes sense... but failing the build over them doesn\u0027t really.\n\nAnyway, will take a look tommorow.",
+      "parentUuid": "e3f69bd8_b40bf0ce",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "585cb36e_9c850a0b",
         "filename": "src/kits/shared/HSP.cpp",
         "patchSetId": 3
