@@ -16,6 +16,125 @@
       "message": "Can I \"simply\" exclude this on gcc2? I don\u0027t see why this code needs to be build for gcc2.",
       "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb98d0ec_f838e6c3",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:16:43Z",
+      "side": 1,
+      "message": "1.0f",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f4c602_c9406cdd",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:16:43Z",
+      "side": 1,
+      "message": "hue -\u003e tempHue",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d941649b_3987ac9f",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:16:43Z",
+      "side": 1,
+      "message": "hue -\u003e tempHue",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "828a3f29_5e3f574a",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:16:43Z",
+      "side": 1,
+      "message": "hue -\u003e tempHue",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2790c97_5d5ba717",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:16:43Z",
+      "side": 1,
+      "message": "hue -\u003e tempHue",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "653b8b30_d9e23158",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:16:43Z",
+      "side": 1,
+      "message": "hue -\u003e tempHue",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3c3f20c_6010ac13",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T20:16:43Z",
+      "side": 1,
+      "message": "hue -\u003e tempHue",
+      "revId": "41460cb20ece554b93de9ddee6cd71859ca91b01",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
