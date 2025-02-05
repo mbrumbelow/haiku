@@ -299,7 +299,7 @@ protected:
 	bool ShouldHaveEditQueryItem(const entry_ref* = NULL);
 	bool ShouldHaveMoveCopyMenus(const entry_ref* = NULL);
 	bool ShouldHaveNewFolderItem();
-	bool ShouldHaveAddOnsMenus();
+	bool ShouldHaveAddOnMenus();
 
 	BGroupLayout* fRootLayout;
 	BGroupView* fMenuContainer;
