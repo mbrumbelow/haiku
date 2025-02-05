@@ -193,6 +193,24 @@
       "message": "`1/6` will give a result in integers, this isn\u0027t what you want. You need to use `.f` here.\n\n(And it would be nice if () were used throughout rather than relying on operator precedence.)",
       "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ce6aebb_317fa667",
+        "filename": "src/kits/shared/HSP.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-05T18:17:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38aaf1a7_529753cf",
+      "revId": "a528f950e97874cfe10736dc565935f44f53fafe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
