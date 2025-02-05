@@ -1778,7 +1778,9 @@ BContainerWindow::AddFileMenu(BMenu* menu)
 
 	if (!TargetModel()->IsRoot())
 		menu->AddItem(Shortcuts()->IdentifyItem());
-	menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
+
+	if (ShouldHaveAddOnMenus())
+		menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
 }
 
 
@@ -2576,7 +2578,7 @@ BContainerWindow::AddPoseContextMenu(BMenu* menu)
 {
 	menu->AddItem(Shortcuts()->OpenItem());
 	// "Edit query" and "Open with..." inserted here,
-	// see UpdateMenus(), SetupEditQueryItem() and SetupOpenWithMenu()
+	// see UpdateMenu(), SetupEditQueryItem() and SetupOpenWithMenu()
 	menu->AddItem(Shortcuts()->GetInfoItem());
 	menu->AddItem(Shortcuts()->EditNameItem());
 
@@ -2601,7 +2603,8 @@ BContainerWindow::AddPoseContextMenu(BMenu* menu)
 	}
 
 	menu->AddItem(Shortcuts()->IdentifyItem());
-	menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
+	if (ShouldHaveAddOnMenus())
+		menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
 }
 
 
@@ -2616,7 +2619,8 @@ BContainerWindow::AddVolumeContextMenu(BMenu* menu)
 	// "Mount >", "Unmount" and a separator are inserted here,
 	// see UpdateMenu() and SetupMountMenu()
 
-	menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
+	if (ShouldHaveAddOnMenus())
+		menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
 }
 
 
@@ -2661,7 +2665,8 @@ BContainerWindow::AddWindowContextMenu(BMenu* menu)
 	// "Mount >" menu and "Unmount" are inserted here,
 	// see UpdateMenu() and SetupMountMenu().
 
-	menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
+	if (ShouldHaveAddOnMenus())
+		menu->AddItem(new BMenuItem(new BMenu(Shortcuts()->AddOnsLabel())));
 
 #if DEBUG
 	menu->AddSeparatorItem();
@@ -2966,7 +2971,8 @@ BContainerWindow::UpdateFileMenuOrPoseContextMenu(BMenu* menu, MenuContext conte
 	if (ShouldHaveMoveCopyMenus(ref))
 		SetupMoveCopyMenus(menu, ref);
 
-	BuildAddOnsMenu(menu);
+	if (ShouldHaveAddOnMenus())
+		BuildAddOnsMenu(menu);
 }
 
 
@@ -2988,7 +2994,8 @@ BContainerWindow::UpdateWindowContextMenu(BMenu* menu)
 	if (TargetModel()->IsDesktop() || TargetModel()->IsRoot())
 		SetupMountMenu(menu, kWindowPopUpContext);
 
-	BuildAddOnsMenu(menu);
+	if (ShouldHaveAddOnMenus())
+		BuildAddOnsMenu(menu);
 }
 
 
@@ -3165,7 +3172,7 @@ BContainerWindow::ShouldHaveNewFolderItem()
 bool
 BContainerWindow::ShouldHaveAddOnMenus()
 {
-	return !PoseView()->IsFilePanel();
+	return !(PoseView()->IsFilePanel() || TargetModel()->IsQuery());
 }
 
 
