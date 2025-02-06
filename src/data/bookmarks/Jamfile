@@ -1,0 +1,56 @@
+rule PrepareBookMark name : folder url title
+{
+	# target should be the "name" in the right folder base
+	# and then "folder" in it.
+	AddFileDataAttribute $(target) : BEOS:TYPE : mims : application/x-vnd.Be-bookmark ;
+	AddFileDataAttribute $(target) : META:title : Text : $(title) ;
+	AddFileDataAttribute $(target) : META:url : Text : $(title) ;
+	AddFileDataAttribute $(target) : BEOS:ICON : icon : bookmarkIcons/$(name).hvif ;
+}
+
+
+rule PrepareLoader name
+{
+	AddFileDataAttribute $(target) : BEOS:TYPE : mims : text/html ;
+	AddFileDataAttribute $(target) : BEOS:ICON : icon : loaderIcons/$(name).hvif ;
+}
+
+
+rule PrepareBookMarkFolder name : icon
+{
+	mkdir the folder
+	AddFileDataAttribute $(target) : BEOS:ICON : icon : folderIcons/$(name).hvif
+}
+
+# Create LoaderPages folder...
+PrepareLoader BeBook ;
+PrepareLoader QuickTour ;
+PerpareLoader UserGuide ;
+PrepareLoader Welcome ;
+
+# Create Bookmarks folder...
+PrepareBookMarkFolder 'Bookmark bar' ;
+PrepareBookMarkFolder Documentation ;
+PrepareBookMarkFolder 'Haiku Project' ;
+PrepareBookMarkFolder Software ;
+
+PrepareBookmark BeBook : Documentation : file:/boot/home/config/settings/WebPositive/LoaderPages/BeBook : The Be Book ;
+PrepareBookmark Haiku Book' : Documentation : https://api.haiku-os.org/ : The Haiku Book: Welcome to the Haiku Book ;
+PrepareBookmark Haiku Interface Translation : Documentation : https://i18n.haiku-os.org/pootle : Haiku Interface Translation ;
+PrepareBookmark Haiku User Documentation Translation : Documentation : https://i18n.haiku-os.org/userguide/ : Haiku User Documentation ;
+PrepareBookmark Quick Tour : Documentation : file:/boot/home/config/settings/WebPositive/LoaderPages/QuickTour : Haiku Quick Tour ;
+PrepareBookmark UserGuide : Documentation : file:/boot/home/config/settings/WebPositive/LoaderPages/UserGuide : Haiku User Guide ;
+PrepareBookmark Welcome : Documentation : file:/boot/home/config/settings/WebPositive/LoaderPages/Welcome : Welcome to Haiku! ;
+
+PrepareBookmark Bug Tracker : Haiku Project : https://dev.haiku-os.org/ : Haiku ;
+PrepareBookmark Building Haiku Guide : Haiku Project : https://www.haiku-os.org/guides/building : Building Haiku Guide | Haiku Project ;
+PrepareBookmark Community Links : Haiku Project : https://www.haiku-os.org/community/links : Community Links | Haiku Project ;
+PrepareBookmark Haiku Forums : Haiku Project : https://discuss.haiku-os.org/ : Haiku Community ;
+PrepareBookmark Haiku, Inc. : Haiku Project : https://www.haiku-inc.org/ : Haiku, Inc. ;
+PrepareBookmark Home : Haiku Project : https://www.haiku-os.org/ : Home | Haiku Project ;
+PrepareBookmark Nightly Images : Haiku Project : https://download.haiku-os.org : Haiku Downloads ;
+
+
+PrepareBookmark HaikuArchives : Software : https://github.com/HaikuArchives : HaikuArchives · GitHub ;
+PrepareBookmark HaikuPorts : Software : https://github.com/haikuports : HaikuPorts · GitHub ;
+PrepareBookmark List of Software Sites : Software : https://www.haiku-os.org/community/software : Software Sites | Haiku Project ;

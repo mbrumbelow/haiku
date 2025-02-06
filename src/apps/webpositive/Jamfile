@@ -84,9 +84,6 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			$(sources)
 			;
 
-		ExtractArchiveToHaikuImage home config settings WebPositive
-			: $(SUBDIR)/bookmarks/WebPositiveBookmarks.zip ;
-
 		EnableBuildFeatures webpositive ;
 
 		break ;
