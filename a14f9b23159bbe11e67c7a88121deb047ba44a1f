@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ab59305_cb29d2da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-02-06T19:00:51Z",
+      "side": 1,
+      "message": "Having a menu field without a label is not a corner case IMO, but a pretty normal state. I would think we already handle this case.",
+      "parentUuid": "6c32ce82_85d74cb4",
+      "revId": "a14f9b23159bbe11e67c7a88121deb047ba44a1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01a14313_01bf5719",
         "filename": "src/kits/interface/MenuField.cpp",
         "patchSetId": 1
