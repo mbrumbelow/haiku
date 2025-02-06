@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb7cc199_4f80bd0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2025-02-06T10:04:28Z",
+      "side": 1,
+      "message": "This looks nice and seems to match Haiku code better. I tried to check where global lock handling is done but didn\u0027t see it. Is that all done by UACPI?",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990e2045_0f7a1c08",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1
