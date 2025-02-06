@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3404f8b4_5c248cb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-06T19:00:44Z",
+      "side": 1,
+      "message": "Hi there!\n\n1. Basically yes! Although I\u0027ve been working on it for over two years now, so I\u0027d like to think of it as more than just a hobby project (in regards to the quality etc. I\u0027d like to keep).\n\n2. That\u0027s definitely true. ReactOS is currently also in the process of switching to uACPI, and they even made an NT-native driver that replaces the native (Windows 10) Acpi.sys driver entirely: https://www.youtube.com/watch?v\u003dgUEzkglsXn4 That said I do expect bugs to be discovered, especially from a more \"power-user\" OS like Haiku, and I\u0027d be happy to assist with fixing them.\n\n3. Pretty good! There\u0027s a hobby OS that supports suspend-to-ram (S3) via uACPI that worked just fine on real hw that we tested. Also a ReactOS maintainer has been daily driving uACPI (with Windows) on their relatively modern laptop (I think it was a framework(?)) without noticing any differences vs the native driver, and of course having it fully suspend and resume many times just fine.\n\n4. Thanks for the kind words!",
+      "parentUuid": "c9e1dab6_b780319c",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990e2045_0f7a1c08",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1
