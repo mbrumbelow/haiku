@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "370458ae_f734e5f7",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-06T10:32:11Z",
+      "side": 1,
+      "message": "How is haiku booted on BIOS? Does the boot protocol it uses not provide the RSDP pointer?",
+      "parentUuid": "703c0a14_b3229475",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e85a7320_5f93d064",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1
