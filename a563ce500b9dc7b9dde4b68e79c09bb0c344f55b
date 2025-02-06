@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "134a67a5_e394ca63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-06T20:29:33Z",
+      "side": 1,
+      "message": "Fixes several old and new bugs:\n\n* Open with... window gets tool tip text color not document color\n  after drag.\n* Force Edit name select box background color to be black/or white\n  depending on the inverse of your background color on Desktop\n  instead of using document colors.\n* Determine if volume is read-only by pose instead of its parent,\n  this fixes a bug where read-only volumes mounted on a read-write\n  directory like the Desktop had an editable name even though they\n  were not supposed to. It wouldn\u0027t let you change the name though.",
+      "revId": "a563ce500b9dc7b9dde4b68e79c09bb0c344f55b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
