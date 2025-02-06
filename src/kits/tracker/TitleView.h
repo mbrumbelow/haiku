@@ -51,10 +51,9 @@ class ColumnTrackState;
 class OffscreenBitmap;
 
 const int32 kEdgeSize = 6;
-const int32 kTitleColumnLeftExtraMargin = 11;
-const int32 kTitleColumnRightExtraMargin = 5;
-const int32 kTitleColumnExtraMargin = kTitleColumnLeftExtraMargin
-	+ kTitleColumnRightExtraMargin;
+const int32 kColumnLeftMargin = 11;
+const int32 kColumnRightMargin = 5;
+const int32 kColumnMargins = kColumnLeftMargin + kColumnRightMargin;
 const int32 kMinColumnWidth = 20;
 const int32 kRemoveTitleMargin = 10;
 

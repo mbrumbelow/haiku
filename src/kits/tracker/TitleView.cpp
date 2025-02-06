@@ -212,8 +212,7 @@ BTitleView::Draw(BRect rect)
 
 void
 BTitleView::Draw(BRect /*updateRect*/, bool useOffscreen, bool updateOnly,
-	const BColumnTitle* pressedColumn,
-	void (*trackRectBlitter)(BView*, BRect), BRect passThru)
+	const BColumnTitle* pressedColumn, void (*trackRectBlitter)(BView*, BRect), BRect passThru)
 {
 	BRect bounds(Bounds());
 	BView* view;
@@ -460,9 +459,9 @@ BColumnTitle::InColumnResizeArea(BPoint where) const
 BRect
 BColumnTitle::Bounds() const
 {
-	BRect bounds(fColumn->Offset() - kTitleColumnLeftExtraMargin, 0, 0,
+	BRect bounds(fColumn->Offset() - kColumnLeftMargin, 0, 0,
 		fParent->Bounds().Height());
-	bounds.right = bounds.left + fColumn->Width() + kTitleColumnExtraMargin;
+	bounds.right = bounds.left + fColumn->Width() + kColumnMargins;
 
 	return bounds;
 }
@@ -492,15 +491,21 @@ BColumnTitle::Draw(BView* view, bool pressed)
 			BControlLook::B_TOP_BORDER | BControlLook::B_BOTTOM_BORDER);
 	}
 
+	// move select column title over to make room for the icon
+	if (fParent != NULL && fParent->PoseView() != NULL
+		&& (fColumn == fParent->PoseView()->SelectColumn())) {
+		bounds.left += ListIconSize();
+	}
+
 	BString titleString(fColumn->Title());
 	view->TruncateString(&titleString, B_TRUNCATE_END,
-		bounds.Width() - kTitleColumnExtraMargin);
+		bounds.Width() - kColumnMargins);
 	float resultingWidth = view->StringWidth(titleString.String());
 
 	switch (fColumn->Alignment()) {
 		case B_ALIGN_LEFT:
 		default:
-			titleLocation.x = bounds.left + 1 + kTitleColumnLeftExtraMargin;
+			titleLocation.x = bounds.left + 1 + kColumnLeftMargin;
 			break;
 
 		case B_ALIGN_CENTER:
@@ -509,8 +514,7 @@ BColumnTitle::Draw(BView* view, bool pressed)
 			break;
 
 		case B_ALIGN_RIGHT:
-			titleLocation.x = bounds.right - resultingWidth
-				- kTitleColumnRightExtraMargin;
+			titleLocation.x = bounds.right - resultingWidth - kColumnRightMargin;
 			break;
 	}
 
@@ -607,8 +611,7 @@ ColumnResizeState::ColumnResizeState(BTitleView* view, BColumnTitle* title,
 	:
 	ColumnTrackState(view, title, where, pastClickTime),
 	fLastLineDrawPos(-1),
-	fInitialTrackOffset((title->fColumn->Offset() + title->fColumn->Width())
-		- where.x)
+	fInitialTrackOffset((title->fColumn->Offset() + title->fColumn->Width()) - where.x)
 {
 	DrawLine();
 }
@@ -617,8 +620,7 @@ ColumnResizeState::ColumnResizeState(BTitleView* view, BColumnTitle* title,
 bool
 ColumnResizeState::ValueChanged(BPoint where)
 {
-	float newWidth = where.x + fInitialTrackOffset
-		- fTitle->fColumn->Offset();
+	float newWidth = where.x + fInitialTrackOffset - fTitle->fColumn->Offset();
 	if (newWidth < kMinColumnWidth)
 		newWidth = kMinColumnWidth;
 

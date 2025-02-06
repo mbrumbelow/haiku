@@ -123,6 +123,13 @@ InvertColorSmart(rgb_color color)
 }
 
 
+float
+ComposeStringWidth(float width)
+{
+	return width * roundf(be_plain_font->Size() / 12.f);
+}
+
+
 bool
 SecondaryMouseButtonDown(int32 modifiers, int32 buttons)
 {

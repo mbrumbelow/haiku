@@ -186,6 +186,8 @@ float ReadOnlyTint(color_which base);
 rgb_color InvertColor(rgb_color color);
 rgb_color InvertColorSmart(rgb_color color);
 
+float ComposeStringWidth(float width);
+
 bool SecondaryMouseButtonDown(int32 modifiers, int32 buttons);
 
 uint32 SeededHashString(const char* string, uint32 seed);
