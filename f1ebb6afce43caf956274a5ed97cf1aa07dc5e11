@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fef7593_f8a727de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2025-02-06T10:02:04Z",
+      "side": 1,
+      "message": "Can we have UACPI under src/libs? There was some issue I can´t remember with ACPICA but we should try with UACPI.",
+      "revId": "f1ebb6afce43caf956274a5ed97cf1aa07dc5e11",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
