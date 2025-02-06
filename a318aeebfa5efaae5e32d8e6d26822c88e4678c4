@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f1e3c44_a96c93c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-06T18:06:02Z",
+      "side": 1,
+      "message": "It takes resources defined in an RSRC file and writes them as attributes instead of adding them to a binary.",
+      "parentUuid": "f8d92b6e_bfde8ccf",
+      "revId": "a318aeebfa5efaae5e32d8e6d26822c88e4678c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "da23c4e1_1c66e519",
         "filename": "src/data/bookmarks/Jamfile",
         "patchSetId": 1
