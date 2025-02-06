@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c09d24f3_7a38a0b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-06T17:25:47Z",
+      "side": 1,
+      "message": "I don\u0027t think strdup(NULL) is a good idea, I think we define it but on other platforms it\u0027s not. Why not just add if (label \u003d\u003d NULL) label \u003d \"\"; at the top of the function?",
+      "revId": "a14f9b23159bbe11e67c7a88121deb047ba44a1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01a14313_01bf5719",
         "filename": "src/kits/interface/MenuField.cpp",
         "patchSetId": 1
