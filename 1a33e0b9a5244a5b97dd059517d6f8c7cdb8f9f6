@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75ecbb69_6467586b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-06T21:59:12Z",
+      "side": 1,
+      "message": "This whole series of patch sets can go now I think.\n\n\"Refactor BPoseView\" fixes all existing Tracker file name color bugs and gets rid of a lot of cruft like fIsDesktop in BPoseView. All issues with redrawing colors of selected or edited file names are fixed. File Panels work right with regards to Desktop. The Desktop text color should be the same as before except it is always white or black depending on context, no other color.\n\n(Theoretically you could have non-white or non-black Desktop text before but I\u0027m not sure it was practical to achieve given the contrast values involved (97 vs 127, see patch set for more details). In practice the Desktop color should be exactly identical to what it was before except a few edge cases like renaming files where now only black or white. White/black color choice is based based solely on on how the brightness of your Desktop color compares to the brightness of B_DESKTOP_COLOR. This algorithm was chosen to match the old one in a cleaner fashion. It favors white text heavily over black compared to the typical contrast value that is normally used (127).\n\n\"Fix garbled text\" fixes remaining dragging color issues related to transparency. Most of the good fixes are in the previous patch now.\n\nThis patch: \"mini-mode label redraw issues\" fixes all label remaining redraw issues in the system related to redrawing of labels aligning the text correctly in every mode (most notably mini-icon mode). The box calculations must match in BPoseView and and BTextWidget else you\u0027d get drawing artifacts like described in the ticket. In the default font in (regular) icon mode (say on the Desktop) the label will be centered in its select box below the icon (as normal) with the text inside a few pixels higher (depending on font). The underline also moved up a few pixels to match. In list-mode the box and label(s) are properly centered which means they go up a few pixels higher to properly surround the adjacent icon better -- mini-icon mode has same alignment as list mode.",
+      "revId": "1a33e0b9a5244a5b97dd059517d6f8c7cdb8f9f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
