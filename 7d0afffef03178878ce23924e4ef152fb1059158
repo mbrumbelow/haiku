@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5890413_728e976e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-06T10:05:25Z",
+      "side": 1,
+      "message": "If you mean field accesses from AML it is done by uACPI internally of course.",
+      "parentUuid": "fb7cc199_4f80bd0b",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990e2045_0f7a1c08",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1
