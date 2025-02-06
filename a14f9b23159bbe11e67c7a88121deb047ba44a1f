@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a14313_01bf5719",
+        "filename": "src/kits/interface/MenuField.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-06T12:42:01Z",
+      "side": 1,
+      "message": "Could put the return case at the start directly \nif (label \u003d\u003d NULL)\n   return;",
+      "revId": "a14f9b23159bbe11e67c7a88121deb047ba44a1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9554ff0_58b14607",
+        "filename": "src/kits/interface/MenuField.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-06T12:42:01Z",
+      "side": 1,
+      "message": "the else if isn\u0027t needed if it already checks for NULL in the first if, or am i missing something?",
+      "revId": "a14f9b23159bbe11e67c7a88121deb047ba44a1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
