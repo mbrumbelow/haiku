@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d63671ba_78fe55ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2025-02-06T19:20:38Z",
+      "side": 1,
+      "message": "Without fallback do people need to upgrade their bios bootloader when they upgrade haiku?",
+      "revId": "1670440dbb9575f39ebadf87efe2a268881bc652",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
