@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ca5a469_4eeb521a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-06T12:34:43Z",
+      "side": 1,
+      "message": "This is how far i got, now i need some pointers on how to integrate this into the build and test it.\nAlso on how to create the \"right\" folders in Jam. i.e how should I get these to be in config/WebPositive/ and pick the right folder there, and create them",
+      "revId": "a318aeebfa5efaae5e32d8e6d26822c88e4678c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da23c4e1_1c66e519",
+        "filename": "src/data/bookmarks/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-06T12:34:43Z",
+      "side": 1,
+      "message": "url, not title",
+      "revId": "a318aeebfa5efaae5e32d8e6d26822c88e4678c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15423d24_8d7137d2",
+        "filename": "src/data/bookmarks/Jamfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-06T12:34:43Z",
+      "side": 1,
+      "message": "Could be haikuports/haikuports",
+      "revId": "a318aeebfa5efaae5e32d8e6d26822c88e4678c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
