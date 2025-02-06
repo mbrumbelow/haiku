@@ -33,6 +33,24 @@
       "message": "the else if isn\u0027t needed if it already checks for NULL in the first if, or am i missing something?",
       "revId": "a14f9b23159bbe11e67c7a88121deb047ba44a1f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fc5a417_4dfd6c56",
+        "filename": "src/kits/interface/MenuField.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-02-06T14:54:29Z",
+      "side": 1,
+      "message": "Is fLabel \u003d strdup(NULL) is desired? Otherwise it should only be called when \u0027label\u0027 is not NULL.",
+      "parentUuid": "e9554ff0_58b14607",
+      "revId": "a14f9b23159bbe11e67c7a88121deb047ba44a1f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
