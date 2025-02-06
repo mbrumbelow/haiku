@@ -72,6 +72,41 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "381dad89_eb8187ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2025-02-06T09:08:27Z",
+      "side": 1,
+      "message": "Yeah it\u0027s a first version.",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1a959cc_b54c1c36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000022
+      },
+      "writtenOn": "2025-02-06T09:08:27Z",
+      "side": 1,
+      "message": "Ideally this would have a setting so people can activate it, and even choose which URL to ping.\nI wanted to have the feature working first, but I also share your concerns, even though I have a little more trust in Mozilla than Google.",
+      "parentUuid": "78e25787_65fb3d5d",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c95a0eb9_dc4582be",
