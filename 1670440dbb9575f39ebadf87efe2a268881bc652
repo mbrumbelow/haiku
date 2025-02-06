@@ -16,6 +16,24 @@
       "message": "Without fallback do people need to upgrade their bios bootloader when they upgrade haiku?",
       "revId": "1670440dbb9575f39ebadf87efe2a268881bc652",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b0b5afc_c60e4165",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-06T19:29:04Z",
+      "side": 1,
+      "message": "Yes, but that already happens because the BIOS loader is updated by the package manager. It\u0027s only the EFI loader that isn\u0027t.",
+      "parentUuid": "d63671ba_78fe55ad",
+      "revId": "1670440dbb9575f39ebadf87efe2a268881bc652",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
