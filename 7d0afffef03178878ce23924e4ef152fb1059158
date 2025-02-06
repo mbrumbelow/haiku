@@ -91,6 +91,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9e1dab6_b780319c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-06T18:18:30Z",
+      "side": 1,
+      "message": "d-tatianin: since you\u0027re here (hello!) a few general questions/comments about uACPI:\n\n1. This is just a hobby project for you (and other contributors), correct? Or am I wrong and this is being used commercially as well?\n\n(I guess if uACPI ever became unmaintained and we didn\u0027t have the person-power to maintain it, then it wouldn\u0027t be such a big deal to switch back to ACPICA anyway.)\n\n2. Based on the current \"notable projects\" table in the README, I think Haiku would be the biggest adopter by far. We don\u0027t know what our install base and DAU/MAU actually is (because we don\u0027t collect telemetry at all :D) but based on past bug reports and interaction with other OSes, it\u0027s at least in the thousands. (In porting WiFi drivers from FreeBSD, we\u0027ve encountered and fixed bugs in hardware combinations that apparently nobody ever ran FreeBSD on, for context.)\n\nSo, in other words, I would expect that (again, if we actually merge this change and adopt uACPI) there would be an influx of bug reports for odd hardware and strange corner-cases. (A recent change to the ACPICA glue for ARM64 exposed a bunch of things here already, even without changing ACPICA itself.) We should prepare for this on our end by adding easy ways to collect dumps of AML and other such things, of course. And depending on what time people have here we may be able to help with bugfixing, but there\u0027s not so many of us who work on Haiku (I\u0027m the only paid developer at present, and I don\u0027t know a whole lot about ACPI.)\n\n3. How is the support for sleep states, if any? (Haiku doesn\u0027t have this yet, but it\u0027s a big TODO list item, so it would be good to know where uACPI is on that front at least.)\n\n4. All that being said: Thanks to you (and the other contributors) for writing uACPI! Just based on the README and glancing at the source code, it looks like it is indeed an improvement over ACPICA, and if we get a leg up over even Linux in ACPI compatibility by adopting it, that would be pretty cool.",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990e2045_0f7a1c08",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1
