@@ -213,6 +213,8 @@ public:
 	BSize IconSize() const;
 
 	BRect Extent() const;
+	BRect ListModeExtent() const;
+	BRect IconModeExtent() const;
 	void GetLayoutInfo(uint32 viewMode, BPoint* grid,
 		BPoint* offset) const;
 
@@ -244,6 +246,12 @@ public:
 	BColumn* LastColumn() const;
 	int32 IndexOfColumn(const BColumn*) const;
 	int32 CountColumns() const;
+	BColumn* SelectColumn() const;
+	int32 SelectColumnIndex() const;
+	BColumn* NameColumn() const;
+	int32 NameColumnIndex() const;
+	BColumn* RealNameColumn() const;
+	int32 RealNameColumnIndex() const;
 
 	// Where to start the first column
 	float StartOffset() const;
@@ -1091,7 +1099,7 @@ BPoseView::CountColumns() const
 inline float
 BPoseView::StartOffset() const
 {
-	return fListOffset + ListIconSize() + kMiniIconSeparator + 1;
+	return fListOffset;
 }
 
 

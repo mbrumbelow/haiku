@@ -512,13 +512,13 @@ TTracker::InstallDefaultTemplates()
 
 	static const ColumnData defaultQueryColumns[] =
 	{
-		{ B_TRANSLATE_MARK("Name"), 40, 145, B_ALIGN_LEFT,
+		{ B_TRANSLATE_MARK("Name"), 40, ComposeStringWidth(145) + ListIconSize(), B_ALIGN_LEFT,
 			kAttrStatName, B_STRING_TYPE, true, true },
-		{ B_TRANSLATE_MARK("Location"), 200, 225, B_ALIGN_LEFT,
+		{ B_TRANSLATE_MARK("Location"), 200, ComposeStringWidth(225), B_ALIGN_LEFT,
 			kAttrPath, B_STRING_TYPE, false, false },
-		{ B_TRANSLATE_MARK("Size"), 440, 41, B_ALIGN_RIGHT,
+		{ B_TRANSLATE_MARK("Size"), 440, ComposeStringWidth(41), B_ALIGN_RIGHT,
 			kAttrStatSize, B_OFF_T_TYPE, true, false },
-		{ B_TRANSLATE_MARK("Modified"), 496, 138, B_ALIGN_LEFT,
+		{ B_TRANSLATE_MARK("Modified"), 496, ComposeStringWidth(138), B_ALIGN_LEFT,
 			kAttrStatModified, B_TIME_TYPE, true, false }
 	};
 

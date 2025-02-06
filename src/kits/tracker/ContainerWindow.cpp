@@ -3263,12 +3263,12 @@ BContainerWindow::NewAttributesMenu(BMenu* menu)
 	item->SetTarget(PoseView());
 	menu->AddSeparatorItem();
 
-	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Name"),
-		kAttrStatName, B_STRING_TYPE, 145, B_ALIGN_LEFT, true, true));
+	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Name"), kAttrStatName, B_STRING_TYPE,
+		ComposeStringWidth(145) + ListIconSize(), B_ALIGN_LEFT, true, true));
 
 	if (gLocalizedNamePreferred) {
-		menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Real name"),
-			kAttrRealName, B_STRING_TYPE, 145, B_ALIGN_LEFT, true, true));
+		menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Real name"), kAttrRealName, B_STRING_TYPE,
+		ComposeStringWidth(145) + ListIconSize(), B_ALIGN_LEFT, true, true));
 	}
 
 	menu->AddItem(NewAttributeMenuItem (B_TRANSLATE("Size"), kAttrStatSize,
@@ -3280,28 +3280,27 @@ BContainerWindow::NewAttributesMenu(BMenu* menu)
 	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Created"),
 		kAttrStatCreated, B_TIME_TYPE, 150, B_ALIGN_LEFT, false, true));
 
-	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Kind"),
-		kAttrMIMEType, B_MIME_STRING_TYPE, 145, B_ALIGN_LEFT, false, false));
+	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Kind"), kAttrMIMEType, B_MIME_STRING_TYPE,
+		ComposeStringWidth(145) + ListIconSize(), B_ALIGN_LEFT, false, false));
 
 	if (TargetModel()->IsTrash() || TargetModel()->InTrash()) {
-		menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Original name"),
-			kAttrOriginalPath, B_STRING_TYPE, 225, B_ALIGN_LEFT, false,
-			false));
+		menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Original name"), kAttrOriginalPath,
+			B_STRING_TYPE, ComposeStringWidth(225), B_ALIGN_LEFT, false, false));
 	} else {
 		menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Location"), kAttrPath,
-			B_STRING_TYPE, 225, B_ALIGN_LEFT, false, false));
+			B_STRING_TYPE, ComposeStringWidth(225), B_ALIGN_LEFT, false, false));
 	}
 
 #ifdef OWNER_GROUP_ATTRIBUTES
 	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Owner"), kAttrStatOwner,
-		B_STRING_TYPE, 60, B_ALIGN_LEFT, false, true));
+		B_STRING_TYPE, ComposeStringWidth(60), B_ALIGN_LEFT, false, true));
 
 	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Group"), kAttrStatGroup,
-		B_STRING_TYPE, 60, B_ALIGN_LEFT, false, true));
+		B_STRING_TYPE, ComposeStringWidth(60), B_ALIGN_LEFT, false, true));
 #endif
 
 	menu->AddItem(NewAttributeMenuItem(B_TRANSLATE("Permissions"),
-		kAttrStatMode, B_STRING_TYPE, 80, B_ALIGN_LEFT, false, true));
+		kAttrStatMode, B_STRING_TYPE, ComposeStringWidth(80), B_ALIGN_LEFT, false, true));
 
 	MarkAttributesMenu(menu);
 }

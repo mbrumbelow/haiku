@@ -188,13 +188,13 @@ BQueryPoseView::SetupDefaultColumnsIfNeeded()
 	if (CountColumns() != 0)
 		return;
 
-	AddColumn(new BColumn(B_TRANSLATE("Name"), 145,
+	AddColumn(new BColumn(B_TRANSLATE("Name"), ComposeStringWidth(145) + ListIconSize(),
 		B_ALIGN_LEFT, kAttrStatName, B_STRING_TYPE, true, true));
-	AddColumn(new BColumn(B_TRANSLATE("Location"), 225,
+	AddColumn(new BColumn(B_TRANSLATE("Location"), ComposeStringWidth(225),
 		B_ALIGN_LEFT, kAttrPath, B_STRING_TYPE, true, false));
-	AddColumn(new BColumn(B_TRANSLATE("Size"), 80,
+	AddColumn(new BColumn(B_TRANSLATE("Size"), ComposeStringWidth(80),
 		B_ALIGN_RIGHT, kAttrStatSize, B_OFF_T_TYPE, true, false));
-	AddColumn(new BColumn(B_TRANSLATE("Modified"), 150,
+	AddColumn(new BColumn(B_TRANSLATE("Modified"), ComposeStringWidth(150),
 		B_ALIGN_LEFT, kAttrStatModified, B_TIME_TYPE, true, false));
 }
 

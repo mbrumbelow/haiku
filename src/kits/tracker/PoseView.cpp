@@ -514,14 +514,12 @@ BPoseView::AddColumnList(BObjectList<BColumn>* list)
 		// Always realign columns, since the title-view snaps on resize anyway.
 		column->SetOffset(nextLeftEdge);
 
-		nextLeftEdge = column->Offset() + column->Width()
-			- kRoomForLine / 2.0f + kTitleColumnExtraMargin;
+		nextLeftEdge = column->Offset() + kColumnLeftMargin + column->Width() + kColumnRightMargin
+			- kRoomForLine / 2;
 		fColumnList->AddItem(column);
 
-		if (!IsWatchingDateFormatChange()
-			&& column->AttrType() == B_TIME_TYPE) {
+		if (!IsWatchingDateFormatChange() && column->AttrType() == B_TIME_TYPE)
 			StartWatchDateFormatChange();
-		}
 	}
 
 	if (fTitleView != NULL)
@@ -643,11 +641,11 @@ BPoseView::SetupDefaultColumnsIfNeeded()
 	if (CountColumns() != 0)
 		return;
 
-	AddColumn(new BColumn(B_TRANSLATE("Name"), 145,
+	AddColumn(new BColumn(B_TRANSLATE("Name"), ComposeStringWidth(145) + ListIconSize(),
 		B_ALIGN_LEFT, kAttrStatName, B_STRING_TYPE, true, true));
-	AddColumn(new BColumn(B_TRANSLATE("Size"), 80,
+	AddColumn(new BColumn(B_TRANSLATE("Size"), ComposeStringWidth(80),
 		B_ALIGN_RIGHT, kAttrStatSize, B_OFF_T_TYPE, true, false));
-	AddColumn(new BColumn(B_TRANSLATE("Modified"), 150,
+	AddColumn(new BColumn(B_TRANSLATE("Modified"), ComposeStringWidth(150),
 		B_ALIGN_LEFT, kAttrStatModified, B_TIME_TYPE, true, false));
 
 	if (!IsWatchingDateFormatChange())
@@ -2746,7 +2744,24 @@ BPoseView::RemoveColumn(BColumn* columnToRemove, bool runAlert)
 		return false;
 	}
 
+	// make sure last name column is not removed
+	BColumn* nameColumn = ColumnFor(AttrHashString(kAttrStatName, B_STRING_TYPE));
+	BColumn* realNameColumn = ColumnFor(AttrHashString(kAttrRealName, B_STRING_TYPE));
+	if ((columnToRemove == nameColumn && fColumnList->IndexOf(realNameColumn) < 0)
+		|| (columnToRemove == realNameColumn && fColumnList->IndexOf(nameColumn) < 0)) {
+		if (runAlert) {
+			BAlert* alert = new BAlert("",
+				B_TRANSLATE("You must have at least one name attribute showing."),
+				B_TRANSLATE("Cancel"), 0, 0, B_WIDTH_AS_USUAL, B_WARNING_ALERT);
+			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
+			alert->Go();
+		}
+
+		return false;
+	}
+
 	// column exists so remove it from list
+	bool isIconColumn = columnToRemove == NameColumn() || columnToRemove == RealNameColumn();
 	int32 columnIndex = IndexOfColumn(columnToRemove);
 	float offset = columnToRemove->Offset();
 
@@ -2763,13 +2778,14 @@ BPoseView::RemoveColumn(BColumn* columnToRemove, bool runAlert)
 	int32 count = CountColumns();
 	for (int32 index = columnIndex; index < count; index++) {
 		BColumn* column = ColumnAt(index);
-		column->SetOffset(column->Offset()
-			- (attrWidth + kTitleColumnExtraMargin));
+		column->SetOffset(column->Offset() - (attrWidth + kColumnMargins));
 	}
 
-	BRect rect(Bounds());
-	rect.left = offset;
-	Invalidate(rect);
+	BRect bounds(Bounds());
+	if (isIconColumn)
+		bounds.left = offset - ListIconSize();
+			// invalidate icon area
+	Invalidate(bounds);
 
 	ContainerWindow()->MarkAttributesMenu();
 
@@ -2816,7 +2832,7 @@ BPoseView::AddColumn(BColumn* newColumn, const BColumn* after)
 	float offset;
 	int32 afterColumnIndex;
 	if (after != NULL) {
-		offset = after->Offset() + after->Width() + kTitleColumnExtraMargin;
+		offset = after->Offset() + after->Width() + kColumnMargins;
 		afterColumnIndex = IndexOfColumn(after);
 	} else {
 		offset = StartOffset();
@@ -2854,12 +2870,24 @@ BPoseView::AddColumn(BColumn* newColumn, const BColumn* after)
 	for (int32 index = afterColumnIndex + 2; index < count; index++) {
 		BColumn* column = ColumnAt(index);
 		ASSERT(newColumn != column);
-		column->SetOffset(column->Offset() + (attrWidth
-			+ kTitleColumnExtraMargin));
+		column->SetOffset(column->Offset() + (attrWidth + kColumnMargins));
 	}
 
-	rect.left = offset;
+	rect.left = newColumn->Offset();
+
+	if (newColumn == NameColumn()) {
+		// Name is the new select column
+		rect.left -= ListIconSize();
+			// invalidate new icon area
+		if (RealNameColumnIndex() >= 0) {
+			// invalidate Real name including old icon area if present
+			float left = RealNameColumn()->Offset() - ListIconSize();
+			float right = RealNameColumn()->Width() + ListIconSize();
+			Invalidate(BRect(left, rect.top, right, rect.bottom));
+		}
+	}
 	Invalidate(rect);
+
 	ContainerWindow()->MarkAttributesMenu();
 
 	// Check if this is a time attribute and if so,
@@ -6095,7 +6123,7 @@ BPoseView::MoveListToTrash(BObjectList<entry_ref, true>* list, bool selectNext,
 		BPose* pose = fSelectionList->ItemAt(0);
 
 		// find a point in the pose
-		BPoint pointInPose(fListOffset + 5, 5);
+		BPoint pointInPose(StartOffset() + 5, 5);
 		int32 index = IndexOfPose(pose);
 		pointInPose.y += fListElemHeight * index;
 
@@ -6312,7 +6340,7 @@ BPoseView::Delete(BObjectList<entry_ref, true>* list, bool selectNext, bool conf
 		BPose* pose = fSelectionList->ItemAt(0);
 
 		// find a point in the pose
-		BPoint pointInPose(fListOffset + 5, 5);
+		BPoint pointInPose(StartOffset() + 5, 5);
 		int32 index = IndexOfPose(pose);
 		pointInPose.y += fListElemHeight * index;
 
@@ -6353,7 +6381,7 @@ BPoseView::RestoreItemsFromTrash(BObjectList<entry_ref, true>* list, bool select
 		BPose* pose = fSelectionList->ItemAt(0);
 
 		// find a point in the pose
-		BPoint pointInPose(fListOffset + 5, 5);
+		BPoint pointInPose(StartOffset() + 5, 5);
 		int32 index = IndexOfPose(pose);
 		pointInPose.y += fListElemHeight * index;
 
@@ -8120,7 +8148,7 @@ BPose*
 BPoseView::FirstVisiblePose(int32* _index) const
 {
 	ASSERT(ViewMode() == kListMode);
-	return FindPose(BPoint(fListOffset,
+	return FindPose(BPoint(StartOffset(),
 		Bounds().top + fListElemHeight - 1), _index);
 }
 
@@ -8129,7 +8157,7 @@ BPose*
 BPoseView::LastVisiblePose(int32* _index) const
 {
 	ASSERT(ViewMode() == kListMode);
-	BPose* pose = FindPose(BPoint(fListOffset, Bounds().top + Frame().Height()
+	BPose* pose = FindPose(BPoint(StartOffset(), Bounds().top + Frame().Height()
 		- fListElemHeight + 2), _index);
 	if (pose == NULL) {
 		// Just get the last one
@@ -8927,29 +8955,39 @@ BPoseView::RecalcExtent()
 BRect
 BPoseView::Extent() const
 {
-	BRect rect;
+	if (ViewMode() == kListMode)
+		return ListModeExtent();
+	else
+		return IconModeExtent();
+}
 
-	if (ViewMode() == kListMode) {
-		BColumn* column = fColumnList->LastItem();
-		if (column != NULL) {
-			rect.left = rect.top = 0;
-			rect.right = column->Offset() + column->Width()
-				+ kTitleColumnRightExtraMargin - kRoomForLine / 2.0f;
-			rect.bottom = fListElemHeight * CurrentPoseList()->CountItems();
-		} else
-			rect.Set(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
-	} else {
-		rect = fExtent;
-		rect.left -= fOffset.x;
-		rect.top -= fOffset.y;
-		rect.right += fOffset.x;
-		rect.bottom += fOffset.y;
-		if (!rect.IsValid())
-			rect.Set(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
-	}
+
+BRect
+BPoseView::ListModeExtent() const
+{
+	BColumn* column = fColumnList->LastItem();
+	if (column == NULL)
+		return BRect(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
+
+	BRect rect;
+	rect.left = rect.top = 0;
+	rect.right = column->Offset() + column->Width() + kColumnMargins - kRoomForLine / 2;
+	rect.bottom = fListElemHeight * CurrentPoseList()->CountItems();
 
 	return rect;
 }
+
+
+BRect
+BPoseView::IconModeExtent() const
+{
+	BRect rect(fExtent.InsetByCopy(-fOffset));
+	if (!rect.IsValid())
+		rect.Set(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
+
+	return rect;
+}
+
 
 
 void
@@ -9573,10 +9611,8 @@ BPoseView::ResizeColumn(BColumn* column, float newSize, float* lastLineDrawPos,
 
 	bool shrinking = newSize < column->Width();
 	columnDrawRect.left = column->Offset();
-	columnDrawRect.right = column->Offset() + kTitleColumnRightExtraMargin
-		- kRoomForLine + newSize;
-	sourceRect.left = column->Offset() + kTitleColumnRightExtraMargin
-		- kRoomForLine + column->Width();
+	columnDrawRect.right = column->Offset() + kColumnRightMargin + newSize - kRoomForLine;
+	sourceRect.left = column->Offset() + kColumnRightMargin + column->Width() - kRoomForLine;
 	destRect.left = columnDrawRect.right;
 	destRect.right = destRect.left + sourceRect.Width();
 	invalidateRect.left = destRect.right;
@@ -9590,7 +9626,8 @@ BPoseView::ResizeColumn(BColumn* column, float newSize, float* lastLineDrawPos,
 		column = fColumnList->ItemAt(index);
 		column->SetOffset(offset);
 		BColumn* last = column;
-		offset = last->Offset() + last->Width() + kTitleColumnExtraMargin;
+		offset = last->Offset() + kColumnLeftMargin + last->Width() + kColumnRightMargin
+			- kRoomForLine / 2;
 	}
 
 	if (shrinking) {
@@ -9631,9 +9668,14 @@ void
 BPoseView::MoveColumnTo(BColumn* src, BColumn* dest)
 {
 	// find the leftmost boundary of columns we are about to reshuffle
-	float miny = src->Offset();
-	if (miny > dest->Offset())
-		miny = dest->Offset();
+	float minx = src->Offset();
+
+	// get the leftmost column offset
+	if (minx > dest->Offset())
+		minx = dest->Offset();
+
+	bool isIconColumn = src == NameColumn() || src == RealNameColumn()
+		|| dest == NameColumn() || dest == RealNameColumn();
 
 	// ensure columns are in proper order in list
 	int32 index = fColumnList->IndexOf(dest);
@@ -9646,17 +9688,72 @@ BPoseView::MoveColumnTo(BColumn* src, BColumn* dest)
 		BColumn* column = fColumnList->ItemAt(index);
 		column->SetOffset(offset);
 		BColumn* last = column;
-		offset = last->Offset() + last->Width() + kTitleColumnExtraMargin
-			- kRoomForLine / 2;
+		offset = last->Offset() + last->Width() + kColumnMargins - kRoomForLine / 2;
 	}
 
-	// invalidate everything to the right of miny
+	// invalidate everything to the right of minx
 	BRect bounds(Bounds());
-	bounds.left = miny;
+	if (isIconColumn)
+		bounds.left = minx - ListIconSize();
+			// invalidate icon area
+
 	Invalidate(bounds);
 
 	fStateNeedsSaving =  true;
 }
+
+
+BColumn*
+BPoseView::SelectColumn() const
+{
+	// Name if you got it, otherwise Real name, otherwise column 0
+	BColumn* nameColumn = NameColumn();
+	if (nameColumn != NULL)
+		return nameColumn;
+
+	BColumn* realNameColumn = RealNameColumn();
+	if (realNameColumn != NULL)
+		return realNameColumn;
+
+	// this should never happen
+	return ColumnAt(0);
+}
+
+
+int32
+BPoseView::SelectColumnIndex() const
+{
+	return IndexOfColumn(SelectColumn());
+}
+
+
+BColumn*
+BPoseView::NameColumn() const
+{
+	return ColumnFor(AttrHashString(kAttrStatName, B_STRING_TYPE));
+}
+
+
+int32
+BPoseView::NameColumnIndex() const
+{
+	return IndexOfColumn(NameColumn());
+}
+
+
+BColumn*
+BPoseView::RealNameColumn() const
+{
+	return ColumnFor(AttrHashString(kAttrRealName, B_STRING_TYPE));
+}
+
+
+int32
+BPoseView::RealNameColumnIndex() const
+{
+	return IndexOfColumn(RealNameColumn());
+}
+
 
 
 bool

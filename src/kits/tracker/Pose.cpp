@@ -504,15 +504,15 @@ BPose::PointInPose(BPoint poseLoc, const BPoseView* poseView, BPoint where,
 	if (hitWidget != NULL)
 		*hitWidget = NULL;
 
-	// check intersection with icon
-	BRect rect = _ListIconRect(poseView, where);
-	if (rect.Contains(where))
-		return true;
-
 	for (int32 index = 0; ; index++) {
 		BColumn* column = poseView->ColumnAt(index);
 		if (column == NULL)
 			break;
+
+		// check intersection with icon
+		BRect rect = _ListIconRect(poseView, column, where);
+		if (rect.Contains(where))
+			return true;
 
 		BTextWidget* widget = WidgetFor(column->AttrHash());
 		if (widget != NULL && widget->CalcClickRect(poseLoc, column, poseView).Contains(where)) {
@@ -531,8 +531,8 @@ void
 BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* drawView,
 	bool fullDraw, BPoint offset, bool selected)
 {
-	ASSERT(poseView);
-	ASSERT(poseView->Window());
+	ASSERT(poseView != NULL);
+	ASSERT(poseView->Window() != NULL);
 
 	// If the background wasn't cleared and Draw() is not called after
 	// having edited a name or similar (with fullDraw)
@@ -582,11 +582,7 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* dra
 
 	if (poseView->ViewMode() == kListMode) {
 		// draw in list mode
-		BRect iconRect = _ListIconRect(poseView, rect.LeftTop());
-		if (updateRect.Intersects(iconRect)) {
-			iconRect.OffsetBy(offset);
-			DrawIcon(iconRect.LeftTop(), drawView, poseView->IconSize(), drawIconUnselected);
-		}
+		int32 selectedIndex = poseView->SelectColumnIndex();
 
 		int32 columnsToDraw = 1;
 		if (fullDraw)
@@ -603,13 +599,22 @@ BPose::Draw(BRect rect, const BRect& updateRect, BPoseView* poseView, BView* dra
 				if (columnRect.Intersects(updateRect)) {
 					BRect widgetRect(widget->CalcRect(rect.LeftTop(), column, poseView));
 
-					// draw dragged text and all columns after the first one unselected
-					if (dragging || index > 0)
+					// draw icon
+					if (index == selectedIndex) {
+						BRect iconRect = _ListIconRect(poseView, column, rect.LeftTop());
+						DrawIcon(iconRect.LeftTop() + offset, drawView, poseView->IconSize(),
+							drawIconUnselected);
+						widgetRect.OffsetBy(iconRect.Width(), 0);
+							// offset text rect by the icon amount
+					}
+
+					// draw dragged text and non-select columns unselected
+					if (dragging)
 						selected = false;
 
 					// draw text
 					DrawTextWidget(columnRect, widgetRect, column->Width(), widget, poseView,
-						drawView, selected, fClipboardMode, offset);
+						drawView, selected && index == selectedIndex, fClipboardMode, offset);
 				}
 			}
 		}
@@ -903,8 +908,7 @@ BPose::CalcRect(BPoint loc, const BPoseView* poseView, bool minimalRect) const
 	if (minimalRect) {
 		BTextWidget* widget = WidgetFor(poseView->FirstColumn()->AttrHash());
 		if (widget != NULL) {
-			rect.right = widget->CalcRect(loc, poseView->FirstColumn(),
-				poseView).right;
+			rect.right = widget->CalcRect(loc, poseView->FirstColumn(), poseView).right;
 		}
 	}
 
@@ -948,14 +952,14 @@ BPose::CalcRect(const BPoseView* poseView) const
 
 
 BRect
-BPose::_ListIconRect(const BPoseView* poseView, BPoint location) const
+BPose::_ListIconRect(const BPoseView* poseView, BColumn* column, BPoint location) const
 {
 	ASSERT(poseView != NULL);
 
 	BRect rect;
 	uint32 iconSize = poseView->IconSizeInt();
 
-	rect.left = location.x + poseView->ListOffset();
+	rect.left = location.x + column->Offset() - kColumnRightMargin;
 	rect.right = rect.left + iconSize;
 	rect.top = location.y + roundf((poseView->ListElemHeight() - iconSize) / 2);
 	rect.bottom = rect.top + iconSize;

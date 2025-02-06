@@ -756,6 +756,8 @@ NameAttributeText::FitValue(BString* outString, const BPoseView* view)
 		ReadValue(&fFullValueText);
 
 	fOldWidth = fColumn->Width();
+	if (fColumn == view->SelectColumn())
+		fOldWidth -= (ListIconSize() + kColumnRightMargin);
 	fTruncatedWidth = TruncString(outString, fFullValueText.String(),
 		fFullValueText.Length(), view, fOldWidth, B_TRUNCATE_MIDDLE);
 	fDirty = false;
@@ -849,6 +851,8 @@ RealNameAttributeText::FitValue(BString* outString, const BPoseView* view)
 		ReadValue(&fFullValueText);
 
 	fOldWidth = fColumn->Width();
+	if (fColumn == view->SelectColumn())
+		fOldWidth -= (ListIconSize() + kColumnRightMargin);
 	fTruncatedWidth = TruncString(outString, fFullValueText.String(),
 		fFullValueText.Length(), view, fOldWidth, B_TRUNCATE_MIDDLE);
 	fDirty = false;

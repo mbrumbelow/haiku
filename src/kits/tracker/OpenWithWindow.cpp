@@ -807,17 +807,17 @@ OpenWithPoseView::SetupDefaultColumnsIfNeeded()
 	if (CountColumns() != 0)
 		return;
 
-	BColumn* nameColumn = new BColumn(B_TRANSLATE("Name"), 125,
+	BColumn* nameColumn = new BColumn(B_TRANSLATE("Name"), ComposeStringWidth(145) + ListIconSize(),
 		B_ALIGN_LEFT, kAttrStatName, B_STRING_TYPE, true, true);
 	AddColumn(nameColumn);
 
-	BColumn* relationColumn = new BColumn(B_TRANSLATE("Relation"), 100,
+	BColumn* relationColumn = new BColumn(B_TRANSLATE("Relation"), ComposeStringWidth(100),
 		B_ALIGN_LEFT, kAttrOpenWithRelation, B_STRING_TYPE, false, false);
 	AddColumn(relationColumn);
 
-	AddColumn(new BColumn(B_TRANSLATE("Location"), 225,
+	AddColumn(new BColumn(B_TRANSLATE("Location"), ComposeStringWidth(225),
 		B_ALIGN_LEFT, kAttrPath, B_STRING_TYPE, true, false));
-	AddColumn(new BColumn(B_TRANSLATE("Version"), 70,
+	AddColumn(new BColumn(B_TRANSLATE("Version"), ComposeStringWidth(70),
 		B_ALIGN_LEFT, kAttrAppVersion, B_STRING_TYPE, false, false));
 
 	// sort by relation and by name

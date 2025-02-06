@@ -231,6 +231,9 @@ BTextWidget::CalcClickRect(BPoint poseLoc, const BColumn* column, const BPoseVie
 			rect.right = rect.left + kWidthMargin;
 	}
 
+	if (column == view->SelectColumn())
+		rect.OffsetBy(view->IconSizeInt(), 0);
+
 	return rect;
 }
 
