@@ -58,6 +58,13 @@ const char* kUTF8ControlMap[] = {
 static const char* kDeleteShortcutUTF8 = "\xe2\x8c\xa6"; /* B_DELETE U+2326 */
 
 
+static uint32
+AllowedModifiers()
+{
+	return B_COMMAND_KEY | B_OPTION_KEY | B_SHIFT_KEY | B_CONTROL_KEY | B_MENU_KEY;
+}
+
+
 using BPrivate::MenuPrivate;
 
 
@@ -70,7 +77,12 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut, uint32
 	SetMessage(message);
 
 	fShortcutChar = shortcut;
-	fModifiers = (fShortcutChar != 0 ? modifiers : 0);
+	if (fShortcutChar == 0)
+		fModifiers = 0;
+	else if ((modifiers & B_NO_COMMAND_KEY) != 0)
+		fModifiers = modifiers & (AllowedModifiers()) & ~B_COMMAND_KEY;
+	else
+		fModifiers = (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
 }
 
 
@@ -276,7 +288,12 @@ BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
 
 	fShortcutChar = shortcut;
-	fModifiers = (fShortcutChar != 0 ? modifiers : 0);
+	if (fShortcutChar == 0)
+		fModifiers = 0;
+	else if ((modifiers & B_NO_COMMAND_KEY) != 0)
+		fModifiers = (modifiers & AllowedModifiers()) & ~B_COMMAND_KEY;
+	else
+		fModifiers = (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
 
 	if (fShortcutChar != 0 && fWindow != NULL)
 		fWindow->_AddShortcut(fShortcutChar, fModifiers, this);
