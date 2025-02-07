@@ -16,6 +16,24 @@
       "message": "You should add the ticket fixed into the commit message.",
       "revId": "e388a427e26a6e42aa333fd3a74763bf23565d21",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf5b479e_55066da8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2025-02-07T20:02:56Z",
+      "side": 1,
+      "message": "Done.  Thank you!",
+      "parentUuid": "9aeca9e2_c710b202",
+      "revId": "e388a427e26a6e42aa333fd3a74763bf23565d21",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
