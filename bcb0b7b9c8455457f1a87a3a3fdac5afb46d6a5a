@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e24c089_838a3fa7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-02-07T06:18:27Z",
+      "side": 1,
+      "message": "Commit message do not describe purpose of this change. Why use?",
+      "revId": "bcb0b7b9c8455457f1a87a3a3fdac5afb46d6a5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c23486e0_d1845185",
