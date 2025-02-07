@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd7c5c8f_0c7f6ed2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-02-07T06:21:58Z",
+      "side": 1,
+      "message": "Why it is even allowed to pass NULL? Maybe some assert/debugger() call is better idea?",
+      "revId": "2291698e5f5028254d782cfbaf143f5a1bdb90a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
