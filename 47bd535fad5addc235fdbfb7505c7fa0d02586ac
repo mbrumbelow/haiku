@@ -16,6 +16,23 @@
       "message": "I updated with more methods pulled from BWindow::Shortcut but I didn\u0027t fix the style as you requested, instead I made worse by pulling more methods from BWindow::Shortcut into BMenuItem.",
       "revId": "47bd535fad5addc235fdbfb7505c7fa0d02586ac",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37424cce_c18ff119",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-07T07:49:36Z",
+      "side": 1,
+      "message": "Do the heavy lifting in BWindow removing extra methods. Modified _AddShorcut() (private and used on by BMenuItem) to my purposes. +1 assuming my commented line of code is ok.",
+      "revId": "47bd535fad5addc235fdbfb7505c7fa0d02586ac",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
