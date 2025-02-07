@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9418a497_29176e79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-07T12:14:56Z",
+      "side": 1,
+      "message": "Don\u0027t merge just yet, the gradient is too aggressive.",
+      "revId": "3a9c3eb52006b1a4f4190023512ac5b659f153c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
