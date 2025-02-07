@@ -195,6 +195,24 @@
       "parentUuid": "824004be_f4d1e246",
       "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a56e52_3768d813",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-07T00:03:47Z",
+      "side": 1,
+      "message": "If you read the BeBook overview page it says that BControl is an abstract class. While not technically true as it has a basic implementation, but in spirit it’s true. BControl itself doesn’t mean much when it comes to colors or anything else, it does three things: provides enabled status, an int32 value, and an Invoker/Invoke(), that’s it. Given that, it’s not appropriate for BControl to set colors, you’ll have to make that decision in the concrete class for yourself.",
+      "parentUuid": "7553f9ef_2e1098f8",
+      "revId": "7b73f065a86e9751ec74963b82b44e231f93dd18",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
