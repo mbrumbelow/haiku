@@ -22,6 +22,7 @@
 #include <MenuItem.h>
 #include <Shape.h>
 #include <String.h>
+#include <UnicodeChar.h>
 #include <Window.h>
 
 #include <MenuPrivate.h>
@@ -58,6 +59,33 @@ const char* kUTF8ControlMap[] = {
 static const char* kDeleteShortcutUTF8 = "\xe2\x8c\xa6"; /* B_DELETE U+2326 */
 
 
+/* TODO These are copied from BWindow::Shortcut, move BWindow::Shortcut to shared */
+
+
+static uint32
+AllowedModifiers()
+{
+	return B_COMMAND_KEY | B_OPTION_KEY | B_SHIFT_KEY | B_CONTROL_KEY | B_MENU_KEY;
+}
+
+
+static uint32
+PrepareKey(uint32 key)
+{
+	return BUnicodeChar::ToUpper(key);
+}
+
+
+static uint32
+PrepareModifiers(uint32 modifiers)
+{
+	if ((modifiers & B_NO_COMMAND_KEY) != 0)
+		return (modifiers & AllowedModifiers()) & ~B_COMMAND_KEY;
+	else
+		return (modifiers & AllowedModifiers()) | B_COMMAND_KEY;
+}
+
+
 using BPrivate::MenuPrivate;
 
 
@@ -69,8 +97,11 @@ BMenuItem::BMenuItem(const char* label, BMessage* message, char shortcut, uint32
 
 	SetMessage(message);
 
-	fShortcutChar = shortcut;
-	fModifiers = (fShortcutChar != 0 ? modifiers : 0);
+	fShortcutChar = PrepareKey(shortcut);
+	if (fShortcutChar == 0)
+		fModifiers = 0;
+	else
+		fModifiers = PrepareModifiers(modifiers);
 }
 
 
@@ -275,8 +306,11 @@ BMenuItem::SetShortcut(char shortcut, uint32 modifiers)
 	if (fShortcutChar != 0 && fWindow != NULL)
 		fWindow->RemoveShortcut(fShortcutChar, fModifiers);
 
-	fShortcutChar = shortcut;
-	fModifiers = (fShortcutChar != 0 ? modifiers : 0);
+	fShortcutChar = PrepareKey(shortcut);
+	if (fShortcutChar == 0)
+		fModifiers = 0;
+	else
+		fModifiers = PrepareModifiers(modifiers);
 
 	if (fShortcutChar != 0 && fWindow != NULL)
 		fWindow->_AddShortcut(fShortcutChar, fModifiers, this);

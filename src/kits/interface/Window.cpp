@@ -99,6 +99,8 @@ public:
 
 			bool			Matches(uint32 key, uint32 modifiers) const;
 
+			uint32			Key() const { return fKey; };
+			uint32			Modifiers() const { return fModifiers; };
 			BMenuItem*		MenuItem() const { return fMenuItem; }
 			BMessage*		Message() const { return fMessage; }
 			BHandler*		Target() const { return fTarget; }
@@ -1691,7 +1693,7 @@ BWindow::_AddShortcut(uint32 key, uint32 modifiers, BMenuItem* item)
 		return;
 
 	// removes the shortcut if it already exists!
-	RemoveShortcut(key, modifiers);
+	RemoveShortcut(shortcut->Key(), shortcut->Modifiers());
 
 	fShortcuts.AddItem(shortcut);
 }
@@ -1715,7 +1717,7 @@ BWindow::AddShortcut(uint32 key, uint32 modifiers, BMessage* message, BHandler* 
 		return;
 
 	// removes the shortcut if it already exists!
-	RemoveShortcut(key, modifiers);
+	RemoveShortcut(shortcut->Key(), shortcut->Modifiers());
 
 	fShortcuts.AddItem(shortcut);
 }
