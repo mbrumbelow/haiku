@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00dad1da_76544cfe",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-07T05:43:44Z",
+      "side": 1,
+      "message": "But why? I don\u0027t see the point. Let BWindow deal with all that, we just need to run the one test here.",
+      "parentUuid": "4af0df5a_20ebf8c5",
+      "revId": "086ca74c2ffdc6e22671096100ff53871474cfd8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3986d642_5339c7e9",
         "filename": "src/kits/interface/MenuItem.cpp",
         "patchSetId": 3
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "SetShortcut() does other stuff I don\u0027t want to do like InvalidateLayout()",
       "parentUuid": "3986d642_5339c7e9",
+      "revId": "086ca74c2ffdc6e22671096100ff53871474cfd8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1000c576_249c6345",
+        "filename": "src/kits/interface/MenuItem.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-07T05:43:44Z",
+      "side": 1,
+      "message": "It won\u0027t do that if there\u0027s no window, which there won\u0027t be in the constructor.",
+      "parentUuid": "b5583a95_aba9f13f",
       "revId": "086ca74c2ffdc6e22671096100ff53871474cfd8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
