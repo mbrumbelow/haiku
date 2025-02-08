@@ -34,6 +34,24 @@
       "parentUuid": "f88906e0_efd19421",
       "revId": "e4ef7b6075d37e252237c3663701c6b641ba62f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5353cdec_447889ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-08T22:55:10Z",
+      "side": 1,
+      "message": "I generally think we should have such bypasses as that inside BWindow, yes. It\u0027s unfortunate that shortcuts are attached to windows and not views, but oh well.",
+      "parentUuid": "16623a84_e045cbd2",
+      "revId": "e4ef7b6075d37e252237c3663701c6b641ba62f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
