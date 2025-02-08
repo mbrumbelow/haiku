@@ -506,6 +506,11 @@ TTracker::MessageReceived(BMessage* message)
 			SetDefaultPrinter(message);
 			break;
 
+		case kAddOnLoaded:
+			// received message from add-on to load
+			AddOnLoaded();
+			break;
+
 #ifdef MOUNT_MENU_IN_DESKBAR
 		case 'gmtv':
 		{
@@ -1349,6 +1354,24 @@ TTracker::SaveAllPoseLocations()
 				deskWindow->SaveDesktopPoseLocations();
 			else
 				window->PoseView()->SavePoseLocations();
+		}
+	}
+}
+
+
+void
+TTracker::AddOnLoaded()
+{
+	// this is a response to an add-on sending us B_MESSAGE_ADDON_LOADED
+	AutoLock<WindowList> lock(&fWindowList);
+
+	int32 count = CountWindows();
+	for (int32 index = 0; index < count; index++) {
+		BWindow* window = WindowAt(index);
+		// avoid the desktop
+		if (dynamic_cast<BDeskWindow*>(window) == NULL
+			&& dynamic_cast<BStatusWindow*>(window) == NULL) {
+			window->PostMessage(kAddOnLoaded);
 		}
 	}
 }

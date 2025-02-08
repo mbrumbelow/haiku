@@ -196,6 +196,8 @@ private:
 	void InstallIndices();
 	void InstallIndices(dev_t);
 
+	void AddOnLoaded();
+
 	void CloseAllWindows();
 	void CloseWindowAndChildren(const node_ref*);
 	void CloseAllInWorkspace();

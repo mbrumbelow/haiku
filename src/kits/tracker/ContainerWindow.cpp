@@ -1437,6 +1437,11 @@ BContainerWindow::MessageReceived(BMessage* message)
 			LoadAddOn(message);
 			break;
 
+		case kAddOnLoaded:
+			if (fMenuBar != NULL)
+				RebuildAddOnMenus(fMenuBar);
+			break;
+
 		case kCopySelectionTo:
 		{
 			entry_ref ref;
