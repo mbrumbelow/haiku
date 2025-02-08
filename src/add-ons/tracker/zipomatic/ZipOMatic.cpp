@@ -50,7 +50,7 @@ void
 ZipOMatic::RefsReceived(BMessage* message)
 {
 	entry_ref ref;
-	if (message->FindRef("refs", &ref) == B_OK) {
+	if (message->what == B_MESSAGE_LOAD_ADDON && message->FindRef("refs", &ref) == B_OK) {
 		_UseExistingOrCreateNewWindow(message);
 		fGotRefs = true;
 	} else if (!IsLaunching()) {
