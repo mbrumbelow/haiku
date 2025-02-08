@@ -1,4 +1,5 @@
 /*
+ * Copyright 2023-2025 Haiku, Inc. All rights reserved.
  * Copyright 2005-2007 Ingo Weinhold, bonefish@users.sf.net
  * Copyright 2005-2013 Axel Dörfler, axeld@pinc-software.de
  * Copyright 2009 Jonas Sundström, jonas@kirilla.se
@@ -16,6 +17,7 @@
 #include <termios.h>
 
 #include <Application.h>
+#include <Directory.h>
 #include <Path.h>
 #include <String.h>
 #include <fs_volume.h>
@@ -41,11 +43,11 @@ typedef set<string> StringSet;
 // usage
 static const char* kUsage =
 	"Usage: %s <options> [ <volume name> ... ]\n\n"
-	"Mounts the volume with name <volume name>, if given. Lists info about\n"
-	"mounted and mountable volumes and mounts/unmounts volumes.\n"
+	"Mounts the partition with name <volume name> if given. Lists info about\n"
+	"mounted and mountable volumes and mounts/unmounts partitions.\n"
 	"\n"
-	"The terminology is actually not quite correct: By volumes only partitions\n"
-	"living on disk devices are meant.\n"
+	"If -all, -allbfs, -allhfs or -alldos with no <volume name> specified\n"
+	"all mountable volumes of that type are mounted.\n"
 	"\n"
 	"Options:\n"
 	"[general]\n"
@@ -53,18 +55,17 @@ static const char* kUsage =
 	"  -h, --help            - print this info text\n"
 	"\n"
 	"[mounting]\n"
-	"  -all                  - mount all mountable volumes\n"
-	"  -allbfs               - mount all mountable BFS volumes\n"
-	"  -allhfs               - mount all mountable HFS volumes\n"
-	"  -alldos               - mount all mountable DOS volumes\n"
+	"  -all                  - mount all partitions on <volume name>\n"
+	"  -allbfs               - mount all BFS partitions on <volume name>\n"
+	"  -allhfs               - mount all HFS partitions on <volume name>\n"
+	"  -alldos               - mount all DOS partitions on <volume name>\n"
 	"  -ro, -readonly        - mount volumes read-only\n"
-	"  -u, -unmount <volume> - unmount the volume with the name <volume>\n"
+	"  -u, -unmount          - unmount the volume <volume name>\n"
 	"  -open                 - opens the mounted volumes in Tracker\n"
 	"\n"
 	"[info]\n"
 	"  -p, -l                - list all mounted and mountable volumes\n"
-	"  -lh                   - list all existing volumes (incl. not-mountable "
-		"ones)\n"
+	"  -lh                   - list all existing volumes (incl. not-mountable ones)\n"
 	"  -dd                   - list all disk existing devices\n"
 	"\n"
 	"[obsolete]\n"
@@ -121,17 +122,12 @@ size_string(int64 size)
 
 
 static status_t
-open_in_tracker(BPartition* partition)
+open_in_tracker(BPath mountPoint)
 {
-	BPath mountPoint;
-	status_t status = partition->GetMountPoint(&mountPoint);
-	if (status != B_OK)
-		return status;
-
 	entry_ref ref;
-	status = get_ref_for_path(mountPoint.Path(), &ref);
-	if (status != B_OK)
-		return status;
+	status_t result = get_ref_for_path(mountPoint.Path(), &ref);
+	if (result != B_OK)
+		return result;
 
 	BMessage refs(B_REFS_RECEIVED);
 	refs.AddRef("refs", &ref);
@@ -145,11 +141,15 @@ open_in_tracker(BPartition* partition)
 struct MountVisitor : public BDiskDeviceVisitor {
 	MountVisitor()
 		:
+		partitionsAll(0),
+		partitionsBFS(0),
+		partitionsHFS(0),
+		partitionsDOS(0),
 		silent(false),
-		mountAll(false),
-		mountBFS(false),
-		mountHFS(false),
-		mountDOS(false),
+		all(false),
+		allBFS(false),
+		allHFS(false),
+		allDOS(false),
 		readOnly(false),
 		openInTracker(false)
 	{
@@ -162,90 +162,144 @@ struct MountVisitor : public BDiskDeviceVisitor {
 
 	virtual bool Visit(BPartition* partition, int32 level)
 	{
-		// get name and type
+		// get name
 		BString name = partition->ContentName();
 		if (name.IsEmpty())
 			name = partition->Name();
-		const char* type = partition->ContentType();
 
-		// check whether to mount
-		bool mount = false;
-		if (name && toMount.find(name.String()) != toMount.end()) {
-			toMount.erase(name.String());
-			if (!partition->IsMounted())
-				mount = true;
-			else if (!silent)
-				fprintf(stderr, "Volume `%s' already mounted.\n", name.String());
-		} else if (mountAll) {
-			mount = true;
-		} else if (mountBFS && type != NULL
-			&& strcmp(type, kPartitionTypeBFS) == 0) {
-			mount = true;
-		} else if (mountHFS && type != NULL
-			&& strcmp(type, kPartitionTypeHFS) == 0) {
-			mount = true;
-		} else if (mountDOS && type != NULL
-			&& (strcmp(type, kPartitionTypeFAT12) == 0
-				|| strcmp(type, kPartitionTypeFAT32) == 0)) {
-			mount = true;
-		}
+		// check whether to mount or unmount
+		bool mount = toUnmount.size() == 0 && ShouldMount(partition, level, name);
+		bool unmount = toUnmount.size() != 0 && ShouldUnmount(partition, level, name);
 
-		// don't try to mount a partition twice
-		if (partition->IsMounted())
-			mount = false;
-
-		// check whether to unmount
-		bool unmount = false;
-		if (name && toUnmount.find(name.String()) != toUnmount.end()) {
-			toUnmount.erase(name.String());
-			if (partition->IsMounted()) {
-				unmount = true;
-				mount = false;
-			} else if (!silent)
-				fprintf(stderr, "Volume `%s' not mounted.\n", name.String());
+		// stop visiting after first mounted volume when volume name specified
+		// unless you specify -all, -allbfs, -allhfs or -alldos
+		if (unmount) {
+			; // keep going
+		} else if (((partitionsBFS <= 1 || allBFS) || (partitionsHFS <= 1 || allHFS)
+			|| (partitionsDOS <= 1 || allDOS) || (partitionsAll <= 1 || all))) {
+			; // keep going
+		} else {
+			// stop visiting
+			return true;
 		}
 
 		// mount/unmount
 		if (mount) {
-			status_t error = partition->Mount(NULL,
-				readOnly ? B_MOUNT_READ_ONLY : 0);
+			status_t result = partition->Mount(NULL, readOnly ? B_MOUNT_READ_ONLY : 0);
+			BPath mountPoint;
+			partition->GetMountPoint(&mountPoint);
 			if (!silent) {
-				if (error >= B_OK) {
-					BPath mountPoint;
-					partition->GetMountPoint(&mountPoint);
-					printf("Volume `%s' mounted successfully at '%s'.\n", name.String(),
-						mountPoint.Path());
-				} else {
-					fprintf(stderr, "Failed to mount volume `%s': %s\n",
-						name.String(), strerror(error));
-				}
+				const char* volname = name.String();
+				const char* errmsg = strerror(result);
+				if (result == B_OK)
+					printf("Volume `%s' mounted at '%s'.\n", volname, mountPoint.Path());
+				else
+					fprintf(stderr, "Failed to mount volume `%s': %s\n", volname, errmsg);
 			}
-			if (openInTracker && error == B_OK)
-				open_in_tracker(partition);
+			if (openInTracker && result == B_OK)
+				open_in_tracker(mountPoint);
+
+			if (result == B_OK)
+				toMount.erase(name.String());
+					// remove name from mount list
 		} else if (unmount) {
-			status_t error = partition->Unmount();
+			status_t result = partition->Unmount();
 			if (!silent) {
-				if (error == B_OK) {
-					printf("Volume `%s' unmounted successfully.\n", name.String());
-				} else {
-					fprintf(stderr, "Failed to unmount volume `%s': %s\n",
-						name.String(), strerror(error));
-				}
+				const char* volname = name.String();
+				const char* errmsg = strerror(result);
+				if (result == B_OK)
+					printf("Volume `%s' unmounted.\n", volname);
+				else
+					fprintf(stderr, "Failed to unmount volume `%s': %s\n", volname, errmsg);
 			}
+
+			if (result == B_OK)
+				toUnmount.erase(name.String());
+					// remove name from unmount list
 		}
 
 		return false;
 	}
 
-	bool		silent;
+	bool ShouldMount(BPartition* partition, int32 level, BString name)
+	{
+		// check whether to mount
+		bool mount = false;
+		if (name.Length() > 0 && toMount.find(name.String()) != toMount.end()) {
+			if (!partition->IsMounted())
+				mount = true;
+			else if (!silent)
+				fprintf(stderr, "Volume `%s' already mounted.\n", name.String());
+		}
+
+		mount = UpdatePartitionTypeCounts(partition->ContentType());
+
+		if (partition->IsMounted())
+			mount = false;
+
+		return mount;
+	}
+
+	bool ShouldUnmount(BPartition* partition, int32 level, BString name)
+	{
+		// check whether to unmount
+		bool unmount = false;
+		if (name.Length() > 0 && toUnmount.find(name.String()) != toUnmount.end()) {
+			if (partition->IsMounted())
+				unmount = true;
+			else if (!silent)
+				fprintf(stderr, "Volume `%s' not mounted.\n", name.String());
+		}
+
+		return unmount;
+	}
+
+	bool UpdatePartitionTypeCounts(const char* type)
+	{
+		if (type == NULL || *type == '\0')
+			return false;
+
+		bool mount = false;
+
+		// check partition type to see if we should keep going
+		if (allBFS && strcmp(type, kPartitionTypeBFS) == 0) {
+			// bfs
+			partitionsBFS++;
+			mount = true;
+		} else if (allHFS && (strcmp(type, kPartitionTypeHFS) == 0
+				|| strcmp(type, kPartitionTypeHFSPlus) == 0)) {
+			// hfs and hfs plus
+			partitionsHFS++;
+			mount = true;
+		} else if (allDOS && (strcmp(type, kPartitionTypeFAT12) == 0
+				|| strcmp(type, kPartitionTypeFAT16) == 0
+				|| strcmp(type, kPartitionTypeFAT32) == 0
+				|| strcmp(type, kPartitionTypeEXFAT) == 0)) {
+			// dos
+			partitionsDOS++;
+			mount = true;
+		} else if (all) {
+			// all others
+			partitionsAll++;
+			mount = true;
+		}
+
+		return mount;
+	}
+
 	StringSet	toMount;
 	StringSet	toUnmount;
-	bool		mountAll;
-	bool		mountBFS;
-	bool		mountHFS;
-	bool		mountDOS;
-	bool		readOnly;
-	bool		openInTracker;
+	int32		partitionsAll;
+	int32		partitionsBFS;
+	int32		partitionsHFS;
+	int32		partitionsDOS;
+	bool		silent : 1;
+	bool		all : 1;
+	bool		allBFS : 1;
+	bool		allHFS : 1;
+	bool		allDOS : 1;
+	bool		readOnly : 1;
+	bool		openInTracker : 1;
 };
 
 
@@ -343,14 +397,12 @@ MountVolume::~MountVolume()
 void
 MountVolume::RefsReceived(BMessage* message)
 {
-	status_t status;
 	int32 refCount;
 	type_code typeFound;
+	status_t error = message->GetInfo("refs", &typeFound, &refCount);
 
-	status = message->GetInfo("refs", &typeFound, &refCount);
-	if (status != B_OK || refCount < 1) {
-		fprintf(stderr, "Failed to get info from entry_refs BMessage: %s\n",
-			strerror(status));
+	if (error != B_OK || refCount < 1) {
+		fprintf(stderr, "Failed to get info from entry_refs BMessage: %s\n", strerror(error));
 		exit(1);
 	}
 
@@ -362,12 +414,14 @@ MountVolume::RefsReceived(BMessage* message)
 	argv[0] = strdup(kAppName);
 	argv[1] = strdup("-open");
 
+	status_t result = B_NAME_NOT_FOUND;
+
 	for (int32 i = 0; i < refCount; i++) {
 		message->FindRef("refs", i, &ref);
-		status = path.SetTo(&ref);
-		if (status != B_OK) {
-			fprintf(stderr, "Failed to get a path (%s) from entry (%s): %s\n",
-				path.Path(), ref.name, strerror(status));
+		result = path.SetTo(&ref);
+		if (result != B_OK) {
+			fprintf(stderr, "Failed to get a path (%s) from entry (%s): %s\n", path.Path(),
+				ref.name, strerror(result));
 		}
 		argv[2 + i] = strdup(path.Path());
 	}
@@ -399,13 +453,13 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 		} else if (strcmp(arg, "-h") == 0 || strcmp(arg, "--help") == 0) {
 			print_usage_and_exit(false);
 		} else if (strcmp(arg, "-all") == 0) {
-			mountVisitor.mountAll = true;
+			mountVisitor.all = true;
 		} else if (strcmp(arg, "-allbfs") == 0) {
-			mountVisitor.mountBFS = true;
+			mountVisitor.allBFS = true;
 		} else if (strcmp(arg, "-allhfs") == 0) {
-			mountVisitor.mountHFS = true;
+			mountVisitor.allHFS = true;
 		} else if (strcmp(arg, "-alldos") == 0) {
-			mountVisitor.mountDOS = true;
+			mountVisitor.allDOS = true;
 		} else if (strcmp(arg, "-ro") == 0 || strcmp(arg, "-readonly") == 0) {
 			mountVisitor.readOnly = true;
 		} else if (strcmp(arg, "-u") == 0 || strcmp(arg, "-unmount") == 0) {
@@ -430,19 +484,24 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 			print_usage_and_exit(true);
 	}
 
-	// get a disk device list
+	BDiskDeviceRoster roster;
 	BDiskDeviceList deviceList;
+
 	status_t error = deviceList.Fetch();
 	if (error != B_OK) {
-		fprintf(stderr, "Failed to get the list of disk devices: %s",
-			strerror(error));
+		fprintf(stderr, "Failed to get the list of disk devices: %s\n", strerror(error));
 		exit(1);
 	}
 
-	// mount/unmount volumes
-	deviceList.VisitEachMountablePartition(&mountVisitor);
+	// only mount the specified volume(s), otherwise mount all mountable volumes
+	bool mountAllVolumes = mountVisitor.toMount.size() == 0
+		&& (mountVisitor.allBFS || mountVisitor.allHFS || mountVisitor.allDOS || mountVisitor.all);
 
-	BDiskDeviceRoster roster;
+	// mount/unmount all known volumes
+	if (mountVisitor.toUnmount.size() > 0 || mountAllVolumes)
+		deviceList.VisitEachMountablePartition(&mountVisitor);
+
+	status_t result = B_NAME_NOT_FOUND;
 
 	// try mount file images
 	for (StringSet::iterator iterator = mountVisitor.toMount.begin();
@@ -459,68 +518,143 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 		if (entry.GetPath(&path) != B_OK)
 			continue;
 
-		partition_id id = -1;
 		BDiskDevice device;
 		BPartition* partition;
+		int32 flags = mountVisitor.readOnly ? B_MOUNT_READ_ONLY : 0;
 
-		if (!strncmp(path.Path(), "/dev/", 5)) {
-			// seems to be a device path
-			if (roster.GetPartitionForPath(path.Path(), &device, &partition)
-					!= B_OK)
+		if (strncmp(path.Path(), "/dev/", 5) == 0) {
+			// seems to be a device
+			if (roster.GetPartitionForPath(path.Path(), &device, &partition) != B_OK) {
+				// no device partition found
 				continue;
+			}
+
+			// mount device partition
+			result = partition->Mount(NULL, flags);
+			if (result == B_OK) {
+				BPath mountPoint;
+				partition->GetMountPoint(&mountPoint);
+				if (!mountVisitor.silent)
+					printf("Device \"%s\" mounted at \"%s\".\n", name, mountPoint.Path());
+
+				if (mountVisitor.openInTracker)
+					open_in_tracker(mountPoint);
+
+				mountVisitor.toMount.erase(name);
+					// remove name from mount list
+			}
 		} else {
-			// a file with this name exists, so try to mount it
-			id = roster.RegisterFileDevice(path.Path());
+			partition_id id = roster.RegisterFileDevice(path.Path());
 			if (id < 0)
 				continue;
 
-			if (roster.GetPartitionWithID(id, &device, &partition) != B_OK) {
+			// an image file with this name exists, so try to mount it
+
+			BPath devicePath;
+			BDirectory deviceDirectory;
+			if (roster.GetDeviceWithID(id, &device) == B_OK && device.GetPath(&devicePath) == B_OK
+				&& devicePath.GetParent(&devicePath) == B_OK
+				&& deviceDirectory.SetTo(devicePath.Path()) == B_OK
+				&& deviceDirectory.CountEntries() > 1) {
+				// image file device with multiple partitions
+				mountVisitor.partitionsBFS = 0;
+				mountVisitor.partitionsHFS = 0;
+				mountVisitor.partitionsDOS = 0;
+				mountVisitor.partitionsAll = 0;
+				bool partitionMounted = false;
+				BEntry deviceEntry;
+				while (deviceDirectory.GetNextEntry(&deviceEntry) == B_OK) {
+					if (deviceEntry.GetPath(&devicePath) != B_OK)
+						continue;
+					if (roster.GetPartitionForPath(devicePath.Path(), &device, &partition) != B_OK)
+						continue;
+
+					if (mountVisitor.ShouldMount(partition, 0, name)) {
+						// try to mount partition
+						result = partition->Mount(NULL, flags);
+
+						// open in Tracker
+						if (result == B_OK) {
+							BPath mountPoint;
+							partition->GetMountPoint(&mountPoint);
+							if (!mountVisitor.silent) {
+								printf("Image partition \"%s\" mounted at \"%s\".\n", name,
+									mountPoint.Path());
+							}
+							if (mountVisitor.openInTracker)
+								open_in_tracker(mountPoint);
+
+							partitionMounted = true;
+						}
+					}
+
+					// check if done mounting partitions
+					if ((result == B_OK || result == B_NOT_ALLOWED)
+						|| (mountVisitor.partitionsBFS <= 1 || mountVisitor.allBFS)
+						|| (mountVisitor.partitionsHFS <= 1 || mountVisitor.allHFS)
+						|| (mountVisitor.partitionsDOS <= 1 || mountVisitor.allDOS)
+						|| (mountVisitor.partitionsAll <= 1 || mountVisitor.all)) {
+						; // keep going
+					} else {
+						// we're done
+						break;
+					}
+				}
+
+				// B_OK if at least one partition was mounted or ummounted
+				if (partitionMounted)
+					result = B_OK;
+
+				if (result == B_OK && partitionMounted)
+					mountVisitor.toMount.erase(name);
+			} else if (roster.GetPartitionWithID(id, &device, &partition) == B_OK) {
+				// image file device with a single partition
+				result = partition->Mount(NULL, flags);
+				if (result == B_OK) {
+					BPath mountPoint;
+					partition->GetMountPoint(&mountPoint);
+					if (!mountVisitor.silent)
+						printf("Image \"%s\" mounted at \"%s\".\n", name, mountPoint.Path());
+
+					if (mountVisitor.openInTracker)
+						open_in_tracker(mountPoint);
+
+					mountVisitor.toMount.erase(name);
+						// remove name from mount list
+				}
+			}
+
+			if (result != B_OK) {
+				// no partitions mounted, unregister device
 				roster.UnregisterFileDevice(id);
-				continue;
 			}
 		}
-
-		status_t status = partition->Mount(NULL,
-			mountVisitor.readOnly ? B_MOUNT_READ_ONLY : 0);
-		if (!mountVisitor.silent) {
-			if (status >= B_OK) {
-				BPath mountPoint;
-				partition->GetMountPoint(&mountPoint);
-				printf("%s \"%s\" mounted successfully at \"%s\".\n",
-					id < 0 ? "Device" : "Image", name, mountPoint.Path());
-			}
-		}
-		if (status >= B_OK) {
-			if (mountVisitor.openInTracker)
-				open_in_tracker(partition);
-
-			// remove from list
-			mountVisitor.toMount.erase(name);
-		} else if (id >= 0)
-			roster.UnregisterFileDevice(id);
 	}
 
 	// TODO: support unmounting images by path!
 
 	// print errors for the volumes to mount/unmount, that weren't found
-	if (!mountVisitor.silent) {
+	if (!mountVisitor.silent && result != B_OK) {
+		const char* volname;
+		const char* errormsg;
 		for (StringSet::iterator it = mountVisitor.toMount.begin();
 				it != mountVisitor.toMount.end(); it++) {
-			fprintf(stderr, "Failed to mount volume `%s': Volume not found.\n",
-				(*it).c_str());
+			volname = (*it).c_str();
+			errormsg = strerror(result);
+			fprintf(stderr, "Failed to mount volume `%s': %s.\n", volname, errormsg);
 		}
 		for (StringSet::iterator it = mountVisitor.toUnmount.begin();
 				it != mountVisitor.toUnmount.end(); it++) {
-			fprintf(stderr, "Failed to unmount volume `%s': Volume not "
-				"found.\n", (*it).c_str());
+			volname = (*it).c_str();
+			errormsg = strerror(result);
+			fprintf(stderr, "Failed to unmount volume `%s': %s.\n", volname, errormsg);
 		}
 	}
 
 	// update the disk device list
 	error = deviceList.Fetch();
 	if (error != B_OK) {
-		fprintf(stderr, "Failed to update the list of disk devices: %s",
-			strerror(error));
+		fprintf(stderr, "Failed to update the list of disk devices: %s", strerror(error));
 		exit(1);
 	}
 
@@ -542,10 +676,11 @@ MountVolume::ArgvReceived(int32 argc, char** argv)
 	}
 
 	if (printPartitionsVisitor.IsUsed()) {
-		printf("%-*s %-*s     Size Mounted At (Device)\n",
-			sVolumeNameWidth, "Volume", sFSNameWidth, "File System");
+		int volW = sVolumeNameWidth;
+		int fsW = sFSNameWidth;
+		printf("%-*s %-*s     Size Mounted At (Device)\n", volW, "Volume", fsW, "File System");
 		BString separator;
-		separator.SetTo('-', sVolumeNameWidth + sFSNameWidth + 35);
+		separator.SetTo('-', volW + fsW + 35);
 		puts(separator.String());
 
 		if (printPartitionsVisitor.listAllPartitions)
@@ -581,4 +716,3 @@ main()
 	mountVolume.Run();
 	return 0;
 }
-
