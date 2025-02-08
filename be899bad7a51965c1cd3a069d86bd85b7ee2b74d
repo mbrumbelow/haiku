@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "155bcf3d_8218cd27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-08T03:58:13Z",
+      "side": 1,
+      "message": "What happens when invoking a shortcut with a menu window focused now? Does it get invoked once only still, or does it duplicate?",
+      "revId": "be899bad7a51965c1cd3a069d86bd85b7ee2b74d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
