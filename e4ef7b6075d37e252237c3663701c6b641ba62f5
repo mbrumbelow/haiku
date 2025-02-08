@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f88906e0_efd19421",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-08T22:34:47Z",
+      "side": 1,
+      "message": "Why does this get directed to the PoseView at all and not the TextView directly, anyway? Shouldn\u0027t the TextView always get a chance to handle the key before it gets turned into a shortcut?\n\nI guess we already have this problem anyway for Cmd+A (select all) with TextViews in Tracker; it might be nice to find a more general solution...",
+      "revId": "e4ef7b6075d37e252237c3663701c6b641ba62f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
