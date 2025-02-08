@@ -3046,6 +3046,7 @@ BMenu::_ItemMarked(BMenuItem* item)
 void
 BMenu::_Install(BWindow* target)
 {
+	// make sure to CountItems() every time as it may change
 	for (int32 i = 0; i < CountItems(); i++)
 		ItemAt(i)->Install(target);
 }
@@ -3054,6 +3055,7 @@ BMenu::_Install(BWindow* target)
 void
 BMenu::_Uninstall()
 {
+	// make sure to CountItems() every time as it may change
 	for (int32 i = 0; i < CountItems(); i++)
 		ItemAt(i)->Uninstall();
 }
