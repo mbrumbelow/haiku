@@ -16,6 +16,24 @@
       "message": "What happens when invoking a shortcut with a menu window focused now? Does it get invoked once only still, or does it duplicate?",
       "revId": "be899bad7a51965c1cd3a069d86bd85b7ee2b74d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beab4727_1a117839",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-08T06:40:03Z",
+      "side": 1,
+      "message": "The target window being set here is not the menu window it\u0027s the window that invoked the pop up on the other side, e.g. a Tracker window. That window is made the message target regardless of which window has current keyboard focus. This is true only in the case that the target has not already been set. This was all happening before but only on a regular BMenu. It\u0027s not required by shortcuts but the rest of Install() doesn\u0027t hurt on a pop-up either.",
+      "parentUuid": "155bcf3d_8218cd27",
+      "revId": "be899bad7a51965c1cd3a069d86bd85b7ee2b74d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
