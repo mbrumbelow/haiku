@@ -16,6 +16,24 @@
       "message": "Why it is even allowed to pass NULL? Maybe some assert/debugger() call is better idea?",
       "revId": "2291698e5f5028254d782cfbaf143f5a1bdb90a8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eea69aaf_a6fab698",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-08T08:33:27Z",
+      "side": 1,
+      "message": "Why do you think it\u0027s a good idea to change a legacy API?",
+      "parentUuid": "dd7c5c8f_0c7f6ed2",
+      "revId": "2291698e5f5028254d782cfbaf143f5a1bdb90a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
