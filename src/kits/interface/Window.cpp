@@ -3642,6 +3642,33 @@ BWindow::_HandleKeyDown(BMessage* event)
 	if (event->FindInt32("key", (int32*)&rawKey) != B_OK)
 		rawKey = 0;
 
+	if (modifiers == 0) {
+		// send certain keys to BTextView when focused even if you have a shortcut defined
+		BTextView* textView = dynamic_cast<BTextView*>(CurrentFocus());
+		if (textView != NULL) {
+			if (textView->IsSelectable()) {
+				switch (key) {
+					case B_LEFT_ARROW:
+					case B_RIGHT_ARROW:
+					case B_UP_ARROW:
+					case B_DOWN_ARROW:
+					case B_HOME:
+					case B_END:
+					case B_PAGE_UP:
+					case B_PAGE_DOWN:
+						return false;
+				}
+			}
+			if (textView->IsEditable()) {
+				switch (key) {
+					case B_BACKSPACE:
+					case B_DELETE:
+						return false;
+				}
+			}
+		}
+	}
+
 	// handle BMenuBar key
 	if (key == B_ESCAPE && (modifiers & B_COMMAND_KEY) != 0 && fKeyMenuBar != NULL) {
 		fKeyMenuBar->StartMenuBar(0, true, false, NULL);
