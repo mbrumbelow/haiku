@@ -628,12 +628,12 @@ HaikuControlLook::DrawScrollBarButton(BView* view, BRect rect,
 
 	bool isEnabled = (flags & B_DISABLED) == 0;
 
-	rgb_color buttonColor = isEnabled ? base
-		: tint_color(base, B_LIGHTEN_1_TINT);
+	rgb_color buttonColor = isEnabled ? base : tint_color(base, B_LIGHTEN_1_TINT);
 	DrawButtonBackground(view, rect, updateRect, buttonColor, flags,
 		BControlLook::B_ALL_BORDERS, orientation);
 
 	rect.InsetBy(-1, -1);
+	rgb_color textColor = isEnabled ? base : tint_color(base, B_LIGHTEN_1_TINT);
 	DrawArrowShape(view, rect, updateRect, text, direction, flags, 1);
 
 	// revert clipping constraints
