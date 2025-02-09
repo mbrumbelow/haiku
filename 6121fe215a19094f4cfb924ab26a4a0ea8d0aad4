@@ -103,6 +103,24 @@
       "parentUuid": "ad0bc078_61cd0ea6",
       "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a7a800_831add96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T16:27:44Z",
+      "side": 1,
+      "message": "Why? If you overwrite keys in an upper window it should overwrite it. Sending some to BTextView instead is unexpected.",
+      "parentUuid": "0a1dc995_6442e121",
+      "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
