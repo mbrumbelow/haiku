@@ -201,6 +201,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "82c010b8_2bc3cebc",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T23:45:04Z",
+      "side": 1,
+      "message": "Actually, the HyperTextView here is already doing sometthing similar to figure out when links are hovered and when not (saving the offsets I mean, to set the font underline flag or remove it)",
+      "parentUuid": "6c46f27f_c2de6404",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e6146a6d_9abcee4b",
