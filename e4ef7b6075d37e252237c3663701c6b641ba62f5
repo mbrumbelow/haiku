@@ -52,6 +52,24 @@
       "parentUuid": "16623a84_e045cbd2",
       "revId": "e4ef7b6075d37e252237c3663701c6b641ba62f5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffdc0657_0826068f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2025-02-09T18:59:22Z",
+      "side": 1,
+      "message": "Shortcuts generally need to have the ability to bypass the normal key down mechanism, or else it just couldn\u0027t work ever. So it makes sense to register them with the window (so that it can decide which path to take). But maybe we should have a \"ShortcutPressed()\" method that each view can then implement.",
+      "parentUuid": "5353cdec_447889ae",
+      "revId": "e4ef7b6075d37e252237c3663701c6b641ba62f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
