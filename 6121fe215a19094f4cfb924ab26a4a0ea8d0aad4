@@ -121,6 +121,24 @@
       "parentUuid": "0a1dc995_6442e121",
       "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60c32446_3b0f6e0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T16:41:38Z",
+      "side": 1,
+      "message": "If the problem is event propagation perhaps there should be a \"We already handeled this event\" event, which sends the keys that were acted upon in a new message type. BTextView can then behave specially based on this message, and normal consumers could simply ignore it.",
+      "parentUuid": "6ff2c2b5_1b00f350",
+      "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
