@@ -16,6 +16,23 @@
       "message": "(minus lock key differences)",
       "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d5baf4a_7e9aeba2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-09T02:20:42Z",
+      "side": 1,
+      "message": "Mmm, maybe this is a worse solution after all :/\n\nI don\u0027t think there\u0027s any good solution here in the end. The Be API just has some fundamental flaws here about how event propagation works, unfortunately.",
+      "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
