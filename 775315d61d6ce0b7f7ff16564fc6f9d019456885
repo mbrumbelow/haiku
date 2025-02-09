@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3098ef5_a9a8095a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-09T17:56:02Z",
+      "side": 1,
+      "message": "tentative +1\n\n\"humdinger has a fix on Gerrit for Sounds Preferences because it was using B_SYSTEM_SOUNDS_DIRECTORY, but that might not exist on the system\"",
+      "revId": "775315d61d6ce0b7f7ff16564fc6f9d019456885",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
