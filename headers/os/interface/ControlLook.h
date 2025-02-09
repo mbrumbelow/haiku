@@ -341,25 +341,25 @@ public:
 	virtual	void				DrawLabel(BView* view, const char* label,
 									BRect rect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
-									const rgb_color* textColor = NULL) = 0;
+									const rgb_color* textColor) = 0;
 	virtual	void				DrawLabel(BView* view, const char* label,
 									BRect rect, const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
 									const BAlignment& alignment,
-									const rgb_color* textColor = NULL) = 0;
+									const rgb_color* textColor) = 0;
 	// TODO: Would be nice to have a (non-virtual) version of this method
 	// which takes an array of labels and locations. That would save some
 	// setup with the view graphics state.
 	virtual	void				DrawLabel(BView* view, const char* label,
 									const rgb_color& base, uint32 flags,
 									const BPoint& where,
-									const rgb_color* textColor = NULL) = 0;
+									const rgb_color* textColor) = 0;
 
 			void				DrawLabel(BView* view, const char* label,
 									const BBitmap* icon, BRect rect,
 									const BRect& updateRect,
 									const rgb_color& base, uint32 flags,
-									const rgb_color* textColor = NULL);
+									const rgb_color* textColor);
 	virtual	void				DrawLabel(BView* view, const char* label,
 									const BBitmap* icon, BRect rect,
 									const BRect& updateRect,
