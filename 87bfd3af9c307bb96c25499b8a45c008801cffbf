@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "70e4d77d_98d10bb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T23:11:15Z",
+      "side": 1,
+      "message": "The sliders do not resize How I would expect them to, in particular they do not fill the width, or height, respectively of their containing window and are instead cut off. Especially the ones laying horizonttally.",
+      "parentUuid": "0c2243d3_e53ae317",
+      "revId": "87bfd3af9c307bb96c25499b8a45c008801cffbf",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2b0c1a2d_9a03e4da",
