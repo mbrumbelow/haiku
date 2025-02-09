@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62906a6d_2763f84a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T20:35:46Z",
+      "side": 1,
+      "message": "I\u0027ve removed the changes to the gradient from this patch as it was becoming too complex.\n\nI will adjust the ControlLook in a later patchset but have left an explanantion as to why.\n\n@waddlesplash, this is what I ment with this changeset beeing complex if all done in one commit. Butt oh well.\n\nConcerns that still need to be adressed: \n(Tested with default colors + purple control bg and white text control color)\n* pref/appearence fake scrollbar colors are wrong\n* pref/appearence \"about\" buttons use wrong text color\n* _BMCMenuBar_ uses wrong text color for the Control colored part\n* pref/time uses wrong button color\n* pref/screensaver uses wrong button color\n* pref/notifications uses wrong button color\n* pref/repositories uses wrong button color\n* pref/network uses wrong button color\n* pref/media uses wrong button color\n* pref/tracker uses wrong buttton color\n* pref/screen uses wrong buton color\n* pref/input uses wrong button color\n* pref/printer uses wrong button color\n* pref/email uses wrong button color\n* pref/filetype uses wrong button color\n* servers/input uses wrong button color (TeamMonitor)\n* app/Magnify uses wrong color for pulldown (button? or BMCMenuBar?\u003d\n* app/MediaConverter uses wrong color for button\n* app/Haikudepot uses wrong color for buttton\n* app/MidiPlayer uses wrong color for button (and wrong color for checkbox text, control text?)\n* app/SoftwareUpdater uses wrong color for button\n* app/diskusage: fine, but tabtitle has wrong color (maybe control?)\n* app/debugger uses wrong button color (and wrong color for checkbox text, control text?)\n* app/charactermap: fine, but wrong color for font name, maybe control?\n* app/diskusagge wrong button color, also wrong tabtitle color (maybe control?)\n* app/mediaplayer wrong buttton color. But those are heavily styled with glyphs",
+      "revId": "707984a4d8c848a35462e1c59224d5b4a1dee683",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
