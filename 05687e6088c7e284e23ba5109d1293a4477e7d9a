@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d88a0467_7efefed2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-02-09T12:25:15Z",
+      "side": 1,
+      "message": "If that\u0027s the case, shouldn\u0027t the list access be protected by lock? Is there any guarantee that it won\u0027t change between the CountItems check and the ItemAt fetch?",
+      "revId": "05687e6088c7e284e23ba5109d1293a4477e7d9a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
