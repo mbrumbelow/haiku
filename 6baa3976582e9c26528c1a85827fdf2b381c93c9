@@ -338,6 +338,24 @@
       "parentUuid": "f76527b4_5e4c4f5a",
       "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87cc89bc_9f6cd215",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-09T22:53:04Z",
+      "side": 1,
+      "message": "If we are going to break compatibility here we should add alt_gr_map and alt_gr_shift_map. Also possibly add all of greekboy\u0027s changes. If we are not going to break compat here then I still don\u0027t see how this accomplishes that.",
+      "parentUuid": "f6527076_b1ac6ab8",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
