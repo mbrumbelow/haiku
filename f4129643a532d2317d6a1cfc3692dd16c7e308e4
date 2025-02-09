@@ -16,6 +16,23 @@
       "message": "My change from above: https://review.haiku-os.org/c/haiku/+/8898",
       "revId": "f4129643a532d2317d6a1cfc3692dd16c7e308e4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82cf8ef9_4dee165a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-09T21:54:11Z",
+      "side": 1,
+      "message": "... wrong PS for comment but still good advice.",
+      "revId": "f4129643a532d2317d6a1cfc3692dd16c7e308e4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
