@@ -70,6 +70,24 @@
       "parentUuid": "15003d0c_5ad8869a",
       "revId": "0e690f1c7df259bab94e4856a4abd0ba2614107b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a58e6ecb_5bc0566e",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T18:22:30Z",
+      "side": 1,
+      "message": "I would rather not, because this is applied above the glossy gradient, and i am adjusting that in my other patch. When that patch is through I will revisit this.",
+      "parentUuid": "fb9e4bfd_ee5edef1",
+      "revId": "0e690f1c7df259bab94e4856a4abd0ba2614107b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
