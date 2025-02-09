@@ -34,6 +34,24 @@
       "parentUuid": "808c273a_0f3d32c4",
       "revId": "3276c7f52c05eb4238a1ccdd30e861e8c7eee736",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5368742_fe935c90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T16:36:30Z",
+      "side": 1,
+      "message": "Additional thought: SetPanelDirectory is currently a void. If/when we can change this api this should be a status_t instead, to simply tell you that the directory failed.\n\nI wonder if we have a list or something for these little things to change in the api?",
+      "parentUuid": "8e324b3a_0802b280",
+      "revId": "3276c7f52c05eb4238a1ccdd30e861e8c7eee736",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
