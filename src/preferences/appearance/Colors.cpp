@@ -103,7 +103,7 @@ get_default_colors(BMessage* message)
 	if (message == NULL)
 		return;
 
-	for (int32 index = 0; index < kColorWhichCount; ++index) {
+	for (int32 index = 0; index < kColorWhichCount -1; ++index) {
 		color_which which = index_to_color_which(index);
 		message->AddColor(ui_color_name(which),
 			BPrivate::kDefaultColors[index]);
@@ -117,7 +117,7 @@ get_current_colors(BMessage* message)
 	if (message == NULL)
 		return;
 
-	for (int32 index = 0; index < kColorWhichCount; ++index) {
+	for (int32 index = 0; index < kColorWhichCount -1; ++index) {
 		color_which which = index_to_color_which(index);
 		message->AddColor(ui_color_name(which), ui_color(which));
 	}

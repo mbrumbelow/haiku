@@ -1311,9 +1311,11 @@ accept_first_click()
 rgb_color
 ui_color(color_which which)
 {
+
 	int32 index = color_which_to_index(which);
 	if (index < 0 || index >= kColorWhichCount) {
 		fprintf(stderr, "ui_color(): unknown color_which %d\n", which);
+		debugger("ui_color: wrong color passed");
 		return make_color(0, 0, 0);
 	}
 
