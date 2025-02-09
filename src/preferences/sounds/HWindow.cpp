@@ -32,6 +32,7 @@
 #include <Node.h>
 #include <NodeInfo.h>
 #include <Path.h>
+#include <PathFinder.h>
 #include <Roster.h>
 #include <ScrollView.h>
 #include <StringView.h>
@@ -55,10 +56,20 @@ HWindow::HWindow(BRect rect, const char* name)
 {
 	_InitGUI();
 
-	BPath path;
 	// set default path
-	find_directory(B_SYSTEM_SOUNDS_DIRECTORY, &path);
-	get_ref_for_path(path.Path(), &fPathRef);
+	BPathFinder pathFinder;
+	BStringList paths;
+	BPath path;
+	pathFinder.FindPaths(B_FIND_PATH_SOUNDS_DIRECTORY, paths);
+	find_directory(B_USER_DIRECTORY, &path);
+	paths.Add(path.Path());
+	for (int i = 0; i < paths.CountStrings(); ++i) {
+		BEntry entry(paths.StringAt(i));
+		if (entry.Exists()) {
+			entry.GetRef(&fPathRef);
+			break;
+		}
+	}
 
 	if (find_directory(B_USER_SETTINGS_DIRECTORY, &path) == B_OK) {
 		path.Append(kSettingsFile);
@@ -81,8 +92,10 @@ HWindow::HWindow(BRect rect, const char* name)
 	}
 
 	fFilePanel = new SoundFilePanel(this);
-	fFilePanel->SetPanelDirectory(&fPathRef);
 	fFilePanel->SetTarget(this);
+	BEntry entry(&fPathRef);
+	if (entry.Exists())
+		fFilePanel->SetPanelDirectory(&fPathRef);
 
 	MoveOnScreen();
 }
