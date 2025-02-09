@@ -85,6 +85,24 @@
       "message": "Not nice. Adding knowledge of BTextView to BWindow doesnt look like a nice solution.\nIf this is needed to fix something in tracker, lets add this to tracker\u0027s ContainerWindow instead, at least.",
       "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1dc995_6442e121",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-09T16:13:08Z",
+      "side": 1,
+      "message": "The fix in Tracker is already in and can be seen in the revert commit in the relation chain. This is my attempt to build a universal solution.",
+      "parentUuid": "ad0bc078_61cd0ea6",
+      "revId": "6121fe215a19094f4cfb924ab26a4a0ea8d0aad4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
