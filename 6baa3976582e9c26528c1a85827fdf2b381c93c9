@@ -356,6 +356,24 @@
       "parentUuid": "f6527076_b1ac6ab8",
       "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ccfb69_e27ac171",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T23:08:17Z",
+      "side": 1,
+      "message": "Just a FYI that this patch, as it is, is now completely uneccessary. Media keys are already solved, the PS/2 driver produces key events mapped directly to HID codes now, and input preferences has since gained default entries for these key events.\n\nSo Yes, if we break compatibility we should add a alt_gr layer (or maybe even bettter arbitrary layers... looking at the caps lock key for example)",
+      "parentUuid": "87cc89bc_9f6cd215",
+      "revId": "6baa3976582e9c26528c1a85827fdf2b381c93c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
