@@ -81,8 +81,10 @@ HWindow::HWindow(BRect rect, const char* name)
 	}
 
 	fFilePanel = new SoundFilePanel(this);
-	fFilePanel->SetPanelDirectory(&fPathRef);
 	fFilePanel->SetTarget(this);
+	BEntry entry(&fPathRef);
+	if (entry.Exists())
+		fFilePanel->SetPanelDirectory(&fPathRef);
 
 	MoveOnScreen();
 }
