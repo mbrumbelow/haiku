@@ -69,6 +69,23 @@
       "message": "```\n\nvoid\nBMenuField::SetLabel(const char* label)\n{\n\tif (fLabel !\u003d NULL \u0026\u0026 label !\u003d NULL \u0026\u0026 strcmp(fLabel, label) \u003d\u003d 0) {\n\t\t// labels are the same, do not set label\n\t\treturn;\n\t} else {\n\t\t// new label, free old\n\t\tfree(fLabel);\n\n\t\t// new label is NULL, bail\n\t\tif (label \u003d\u003d NULL)\n\t\t\treturn;\n\t}\n\n\tfLabel \u003d strdup(label);\n\n\tif (Window())\n\t\tInvalidate();\n\n\tInvalidateLayout();\n}\n\n```",
       "revId": "2291698e5f5028254d782cfbaf143f5a1bdb90a8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50d01b95_4a129d26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-09T04:40:33Z",
+      "side": 1,
+      "message": "... to avoid the strcmp() with NULL.",
+      "revId": "2291698e5f5028254d782cfbaf143f5a1bdb90a8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
