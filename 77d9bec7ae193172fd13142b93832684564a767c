@@ -183,6 +183,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c46f27f_c2de6404",
+        "filename": "src/apps/aboutsystem/AboutSystem.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-09T23:21:26Z",
+      "side": 1,
+      "message": "\u003e  but I don\u0027t have ideas to get that problem solved after trying different approaches for hours.\n\nI\u0027ve had an idea for this for longer but haden\u0027t written it down yet. Sorry.\n\nOkay so, what I think the \"correct\" approach here is basically this:\nKeep a list of text offsets, and the semantic color you use to draw it with.\n\nFor example\n0, green\n5, text\n200, link\n220, orange\n\nIf the text color changes you can then iterate over all text slices and update them (except link colors)\n\nif the link color changes you can iterate over all slices and update the link color ones.\n\nIn essence, in the construcing view, each time SetFontAndColor for the next slice is called mark the index where you are now and with which semantic color you are starting to draw now.\n\nLater you can then update these with:\nBTextView::SetFontAndColor(int32 startOffset, int32 endOffset, const BFont* font, uint32 mode, const rgb_color* color);\n\nwhere startOffSet is the index you saved, endOffset is the index of the next item, font is the be_plain_font, mode is B_FONT_ALL (iirc) and color is your saved semantic color mapped to the new color you calculated based on the one you received in MessageReceived.\n\nAnyhow, if this solution is too complex you don\u0027t need to implement it. I probably will at some point if you do not want to, but I have written this down so you know how I would do it.",
+      "parentUuid": "b838bfdb_f7469810",
+      "revId": "77d9bec7ae193172fd13142b93832684564a767c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e6146a6d_9abcee4b",
