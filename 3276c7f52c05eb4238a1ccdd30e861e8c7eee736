@@ -88,6 +88,24 @@
       "parentUuid": "1c98b2ea_966fbb55",
       "revId": "3276c7f52c05eb4238a1ccdd30e861e8c7eee736",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c84dc32d_e7a737d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-09T18:32:15Z",
+      "side": 1,
+      "message": "Yep, fixes crash.\nWith it, this patch can save the Exists() check before calling the SetPanelDirectory().\n\nStill, iterating through all sounds folders, falling back to Home is still a good change, right?",
+      "parentUuid": "10c175bd_430ffdf6",
+      "revId": "3276c7f52c05eb4238a1ccdd30e861e8c7eee736",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
