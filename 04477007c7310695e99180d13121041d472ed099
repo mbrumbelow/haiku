@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "63470be2_7618cda7",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-10T02:55:03Z",
+      "side": 1,
+      "message": "I don\u0027t need to, I wanted to propose this regardless however. This is our api, and we can change it. There was already an abi(not api) break in the controllook during this nightly development cycle, so i figure if we do more now is a good time.\n\nI think this default value was the main reason for many drawing bugs, and is not a good idea to include, hence I would like to remove it.\n\nChanging calling code to include NULL if no change in behaviour is wanted is fine. But likely a change im behaviour is wanted by passing the correct color.",
+      "parentUuid": "c6d74b0b_1c354eef",
+      "revId": "04477007c7310695e99180d13121041d472ed099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "093918da_6c80a726",
