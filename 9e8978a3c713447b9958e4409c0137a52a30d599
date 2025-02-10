@@ -55,6 +55,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "44bd1f51_a85db6e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-10T01:54:26Z",
+      "side": 1,
+      "message": "Also this from the Post your screenshot threads on the forums https://discuss.haiku-os.org/t/post-your-haiku-screenshot/3064/353 (unfortunately Zumi\u0027s video on YouTube showing the problem in more detail is now unavailable.)",
+      "revId": "9e8978a3c713447b9958e4409c0137a52a30d599",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "165aa4a8_7595858e",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 3
