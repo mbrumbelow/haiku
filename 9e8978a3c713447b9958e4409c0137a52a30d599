@@ -90,6 +90,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ed287f2b_3f62bc6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-10T02:12:55Z",
+      "side": 1,
+      "message": "I don\u0027t see this as an improvement. If i want any column to stick with the icon I move it to the left, or as humdinger suggests the Icon get\u0027s it\u0027s own column.\nI frequently have emails open in list mode in tracker, and the icon shows if an email is open or closed. The first column is email specific, the name is somewhere at the end. I don\u0027t want the icon to end up at the \"real\" filename.\n\nReally, you are specialcasing something here that shouldn\u0027t be specialcased.\n\nThere is no reason why drag\u0026drop has to copy the first column instead of any other. It should however use the first column, unless the column is unsuited (negative list) for example, size rating etc.",
+      "parentUuid": "13f72444_b33bd373",
+      "revId": "9e8978a3c713447b9958e4409c0137a52a30d599",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "165aa4a8_7595858e",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 3
