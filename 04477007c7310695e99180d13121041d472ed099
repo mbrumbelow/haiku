@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d86ea6ad_8601df66",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-10T03:05:05Z",
+      "side": 1,
+      "message": "ok if ABI break is ok but buildout says no.",
+      "parentUuid": "52854a73_40f3bbb8",
+      "revId": "04477007c7310695e99180d13121041d472ed099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "093918da_6c80a726",
