@@ -72,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "13f72444_b33bd373",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-10T02:02:05Z",
+      "side": 1,
+      "message": "If you always keep name column on the left side as is default the icon will be on the left so things will look mostly the same as before. Most people will use Tracker in this default mode most of the time. This is for the few that venture into Name not first column or prefer Real name over name.",
+      "parentUuid": "bc21eb82_67bbae16",
+      "revId": "9e8978a3c713447b9958e4409c0137a52a30d599",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "165aa4a8_7595858e",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 3
