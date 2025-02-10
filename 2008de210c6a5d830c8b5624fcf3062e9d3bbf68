@@ -16,6 +16,24 @@
       "message": "fPathRef is still possibly unset.",
       "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15af3c55_9abfdfd1",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-10T14:07:39Z",
+      "side": 1,
+      "message": "that should be ok if https://review.haiku-os.org/c/haiku/+/8960 is merged first.",
+      "parentUuid": "cb319aeb_3604847e",
+      "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
