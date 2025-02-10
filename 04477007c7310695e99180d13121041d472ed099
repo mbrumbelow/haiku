@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d435622e_63e888ba",
+        "filename": "headers/os/interface/ControlLook.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-10T03:08:59Z",
+      "side": 1,
+      "message": "The buildbot tests api, not abi.\n\nAnyhow I did not have build issues in my testing, but i was probably only building libbe.so because i was testing Appearence. I will take a look at the build issues tommorow, probably more consumers should explicitly specify the text color.",
+      "parentUuid": "d86ea6ad_8601df66",
+      "revId": "04477007c7310695e99180d13121041d472ed099",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "093918da_6c80a726",
