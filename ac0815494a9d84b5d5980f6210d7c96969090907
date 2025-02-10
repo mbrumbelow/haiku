@@ -25,6 +25,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae052da8_87d78ca9",
+        "filename": "src/preferences/appearance/FakeScrollBar.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-10T18:10:52Z",
+      "side": 1,
+      "message": "We have a scrollbar specific call;\nexample: be_control_look-\u003eGetScrollBarWidth(B_HORIZONTAL);",
+      "revId": "ac0815494a9d84b5d5980f6210d7c96969090907",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5fa624a6_60851f68",
