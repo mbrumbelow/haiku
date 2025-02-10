@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c91f86e6_221dabcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-10T01:11:36Z",
+      "side": 1,
+      "message": "I agree with humdinger, The icon belongs to the left of the list (The only exception might be a writing system that goes RTL) and the whole line should be selected.\n\nThe argument of \"what gets dragged\" I don\u0027t get at all, drags are negotiated and from this view only whole files should be dragged, not only some attributes.",
+      "revId": "9e8978a3c713447b9958e4409c0137a52a30d599",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "165aa4a8_7595858e",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 3
