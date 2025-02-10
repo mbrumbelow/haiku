@@ -16,6 +16,24 @@
       "message": "looks good provided you want to do the bottom part with a NULL label.",
       "revId": "022aca50802bcc680b4016270fbe88704fd62883",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af7bd96d_243d4cd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-10T07:35:14Z",
+      "side": 1,
+      "message": "It has to be done, if the current label wasn\u0027t NULL.",
+      "parentUuid": "61ba854f_29ca98ea",
+      "revId": "022aca50802bcc680b4016270fbe88704fd62883",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
