@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5105c5ea_e70fbf55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-10T07:49:16Z",
+      "side": 1,
+      "message": "Seems to cause issues: https://discuss.haiku-os.org/t/emacs-30-broken-by-cbfbbf6d/16365",
+      "revId": "cbfbbf6d4d0e9c28332e8c1f53bf7134896ac7d3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
