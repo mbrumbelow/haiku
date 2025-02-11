@@ -69,6 +69,24 @@
       "parentUuid": "1291fcae_71c19ed1",
       "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd1c02fe_9d3884bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-11T15:26:59Z",
+      "side": 1,
+      "message": "Seemed to me that adding TAB and ENTER back was cleaner/simpler than having an array of chars to be disallowed.\n\nSeems to work well enough, no more unwanted \"input\" for CTRL+letter combos, while still working for shortcuts like ctrl+{h,j,k,l}, etc.\n\nCTRL+e and CTRL+p did nothing on my system even before this patch.\n\nFWIW, CTRL+Backspace seems to go down one line, while trying to keep the cursor on the same column it was before. Seems like an odd shortcut to me, specially because I couldn\u0027t find its \"up\" counterpart.\n\nAnyway. Let me know if this is better. Thanks.",
+      "parentUuid": "8b192666_88317406",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
