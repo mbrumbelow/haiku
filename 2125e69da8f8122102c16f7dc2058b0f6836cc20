@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d2deab9a_e557b41a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-11T23:39:53Z",
+      "side": 1,
+      "message": "Latest with fake scroll bars scaling at 16pt font: \nhttps://64.media.tumblr.com/60af03ea0a78024c73ef91c388fc06de/925f444fb312b41d-5f/s1280x1920/8fc64b679cb6795eb50eea19f950c28abd0a8d26.png",
+      "parentUuid": "6c2f4978_4fe736b0",
+      "revId": "2125e69da8f8122102c16f7dc2058b0f6836cc20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ce3171f8_406c729e",
         "filename": "src/preferences/appearance/FakeScrollBar.cpp",
         "patchSetId": 11
