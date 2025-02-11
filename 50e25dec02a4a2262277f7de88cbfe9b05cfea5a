@@ -34,6 +34,23 @@
       "parentUuid": "79d86761_16f4ac67",
       "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68669a1a_a23793c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-11T12:20:59Z",
+      "side": 1,
+      "message": "Maybe it would be good if styledEdit could show these characters properly like Koder can?",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
