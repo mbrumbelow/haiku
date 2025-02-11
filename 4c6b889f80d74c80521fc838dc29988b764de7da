@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8daecff8_29529882",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-11T18:50:56Z",
+      "side": 1,
+      "message": "Every single removal of \"true\" must correspond to adding it in a template parameter.",
+      "revId": "4c6b889f80d74c80521fc838dc29988b764de7da",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "339610c1_45223135",
