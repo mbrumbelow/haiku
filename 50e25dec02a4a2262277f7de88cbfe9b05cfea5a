@@ -16,6 +16,24 @@
       "message": "The fact that StyledEdit didn\u0027t filtered out these has always bothered me.\n(specially since I use swapped ctrl/alt, and keep occasionally hitting the wrong one when going for a shortcut).\n\nI kinda would expect this to be the default behaviour for BTextView, to be honest, with the few apps that might actually want those chars to be allowed be the ones requesting that mode, instead of having to disable these everywhere.\n\nI might just be missing something, as usual though.\n\n---\n\nIntended to make this change after seeing John do the same for Tracker\u0027s name-edits but forgot about it till I\u0027ve read waddlesplash\u0027s January activity report :-D",
       "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1291fcae_71c19ed1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-11T07:25:34Z",
+      "side": 1,
+      "message": "Doesn\u0027t this block things like tab and newline? At least these two seem useful in a text editor.",
+      "parentUuid": "79d86761_16f4ac67",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
