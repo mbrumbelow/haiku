@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff75c6af_e7a34734",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "I somehow missed the big \"WIP\" and had lots of mostly small suggestions on wording etc. You\u0027d probably fixed those anyway while working more on it... Oh well...",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c61fb34a_8d16928d",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "\"This page gives an overview of how colors are used in the Haiku api.\"",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f1a1dc_53af1107",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "Each BView has 6 colors defined:\n* 3 are color_which that specify semantic colors for the view.\n* 3 are rgb_color that specify specific colors for the view.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d283e460_551f7f1a",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "A semantic color has no concrete value at this time, but specifies the intended purpose of the color. They always come at least in pairs - there may be more than two, though - of contrasting colors for foreground and background.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5e895f1_a406d4da",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "These specify their intent to be used for documents. Applications that have a document-like view can then use these colors, for example a mail application, a webrowser, or text editor.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9766c8d4_39358786",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "They are split up into a high color, a low color and a view color:\n* The low color is used to draw the background of a view, for example this could be the gradient of a button (even if this visually \"sticks out\", it is still a background).\n* The high color is used to draw the foreground of a view, for example the text on a control, the text in a view or design elements like separators of a BBox.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5843aac_16aed34c",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "These specific colors are set by SetHighColor(), SetLowColor() and SetViewColor().\nThe semantic colors are set by SetHighUIColor(), SetLowUIColor() and SetViewUIColor().",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cfe949c_32abcf0c",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "Using the semantic colors over the specific ones has the advantage of your BView automatically responding to system color changes without you having to do any additional work.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d8e4d4_a38897c3",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "And instead use a semantic color like this: SetHighUIColor(B_PANEL_TEXT_COLOR);",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e8cac06_8f62a518",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "In addition, BViews can also access the colors of their parent view, which might also come in handy for some drawing operations.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "221888ca_d47e075c",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "The BLooper of your main BApplication will get messages of the type B_COLORS_UPDATED (defined in AppDefs.h).",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae01f421_e9754548",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "\"These messages may contain several colors (not just one!).\"",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ccd6542_f6194bc4",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "In your ::MessageReceived method you can grab the B_COLORS_UPDATED message and extract the color(s).\nFor example, if there is a special view that deals with control colors, I could do this:",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8cfd26d_eba57388",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "At start of the GUI creation, each BView usually gets assigned some colors. These can be default colors based on the class, for example a BButton will pick a pair of color_which appropriate for a button: B_CONTROL_BACKGROUND_COLOR and B_CONTROL_TEXT_COLOR.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "570e42eb_0fd55d1c",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "During the ::Draw phase of each BView, those will either give instructions to the application server directly on how to draw with the specified color, draw themselves into an off-screen buffer/bitmap and then pass this on. Or more commonly, instruct the specified OS-defined control look what drawing operation with which colors it is supposed to do.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef2de69_eea76df5",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "BTextView does not respect live updating colors if styling is enabled, because in that case each text segment can have its own color defined. This is done in AboutSystem (the Haiku about box), for example. In such a case the owner of the BTextView (i.e your code) has to keep track of offsets for the different colors itself and update them accordingly when getting a B_COLORS_UPDATED message.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d5bbc8_b70d96a5",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-11T19:04:54Z",
+      "side": 1,
+      "message": "Alternatively, if styling is used but no custom colors are used, the entire BTextView color can be updated with SetFontAndColor(NULL, NULL, newColor);",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
