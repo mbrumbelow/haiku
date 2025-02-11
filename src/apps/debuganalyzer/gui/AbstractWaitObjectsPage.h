@@ -278,13 +278,13 @@ private:
 	struct NodeContainerNode : Node {
 		NodeContainerNode()
 			:
-			fChildren(20, true)
+			fChildren(20)
 		{
 		}
 
 		NodeContainerNode(BObjectList<Node>& nodes)
 			:
-			fChildren(20, true)
+			fChildren(20)
 		{
 			fChildren.AddList(&nodes);
 

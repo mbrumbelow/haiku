@@ -187,8 +187,8 @@ public:
 private:
 			struct HeaderEntry;
 
-			typedef BObjectList<HeaderEntry> HeaderEntryList;
-			typedef BObjectList<HeaderViewListener> ListenerList;
+			typedef BObjectList<HeaderEntry, true> HeaderEntryList;
+			typedef BObjectList<HeaderViewListener, true> ListenerList;
 
 			class State;
 			class DefaultState;
