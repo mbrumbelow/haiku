@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "333cc4bb_036c357c",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Doesn\u0027t that make the dot off-center by 1 pixel?\n\nDo you happen to have before/after screenshots?",
       "revId": "a0900ac53094a10b5c0cc6faf304274a4d9c7560",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "26c2f554_29607330",
         "filename": "src/kits/interface/HaikuControlLook.cpp",
@@ -32,8 +33,25 @@
       "message": "The previews looked correct, maybe it\u0027ll be off-center with a larger font performing UI scaling?",
       "parentUuid": "333cc4bb_036c357c",
       "revId": "a0900ac53094a10b5c0cc6faf304274a4d9c7560",
-      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5",
-      "unresolved": true
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90b6068b_9ddb6aba",
+        "filename": "src/kits/interface/HaikuControlLook.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-11T23:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26c2f554_29607330",
+      "revId": "a0900ac53094a10b5c0cc6faf304274a4d9c7560",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
