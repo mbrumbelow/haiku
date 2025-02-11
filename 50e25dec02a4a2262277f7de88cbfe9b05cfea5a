@@ -51,6 +51,24 @@
       "message": "Maybe it would be good if styledEdit could show these characters properly like Koder can?",
       "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b192666_88317406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-11T13:58:27Z",
+      "side": 1,
+      "message": "Duh, it does. Sorry, should have tested it more before pushing.\n\nI don\u0027t know how Pe handles this, but I don\u0027t have \"this problem\" with it, for example. I guess I\u0027ll try to use a more specific set of chars to disable, or wait for someone to implement nephele\u0027s suggestion.",
+      "parentUuid": "1291fcae_71c19ed1",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
