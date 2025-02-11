@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d86761_16f4ac67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-11T05:07:12Z",
+      "side": 1,
+      "message": "The fact that StyledEdit didn\u0027t filtered out these has always bothered me.\n(specially since I use swapped ctrl/alt, and keep occasionally hitting the wrong one when going for a shortcut).\n\nI kinda would expect this to be the default behaviour for BTextView, to be honest, with the few apps that might actually want those chars to be allowed be the ones requesting that mode, instead of having to disable these everywhere.\n\nI might just be missing something, as usual though.\n\n---\n\nIntended to make this change after seeing John do the same for Tracker\u0027s name-edits but forgot about it till I\u0027ve read waddlesplash\u0027s January activity report :-D",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
