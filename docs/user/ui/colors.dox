@@ -1,0 +1,58 @@
+/*!
+\page uiColors	Colors
+
+This page gives an overview of how colors are used in the Haiku api.
+
+Each BView has 6 colors defined:
+	* 3 are color_which that specify semantic colors for the view.
+	* 3 are rgb_color that specify specific colors for the view.
+	
+A semantic color has no concrete value at this time, but specifies the intended purpose of the color. They always come at least in pairs - there may be more than two, though - of contrasting colors for foreground and background.
+
+For example B_DOCUMENT_BACKGROUND_COLOR and B_DOCUMENT_TEXT_COLOR are a semantic color pair.
+These specify their intent to be used for documents. Applications that have a document-like view can then use these colors, for example a mail application, a webrowser, or text editor.
+
+Specific colors on the other hand specify a value to draw with, this can be for example {0, 0, 0} for pure black or {255, 255, 255} for pure white
+
+They are split up into a high color, a low color and a view color:
+	* The low color is used to draw the background of a view, for example this could be the gradient of a button (even if this visually "sticks out", it is still a background).
+	* The high color is used to draw the foreground of a view, for example the text on a control, the text in a view or design elements like separators of a BBox.
+
+TODO: The view color also exists, and I don't know why.
+
+These specific colors are set by SetHighColor(), SetLowColor() and SetViewColor().
+The semantic colors are set by SetHighUIColor(), SetLowUIColor() and SetViewUIColor().
+
+Using the semantic colors over the specific ones has the advantage of your BView automatically responding to system color changes without you having to do any additional work.
+
+For this reason it is discouraged to write code like this: SetHighColor(ui_color(B_PANEL_TEXT_COLOR);
+And instead use a semantic color like this: SetHighUIColor(B_PANEL_TEXT_COLOR);
+
+In addition, BViews can also access the colors of their parent view, which might also come in handy for some drawing operations.
+
+\section Live updating colors
+
+The BLooper of your main BApplication will get messages of the type B_COLORS_UPDATED (defined in AppDefs.h)
+These messages may contain several colors (not just one!).
+For example setting the System colors to defaults, or undoing color changes in pref/appearence will broadcast only one message.
+
+In your ::MessageReceived method you can grab the B_COLORS_UPDATED message and extract the color(s).
+For example, if there is a special view that deals with control colors, I could do this:
+if (message->what == B_COLORS_UPDATED) {
+	if (message->HasColor(B_CONTROL_TEXT_COLOR)
+		fControlText = message->GetColor(B_CONTROL_TEXT_COLOR, fBaseColor);
+\section Color propagation
+
+At start of the GUI creation, each BView usually gets assigned some colors. These can be default colors based on the class, for example a BButton will pick a pair of color_which appropriate for a button: B_CONTROL_BACKGROUND_COLOR and B_CONTROL_TEXT_COLOR.
+
+other views will simply adopt their parent view colors, and some views will set a transparent color.
+
+During the ::Draw phase of each BView, those will either give instructions to the application server directly on how to draw with the specified color, draw themselves into an off-screen buffer/bitmap and then pass this on. Or more commonly, instruct the specified OS-defined control look what drawing operation with which colors it is supposed to do.
+
+
+\section Special note about BTextView
+
+BTextView does not respect live updating colors if styling is enabled, because in that case each text segment can have its own color defined. This is done in AboutSystem (the Haiku about box), for example. In such a case the owner of the BTextView (i.e your code) has to keep track of offsets for the different colors itself and update them accordingly when getting a B_COLORS_UPDATED message.
+Alternatively, if styling is used but no custom colors are used, the entire BTextView color can be updated with SetFontAndColor(NULL, NULL, newColor);
+
+TODO: make a SetColor(rgb_color) for BTextView, passing around random nulls sucks.
