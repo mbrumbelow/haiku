@@ -148,10 +148,10 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 	const BPoseView* view, float textWidth)
 {
 	BRect rect;
-	float viewWidth = ceilf(textWidth);
+	float viewWidth = textWidth;
 
 	if (view->ViewMode() == kListMode) {
-		viewWidth = std::min(column->Width(), textWidth);
+		viewWidth = ceilf(std::min(column->Width(), textWidth));
 
 		poseLoc.x += column->Offset();
 
@@ -184,20 +184,23 @@ BTextWidget::CalcRectCommon(BPoint poseLoc, const BColumn* column,
 		rect.bottom = poseLoc.y + roundf((view->ListElemHeight() + ActualFontHeight(view)) / 2);
 		rect.top = rect.bottom - floorf(ActualFontHeight(view));
 	} else {
-		viewWidth = ceilf(std::min(view->StringWidth("M") * 30, textWidth));
+		viewWidth = floorf(std::min(view->StringWidth("M") * 30, textWidth));
 		float iconSize = (float)view->IconSizeInt();
+
+		// TODO figure out why we need the - 1's
+
 		if (view->ViewMode() == kIconMode) {
 			// icon mode
 			rect.left = poseLoc.x + roundf((iconSize - viewWidth) / 2.f);
-			rect.bottom = poseLoc.y + ceilf(view->IconPoseHeight());
+			rect.bottom = poseLoc.y + floorf(view->IconPoseHeight()) - 1;
 			rect.top = rect.bottom - floorf(ActualFontHeight(view));
 		} else {
 			// mini icon mode
 			rect.left = poseLoc.x + iconSize + kMiniIconSeparator;
-			rect.bottom = poseLoc.y + roundf((iconSize + ActualFontHeight(view)) / 2);
+			rect.bottom = poseLoc.y + roundf((iconSize + ActualFontHeight(view)) / 2) - 1;
 			rect.top = poseLoc.y;
 		}
-		rect.right = rect.left + viewWidth;
+		rect.right = rect.left + viewWidth - 1;
 	}
 
 	return rect;

@@ -923,24 +923,25 @@ BPose::CalcRect(const BPoseView* poseView) const
 	BRect rect(_IconRect(poseView, location));
 	float textWidth = (widget != NULL ? ceilf(widget->TextWidth(poseView)) : 0);
 
+	// TODO figure out why we need the - 1's
+
 	if (poseView->ViewMode() == kIconMode) {
 		// icon mode
 		if (widget != NULL) {
 			if (textWidth > rect.Width()) {
 				rect.left += roundf((rect.Width() - textWidth) / 2);
-				rect.right = rect.left + textWidth;
+				rect.right = rect.left + textWidth - 1;
 			}
 		}
 
-		rect.bottom = rect.top + ceilf(poseView->IconPoseHeight());
+		rect.bottom = rect.top + ceilf(poseView->IconPoseHeight()) - 1;
 	} else {
 		// mini icon mode
 		if (widget != NULL)
 			rect.right += kMiniIconSeparator + textWidth;
 
 		float iconSize = (float)poseView->IconSizeInt();
-		float fontHeight = ActualFontHeight(poseView);
-		rect.bottom = rect.top + roundf((iconSize + fontHeight) / 2);
+		rect.bottom = rect.top + roundf((iconSize + ActualFontHeight(poseView)) / 2) - 1;
 	}
 
 	return rect;
