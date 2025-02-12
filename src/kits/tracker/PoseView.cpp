@@ -230,7 +230,8 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fColumnList(new BObjectList<BColumn, true>(4)),
 	fBrokenLinks(new BObjectList<Model>(10)),
 	fCountView(NULL),
-	fListElemHeight(0.0f),
+	fListElemHeight(ceilf(be_plain_font->Size() * 1.65f)),
+	fListOffset(ceilf(be_control_look->DefaultLabelSpacing() * 3.3f)),
 	fIconPoseHeight(0.0f),
 	fDropTarget(NULL),
 	fAlreadySelectedDropTarget(NULL),
@@ -283,9 +284,6 @@ BPoseView::BPoseView(Model* model, uint32 viewMode)
 	fTransparentSelection(TrackerSettings().TransparentSelection()),
 	fWaitingForRefs(false)
 {
-	fListElemHeight = ceilf(be_plain_font->Size() * 1.65f);
-	fListOffset = ceilf(be_control_look->DefaultLabelSpacing() * 3.3f);
-
 	fViewState->SetViewMode(viewMode);
 	fFilterStrings.AddItem(new BString());
 }
@@ -345,6 +343,12 @@ BPoseView::InitCommon()
 		origin = fViewState->IconOrigin();
 
 	PinPointToValidRange(origin);
+
+	// static - init just once
+	if (sFontHeight == -1) {
+		be_plain_font->GetHeight(&sFontInfo);
+		sFontHeight = sFontInfo.ascent + sFontInfo.descent + 1;
+	}
 
 	// init things related to laying out items
 	SetIconPoseHeight();
@@ -1009,12 +1013,6 @@ BPoseView::AttachedToWindow()
 	AddFilter(new LongAndDragTrackingFilter(kMsgMouseLongDown, kMsgMouseDragged));
 
 	fLastLeftTop = LeftTop();
-
-	// static - init just once
-	if (sFontHeight == -1) {
-		be_plain_font->GetHeight(&sFontInfo);
-		sFontHeight = sFontInfo.ascent + sFontInfo.descent + 1;
-	}
 
 	TTracker* tracker = dynamic_cast<TTracker*>(be_app);
 	if (tracker != NULL && tracker->Lock()) {
@@ -1695,8 +1693,7 @@ BPoseView::AddPosesCompleted()
 	// above the top of the view (leaving you with an empty window)
 	if (ViewMode() == kListMode) {
 		BRect bounds(Bounds());
-		float lastItemTop = (CurrentPoseList()->CountItems() - 1)
-			* fListElemHeight;
+		float lastItemTop = (CurrentPoseList()->CountItems() - 1) * fListElemHeight;
 		if (bounds.top > lastItemTop)
 			BView::ScrollTo(bounds.left, std::max(lastItemTop, 0.0f));
 	}
@@ -2831,9 +2828,9 @@ BPoseView::AddColumn(BColumn* newColumn, const BColumn* after)
 	BRect rect(Bounds());
 
 	// add widget for all visible poses
-	PoseList* poseList = CurrentPoseList();
-	int32 poseCount = poseList->CountItems();
-	int32 startIndex = (int32)(rect.top / fListElemHeight);
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+	const int32 startIndex = (int32)(rect.top / fListElemHeight);
 	BPoint loc(0, startIndex * fListElemHeight);
 
 	for (int32 index = startIndex; index < poseCount; index++) {
@@ -2851,11 +2848,13 @@ BPoseView::AddColumn(BColumn* newColumn, const BColumn* after)
 	float attrWidth = newColumn->Width();
 
 	int32 count = CountColumns();
+	BColumn* column;
 	for (int32 index = afterColumnIndex + 2; index < count; index++) {
-		BColumn* column = ColumnAt(index);
+		column = ColumnAt(index);
+
 		ASSERT(newColumn != column);
-		column->SetOffset(column->Offset() + (attrWidth
-			+ kTitleColumnExtraMargin));
+
+		column->SetOffset(column->Offset() + attrWidth + kTitleColumnExtraMargin);
 	}
 
 	rect.left = offset;
@@ -3149,9 +3148,9 @@ BPoseView::SetViewMode(uint32 newMode)
 	PoseList newPoseList(30);
 
 	if (newMode != kListMode) {
-		int32 poseCount = fPoseList->CountItems();
+		int32 poseCount = fVSPoseList->CountItems();
 		for (int32 index = 0; index < poseCount; index++) {
-			BPose* pose = fPoseList->ItemAt(index);
+			BPose* pose = fVSPoseList->ItemAt(index);
 			if (pose->HasLocation() == false) {
 				newPoseList.AddItem(pose);
 			} else if (checkLocations && !IsValidLocation(pose)) {
@@ -3249,11 +3248,11 @@ BPoseView::MapToNewIconMode(BPose* pose, BPoint oldGrid, BPoint oldOffset)
 void
 BPoseView::SetPosesClipboardMode(uint32 clipboardMode)
 {
-	if (ViewMode() == kListMode) {
-		PoseList* poseList = CurrentPoseList();
-		int32 poseCount = poseList->CountItems();
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
 
-		BPoint loc(0,0);
+	if (ViewMode() == kListMode) {
+		BPoint loc(0, 0);
 		for (int32 index = 0; index < poseCount; index++) {
 			BPose* pose = poseList->ItemAt(index);
 			if (pose->ClipboardMode() != clipboardMode) {
@@ -3263,9 +3262,8 @@ BPoseView::SetPosesClipboardMode(uint32 clipboardMode)
 			loc.y += fListElemHeight;
 		}
 	} else {
-		int32 poseCount = fPoseList->CountItems();
 		for (int32 index = 0; index < poseCount; index++) {
-			BPose* pose = fPoseList->ItemAt(index);
+			BPose* pose = poseList->ItemAt(index);
 			if (pose->ClipboardMode() != clipboardMode) {
 				pose->SetClipboardMode(clipboardMode);
 				BRect poseRect(pose->CalcRect(this));
@@ -3310,7 +3308,7 @@ BPoseView::UpdatePosesClipboardModeFromClipboard(BMessage* clipboardReport)
 			index, (const void**)&clipNode, &size) == B_OK; index++) {
 		BPose* pose = fPoseList->FindPose(&clipNode->node, &foundNodeIndex);
 		if (pose == NULL)
-			continue;
+			break;
 
 		if (clipNode->moveMode != pose->ClipboardMode() || pose->IsSelected()) {
 			pose->SetClipboardMode(clipNode->moveMode);
@@ -3801,8 +3799,7 @@ BPoseView::SlotOccupied(BRect poseRect, BRect viewBounds) const
 	int32 index = FirstIndexAtOrBelow((int32)(poseRect.top - IconPoseHeight()));
 	int32 numPoses = fVSPoseList->CountItems();
 
-	while (index < numPoses && fVSPoseList->ItemAt(index)->Location(this).y
-			< poseRect.bottom) {
+	while (index < numPoses && fVSPoseList->ItemAt(index)->Location(this).y < poseRect.bottom) {
 		BRect rect(fVSPoseList->ItemAt(index)->CalcRect(this));
 		if (poseRect.Intersects(rect))
 			return true;
@@ -3959,24 +3956,25 @@ BPoseView::SelectPoses(int32 start, int32 end)
 	BPoint loc(0, start * fListElemHeight);
 	BRect bounds(Bounds());
 
-	PoseList* poseList = CurrentPoseList();
-	int32 poseCount = poseList->CountItems();
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+	BPose* pose;
+	BRect poseRect;
+
 	for (int32 index = start; index < end && index < poseCount; index++) {
-		BPose* pose = poseList->ItemAt(index);
+		pose = poseList->ItemAt(index);
 		fSelectionList->AddItem(pose);
 		if (index == start)
 			fSelectionPivotPose = pose;
 		if (!pose->IsSelected()) {
 			pose->Select(true);
-			BRect poseRect;
 			if (iconMode)
 				poseRect = pose->CalcRect(this);
 			else
 				poseRect = pose->CalcRect(loc, this, false);
 
-			if (bounds.Intersects(poseRect)) {
+			if (bounds.Intersects(poseRect))
 				Invalidate(poseRect);
-			}
 		}
 
 		loc.y += fListElemHeight;
@@ -3990,8 +3988,7 @@ BPoseView::MoveOrChangePoseSelection(int32 to)
 	PoseList* poseList = CurrentPoseList();
 	BPose* first = fSelectionList->FirstItem();
 
-	if (first != NULL && fMultipleSelection
-		&& (modifiers() & B_SHIFT_KEY) != 0) {
+	if (first != NULL && fMultipleSelection && (modifiers() & B_SHIFT_KEY) != 0) {
 		// Extend selection
 		BPose* target = poseList->ItemAt(to);
 		BPose* last = fSelectionList->LastItem();
@@ -4004,12 +4001,13 @@ BPoseView::MoveOrChangePoseSelection(int32 to)
 		// TODO: shrink selection depending on anchor
 		bool select = true;
 
-		for (int32 index = from; step > 0 ? index <= to : index >= to;
-				index += step) {
-			BPose* pose = poseList->ItemAt(index);
+		BPose* pose;
+		for (int32 index = from; step > 0 ? index <= to : index >= to; index += step) {
+			pose = poseList->ItemAt(index);
 			if (pose != NULL && pose->IsSelected() != select)
 				AddRemovePoseFromSelection(pose, index, select);
 		}
+
 		if (target != NULL)
 			ScrollIntoView(target, to);
 	} else {
@@ -4031,19 +4029,18 @@ BPoseView::ScrollIntoView(BRect poseRect)
 	if (IsDesktopView())
 		return;
 
-	BPoint oldPos = Bounds().LeftTop(), newPos = oldPos;
+	BPoint oldPos = Bounds().LeftTop();
+	BPoint newPos = oldPos;
 
 	// In list mode, only scroll vertically
 	if (ViewMode() != kListMode) {
-		if (poseRect.left < Bounds().left
-			|| poseRect.Width() > Bounds().Width())
+		if (poseRect.left < Bounds().left || poseRect.Width() > Bounds().Width())
 			newPos.x += poseRect.left - Bounds().left;
 		else if (poseRect.right > Bounds().right)
 			newPos.x += poseRect.right - Bounds().right;
 	}
 
-	if (poseRect.top < Bounds().top
-		|| poseRect.Height() > Bounds().Height())
+	if (poseRect.top < Bounds().top || poseRect.Height() > Bounds().Height())
 		newPos.y += poseRect.top - Bounds().top;
 	else if (poseRect.bottom > Bounds().bottom)
 		newPos.y += poseRect.bottom - Bounds().bottom;
@@ -4107,6 +4104,7 @@ BPoseView::RemovePoseFromSelection(BPose* pose)
 		PoseList* poseList = CurrentPoseList();
 		int32 poseCount = poseList->CountItems();
 		BPoint loc(0, 0);
+
 		for (int32 index = 0; index < poseCount; index++) {
 			if (pose == poseList->ItemAt(index)) {
 				Invalidate(pose->CalcRect(loc, this));
@@ -5951,6 +5949,7 @@ BPoseView::UpdateIcon(BPose* pose)
 		bool found = false;
 		PoseList* poseList = CurrentPoseList();
 		int32 poseCount = poseList->CountItems();
+
 		for (int32 index = 0; index < poseCount; index++) {
 			if (poseList->ItemAt(index) == pose) {
 				location.Set(0, index * fListElemHeight);
@@ -6325,8 +6324,8 @@ BPoseView::Delete(BObjectList<entry_ref, true>* list, bool selectNext, bool conf
 			// deleted
 			Model* targetModel = TargetModel();
 			ASSERT(targetModel != NULL);
-			taskList->AddItem(NewMemberFunctionObject(&TTracker::SelectPoseAtLocationSoon, tracker,
-				*targetModel->NodeRef(), pointInPose));
+			taskList->AddItem(NewMemberFunctionObject(&TTracker::SelectPoseAtLocationSoon,
+				tracker, *targetModel->NodeRef(), pointInPose));
 		}
 	}
 
@@ -6366,8 +6365,8 @@ BPoseView::RestoreItemsFromTrash(BObjectList<entry_ref, true>* list, bool select
 			// restored
 			Model* targetModel = TargetModel();
 			ASSERT(targetModel != NULL);
-			taskList->AddItem(NewMemberFunctionObject(&TTracker::SelectPoseAtLocationSoon, tracker,
-				*targetModel->NodeRef(), pointInPose));
+			taskList->AddItem(NewMemberFunctionObject(&TTracker::SelectPoseAtLocationSoon,
+				tracker, *targetModel->NodeRef(), pointInPose));
 		}
 	}
 
@@ -6421,13 +6420,14 @@ BPoseView::SelectAll()
 	fSelectionPivotPose = NULL;
 	fRealPivotPose = NULL;
 
-	int32 startIndex = 0;
+	const int32 startIndex = 0;
 	BPoint loc(0, fListElemHeight * startIndex);
 
 	bool iconMode = ViewMode() != kListMode;
 
-	PoseList* poseList = CurrentPoseList();
-	int32 poseCount = poseList->CountItems();
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+
 	for (int32 index = startIndex; index < poseCount; index++) {
 		BPose* pose = poseList->ItemAt(index);
 		fSelectionList->AddItem(pose);
@@ -6466,7 +6466,7 @@ BPoseView::InvertSelection()
 
 	BRect bounds(Bounds());
 
-	int32 startIndex = 0;
+	const int32 startIndex = 0;
 	BPoint loc(0, fListElemHeight * startIndex);
 
 	fMimeTypesInSelectionCache.MakeEmpty();
@@ -6475,8 +6475,9 @@ BPoseView::InvertSelection()
 
 	bool iconMode = ViewMode() != kListMode;
 
-	PoseList* poseList = CurrentPoseList();
-	int32 poseCount = poseList->CountItems();
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+
 	for (int32 index = startIndex; index < poseCount; index++) {
 		BPose* pose = poseList->ItemAt(index);
 
@@ -6558,8 +6559,7 @@ BPoseView::SelectMatchingEntries(const BMessage* message)
 	for (int32 index = 0; index < poseCount; index++) {
 		BPose* pose = poseList->ItemAt(index);
 		name = pose->TargetModel()->Name();
-		if (name.Matches(expression.String(), !ignoreCase, expressionType)
-				^ invertSelection) {
+		if (name.Matches(expression.String(), !ignoreCase, expressionType) ^ invertSelection) {
 			matchCount++;
 			AddPoseToSelection(pose, index);
 		}
@@ -6644,8 +6644,7 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 		case B_PAGE_UP:
 			if (ViewMode() == kListMode) {
 				// Select first visible pose
-				int32 firstIndex = CurrentPoseList()->IndexOf(
-					fSelectionList->FirstItem());
+				int32 firstIndex = CurrentPoseList()->IndexOf(fSelectionList->FirstItem());
 				int32 index;
 				BPose* first = FirstVisiblePose(&index);
 				if (first != NULL) {
@@ -6662,8 +6661,7 @@ BPoseView::KeyDown(const char* bytes, int32 count)
 		case B_PAGE_DOWN:
 			if (ViewMode() == kListMode) {
 				// Select last visible pose
-				int32 lastIndex = CurrentPoseList()->IndexOf(
-					fSelectionList->LastItem());
+				int32 lastIndex = CurrentPoseList()->IndexOf(fSelectionList->LastItem());
 				int32 index;
 				BPose* last = LastVisiblePose(&index);
 				if (last != NULL) {
@@ -6921,10 +6919,12 @@ BPoseView::FindNearbyPose(char arrowKey, int32* poseIndex)
 	int32 resultingIndex = -1;
 	BPose* poseToSelect = NULL;
 	BPose* selectedPose = fSelectionList->LastItem();
+	BPose* pose;
+
+	PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = fPoseList->CountItems();
 
 	if (ViewMode() == kListMode) {
-		PoseList* poseList = CurrentPoseList();
-
 		switch (arrowKey) {
 			case B_UP_ARROW:
 			case B_LEFT_ARROW:
@@ -6966,9 +6966,9 @@ BPoseView::FindNearbyPose(char arrowKey, int32* poseIndex)
 	// handle case where there is no current selection
 	if (fSelectionList->IsEmpty()) {
 		// find the upper-left pose (I know it's ugly!)
-		poseToSelect = fVSPoseList->FirstItem();
+		poseToSelect = poseList->FirstItem();
 		for (int32 index = 0; ;index++) {
-			BPose* pose = fVSPoseList->ItemAt(++index);
+			pose = poseList->ItemAt(++index);
 			if (pose == NULL)
 				break;
 
@@ -6995,9 +6995,8 @@ BPoseView::FindNearbyPose(char arrowKey, int32* poseIndex)
 	BRect bestRect;
 
 	// we're not in list mode so scan visually for pose to select
-	int32 poseCount = fPoseList->CountItems();
 	for (int32 index = 0; index < poseCount; index++) {
-		BPose* pose = fPoseList->ItemAt(index);
+		pose = poseList->ItemAt(index);
 		BRect poseRect(pose->CalcRect(this));
 
 		switch (arrowKey) {
@@ -7096,7 +7095,7 @@ BPoseView::_BeginSelectionRect(const BPoint& point, bool shouldExtend)
 	}
 
 	fSelectionRectInfo.lastRect = fSelectionRectInfo.rect;
-	fSelectionRectInfo.selection = new BList;
+	fSelectionRectInfo.selection = new BList(CurrentPoseList()->CountItems());
 	fSelectionRectInfo.startPoint = point;
 	fSelectionRectInfo.lastPoint = point;
 	fSelectionRectInfo.isDragging = true;
@@ -7119,70 +7118,67 @@ AddIfPoseSelected(BPose* pose, PoseList* list)
 void
 BPoseView::_UpdateSelectionRect(const BPoint& point)
 {
-	if (point != fSelectionRectInfo.lastPoint) {
-		fSelectionRectInfo.lastPoint = point;
+	if (point == fSelectionRectInfo.lastPoint)
+		return;
 
-		// erase last rect
-		if (!fTransparentSelection) {
-			SetDrawingMode(B_OP_INVERT);
-			StrokeRect(fSelectionRectInfo.rect, B_MIXED_COLORS);
-			SetDrawingMode(B_OP_OVER);
-		}
+	fSelectionRectInfo.lastPoint = point;
 
-		fSelectionRectInfo.rect.top = std::min(point.y,
-			fSelectionRectInfo.startPoint.y);
-		fSelectionRectInfo.rect.left = std::min(point.x,
-			fSelectionRectInfo.startPoint.x);
-		fSelectionRectInfo.rect.bottom = std::max(point.y,
-			fSelectionRectInfo.startPoint.y);
-		fSelectionRectInfo.rect.right = std::max(point.x,
-			fSelectionRectInfo.startPoint.x);
+	// erase last rect
+	if (!fTransparentSelection) {
+		SetDrawingMode(B_OP_INVERT);
+		StrokeRect(fSelectionRectInfo.rect, B_MIXED_COLORS);
+		SetDrawingMode(B_OP_OVER);
+	}
 
-		fIsDrawingSelectionRect = true;
+	fSelectionRectInfo.rect.top = std::min(point.y, fSelectionRectInfo.startPoint.y);
+	fSelectionRectInfo.rect.left = std::min(point.x, fSelectionRectInfo.startPoint.x);
+	fSelectionRectInfo.rect.bottom = std::max(point.y, fSelectionRectInfo.startPoint.y);
+	fSelectionRectInfo.rect.right = std::max(point.x, fSelectionRectInfo.startPoint.x);
 
-		// use current selection rectangle to scan poses
-		SelectPoses(fSelectionRectInfo.rect,
-			&fSelectionRectInfo.selection);
+	fIsDrawingSelectionRect = true;
 
-		Window()->UpdateIfNeeded();
+	// use current selection rectangle to scan poses
+	SelectPoses(fSelectionRectInfo.rect, &fSelectionRectInfo.selection);
 
-		// draw new rect
-		if (!fTransparentSelection) {
-			SetDrawingMode(B_OP_INVERT);
-			StrokeRect(fSelectionRectInfo.rect, B_MIXED_COLORS);
-			SetDrawingMode(B_OP_OVER);
-		} else {
-			BRegion updateRegion1;
-			BRegion updateRegion2;
+	Window()->UpdateIfNeeded();
 
-			bool sameWidth = fSelectionRectInfo.rect.Width()
-				== fSelectionRectInfo.lastRect.Width();
-			bool sameHeight = fSelectionRectInfo.rect.Height()
-				== fSelectionRectInfo.lastRect.Height();
+	// draw new rect
+	if (!fTransparentSelection) {
+		SetDrawingMode(B_OP_INVERT);
+		StrokeRect(fSelectionRectInfo.rect, B_MIXED_COLORS);
+		SetDrawingMode(B_OP_OVER);
+	} else {
+		BRegion updateRegion1;
+		BRegion updateRegion2;
 
-			updateRegion1.Include(fSelectionRectInfo.rect);
-			updateRegion1.Exclude(fSelectionRectInfo.lastRect.InsetByCopy(
-				sameWidth ? 0 : 1, sameHeight ? 0 : 1));
-			updateRegion2.Include(fSelectionRectInfo.lastRect);
-			updateRegion2.Exclude(fSelectionRectInfo.rect.InsetByCopy(
-				sameWidth ? 0 : 1, sameHeight ? 0 : 1));
-			updateRegion1.Include(&updateRegion2);
-			BRect unionRect = fSelectionRectInfo.rect
-				& fSelectionRectInfo.lastRect;
-			updateRegion1.Exclude(unionRect
-				& BRect(-2000, fSelectionRectInfo.startPoint.y, 2000,
+		bool sameWidth = fSelectionRectInfo.rect.Width()
+			== fSelectionRectInfo.lastRect.Width();
+		bool sameHeight = fSelectionRectInfo.rect.Height()
+			== fSelectionRectInfo.lastRect.Height();
+
+		updateRegion1.Include(fSelectionRectInfo.rect);
+		updateRegion1.Exclude(fSelectionRectInfo.lastRect.InsetByCopy(
+			sameWidth ? 0 : 1, sameHeight ? 0 : 1));
+		updateRegion2.Include(fSelectionRectInfo.lastRect);
+		updateRegion2.Exclude(fSelectionRectInfo.rect.InsetByCopy(
+			sameWidth ? 0 : 1, sameHeight ? 0 : 1));
+		updateRegion1.Include(&updateRegion2);
+
+		BRect unionRect = fSelectionRectInfo.rect & fSelectionRectInfo.lastRect;
+		updateRegion1.Exclude(unionRect
+			& BRect(-2000, fSelectionRectInfo.startPoint.y, 2000,
 				fSelectionRectInfo.startPoint.y));
-			updateRegion1.Exclude(unionRect
-				& BRect(fSelectionRectInfo.startPoint.x, -2000,
+		updateRegion1.Exclude(unionRect
+			& BRect(fSelectionRectInfo.startPoint.x, -2000,
 				fSelectionRectInfo.startPoint.x, 2000));
 
-			fSelectionRectInfo.lastRect = fSelectionRectInfo.rect;
+		fSelectionRectInfo.lastRect = fSelectionRectInfo.rect;
 
-			Invalidate(&updateRegion1);
-			Window()->UpdateIfNeeded();
-		}
-		Flush();
+		Invalidate(&updateRegion1);
+		Window()->UpdateIfNeeded();
 	}
+
+	Flush();
 }
 
 
@@ -7213,7 +7209,7 @@ BPoseView::_EndSelectionRect()
 	fSelectionList->MakeEmpty();
 	fMimeTypesInSelectionCache.MakeEmpty();
 
-	fPoseList->EachListItem(AddIfPoseSelected, fSelectionList);
+	CurrentPoseList()->EachListItem(AddIfPoseSelected, fSelectionList);
 
 	// and now make sure that the pivot point is in sync
 	if (fSelectionPivotPose && !fSelectionList->HasItem(fSelectionPivotPose))
@@ -7256,7 +7252,7 @@ BPoseView::MouseMoved(BPoint where, uint32 transit, const BMessage* dragMessage)
 			SetViewCursor(B_CURSOR_SYSTEM_DEFAULT);
 			fCursorCheck = false;
 			// TODO: autoscroll here
-			if (!window->ContextMenu()) {
+			if (window->ContextMenu() != NULL) {
 				HiliteDropTarget(false);
 				fDropTarget = NULL;
 			}
@@ -7573,21 +7569,17 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint&
 {
 	BRect bounds(Bounds());
 
-	PoseList* poseList;
 	int32 startIndex;
-	if (ViewMode() == kListMode) {
-		poseList = CurrentPoseList();
+	if (ViewMode() == kListMode)
 		startIndex = (int32)(bounds.top / fListElemHeight);
-	} else {
-		// add rects using visible pose list in icon mode
-		poseList = fVSPoseList;
+	else
 		startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
-	}
 
+	const PoseList* poseList = CurrentPoseList();
 	if (poseList == NULL)
 		return NULL;
 
-	int32 poseCount = poseList->CountItems();
+	const int32 poseCount = poseList->CountItems();
 	if (poseCount == 0)
 		return NULL;
 
@@ -7651,7 +7643,7 @@ BPoseView::MakeDragBitmap(BRect dragRect, BPoint where, int32 poseIndex, BPoint&
 	view->SetDrawingMode(B_OP_ALPHA);
 	view->SetBlendingMode(B_CONSTANT_ALPHA, B_ALPHA_COMPOSITE);
 	uint8 alpha = fade ? 164 : 128; // set the level of opacity by value
-	if (LowColor().IsLight())
+	if (HighColor().IsDark())
 		view->SetHighColor(0, 0, 0, alpha);
 	else
 		view->SetHighColor(255, 255, 255, alpha);
@@ -7719,15 +7711,16 @@ BPoseView::GetDragRect(int32 poseIndex)
 	BRect result;
 	BRect bounds(Bounds());
 
-	PoseList* poseList = CurrentPoseList();
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
 	BPose* pose = poseList->ItemAt(poseIndex);
+
 	if (ViewMode() == kListMode) {
 		// get starting rect of clicked pose
 		result = CalcPoseRectList(pose, poseIndex, true);
 
 		// add rects for visible poses only
-		int32 poseCount = poseList->CountItems();
-		int32 startIndex = (int32)(bounds.top / fListElemHeight);
+		const int32 startIndex = (int32)(bounds.top / fListElemHeight);
 		BPoint loc(0, startIndex * fListElemHeight);
 
 		for (int32 index = startIndex; index < poseCount; index++) {
@@ -7742,12 +7735,10 @@ BPoseView::GetDragRect(int32 poseIndex)
 	} else {
 		// get starting rect of clicked pose
 		result = pose->CalcRect(this);
+		const int32 startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
 
-		// add rects using visible pose list in icon mode
-		int32 poseCount = fVSPoseList->CountItems();
-		for (int32 index = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()));
-				index < poseCount; index++) {
-			BPose* pose = fVSPoseList->ItemAt(index);
+		for (int32 index = startIndex; index < poseCount; index++) {
+			pose = poseList->ItemAt(index);
 			if (pose != NULL) {
 				if (pose->IsSelected())
 					result = result | pose->CalcRect(this);
@@ -7769,9 +7760,11 @@ BPoseView::SelectPoses(BRect selectionRect, BList** oldList)
 	// being different for list vs. icon modes. Refactoring needed.
 
 	const bool inListMode = (ViewMode() == kListMode);
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
 
 	// collect all the poses which are enclosed inside the selection rect
-	BList* newList = new BList;
+	BList* newList = new BList(poseCount);
 	BRect bounds(Bounds());
 
 	int32 startIndex;
@@ -7787,12 +7780,10 @@ BPoseView::SelectPoses(BRect selectionRect, BList** oldList)
 	if (inListMode)
 		listLoc.Set(0, startIndex * fListElemHeight);
 
-	const PoseList* poseList = inListMode ? CurrentPoseList() : fVSPoseList;
-	const int32 poseCount = inListMode ? poseList->CountItems() : fPoseList->CountItems();
 	for (int32 index = startIndex; index < poseCount; index++) {
 		BPose* pose = poseList->ItemAt(index);
 		if (pose == NULL)
-			continue;
+			break;
 
 		BRect poseRect;
 		if (inListMode)
@@ -7807,13 +7798,11 @@ BPoseView::SelectPoses(BRect selectionRect, BList** oldList)
 				// this sucks, need to clean up using a vector class instead
 				// of BList
 
-			if ((selected != pose->IsSelected())
-				&& poseRect.Intersects(bounds)) {
+			if (selected != pose->IsSelected())
 				Invalidate(poseRect);
-			}
 
 			// first Pose selected gets to be the pivot.
-			if ((fSelectionPivotPose == NULL) && (selected == false))
+			if (fSelectionPivotPose == NULL && selected == false)
 				fSelectionPivotPose = pose;
 		}
 
@@ -7863,6 +7852,9 @@ BPoseView::AddRemoveSelectionRange(BPoint where, bool extendSelection, BPose* po
 	if (pose == fSelectionPivotPose && !extendSelection)
 		return;
 
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+
 	if (fMultipleSelection && (modifiers() & B_SHIFT_KEY) != 0 && fSelectionPivotPose) {
 		// multi pose extend/shrink current selection
 		bool select = !pose->IsSelected() || !extendSelection;
@@ -7880,7 +7872,6 @@ BPoseView::AddRemoveSelectionRange(BPoint where, bool extendSelection, BPose* po
 		}
 
 		if (ViewMode() == kListMode) {
-			const PoseList* poseList = CurrentPoseList();
 			int32 currentSelectedIndex = poseList->IndexOf(pose);
 			int32 lastSelectedIndex = poseList->IndexOf(fSelectionPivotPose);
 
@@ -7917,16 +7908,15 @@ BPoseView::AddRemoveSelectionRange(BPoint where, bool extendSelection, BPose* po
 
 			ASSERT(selection.IsValid());
 
-			int32 poseCount = fPoseList->CountItems();
 			for (int32 index = poseCount - 1; index >= 0; index--) {
-				BPose* currPose = fPoseList->ItemAt(index);
+				BPose* currPose = poseList->ItemAt(index);
 				// TODO: works only in non-list mode?
 				if (selection.Intersects(currPose->CalcRect(this)))
 					AddRemovePoseFromSelection(currPose, index, select);
 			}
 		}
 	} else {
-		int32 index = CurrentPoseList()->IndexOf(pose);
+		int32 index = poseList->IndexOf(pose);
 		if (!extendSelection) {
 			if (!pose->IsSelected()) {
 				// create new selection
@@ -8090,19 +8080,21 @@ BPoseView::FindZombie(const node_ref* itemNode, int32* resultingIndex)
 BPose*
 BPoseView::FindPose(BPoint where, int32* poseIndex) const
 {
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+
 	if (ViewMode() == kListMode) {
 		int32 index = (int32)(where.y / fListElemHeight);
 		if (poseIndex != NULL)
 			*poseIndex = index;
 
 		BPoint poseLoc(0, index * fListElemHeight);
-		BPose* pose = CurrentPoseList()->ItemAt(index);
+		BPose* pose = poseList->ItemAt(index);
 		if (pose != NULL && pose->PointInPose(poseLoc, this, where))
 			return pose;
 	} else {
-		int32 poseCount = fPoseList->CountItems();
 		for (int32 index = poseCount - 1; index >= 0; index--) {
-			BPose* pose = fPoseList->ItemAt(index);
+			BPose* pose = poseList->ItemAt(index);
 			if (pose->PointInPose(this, where)) {
 				if (poseIndex)
 					*poseIndex = index;
@@ -8120,8 +8112,8 @@ BPose*
 BPoseView::FirstVisiblePose(int32* _index) const
 {
 	ASSERT(ViewMode() == kListMode);
-	return FindPose(BPoint(fListOffset,
-		Bounds().top + fListElemHeight - 1), _index);
+
+	return FindPose(BPoint(fListOffset, Bounds().top + fListElemHeight - 1), _index);
 }
 
 
@@ -8129,14 +8121,16 @@ BPose*
 BPoseView::LastVisiblePose(int32* _index) const
 {
 	ASSERT(ViewMode() == kListMode);
-	BPose* pose = FindPose(BPoint(fListOffset, Bounds().top + Frame().Height()
-		- fListElemHeight + 2), _index);
+
+	float poseY = Bounds().top + Frame().Height() - fListElemHeight + 2;
+	BPose* pose = FindPose(BPoint(fListOffset, poseY), _index);
 	if (pose == NULL) {
 		// Just get the last one
 		pose = CurrentPoseList()->LastItem();
 		if (_index != NULL)
 			*_index = CurrentPoseList()->CountItems() - 1;
 	}
+
 	return pose;
 }
 
@@ -8263,7 +8257,7 @@ BPoseView::CanUnmountSelection()
 	for (int32 index = 0; index < selectCount; index++) {
 		BPose* pose = fSelectionList->ItemAt(index);
 		if (pose == NULL)
-			continue;
+			break;
 
 		// only volumes are unmountable
 		Model* model = pose->TargetModel();
@@ -8293,7 +8287,7 @@ BPoseView::UnmountSelectedVolumes()
 	for (int32 index = 0; index < selectCount; index++) {
 		BPose* pose = fSelectionList->ItemAt(index);
 		if (pose == NULL)
-			continue;
+			break;
 
 		// only volumes are unmountable
 		Model* model = pose->TargetModel();
@@ -8646,16 +8640,17 @@ BPoseView::ClearSelection()
 	fSelectionPivotPose = NULL;
 	fRealPivotPose = NULL;
 
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+
 	if (CountSelected() > 0) {
 		// scan all visible poses first
 		BRect bounds(Bounds());
 
 		if (ViewMode() == kListMode) {
-			int32 startIndex = (int32)(bounds.top / fListElemHeight);
+			const int32 startIndex = (int32)(bounds.top / fListElemHeight);
 			BPoint loc(0, startIndex * fListElemHeight);
 
-			const PoseList* poseList = CurrentPoseList();
-			int32 poseCount = poseList->CountItems();
 			for (int32 index = startIndex; index < poseCount; index++) {
 				BPose* pose = poseList->ItemAt(index);
 				if (pose->IsSelected()) {
@@ -8668,10 +8663,11 @@ BPoseView::ClearSelection()
 					break;
 			}
 		} else {
-			int32 startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()), true);
-			int32 poseCount = fVSPoseList->CountItems();
+			const int32 startIndex
+				= FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()), true);
+
 			for (int32 index = startIndex; index < poseCount; index++) {
-				BPose* pose = fVSPoseList->ItemAt(index);
+				BPose* pose = poseList->ItemAt(index);
 				if (pose != NULL) {
 					if (pose->IsSelected()) {
 						pose->Select(false);
@@ -8710,43 +8706,50 @@ BPoseView::ShowSelection(bool show)
 	// scan all visible poses first
 	BRect bounds(Bounds());
 
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+
 	if (ViewMode() == kListMode) {
-		int32 startIndex = (int32)(bounds.top / fListElemHeight);
+		const int32 startIndex = (int32)(bounds.top / fListElemHeight);
 		BPoint loc(0, startIndex * fListElemHeight);
 
-		const PoseList* poseList = CurrentPoseList();
-		int32 poseCount = poseList->CountItems();
 		for (int32 index = startIndex; index < poseCount; index++) {
 			BPose* pose = poseList->ItemAt(index);
-			if (fSelectionList->HasItem(pose))
+			if (pose == NULL)
+				break;
+
+			if (fSelectionList->HasItem(pose)) {
 				if (pose->IsSelected() != show || fShowSelectionWhenInactive) {
 					if (!fShowSelectionWhenInactive)
 						pose->Select(show);
 
-					pose->Draw(BRect(pose->CalcRect(loc, this, false)), bounds, this, false);
+					Invalidate(pose->CalcRect(loc, this, false));
 				}
+			}
 
 			loc.y += fListElemHeight;
 			if (loc.y > bounds.bottom)
 				break;
 		}
 	} else {
-		int32 startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()), true);
-		int32 poseCount = fVSPoseList->CountItems();
+		const int32 startIndex
+			= FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()), true);
 		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = fVSPoseList->ItemAt(index);
-			if (pose != NULL) {
-				if (fSelectionList->HasItem(pose))
-					if (pose->IsSelected() != show || fShowSelectionWhenInactive) {
-						if (!fShowSelectionWhenInactive)
-							pose->Select(show);
+			BPose* pose = poseList->ItemAt(index);
+			if (pose == NULL)
+				break;
 
-						Invalidate(pose->CalcRect(this));
-					}
+			if (fSelectionList->HasItem(pose)) {
+				if (pose->IsSelected() != show || fShowSelectionWhenInactive) {
+					if (!fShowSelectionWhenInactive)
+						pose->Select(show);
 
-				if (pose->Location(this).y > bounds.bottom)
-					break;
+					Invalidate(pose->CalcRect(this));
+				}
 			}
+
+			if (pose->Location(this).y > bounds.bottom)
+				break;
 		}
 	}
 
@@ -8781,10 +8784,9 @@ BPoseView::AddRemovePoseFromSelection(BPose* pose, int32 index, bool select)
 	pose->Select(select);
 
 	// update display
-	if (ViewMode() == kListMode) {
-		Invalidate(pose->CalcRect(BPoint(0, index * fListElemHeight),
-			this, false));
-	} else
+	if (ViewMode() == kListMode)
+		Invalidate(pose->CalcRect(BPoint(0, index * fListElemHeight), this, false));
+	else
 		Invalidate(pose->CalcRect(this));
 
 	if (select)
@@ -8906,9 +8908,10 @@ BPoseView::RemoveFromExtent(const BRect &rect)
 {
 	ASSERT(ViewMode() != kListMode);
 
-	if (rect.left <= fExtent.left || rect.right >= fExtent.right
-		|| rect.top <= fExtent.top || rect.bottom >= fExtent.bottom)
+	if (rect.left <= fExtent.left || rect.top <= fExtent.top
+		|| rect.right >= fExtent.right || rect.bottom >= fExtent.bottom) {
 		RecalcExtent();
+	}
 }
 
 
@@ -8927,26 +8930,36 @@ BPoseView::RecalcExtent()
 BRect
 BPoseView::Extent() const
 {
-	BRect rect;
+	if (ViewMode() == kListMode)
+		return ListModeExtent();
+	else
+		return IconModeExtent();
+}
 
-	if (ViewMode() == kListMode) {
-		BColumn* column = fColumnList->LastItem();
-		if (column != NULL) {
-			rect.left = rect.top = 0;
-			rect.right = column->Offset() + column->Width()
-				+ kTitleColumnRightExtraMargin - kRoomForLine / 2.0f;
-			rect.bottom = fListElemHeight * CurrentPoseList()->CountItems();
-		} else
-			rect.Set(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
-	} else {
-		rect = fExtent;
-		rect.left -= fOffset.x;
-		rect.top -= fOffset.y;
-		rect.right += fOffset.x;
-		rect.bottom += fOffset.y;
-		if (!rect.IsValid())
-			rect.Set(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
-	}
+
+BRect
+BPoseView::ListModeExtent() const
+{
+	BColumn* column = fColumnList->LastItem();
+	if (column == NULL)
+		return BRect(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
+
+	BRect rect;
+	rect.left = rect.top = 0;
+	rect.right = column->Offset() + column->Width() + kTitleColumnRightExtraMargin
+		- kRoomForLine / 2.f;
+	rect.bottom = fListElemHeight * CurrentPoseList()->CountItems();
+
+	return rect;
+}
+
+
+BRect
+BPoseView::IconModeExtent() const
+{
+	BRect rect(fExtent.InsetByCopy(-fOffset));
+	if (!rect.IsValid())
+		rect.Set(LeftTop().x, LeftTop().y, LeftTop().x, LeftTop().y);
 
 	return rect;
 }
@@ -9131,29 +9144,43 @@ BPoseView::SynchronousUpdate(BRect updateRect, bool clip)
 void
 BPoseView::DrawViewCommon(const BRect& updateRect)
 {
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+	BPose* pose;
+	BRect poseRect;
+
 	if (ViewMode() == kListMode) {
-		const PoseList* poseList = CurrentPoseList();
-		int32 poseCount = poseList->CountItems();
 		int32 startIndex = (int32)((updateRect.top - fListElemHeight) / fListElemHeight);
 		if (startIndex < 0)
 			startIndex = 0;
 
 		BPoint location(0, startIndex * fListElemHeight);
+
 		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = poseList->ItemAt(index);
-			BRect poseRect(pose->CalcRect(location, this, true));
-			pose->Draw(poseRect, updateRect, this, true);
+			pose = poseList->ItemAt(index);
+			if (pose == NULL)
+				break;
+
+			poseRect = pose->CalcRect(location, this, true);
+			if (updateRect.Intersects(poseRect))
+				pose->Draw(poseRect, updateRect, this, true);
+
 			location.y += fListElemHeight;
 			if (location.y >= updateRect.bottom)
 				break;
 		}
 	} else {
-		int32 poseCount = fPoseList->CountItems();
 		for (int32 index = 0; index < poseCount; index++) {
-			BPose* pose = fPoseList->ItemAt(index);
-			BRect poseRect(pose->CalcRect(this));
+			pose = poseList->ItemAt(index);
+			if (pose == NULL)
+				break;
+
+			poseRect = pose->CalcRect(this);
 			if (updateRect.Intersects(poseRect))
 				pose->Draw(poseRect, updateRect, this, true);
+
+			if (pose->Location(this).y > updateRect.bottom)
+				break;
 		}
 	}
 }
@@ -9179,7 +9206,7 @@ BPoseView::ColumnRedraw(BRect updateRect)
 		startIndex = 0;
 
 	const PoseList* poseList = CurrentPoseList();
-	int32 poseCount = poseList->CountItems();
+	const int32 poseCount = poseList->CountItems();
 	if (poseCount <= 0)
 		return;
 
@@ -9402,8 +9429,7 @@ BPoseView::BSearchList(PoseList* poseList, const BPose* pose,
 
 	*resultingIndex = poseCount - 1;
 
-	const BPose* searchResult = BSearch(poseList, pose, this,
-		PoseCompareAddWidget);
+	const BPose* searchResult = BSearch(poseList, pose, this, PoseCompareAddWidget);
 
 	if (searchResult != NULL) {
 		// what are we doing here??
@@ -9411,8 +9437,7 @@ BPoseView::BSearchList(PoseList* poseList, const BPose* pose,
 		// something
 		int32 index = poseList->IndexOf(searchResult);
 		for (; index < poseCount; index++) {
-			int32 result = PoseCompareAddWidget(pose, poseList->ItemAt(index),
-				this);
+			int32 result = PoseCompareAddWidget(pose, poseList->ItemAt(index), this);
 			if (result <= 0) {
 				--index;
 				break;
@@ -9504,8 +9529,7 @@ BPoseView::SortPoses()
 #endif
 
 	BPose** poses = reinterpret_cast<BPose**>(fPoseList->AsBList()->Items());
-	std::stable_sort(poses, &poses[fPoseList->CountItems()],
-		PoseComparator(this));
+	std::stable_sort(poses, &poses[fPoseList->CountItems()], PoseComparator(this));
 	if (IsFiltering()) {
 		poses = reinterpret_cast<BPose**>(fFilteredPoseList->AsBList()->Items());
 		std::stable_sort(poses, &poses[fFilteredPoseList->CountItems()], PoseComparator(this));
@@ -9536,15 +9560,18 @@ BPoseView::ResizeColumnToWidest(BColumn* column)
 
 	float maxWidth = kMinColumnWidth;
 
-	PoseList* poseList = CurrentPoseList();
-	int32 poseCount = poseList->CountItems();
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+	BTextWidget* widget;
+
 	for (int32 i = 0; i < poseCount; ++i) {
-		BTextWidget* widget = poseList->ItemAt(i)->WidgetFor(column->AttrHash());
-		if (widget != NULL) {
-			float width = widget->PreferredWidth(this);
-			if (width > maxWidth)
-				maxWidth = width;
-		}
+		widget = poseList->ItemAt(i)->WidgetFor(column->AttrHash());
+		if (widget == NULL)
+			continue;
+
+		float width = widget->PreferredWidth(this);
+		if (width > maxWidth)
+			maxWidth = width;
 	}
 
 	if (maxWidth > kMinColumnWidth || maxWidth < column->Width()) {
@@ -9689,8 +9716,7 @@ BPoseView::UpdateDropTarget(BPoint mouseLoc, const BMessage* dragMessage,
 
 	Model tmpTarget;
 	if (targetModel != NULL && targetModel->IsSymLink()
-		&& tmpTarget.SetTo(targetPose->TargetModel()->EntryRef(), true, true)
-			== B_OK) {
+		&& tmpTarget.SetTo(targetPose->TargetModel()->EntryRef(), true, true) == B_OK) {
 		targetModel = &tmpTarget;
 	}
 
@@ -9737,12 +9763,14 @@ BPoseView::FrameForPose(BPose* targetPose, bool convert, BRect* poseRect)
 	bool frameIsValid = false;
 	BRect bounds(Bounds());
 
-	if (ViewMode() == kListMode) {
-		PoseList* poseList = CurrentPoseList();
-		int32 poseCount = poseList->CountItems();
-		int32 startIndex = (int32)(bounds.top / fListElemHeight);
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+	BPose* pose;
 
+	if (ViewMode() == kListMode) {
+		int32 startIndex = (int32)(bounds.top / fListElemHeight);
 		BPoint location(0, startIndex * fListElemHeight);
+
 		for (int32 index = startIndex; index < poseCount; index++) {
 			if (targetPose == poseList->ItemAt(index)) {
 				*poseRect = fDropTarget->CalcRect(location, this, false);
@@ -9755,21 +9783,21 @@ BPoseView::FrameForPose(BPose* targetPose, bool convert, BRect* poseRect)
 		}
 	} else {
 		int32 startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()), true);
-		int32 poseCount = fVSPoseList->CountItems();
 
 		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = fVSPoseList->ItemAt(index);
-			if (pose != NULL) {
-				if (pose == fDropTarget) {
-					*poseRect = pose->CalcRect(this);
-					frameIsValid = true;
-					break;
-				}
+			pose = poseList->ItemAt(index);
+			if (pose == NULL)
+				break;
 
-				if (pose->Location(this).y > bounds.bottom) {
-					frameIsValid = false;
-					break;
-				}
+			if (pose == fDropTarget) {
+				*poseRect = pose->CalcRect(this);
+				frameIsValid = true;
+				break;
+			}
+
+			if (pose->Location(this).y > bounds.bottom) {
+				frameIsValid = false;
+				break;
 			}
 		}
 	}
@@ -9805,18 +9833,18 @@ BPoseView::MenuTrackingHook(BMenu* menu, void*)
 
 	if (mouseInMenu) {
 		menu->ConvertToScreen(&location);
-		int32 poseCount = menu->CountItems();
+		const int32 poseCount = menu->CountItems();
+		BMenuItem* item;
 		for (int32 index = 0 ; index < poseCount; index++) {
 			// iterate through all of the items in the menu
 			// if the submenu is showing, see if the mouse is in the submenu
-			BMenuItem* item = menu->ItemAt(index);
-			if (item && item->Submenu()) {
+			item = menu->ItemAt(index);
+			if (item != NULL && item->Submenu() != NULL) {
 				BWindow* window = item->Submenu()->Window();
 				bool inSubmenu = false;
-				if (window && window->Lock()) {
+				if (window != NULL && window->Lock()) {
 					if (!window->IsHidden()) {
 						BRect frame(window->Frame());
-
 						frame.InsetBy(-kMenuTrackMargin, -kMenuTrackMargin);
 						inSubmenu = frame.Contains(location);
 					}
@@ -9870,17 +9898,19 @@ BPoseView::HiliteDropTarget(bool hiliteState)
 	// scan all visible poses
 	BRect bounds(Bounds());
 
-	if (ViewMode() == kListMode) {
-		PoseList* poseList = CurrentPoseList();
-		int32 poseCount = poseList->CountItems();
-		int32 startIndex = (int32)(bounds.top / fListElemHeight);
+	const PoseList* poseList = CurrentPoseList();
+	const int32 poseCount = poseList->CountItems();
+	BPose* pose;
+	BRect poseRect;
 
+	if (ViewMode() == kListMode) {
+		int32 startIndex = (int32)(bounds.top / fListElemHeight);
 		BPoint location(0, startIndex * fListElemHeight);
 
 		for (int32 index = startIndex; index < poseCount; index++) {
 			if (fDropTarget == poseList->ItemAt(index)) {
-				BRect poseRect = fDropTarget->CalcRect(location, this, false);
-				fDropTarget->Draw(poseRect, poseRect, this, false);
+				poseRect = fDropTarget->CalcRect(location, this, false);
+				Invalidate(poseRect);
 				break;
 			}
 
@@ -9890,27 +9920,20 @@ BPoseView::HiliteDropTarget(bool hiliteState)
 		}
 	} else {
 		int32 startIndex = FirstIndexAtOrBelow((int32)(bounds.top - IconPoseHeight()), true);
-		int32 poseCount = fVSPoseList->CountItems();
 
 		for (int32 index = startIndex; index < poseCount; index++) {
-			BPose* pose = fVSPoseList->ItemAt(index);
-			if (pose != NULL) {
-				if (pose == fDropTarget) {
-					BRect poseRect = pose->CalcRect(this);
-					// TODO: maybe leave just the else part
-					if (!hiliteState)
-						// deselecting an icon with widget drawn over background
-						// have to be a little tricky here - draw just the icon,
-						// invalidate the widget
-						pose->DeselectWithoutErasingBackground(poseRect, this);
-					else
-						pose->Draw(poseRect, poseRect, this, false);
-					break;
-				}
+			pose = poseList->ItemAt(index);
+			if (pose == NULL)
+				break;
 
-				if (pose->Location(this).y > bounds.bottom)
-					break;
+			if (pose == fDropTarget) {
+				poseRect = fDropTarget->CalcRect(this);
+				Invalidate(poseRect);
+				break;
 			}
+
+			if (pose->Location(this).y > bounds.bottom)
+				break;
 		}
 	}
 }
@@ -10446,7 +10469,7 @@ BPoseView::RebuildFilteringPoseList()
 	for (int32 index = 0; index < poseCount; index++) {
 		BPose* pose = fPoseList->ItemAt(index);
 		if (pose == NULL)
-			continue;
+			break;
 
 		if (FilterPose(pose))
 			fFilteredPoseList->AddItem(pose);
