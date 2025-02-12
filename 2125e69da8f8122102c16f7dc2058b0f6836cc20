@@ -38,6 +38,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8d36c770_830279e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-12T09:20:35Z",
+      "side": 1,
+      "message": "ControlLook specific settings exposed globally is not a good idea.\nFlatControlLook and BeControlLook then have to implement this aswell.\n\nI have no problem with enabeling one of these styles per default however, or with a scroll look specific settings window that could be opened from that view.",
+      "revId": "2125e69da8f8122102c16f7dc2058b0f6836cc20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ce3171f8_406c729e",
         "filename": "src/preferences/appearance/FakeScrollBar.cpp",
         "patchSetId": 11
