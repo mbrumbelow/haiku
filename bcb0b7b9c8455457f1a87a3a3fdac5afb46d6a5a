@@ -161,6 +161,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "71ce755c_ddccc3f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-12T10:33:59Z",
+      "side": 1,
+      "message": "Can you explain why? There is nothing missing in this changeset. Adding AdoptSystemColors to Buttons is a good idea for third party users pf the api, so this behaves as expected, but we don\u0027t need it here.\n\nAs for #19357 this only adresses the semantic part of the color. Not the specific one, the color value is still wrong in regards to the rendering and has to be adjusted.",
+      "parentUuid": "fd07ea03_30f8a7c1",
+      "revId": "bcb0b7b9c8455457f1a87a3a3fdac5afb46d6a5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "30deac47_624e5660",
         "filename": "src/kits/interface/BMCPrivate.cpp",
         "patchSetId": 4
