@@ -123,6 +123,24 @@
       "parentUuid": "f9bb0fed_bd52141d",
       "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bcaf342_896cdd94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-12T09:13:01Z",
+      "side": 1,
+      "message": "you were the one who raised this, so you can mark it done.\n\nI think there are no formal rules, I generally leave it open to let the reviewer mark it unless I am sure, on the other hand sometimes patch authors mark my comments as done without adressing them, and thus I vote -1 quicker. really depends.\n\nAs for the comparisons, iirc gcc is supposed to unroll these loops as an optimization so there are not actually that many comparisons. You can check in compiler explorer if that is actually the case if you are worried about that.",
+      "parentUuid": "cbd417e5_8c1a76d2",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
