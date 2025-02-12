@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b91db02c_ef9271de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-12T05:46:45Z",
+      "side": 1,
+      "message": "Now builds and seems to work OK with GCC2, though I didn\u0027t test extensively.",
+      "parentUuid": "3a1dbf0f_4ed4aaf9",
+      "revId": "a4a4e2fbd4b94cf74f744f6fb29d209f2873ce83",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6131979_658a48ef",
         "filename": "headers/private/system/tls.h",
         "patchSetId": 5
