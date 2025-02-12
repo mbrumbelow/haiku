@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3c67d61c_82312337",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-12T18:46:48Z",
+      "side": 1,
+      "message": "BeControlLook has already implemented knob styles of course. Flat could be updated to include them, or not. Either way I don\u0027t think it should hold up release. However, I doubt this is going to be included any time soon if ever.",
+      "parentUuid": "8d36c770_830279e5",
+      "revId": "2125e69da8f8122102c16f7dc2058b0f6836cc20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ce3171f8_406c729e",
         "filename": "src/preferences/appearance/FakeScrollBar.cpp",
         "patchSetId": 11
