@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f166ce84_50dcecf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-12T23:07:32Z",
+      "side": 1,
+      "message": "Reserved memory after boot, hoard2: ~300MB, openbsd: ~330MB, mimalloc: ~1GB.\n\nHowever, pages used is the same or lower, and pages used is much lower with applications like web browsers that use a lot of memory. So this does seem worth looking into, I suppose. Some of my glue code from the OpenBSD malloc may be helpful here.",
+      "revId": "7b1b6a049c832012bec3868618c0a3be0e19526b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4131f0d7_fdd812ce",
