@@ -197,6 +197,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "95a7f93b_b8ccb6c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-12T19:37:59Z",
+      "side": 1,
+      "message": "No, I already said that that all relevant changes are here.\n\nThe rendering has to be adjusted in HaikuControlLook and the color changed in the interface kit. This is not done in this change because the controllook change is complex.",
+      "parentUuid": "0bd2e1fd_40e745d6",
+      "revId": "bcb0b7b9c8455457f1a87a3a3fdac5afb46d6a5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "30deac47_624e5660",
         "filename": "src/kits/interface/BMCPrivate.cpp",
         "patchSetId": 4
