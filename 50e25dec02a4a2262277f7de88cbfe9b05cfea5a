@@ -105,6 +105,24 @@
       "parentUuid": "fd1c02fe_9d3884bd",
       "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbd417e5_8c1a76d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-12T01:43:38Z",
+      "side": 1,
+      "message": "Just to avoid 62 comparisons that will be negative. (just kidding, the extra 4 method calls in my version are surely more expensive :-D).\n\nUpdated the commit to use your suggestion. Thanks.\n\nI always doubt if I\u0027m supposed to mark these as resolved myself if I consider them \"done\", or should leave that to the person that raised the original concerns. Leaving it as-is this time, just in case.",
+      "parentUuid": "f9bb0fed_bd52141d",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
