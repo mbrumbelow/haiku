@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3de92868_61274e71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-12T18:52:13Z",
+      "side": 1,
+      "message": "Small nitpick... I know you copied this from my change in Tracker... but could you replace 0x20 with B_SPACE? They are one in the same but B_SPACE is more clear I think for those not familiar with the ASCII numbering... It seems like you\u0027ve cut too deeply anyway here, you\u0027ll need to also re-allow B_TAB and B_ENTER. Tracker doesn\u0027t need those for file names but StyledEdit does for indents and newlines.",
+      "revId": "1944c7c2d27318d57eae74da03ab2cb6865e0693",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
