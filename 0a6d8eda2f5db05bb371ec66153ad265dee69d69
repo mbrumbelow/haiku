@@ -51,6 +51,24 @@
       "parentUuid": "57ee3a2e_13e2802e",
       "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f560866_e044f928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-13T03:25:01Z",
+      "side": 1,
+      "message": "If I understand correctly those should be the keys berween numpad and main keybord, end jumps to the end of the document, insert toggles between insert and replace mode (not sure if stylededit does that).\n\nIf the code here does not \"respect\" them beeing disallowed it may be that BTextView handles those a layer above (say in messagereceived) as inputs before evaluating if this could be represented as a char that can be silenced. I\u0027d have to check.",
+      "parentUuid": "f8522d3f_86d7062a",
+      "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
