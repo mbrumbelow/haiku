@@ -16,6 +16,24 @@
       "message": "What is the decommit strategy? It may make sense to keep the memory until the low_resource_manager is triggered and release it then.\n\nThen it\u0027s possible to spend time decommiting memory only when it\u0027s needed somewhere else.",
       "revId": "70af5af26200c500e5ef2cd070450676e41211d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7768f1ef_a5678fff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-13T14:38:51Z",
+      "side": 1,
+      "message": "That could be interesting, but we don\u0027t have a way for the low_resource manager to notify userland right now, so that will require more work to make a reality.\n\nThe decommit strategy is basically to start freeing the largest unused chunks when unused is more than 25% of used (tunable value, it\u0027s in a constant in the PagesAllocator.)",
+      "parentUuid": "d4873117_5f629a00",
+      "revId": "70af5af26200c500e5ef2cd070450676e41211d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
