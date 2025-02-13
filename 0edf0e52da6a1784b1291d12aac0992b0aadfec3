@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223fc9d5_e2e2308b",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3389,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-13T01:37:16Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to make sense to do this before Lock?",
+      "revId": "0edf0e52da6a1784b1291d12aac0992b0aadfec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
