@@ -33,6 +33,24 @@
       "message": "looking at https://cgit.haiku-os.org/haiku/commit/?id\u003daf5f2563385fe37c2b6978b67292fa51de0d9ffe\n\nI wonder if more have to be re-allowed. B_END B_INSERT B_BACKSPACE B_PAGEUP etc.\n\nor does page up still work with this? \n\nMaybe not having the loop but beeing explicit about which chars are disallowed would be better (i.e everything non functional and non printing)",
       "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8522d3f_86d7062a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-13T03:12:15Z",
+      "side": 1,
+      "message": "In that case, we\u0027d want to disable at least: q, w, r, t, y, u, o, s, f, g, z, x, c, v (according to my experience/keymap).\n\nI\u0027d add \"e\" and \"p\", but they already do nothing on my system.\n\nMentioned CTRL+BACKSPACE already on a previous comment. It behave the same as before this change: \"strangely\" :-D.\n\nUnless those are documented anywhere, I wouldn\u0027t really know what to expect from CTRL+{B_END,B_INSERT,etc} on Haiku, so testing won\u0027t be productive on my side.",
+      "parentUuid": "57ee3a2e_13e2802e",
+      "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
