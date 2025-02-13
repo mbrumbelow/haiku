@@ -3386,8 +3386,9 @@ OutlineView::RedrawColumn(BColumn* column, float leftEdge, bool isFirstColumn)
 
 
 #if DOUBLE_BUFFERED_COLUMN_RESIZE
-			fResizeBufferView->Lock();
+			fResizeBufferView->PushState();
 
+			fResizeBufferView->Lock();
 			fResizeBufferView->SetHighColor(highColor);
 			fResizeBufferView->SetLowColor(lowColor);
 
@@ -3421,7 +3422,6 @@ OutlineView::RedrawColumn(BColumn* column, float leftEdge, bool isFirstColumn)
 
 	#if CONSTRAIN_CLIPPING_REGION
 				BRegion clipRegion(fieldRect);
-				fResizeBufferView->PushState();
 				fResizeBufferView->ConstrainClippingRegion(&clipRegion);
 	#endif
 				fResizeBufferView->SetHighColor(fMasterView->Color(
@@ -3431,9 +3431,6 @@ OutlineView::RedrawColumn(BColumn* column, float leftEdge, bool isFirstColumn)
 					+ (fieldRect.Height() + 1 - (fh.ascent+fh.descent)) / 2);
 				fResizeBufferView->MovePenTo(fieldRect.left + 8, baseline);
 				column->DrawField(field, fieldRect, fResizeBufferView);
-	#if CONSTRAIN_CLIPPING_REGION
-				fResizeBufferView->PopState();
-	#endif
 			}
 
 			if (fFocusRow == row && !fEditMode && fMasterView->IsFocus()
@@ -3449,6 +3446,7 @@ OutlineView::RedrawColumn(BColumn* column, float leftEdge, bool isFirstColumn)
 			SetDrawingMode(B_OP_COPY);
 			DrawBitmap(fResizeBufferView->Bitmap(), sourceRect, destRect);
 
+			fResizeBufferView->PopState();
 #else
 
 			SetHighColor(highColor);
