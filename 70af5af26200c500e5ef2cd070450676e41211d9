@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4873117_5f629a00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-13T07:49:13Z",
+      "side": 1,
+      "message": "What is the decommit strategy? It may make sense to keep the memory until the low_resource_manager is triggered and release it then.\n\nThen it\u0027s possible to spend time decommiting memory only when it\u0027s needed somewhere else.",
+      "revId": "70af5af26200c500e5ef2cd070450676e41211d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
