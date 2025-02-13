@@ -16,6 +16,23 @@
       "message": "ok looks good",
       "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ee3a2e_13e2802e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-13T02:40:32Z",
+      "side": 1,
+      "message": "looking at https://cgit.haiku-os.org/haiku/commit/?id\u003daf5f2563385fe37c2b6978b67292fa51de0d9ffe\n\nI wonder if more have to be re-allowed. B_END B_INSERT B_BACKSPACE B_PAGEUP etc.\n\nor does page up still work with this? \n\nMaybe not having the loop but beeing explicit about which chars are disallowed would be better (i.e everything non functional and non printing)",
+      "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
