@@ -141,6 +141,24 @@
       "parentUuid": "cbd417e5_8c1a76d2",
       "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8765ed06_12e8ca56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-13T02:24:56Z",
+      "side": 1,
+      "message": "Thank you.\n\nI\u0027ll leave it to Adrien to mark as resolved, if he considers it so then (he \"unresolved\" my original comment, in this particular case).",
+      "parentUuid": "8bcaf342_896cdd94",
+      "revId": "50e25dec02a4a2262277f7de88cbfe9b05cfea5a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
