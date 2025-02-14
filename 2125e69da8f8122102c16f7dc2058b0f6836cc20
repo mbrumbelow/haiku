@@ -91,6 +91,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "daaf2b82_c92b970a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-14T23:41:33Z",
+      "side": 1,
+      "message": "I think we should set clear expectstions for new controlLooks for what they have to implement and what not, rendering customizations based on global user prefferences should be specific to the controllook.\n\nI had raised this on the mailing list last month but didn\u0027t get any replies.\n\nThis structure should be deprecated and if possible removed. The controllooks can then expose a settings page (or BBox) we can add to the appearence preferences.",
+      "parentUuid": "7fb31db2_403a44b8",
+      "revId": "2125e69da8f8122102c16f7dc2058b0f6836cc20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ce3171f8_406c729e",
         "filename": "src/preferences/appearance/FakeScrollBar.cpp",
         "patchSetId": 11
