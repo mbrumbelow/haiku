@@ -287,6 +287,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "38b9be03_071ddf8c",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 8726,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-14T07:57:29Z",
+      "side": 1,
+      "message": "Keep this one, I\u0027m confident there\u0027s no problems with invalidate here.",
+      "parentUuid": "61a6e4b5_ed9e6735",
+      "revId": "22abaa1b47efbf38a370e69b0f30d49837c63651",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "23674004_90e3778a",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 2
@@ -376,6 +394,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1ae80360_fa790b60",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9913,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-14T07:57:29Z",
+      "side": 1,
+      "message": "Restore this in case it causes a problem.",
+      "parentUuid": "ff98c15a_103b0f2d",
+      "revId": "22abaa1b47efbf38a370e69b0f30d49837c63651",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b9bf60f2_59f3179e",
         "filename": "src/kits/tracker/PoseView.cpp",
         "patchSetId": 2
@@ -387,6 +423,24 @@
       "writtenOn": "2025-02-14T04:59:11Z",
       "side": 1,
       "message": "Same here, we don\u0027t need a full draw or any of the other stuff, just invalidate.",
+      "revId": "22abaa1b47efbf38a370e69b0f30d49837c63651",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91373ce9_4358d48e",
+        "filename": "src/kits/tracker/PoseView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9931,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-14T07:57:29Z",
+      "side": 1,
+      "message": "Restore this in case it causes a problem.",
+      "parentUuid": "b9bf60f2_59f3179e",
       "revId": "22abaa1b47efbf38a370e69b0f30d49837c63651",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
