@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5263c90_7e5477d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-14T14:14:46Z",
+      "side": 1,
+      "message": "FWIW I intend to replace the mapping type field with a generic flags field, and just pass B_SHARED_AREA (or not) to the kernel instead of this enum.",
+      "revId": "12b22e8e484da84deec1aa5ae46280960c4e8eee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
