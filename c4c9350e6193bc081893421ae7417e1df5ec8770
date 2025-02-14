@@ -70,6 +70,24 @@
       "parentUuid": "c60c9e76_decb5f00",
       "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcbcdc6b_ca93007a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-14T05:29:00Z",
+      "side": 1,
+      "message": "The double-click-activate mechanism is one click too many.",
+      "parentUuid": "85e7b61a_24adbfab",
+      "revId": "c4c9350e6193bc081893421ae7417e1df5ec8770",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
