@@ -87,6 +87,24 @@
       "parentUuid": "9f560866_e044f928",
       "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "129dc771_eb3c1554",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-14T04:42:09Z",
+      "side": 1,
+      "message": "Just to clarify (hopefully). In the comment above I meant CTRL+B_END, CTRL+B_HOME, etc, as the actual CTRL and END/HOME/etc, keys.\n\nAs mentioned on the commit message, pressing CTRL+{a,d,h,j,k,l...} still work just as before, so no need to \"re-allow\" them.",
+      "parentUuid": "8f8a9772_d0087720",
+      "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
