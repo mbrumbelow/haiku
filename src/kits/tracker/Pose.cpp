@@ -643,15 +643,20 @@ BPose::DrawTextWidget(BRect rect, BRect textRect, BTextWidget* widget,
 	widget->Draw(rect, textRect, poseView, drawView, selected, fClipboardMode, offset);
 
 	if (selected) {
+		BRect eraseRect(textRect.OffsetByCopy(offset));
+		eraseRect.left = ceilf(eraseRect.left);
+		eraseRect.top = ceilf(eraseRect.top);
+		eraseRect.right = floorf(eraseRect.right);
+		eraseRect.bottom = floorf(eraseRect.bottom);
 		if (windowActive || isDrawingSelectionRect) {
 			// invert colors to select label using "reverse video"
-			drawView->InvertRect(textRect.OffsetByCopy(offset));
+			drawView->InvertRect(eraseRect);
 		} else if (!windowActive && showSelectionWhenInactive) {
 			// the selection rect is alpha-blended on top for inactive windows
-			drawView->InvertRect(textRect.OffsetByCopy(offset));
+			drawView->InvertRect(eraseRect);
 			drawView->SetDrawingMode(B_OP_BLEND);
 			drawView->SetHighColor(128, 128, 128, 255);
-			drawView->FillRect(textRect.OffsetByCopy(offset));
+			drawView->FillRect(eraseRect);
 			drawView->SetDrawingMode(B_OP_OVER);
 		}
 	}

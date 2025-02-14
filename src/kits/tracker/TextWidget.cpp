@@ -655,7 +655,12 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, BPoseView* view, BView* drawV
 			if (direct) {
 				// erase selection rect background
 				drawView->SetDrawingMode(B_OP_COPY);
-				drawView->FillRect(textRect, B_SOLID_LOW);
+				BRect eraseRect(textRect);
+				eraseRect.left = ceilf(eraseRect.left);
+				eraseRect.top = ceilf(eraseRect.top);
+				eraseRect.right = floorf(eraseRect.right);
+				eraseRect.bottom = floorf(eraseRect.bottom);
+				drawView->FillRect(eraseRect, B_SOLID_LOW);
 			}
 			drawView->SetDrawingMode(B_OP_OVER);
 
