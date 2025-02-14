@@ -628,7 +628,7 @@ BTextWidget::SelectAll(BPoseView* view)
 
 
 void
-BTextWidget::Draw(BRect eraseRect, BRect textRect, BPoseView* view, BView* drawView,
+BTextWidget::Draw(BRect invertRect, BRect textRect, BPoseView* view, BView* drawView,
 	bool selected, uint32 clipboardMode, BPoint offset)
 {
 	ASSERT(view != NULL);
@@ -655,7 +655,12 @@ BTextWidget::Draw(BRect eraseRect, BRect textRect, BPoseView* view, BView* drawV
 			if (direct) {
 				// erase selection rect background
 				drawView->SetDrawingMode(B_OP_COPY);
-				drawView->FillRect(textRect, B_SOLID_LOW);
+				BRect invertRect(textRect);
+				invertRect.left = ceilf(invertRect.left);
+				invertRect.top = ceilf(invertRect.top);
+				invertRect.right = floorf(invertRect.right);
+				invertRect.bottom = floorf(invertRect.bottom);
+				drawView->FillRect(invertRect, B_SOLID_LOW);
 			}
 			drawView->SetDrawingMode(B_OP_OVER);
 
