@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0c3c7db_a4830c2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-14T04:36:43Z",
+      "side": 1,
+      "message": "This is the change that actually fixes #18826. As I suspected it has nothing to do with a mismatch between Pose and TextWidget at all, the cause was differences in rounding on the text rect.",
+      "revId": "c6817a2f9488ed638863737be191570b923a4a03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
