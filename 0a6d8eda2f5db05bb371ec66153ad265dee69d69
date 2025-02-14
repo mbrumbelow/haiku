@@ -69,6 +69,24 @@
       "parentUuid": "f8522d3f_86d7062a",
       "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f8a9772_d0087720",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-14T04:29:36Z",
+      "side": 1,
+      "message": "(I temporarily reverted my keymap to \"Haiku mode\" to avoid getting confused while testing this...)\n\nCTRL+{B_END,B_HOME} act the same as just B_END/B_HOME on current version of StyledEdit (they move the cursor to end/start of the current line).\n\nCMD+{B_END,B_HOME} *do* go to the start/end of the document.\n\nB_INSERT (no matter the modifier) doesn\u0027t seems to change anything.\n\nCTRL+{B_PAGEUP,B_PAGEDOWN}  act the same as just B_PAGEUP/B_PAGEDOWN.\n\n---\n\nSame behaviour on StyledEdit with this changeset applied.",
+      "parentUuid": "9f560866_e044f928",
+      "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
