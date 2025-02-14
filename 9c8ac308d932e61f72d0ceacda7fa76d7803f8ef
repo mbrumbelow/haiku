@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5beef8d4_7b264ff1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-14T18:00:01Z",
+      "side": 1,
+      "message": "... but not the one in the method signature, that\u0027s still eraseRect (currently it is not used for anything).",
+      "revId": "9c8ac308d932e61f72d0ceacda7fa76d7803f8ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
