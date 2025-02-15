@@ -23,7 +23,11 @@ Structurally, a *device_node* is a set of a module, attributes, and
 resources, as well as a parent and children. At a minimum, a node must
 have a module, all other components are optional.
 
-TODO: picture of the device node tree
+.. image:: device_tree.png 
+   :width: 800
+
+** PCI Host controller may be a child of ACPI root if the detection
+mechanism is ACPI instead of Legacy BIOS. Take a look at "busses/pci" for more details.
 
 When the system starts, there is only a root node registered. Only
 primary hardware busses register with the root node, such as PCI, and
