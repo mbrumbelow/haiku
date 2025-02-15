@@ -127,6 +127,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c9262fb3_b28d0f86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-15T06:51:58Z",
+      "side": 1,
+      "message": "Seems to me that half of the flags are ignored? That isn\u0027t a clear expectation.\n\nBeOS did it really isn\u0027t a good justification for this, They didn\u0027t have a ControlLook either.\n\nYou have still not given a reason why such a minor rendering detail should have a user visible setting. ControlLooks change the rendering comprehensively and function as fully fledged librarys of rendering routines, if you want to switch them out you are free to do so.\n\nI don\u0027t see why this structure is needed for compatibility in source. Deprecating stuff is not that hard. \n\nhttps://en.cppreference.com/w/cpp/language/attributes/deprecated",
+      "parentUuid": "01c4116a_56abbf35",
+      "revId": "2125e69da8f8122102c16f7dc2058b0f6836cc20",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ce3171f8_406c729e",
         "filename": "src/preferences/appearance/FakeScrollBar.cpp",
         "patchSetId": 11
