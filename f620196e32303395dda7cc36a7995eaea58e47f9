@@ -16,6 +16,24 @@
       "message": "any particular reason this font is embedded, or was this just added by your authoring software?\n\nI think we may need to cut this down a bit by hand. Embeddibg an entire font seems quite wastefull.",
       "revId": "f620196e32303395dda7cc36a7995eaea58e47f9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e12459e6_42db8d90",
+        "filename": "docs/develop/kernel/device_tree.svg",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-15T15:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fde39d34_a2ff2dd2",
+      "revId": "f620196e32303395dda7cc36a7995eaea58e47f9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

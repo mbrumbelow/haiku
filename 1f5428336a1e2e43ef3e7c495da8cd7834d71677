@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "785be05f_a3fdfb59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-15T15:29:20Z",
+      "side": 1,
+      "message": "Already looks better!\n\nOne problem remaining seems to be that three text lines render below everything else, with a \"^\" symbol, I assume this is supposed to be under some node and not below the diagramm itself?\n\nNevermind, Now i understand what those are supposed to be... Notes, Sorry. I misunderstood this part.\n\nPerhaps to make this clearer we can use superscript anotations intead?\ni.E instead of \"^^ PCI Host Controller\" use \"PCI Host Controller¹\"\n\nAnd then have the note start wth the ¹ as in \"¹ PCI Host controller may be a child of ACPI root if the detectionmechanism is ACPI instead of Legacy BIOS. Take a look at \"busses/pci\" for more details.\"\n\nChars: ¹ ² ³\n\nI would assume that svg also has some \"Native\" way to write supersciprt numbers normally. Though to me the unicode chars seem easier... (Though maybe this is a if all you have a hammer everything is a nail)",
+      "revId": "1f5428336a1e2e43ef3e7c495da8cd7834d71677",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45cbf4a5_bb2f72ad",
+        "filename": "docs/develop/kernel/device_tree.svg",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-15T15:29:20Z",
+      "side": 1,
+      "message": "this tspan is now empty. Replace it with a \u003c/text\u003e after \u003c/tspan\u003e to close the upper text one",
+      "revId": "1f5428336a1e2e43ef3e7c495da8cd7834d71677",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
