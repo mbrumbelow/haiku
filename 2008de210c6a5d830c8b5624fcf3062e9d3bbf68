@@ -52,6 +52,24 @@
       "parentUuid": "15af3c55_9abfdfd1",
       "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad757990_ca479aa9",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-15T09:04:53Z",
+      "side": 1,
+      "message": "Would adding a \"fPathRef()\" in the HWindow ctor solve this? (Sorry, in my limited coding adventures, I\u0027ve only initialized pointers there... :))",
+      "parentUuid": "8af718bd_80d75739",
+      "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
