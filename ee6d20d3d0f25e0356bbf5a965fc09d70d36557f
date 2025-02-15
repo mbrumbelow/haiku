@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9ed27ec9_5b5641c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-02-15T18:00:27Z",
+      "side": 1,
+      "message": "The only Intel laptop I have right now, suffers from the ancient PCI BAR bug, so pch-i2c refuses to work.\n\nI got the same bottom left behaviour on one of my AMD laptops, it looks like we are always receiving the same input report when an interrupt triggers.\n\nMy guess is that issues are generated at underlying i2c driver and not here, but my knowledge on all this is very limited :/\n\nI can fix the format issues once we have clear what to do here.",
+      "parentUuid": "8ceb00f6_9ada304b",
+      "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1d1d2202_2ddc7416",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 1
