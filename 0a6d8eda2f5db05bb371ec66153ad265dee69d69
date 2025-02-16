@@ -105,6 +105,24 @@
       "parentUuid": "8f8a9772_d0087720",
       "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ff79b0_3374ed03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T21:12:40Z",
+      "side": 1,
+      "message": "The allowed or disallowed characters are for inputing text, not for other things that can happen when typing on the keyboard. These are intercepted much earlier and would never reach BTextView text appending code anyways.",
+      "parentUuid": "129dc771_eb3c1554",
+      "revId": "0a6d8eda2f5db05bb371ec66153ad265dee69d69",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
