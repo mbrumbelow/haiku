@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e145e660_d5ed7a7c",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T18:09:09Z",
+      "side": 1,
+      "message": "ACPICA\u0027s two handler types essentially filter by the notification value, if the value is \u003c 0x80, it\u0027s dispatched to a type 1 handler, type 2 otherwise. I found this to be a bit redundant since both handlers do the exact same thing, it\u0027s just the ceiling notification value that changes.",
+      "parentUuid": "7425938b_c0ba1fc3",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6282a4fd_90cf945e",
         "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
         "patchSetId": 3
