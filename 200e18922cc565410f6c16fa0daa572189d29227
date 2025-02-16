@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd028dd_5cf71ff9",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T20:17:39Z",
+      "side": 1,
+      "message": "that signature looks very off, same goes for the rest of io_{read/write}",
+      "revId": "200e18922cc565410f6c16fa0daa572189d29227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
