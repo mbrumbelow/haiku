@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "644db351_de212236",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T17:58:58Z",
+      "side": 1,
+      "message": "Yeah this is definitely not needed",
+      "parentUuid": "7e2769a6_4bc85355",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc42e30e_2df79fb2",
         "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2025-02-16T17:42:50Z",
       "side": 1,
       "message": "I\u0027m not sure how to handle this yet",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd5cd29f_2a1d4a0b",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T17:58:58Z",
+      "side": 1,
+      "message": "Maybe this is an API that should be added to uACPI, not sure, does Haiku actually use NO_TRAILING?",
+      "parentUuid": "cc42e30e_2df79fb2",
       "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af68e40f_571e61d9",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T17:58:58Z",
+      "side": 1,
+      "message": "That comment doesn\u0027t seem correct, what do you mean by that? uACPI supports one handler per address space per a device object, exactly the same as ACPICA, at least to my knowledge",
+      "parentUuid": "01ee924d_129cb508",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eae7be4e_a8ed9057",
         "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
         "patchSetId": 3
@@ -116,6 +170,24 @@
       "writtenOn": "2025-02-16T17:42:50Z",
       "side": 1,
       "message": "does the caller need to dereference the returned object now?\n\nalso, the bufferLength is now unused.\n\nShould we instead copy the rsult into the passed buffer, or will that break uacpi reference counting?",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b355b1_3e4d5689",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T17:58:58Z",
+      "side": 1,
+      "message": "uacpi_object is an opaque struct, the returnValue should be of type `uacpi_object **returnValue`",
+      "parentUuid": "29d8c0ed_2ed03bdb",
       "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
