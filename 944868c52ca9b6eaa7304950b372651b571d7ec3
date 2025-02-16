@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ab867bb_98216f6c",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T18:33:18Z",
+      "side": 1,
+      "message": "I checked the sourcecode and can only find one place where this function is used (in acpi_display_driver, that is currently not in use and not working), and it passes an hardcoded 1 as the nameType (that would be ACPI_SINGLE_NAME).\n\nThe other uses where deleted when removing ACPICA specific code already.\n\nSo I need to fix this to not return the full name, but just the leaf name.",
+      "parentUuid": "bd5cd29f_2a1d4a0b",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7425938b_c0ba1fc3",
         "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
         "patchSetId": 3
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "That comment doesn\u0027t seem correct, what do you mean by that? uACPI supports one handler per address space per a device object, exactly the same as ACPICA, at least to my knowledge",
       "parentUuid": "01ee924d_129cb508",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c1e3943_ac3c65ef",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T18:33:18Z",
+      "side": 1,
+      "message": "ACPICA requires to pass the handler to the uninstall function as well. I guessed that this would allow installing and uninstalling multiple handlers, but maybe it doesn\u0027t, and then passing the handler to the uninstall function is useless because it can be found internally.\n\nIn that case, there\u0027s no problem with this. I assume uacpi_install_address_space_handler will return an error if trying to install a handler for an (address space, device) that\u0027s already used by another handler?",
+      "parentUuid": "af68e40f_571e61d9",
       "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
