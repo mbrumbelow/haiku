@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32689013_724b748e",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-16T20:21:26Z",
+      "side": 1,
+      "message": "Can use system_time_nsecs.",
+      "revId": "200e18922cc565410f6c16fa0daa572189d29227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0bd028dd_5cf71ff9",
         "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
         "patchSetId": 5
