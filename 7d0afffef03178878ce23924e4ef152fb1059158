@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1067f139_03f68b57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T16:16:54Z",
+      "side": 1,
+      "message": "This is as far as I got so far. Sorry for the delay in updating it, I\u0027ve had a busy week at work coming back from the coding sprint.\n\nAnyway, at the moment this doesn\u0027t build because we need a replacement for get_next_entry and get_next_device. I\u0027m not sure if these can be replaced by walk_resources or if other iteration methods from uacpi are needed.\n\nAnother problem is code outside of the bus_manager accessing uacpi APIs directly (in the interrupt controller mainly). But it is related to these same iteration functions, so, probably both issues can be fixed at the same time.\n\nAs a result this isn\u0027t compiling yet, and I have not done any testing.",
+      "parentUuid": "c65c26c6_e523bd06",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990e2045_0f7a1c08",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1
@@ -195,6 +213,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a541878_983f4f39",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T16:16:54Z",
+      "side": 1,
+      "message": "Removed all of this in the new version of the changeset, thanks!",
+      "parentUuid": "1822f74e_5777b207",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e85a7320_5f93d064",
@@ -212,6 +248,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d512cc5_91c1b4a1",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T16:16:54Z",
+      "side": 1,
+      "message": "Not needed anymore thanks to your other suggestion",
+      "parentUuid": "e85a7320_5f93d064",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a68b62a_da8e854a",
@@ -225,6 +279,24 @@
       "writtenOn": "2025-02-06T09:42:45Z",
       "side": 1,
       "message": "`uacpi_set_interrupt_model(apic_available() ? UACPI_INTERRUPT_MODEL_IOAPIC : UACPI_INTERRUPT_MODEL_PIC);`",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14eea1ae_464a9dba",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T16:16:54Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "1a68b62a_da8e854a",
       "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
