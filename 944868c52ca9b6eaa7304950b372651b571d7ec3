@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5d8c4c5_4062f8c1",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T18:37:50Z",
+      "side": 1,
+      "message": "for a single name there\u0027s a `uacpi_namespace_node_name`",
+      "parentUuid": "6ab867bb_98216f6c",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7425938b_c0ba1fc3",
         "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
         "patchSetId": 3
@@ -190,6 +208,24 @@
       "side": 1,
       "message": "ACPICA requires to pass the handler to the uninstall function as well. I guessed that this would allow installing and uninstalling multiple handlers, but maybe it doesn\u0027t, and then passing the handler to the uninstall function is useless because it can be found internally.\n\nIn that case, there\u0027s no problem with this. I assume uacpi_install_address_space_handler will return an error if trying to install a handler for an (address space, device) that\u0027s already used by another handler?",
       "parentUuid": "af68e40f_571e61d9",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c338937_0cfd80fa",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T18:37:50Z",
+      "side": 1,
+      "message": "\u003e and then passing the handler to the uninstall function is useless because it can be found internally\n\nI think it\u0027s just an extra sanity check that they do, but otherwise it\u0027s useless yeah\n\n\u003e I assume uacpi_install_address_space_handler will return an error if trying to install a handler for an (address space, device) that\u0027s already used by another handler?\n\nYep, it would return a `UACPI_STATUS_ALREADY_EXISTS`",
+      "parentUuid": "2c1e3943_ac3c65ef",
       "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
