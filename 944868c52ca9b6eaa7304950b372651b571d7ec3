@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c6da357_ae9fd77a",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T18:47:17Z",
+      "side": 1,
+      "message": "Ok, so I can remove that parameter and it will be similar to using ACPI_ALL_NOTIFY in ACPICA. It looks like some Linux driver had fixes by switching from ACPI_DEVICE_NOTIFY to ACPI_ALL_NOTIFY, so that may fix some bugs for us as well.\n\nHaiku devs, do you have an opinion on keeping the ABI stable here? I can keep the parameter but document it as unused, or remove it completely. Do we care about the ABI of the ACPI module?",
+      "parentUuid": "e145e660_d5ed7a7c",
+      "revId": "944868c52ca9b6eaa7304950b372651b571d7ec3",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6282a4fd_90cf945e",
         "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
         "patchSetId": 3
