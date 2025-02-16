@@ -77,6 +77,9 @@
  *      Revision 1.28  2001/01/23 21:10:24  mike
  *      add new prototype for M_long_2_ascii
  *
+ *      Revision 1.45  2025/02/16 12:22:24  jscipione
+ *      add new prototype for M_long_long_2_ascii
+ *
  *      Revision 1.27  2000/12/10 14:30:52  mike
  *      added ifdef for LCC-WIN32 compiler
  *
@@ -388,6 +391,7 @@ extern	void	M_apm_normalize(M_APM);
 extern	void	M_apm_scale(M_APM, int);
 extern	void	M_apm_pad(M_APM, int);
 extern  void    M_long_2_ascii(char *, long);
+extern  void    M_long_long_2_ascii(char *, long long);
 extern	void	M_check_PI_places(int);
 extern  void    M_calculate_PI_AGM(M_APM, int);
 extern  void    M_set_to_zero(M_APM);
