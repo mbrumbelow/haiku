@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f79a4a_fdf8bc22",
+        "filename": "src/system/kernel/arch/generic/acpi_irq_routing_table.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T16:17:31Z",
+      "side": 1,
+      "message": "Btw, this uses special helpers only to support the sized-frees mode (where the kernel free callback also receives the size of the original allocation). If Haiku doesn\u0027t need it you\u0027re free to just call normal `free` here, it shouldn\u0027t matter.",
+      "revId": "6c56c24eb2ed185fbb90c8c89f481573b63095a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1333783_bafb8cff",
+        "filename": "src/system/kernel/arch/generic/acpi_irq_routing_table.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-16T16:17:31Z",
+      "side": 1,
+      "message": "I\u0027m actually in the process of adding this interface, so I wouldn\u0027t convert this. I\u0027ll just support it on the uACPI\u0027s side.",
+      "revId": "6c56c24eb2ed185fbb90c8c89f481573b63095a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
