@@ -316,6 +316,24 @@
       "message": "Same idea as ACPICA, resources are variable length, you must use `UACPI_NEXT_RESOURCE`, or just add the length field manually. Basically same as the old code.",
       "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2b8fd3_9431eca1",
+        "filename": "src/system/kernel/arch/generic/acpi_irq_routing_table.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T16:21:49Z",
+      "side": 1,
+      "message": "I had missed that, it should be good now.",
+      "parentUuid": "6763adb4_b95c9bae",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
