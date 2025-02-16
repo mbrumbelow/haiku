@@ -33,6 +33,24 @@
       "message": "this tspan is now empty. Replace it with a \u003c/text\u003e after \u003c/tspan\u003e to close the upper text one",
       "revId": "1f5428336a1e2e43ef3e7c495da8cd7834d71677",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "693f4fc5_8f3fe2ef",
+        "filename": "docs/develop/kernel/device_tree.svg",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-02-16T01:06:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45cbf4a5_bb2f72ad",
+      "revId": "1f5428336a1e2e43ef3e7c495da8cd7834d71677",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
