@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5656a8f6_2e487e6c",
+        "filename": "src/system/kernel/arch/generic/acpi_irq_routing_table.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-02-16T17:42:50Z",
+      "side": 1,
+      "message": "Ok, changed it to use free()",
+      "parentUuid": "72f79a4a_fdf8bc22",
+      "revId": "6c56c24eb2ed185fbb90c8c89f481573b63095a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1333783_bafb8cff",
