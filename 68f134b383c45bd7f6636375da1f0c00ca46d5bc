@@ -16,6 +16,24 @@
       "message": "I think this must be moved at the end and the _reserved array reduced by one for binary compatibility.",
       "revId": "68f134b383c45bd7f6636375da1f0c00ca46d5bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "887f4719_349eeb56",
+        "filename": "headers/os/interface/Slider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-17T18:12:43Z",
+      "side": 1,
+      "message": "If we add it at all, yes, but why does it need to be added? This should all be done in the subclasses IMO.",
+      "parentUuid": "d7d39307_c584f921",
+      "revId": "68f134b383c45bd7f6636375da1f0c00ca46d5bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
