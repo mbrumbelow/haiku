@@ -12,6 +12,9 @@
 #include <ControlLook.h>
 #include <Region.h>
 #include <Shape.h>
+#include <Window.h>
+
+#include "ControllerObserver.h"
 
 
 static const rgb_color kThumbRed = (rgb_color){ 255, 52, 52, 255 };
@@ -117,6 +120,21 @@ SeekSlider::MouseUp(BPoint where)
 {
 	fTracking = false;
 	BSlider::MouseUp(where);
+}
+
+
+void
+SeekSlider::MouseMoved(BPoint point, uint32 transit,
+	const BMessage* dragMessage)
+{
+	if (!IsTracking()) {
+		int32 value = ValueForPoint(point);
+
+		BMessage *hoverMsg = new BMessage(MSG_CONTROLLER_HOVER_POSITION_CHANGED);
+		hoverMsg->AddInt32("hover_value", value);
+		Window()->PostMessage(hoverMsg, Window());
+	}
+	BSlider::MouseMoved(point, transit, dragMessage);
 }
 
 
