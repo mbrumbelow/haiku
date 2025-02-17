@@ -24,6 +24,8 @@ public:
 	virtual	void				DrawThumb();
 	virtual	void				MouseDown(BPoint where);
 	virtual	void				MouseUp(BPoint where);
+	virtual void				MouseMoved(BPoint point, uint32 transit,
+		const BMessage* dragMessage);
 	virtual	void				GetPreferredSize(float* _width,
 									float* _height);
 	virtual	BSize				MinSize();

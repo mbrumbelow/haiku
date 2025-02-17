@@ -700,6 +700,17 @@ Controller::TimePosition()
 }
 
 
+bigtime_t
+Controller::TimePosition(float value) {
+	if (fDuration == 0) {
+		return 0;
+	}
+
+	int64 frame = max_c(0, min_c(_FrameDuration(), _FrameDuration() * value));
+	return frame * fDuration / _FrameDuration();
+}
+
+
 status_t
 Controller::SaveState(bool reset)
 {

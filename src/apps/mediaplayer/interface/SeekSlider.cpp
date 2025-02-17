@@ -12,13 +12,15 @@
 #include <ControlLook.h>
 #include <Region.h>
 #include <Shape.h>
+#include <Window.h>
 
+#include "ControllerObserver.h"
 
 static const rgb_color kThumbRed = (rgb_color){ 255, 52, 52, 255 };
 
 
 SeekSlider::SeekSlider(const char* name, BMessage* message, int32 minValue,
-		int32 maxValue)
+	int32 maxValue)
 	:
 	BSlider(name, NULL, NULL, minValue, maxValue, B_HORIZONTAL,
 		B_TRIANGLE_THUMB),
@@ -119,6 +121,17 @@ SeekSlider::MouseUp(BPoint where)
 	BSlider::MouseUp(where);
 }
 
+void
+SeekSlider::MouseMoved(BPoint point, uint32 transit,
+	const BMessage* dragMessage)
+{
+	BSlider::MouseMoved(point, transit, dragMessage);
+
+	BMessage *hoverMsg = new BMessage(MSG_CONTROLLER_HOVER_POSITION_CHANGED);
+	hoverMsg->AddInt32("hover_value", HoverValue());
+
+	Window()->PostMessage(hoverMsg, Window());
+}
 
 void
 SeekSlider::GetPreferredSize(float* _width, float* _height)

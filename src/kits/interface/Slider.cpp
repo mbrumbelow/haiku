@@ -661,8 +661,19 @@ BSlider::MouseMoved(BPoint point, uint32 transit, const BMessage* message)
 				InvokeNotify(ModificationMessage(), B_CONTROL_MODIFIED);
 			}
 		}
-	} else
+	} else {
+		if (_ConstrainPoint(point, fInitialLocation)) {
+			int32 value = ValueForPoint(point);
+			if (value < fMinValue)
+				value = fMinValue;
+
+			if (value > fMaxValue)
+				value = fMaxValue;
+			
+			fHoverValue = value;
+		}
 		BControl::MouseMoved(point, transit, message);
+	}
 }
 
 
@@ -1410,6 +1421,13 @@ BSlider::FillColor(rgb_color* barColor) const
 		*barColor = fFillColor;
 
 	return fUseFillColor;
+}
+
+
+int32
+BSlider::HoverValue() const
+{
+	return fHoverValue;
 }
 
 

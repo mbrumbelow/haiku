@@ -988,6 +988,13 @@ MainWin::MessageReceived(BMessage* msg)
 			}
 			break;
 		}
+		case MSG_CONTROLLER_HOVER_POSITION_CHANGED:
+		{
+			int32 value;
+			if (msg->FindInt32("hover_value", &value) == B_OK)
+				fControls->SetToolTipPosition(value, fController->TimeDuration());
+			break;
+		}
 		case MSG_CONTROLLER_SEEK_HANDLED:
 			break;
 
