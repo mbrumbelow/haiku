@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "608d5b88_5d1c1d80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-17T22:35:30Z",
+      "side": 1,
+      "message": "Only the first partition is mounted on double click which should fix your main complaint. I had to redo how mounting works to stop after the first partition unless no volume name specified or one of the -all parameters is passed in.",
+      "parentUuid": "d6603fd9_abc9f34e",
+      "revId": "030374ff342d282846f579888fb4858d2e7f3104",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f87b341_9aecc166",
