@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c920a281_04a33d1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-17T21:09:52Z",
+      "side": 1,
+      "message": "Sets correct low ui color on read-only directories. This will work on regular windows and open with... windows but not Desktop, and we\u0027re not doing column resize on Desktop.",
+      "revId": "ec0d4a9c47b424affe7b005b872498149b445f9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
