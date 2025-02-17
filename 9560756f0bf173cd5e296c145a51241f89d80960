@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42cdffcc_a8863725",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/BusManager.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-17T22:51:15Z",
+      "side": 1,
+      "message": "Just FYI, but while implementing this API for uACPI I\u0027ve noticed that ACPICA doesn\u0027t check whether the node it\u0027s about to return is temporary (aka created inside a method for the duration of its execution) like it does in the AcpiWalkNamespace helper, which might\u0027ve caused a few crashes or UAFs on Haiku before. Probably gone unnoticed because Linux doesn\u0027t use this API.",
+      "revId": "9560756f0bf173cd5e296c145a51241f89d80960",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
