@@ -158,6 +158,13 @@ ControllerView::PositionChanged(float value)
 	fController->SetPosition(value);
 }
 
+bigtime_t
+ControllerView::TimePosition(float value)
+{
+	// 0.0 ... 1.0
+	return fController->TimePosition(value);
+}
+
 
 // #pragma mark -
 

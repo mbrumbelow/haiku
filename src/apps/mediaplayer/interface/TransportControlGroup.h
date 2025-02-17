@@ -57,6 +57,7 @@ public:
 	virtual	void				VolumeChanged(float value);
 	virtual	void				ToggleMute();
 	virtual	void				PositionChanged(float value);
+	virtual	bigtime_t			TimePosition(float value);
 
 			void				SetEnabled(uint32 whichButtons);
 
@@ -70,6 +71,7 @@ public:
 			void				SetAudioChannelCount(int32 count);
 			void				SetPosition(float value, bigtime_t position,
 									bigtime_t duration);
+			void				SetToolTipPosition(int32 value, bigtime_t duration);
 			float				Position() const;
 
 			PeakView*			GetPeakView() const
