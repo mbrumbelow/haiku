@@ -34,6 +34,24 @@
       "parentUuid": "d7d39307_c584f921",
       "revId": "68f134b383c45bd7f6636375da1f0c00ca46d5bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a95debaf_edf2a5e1",
+        "filename": "headers/os/interface/Slider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-17T18:18:46Z",
+      "side": 1,
+      "message": "the only thing restraining me to include it in seekslider.cpp was the call to _ConstraintPoint private function in slider.cpp. I am in doubt whether we need a _ConstraintPoint check for hoverposition ?",
+      "parentUuid": "887f4719_349eeb56",
+      "revId": "68f134b383c45bd7f6636375da1f0c00ca46d5bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
