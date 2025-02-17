@@ -39,7 +39,8 @@ enum {
 	MSG_SKIP_FORWARD		= 'skpf',
 	MSG_SET_VOLUME			= 'stvl',
 	MSG_SET_MUTE			= 'stmt',
-	MSG_DURATION_TOOLTIP	= 'msdt'
+	MSG_DURATION_TOOLTIP	= 'msdt',
+	MSG_HOVER				= 'hovr'
 };
 
 // the range of the volume sliders (in dB)
@@ -81,9 +82,12 @@ TransportControlGroup::TransportControlGroup(BRect frame, bool useSkipButtons,
 	fSeekLayout = seekGroup->GroupLayout();
 	GroupLayout()->AddView(seekGroup);
 
+	BMessage* hover = new BMessage(MSG_HOVER);
+	hover->AddInt32("hover value", 0);
+
 	// Seek slider
 	fSeekSlider = new SeekSlider("seek slider", new BMessage(MSG_SEEK),
-		0, kPositionFactor);
+		hover, 0, kPositionFactor);
 	fSeekLayout->AddView(fSeekSlider);
 
 	fPositionToolTip = new PositionToolTip();
@@ -284,6 +288,16 @@ TransportControlGroup::MessageReceived(BMessage* message)
 			break;
 		}
 
+		case MSG_HOVER:
+		{
+			int32 value;
+			if (message->FindInt32("hover value", &value) == B_OK) {
+				bigtime_t position = TimePositionFor(value / (float)kPositionFactor);
+				fPositionToolTip->Update(position, fDurationView->TimeDuration());
+			}
+			break;
+		}
+
 		default:
 			BView::MessageReceived(message);
 			break;
@@ -310,7 +324,7 @@ void TransportControlGroup::SkipForward() {}
 void TransportControlGroup::VolumeChanged(float value) {}
 void TransportControlGroup::ToggleMute() {}
 void TransportControlGroup::PositionChanged(float value) {}
-
+bigtime_t TransportControlGroup::TimePositionFor(float value) { return 0; }
 
 // #pragma mark -
 
@@ -492,13 +506,22 @@ void
 TransportControlGroup::SetPosition(float value, bigtime_t position,
 	bigtime_t duration)
 {
-	fPositionToolTip->Update(position, duration);
 	fDurationView->Update(position, duration);
 
 	if (fSeekSlider->IsTracking())
 		return;
 
 	fSeekSlider->SetPosition(value);
+}
+
+
+void
+TransportControlGroup::SetToolTipPosition(int32 value, bigtime_t duration)
+{
+	if (duration == 0)
+		return;
+
+	fPositionToolTip->Update(TimePositionFor(value / (float)kPositionFactor), duration);
 }
 
 
