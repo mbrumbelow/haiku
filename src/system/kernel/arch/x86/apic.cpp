@@ -18,8 +18,6 @@
 #include <vm/vm.h>
 #include <util/AutoLock.h>
 
-#include "timers/apic_timer.h"
-
 
 static void *sLocalAPIC = NULL;
 static bool sX2APIC = false;
@@ -237,6 +235,16 @@ apic_set_lvt_initial_timer_count(uint32 config)
 
 
 uint32
+apic_lvt_current_timer_count()
+{
+	if (sX2APIC)
+		return x86_read_msr(IA32_MSR_APIC_CURRENT_TIMER_COUNT);
+	else
+		return apic_read(APIC_CURRENT_TIMER_COUNT);
+}
+
+
+uint32
 apic_lvt_timer_divide_config()
 {
 	if (sX2APIC)
@@ -356,8 +364,6 @@ apic_per_cpu_init(kernel_args *args, int32 cpu)
 		dprintf("0: LINT1: %p\n", (void *)apic_read(APIC_LINT1));
 	}
 #endif
-
-	apic_timer_per_cpu_init(args, cpu);
 
 	/* setup error vector to 0xfe */
 	config = (apic_lvt_error() & 0xffffff00) | 0xfe;

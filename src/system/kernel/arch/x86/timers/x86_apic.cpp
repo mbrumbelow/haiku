@@ -15,8 +15,6 @@
 
 #include <arch/cpu.h>
 
-#include "apic_timer.h"
-
 
 //#define TRACE_APIC
 #ifdef TRACE_APIC
@@ -106,25 +104,46 @@ apic_timer_clear_hardware_timer()
 }
 
 
-static status_t
-apic_timer_init(struct kernel_args *args)
+static uint32
+calculate_apic_timer_conversion_factor(void)
 {
-	if (!apic_available())
-		return B_ERROR;
+	// setup the timer
+	uint32 config = apic_lvt_timer() & APIC_LVT_TIMER_MASK;
+	config |= APIC_LVT_MASKED;
+		// timer masked, vector 0
+	apic_set_lvt_timer(config);
 
-	sApicTicsPerSec = args->arch_args.apic_time_cv_factor;
+	config = (apic_lvt_timer_divide_config() & ~0x0000000f);
+	apic_set_lvt_timer_divide_config(config | APIC_TIMER_DIVIDE_CONFIG_1);
+		// divide clock by one
 
-	reserve_io_interrupt_vectors(1, 0xfb - ARCH_INTERRUPT_BASE,
-		INTERRUPT_TYPE_LOCAL_IRQ);
-	install_io_interrupt_handler(0xfb - ARCH_INTERRUPT_BASE,
-		&apic_timer_interrupt, NULL, B_NO_LOCK_VECTOR);
+	apic_set_lvt_initial_timer_count(0xffffffff); // start the counter
 
-	return B_OK;
+	// Use CPUID as a fence (same as in TSC calibration.)
+	asm volatile ("cpuid" : : : "eax", "ebx", "ecx", "edx");
+	int64 t1 = system_time_nsecs();
+	uint32 firstCount = apic_lvt_current_timer_count();
+
+	spin(4000);
+
+	asm volatile ("cpuid" : : : "eax", "ebx", "ecx", "edx");
+	int64 t2 = system_time_nsecs();
+	uint32 count = apic_lvt_current_timer_count();
+
+	count -= firstCount;
+	count = 0xffffffff - count;
+
+	uint32 factor
+		= (uint32)(((double(1) * 1000 * 1000 * 1000) / (t2 - t1)) * count);
+
+	dprintf("APIC frequency: %d\n", factor);
+
+	return factor;
 }
 
 
-status_t
-apic_timer_per_cpu_init(struct kernel_args *args, int32 cpu)
+static void
+apic_timer_per_cpu_init(void *arg, int cpu)
 {
 	/* setup timer */
 	uint32 config = apic_lvt_timer() & APIC_LVT_TIMER_MASK;
@@ -136,5 +155,23 @@ apic_timer_per_cpu_init(struct kernel_args *args, int32 cpu)
 	config = apic_lvt_timer_divide_config() & 0xfffffff0;
 	config |= APIC_TIMER_DIVIDE_CONFIG_1; // clock division by 1
 	apic_set_lvt_timer_divide_config(config);
+}
+
+
+static status_t
+apic_timer_init(struct kernel_args *args)
+{
+	if (!apic_available())
+		return B_ERROR;
+
+	sApicTicsPerSec = calculate_apic_timer_conversion_factor();
+
+	reserve_io_interrupt_vectors(1, 0xfb - ARCH_INTERRUPT_BASE,
+		INTERRUPT_TYPE_LOCAL_IRQ);
+	install_io_interrupt_handler(0xfb - ARCH_INTERRUPT_BASE,
+		&apic_timer_interrupt, NULL, B_NO_LOCK_VECTOR);
+
+	call_all_cpus_sync(apic_timer_per_cpu_init, NULL);
+
 	return B_OK;
 }
