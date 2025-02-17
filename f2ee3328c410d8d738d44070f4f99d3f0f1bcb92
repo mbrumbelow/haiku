@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "815fcea1_1115a290",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-17T21:50:34Z",
+      "side": 1,
+      "message": "This PS may be unnecessary now for redrawing columns correctly but BColumnListView is setting low and high color inside the column resize which will mess up the parent view\u0027s UI colors and thus live updating of colors from then on without PushState() and PopState() to stash and reset the UI colors afterwords.",
+      "revId": "f2ee3328c410d8d738d44070f4f99d3f0f1bcb92",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
