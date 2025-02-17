@@ -69,6 +69,24 @@
       "parentUuid": "0bd028dd_5cf71ff9",
       "revId": "200e18922cc565410f6c16fa0daa572189d29227",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa70003_73594174",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-17T06:59:23Z",
+      "side": 1,
+      "message": "The signature is correct, but the logic is still off, you should take a look at `uacpi_kernel_io_map`, and how that interacts with `io_read/write`. ditto for the PCI helpers.",
+      "parentUuid": "05e95419_ef601127",
+      "revId": "200e18922cc565410f6c16fa0daa572189d29227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
