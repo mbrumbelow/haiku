@@ -492,7 +492,6 @@ void
 TransportControlGroup::SetPosition(float value, bigtime_t position,
 	bigtime_t duration)
 {
-	fPositionToolTip->Update(position, duration);
 	fDurationView->Update(position, duration);
 
 	if (fSeekSlider->IsTracking())
@@ -501,6 +500,14 @@ TransportControlGroup::SetPosition(float value, bigtime_t position,
 	fSeekSlider->SetPosition(value);
 }
 
+void
+TransportControlGroup::SetToolTipPosition(int32 value, bigtime_t duration)
+{
+	if (duration == 0)
+		return;
+
+	fPositionToolTip->Update(TimePosition(value / (float)kPositionFactor), duration);
+}
 
 float
 TransportControlGroup::Position() const

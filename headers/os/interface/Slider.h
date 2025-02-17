@@ -138,6 +138,8 @@ public:
 									const rgb_color* color = NULL);
 			bool				FillColor(rgb_color* color) const;
 
+			int32				HoverValue() const;
+
 			BView*				OffscreenView() const;
 
 			orientation			Orientation() const;
@@ -194,6 +196,8 @@ private:
 private:
 			BMessage*			fModificationMessage;
 			int32				fSnoozeAmount;
+
+			int32				fHoverValue;
 
 			rgb_color 			fBarColor;
 			rgb_color 			fFillColor;
