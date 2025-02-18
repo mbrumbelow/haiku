@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7355d55c_393438d2",
+        "filename": "src/apps/mediaplayer/Controller.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T15:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0c5a788_b912fc6f",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39689ec8_5e826abe",
@@ -106,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf2b1a0_843a7d68",
+        "filename": "src/apps/mediaplayer/Controller.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T15:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aad2385_b67cdf14",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae918b42_5e6ca83f",
@@ -119,6 +155,24 @@
       "writtenOn": "2025-02-17T21:35:19Z",
       "side": 1,
       "message": "hard tab between virtual and bigtime_t. It will still be one space wide like the rest.",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39f15c55_2e6e3992",
+        "filename": "src/apps/mediaplayer/ControllerView.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T15:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae918b42_5e6ca83f",
       "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -195,6 +249,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a37cfdd6_8b29bee5",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T15:01:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dffb8f9_97c9808c",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "368c7828_3665e8a2",
         "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
         "patchSetId": 4
@@ -206,6 +278,24 @@
       "writtenOn": "2025-02-17T21:35:19Z",
       "side": 1,
       "message": "could collapse to one line...",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d20616_b55f10e1",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T15:01:47Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "368c7828_3665e8a2",
       "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
