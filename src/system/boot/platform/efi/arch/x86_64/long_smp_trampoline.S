@@ -64,8 +64,8 @@ long_trampoline_32:
 	orl		$(1 << 5) | (1 << 7), %eax
 	movl	%eax, %cr4
 
-	// Point CR3 to the kernel's PML4.
-	popl	%eax
+	// Point CR3 to the temporary PML4.
+	movl	$0xa000, %eax
 	movl	%eax, %cr3
 
 	// Enable long mode by setting EFER.LME.
@@ -80,17 +80,37 @@ long_trampoline_32:
 	orl		$(1 << 31), %ecx
 	movl	%ecx, %cr0
 
-	// Load 64-bit enabled GDT
-	popl	%eax
-	lgdtl	(%eax)
-
 	// Jump into the 64-bit code segment.
-	pushl	$KERNEL_CODE_SELECTOR
-	leal	(.Llmode - long_smp_trampoline)(%ebx), %eax
+	pushl	$0x18
+	leal	(.Llmode_tmp - long_smp_trampoline)(%ebx), %eax
 	pushl	%eax
 	lret
 .align 8
 .code64
+.Llmode_tmp:
+	// Set data segments.
+	mov		$0x20, %ax
+	mov		%ax, %ss
+	xor		%ax, %ax
+	mov		%ax, %ds
+	mov		%ax, %es
+	mov		%ax, %fs
+	mov		%ax, %gs
+
+	// Point CR3 to the kernel's PML4.
+	popq	%rax
+	movq	%rax, %cr3
+
+	// Load 64-bit enabled GDT
+	popq	%rax
+	lgdtq	(%rax)
+
+	// Jump into the 64-bit code segment.
+	pushq	$KERNEL_CODE_SELECTOR
+	leaq	(.Llmode - long_smp_trampoline)(%ebx), %rax
+	pushq	%rax
+	lretq
+.align 8
 .Llmode:
 	// Set data segments.
 	mov		$KERNEL_DATA_SELECTOR, %ax

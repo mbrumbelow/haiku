@@ -40,7 +40,7 @@ extern "C" void execute_n_instructions(int count);
 
 void copy_trampoline_code(uint64 trampolineCode, uint64 trampolineStack);
 void prepare_trampoline_args(uint64 trampolineCode, uint64 trampolineStack,
-	uint32 pagedir, uint64 kernelEntry, addr_t virtKernelArgs,
+	uint64 pagedir, uint64 kernelEntry, addr_t virtKernelArgs,
 	uint32 currentCpu);
 uint32 get_sentinel(uint64 trampolineStack);
 
@@ -232,7 +232,7 @@ arch_smp_init_other_cpus(void)
 
 
 void
-arch_smp_boot_other_cpus(uint32 pagedir, uint64 kernelEntry, addr_t virtKernelArgs)
+arch_smp_boot_other_cpus(uint64 pagedir, uint64 kernelEntry, addr_t virtKernelArgs)
 {
 	TRACE("trampolining other cpus\n");
 
@@ -243,6 +243,7 @@ arch_smp_boot_other_cpus(uint32 pagedir, uint64 kernelEntry, addr_t virtKernelAr
 
 	// copy the trampoline code over
 	copy_trampoline_code(trampolineCode, trampolineStack);
+	memcpy((void *)0xa000, (void *)pagedir, 0x1000);
 
 	// boot the cpus
 	TRACE("we have %" B_PRId32 " CPUs to boot...\n", gKernelArgs.num_cpus - 1);

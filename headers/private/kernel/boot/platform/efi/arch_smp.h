@@ -32,10 +32,8 @@ int arch_smp_get_current_cpu(void);
 void arch_smp_init_other_cpus(void);
 #ifdef __riscv
 platform_cpu_info* arch_smp_find_cpu(uint32 phandle);
-void arch_smp_boot_other_cpus(uint64 satp, uint64 kernelEntry, addr_t virtKernelArgs);
-#else
-void arch_smp_boot_other_cpus(uint32 pml4, uint64 kernelEntry, addr_t virtKernelArgs);
 #endif
+void arch_smp_boot_other_cpus(uint64 pml4, uint64 kernelEntry, addr_t virtKernelArgs);
 void arch_smp_add_safemode_menus(Menu *menu);
 void arch_smp_init(void);
 

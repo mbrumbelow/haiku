@@ -64,7 +64,7 @@ copy_trampoline_code(uint64 trampolineCode, uint64 trampolineStack)
 
 void
 prepare_trampoline_args(uint64 trampolineCode, uint64 trampolineStack,
-	uint32 pagedir, uint64 kernelEntry, addr_t virtKernelArgs,
+	uint64 pagedir, uint64 kernelEntry, addr_t virtKernelArgs,
 	uint32 currentCpu)
 {
 	trampoline_args* args = (trampoline_args *)trampolineStack;
