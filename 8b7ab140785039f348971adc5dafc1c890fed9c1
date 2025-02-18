@@ -16,6 +16,24 @@
       "message": "Still TODO:\n\n1. Test on bare metal.\n\n2. Test on 32-bit (at least in VMware) and see what values this generates there.",
       "revId": "8b7ab140785039f348971adc5dafc1c890fed9c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7600fc7d_fd74cc64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T18:01:44Z",
+      "side": 1,
+      "message": "On 32-bit in VMware we get values like \"66000781\" and \"66000665\" from this new method. Seems a bit odd that we get values actually higher than the true number? But also in this run the bootloader method was actually much worse: \"62563106\".\n\nI rebooted the x86_64 VM and it also got worse values with the bootloader method this time, e.g. \"62580808\". But the kernel method was much closer to accurate though still an undercount: \"65992004\".",
+      "parentUuid": "ea7e3498_58e86b35",
+      "revId": "8b7ab140785039f348971adc5dafc1c890fed9c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
