@@ -34,6 +34,24 @@
       "parentUuid": "ea7e3498_58e86b35",
       "revId": "8b7ab140785039f348971adc5dafc1c890fed9c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd12b7e5_4c7461f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T18:22:24Z",
+      "side": 1,
+      "message": "Bare metal (\"i3-5005U @ 2.00GHz\"): bootloader yields \"99,666,272\" and kernel yields \"99,768,140\". Not sure what the true value is, the CPUID won\u0027t say on this hardware and I don\u0027t know if it would be listed in a datasheet anywhere.",
+      "parentUuid": "7600fc7d_fd74cc64",
+      "revId": "8b7ab140785039f348971adc5dafc1c890fed9c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
