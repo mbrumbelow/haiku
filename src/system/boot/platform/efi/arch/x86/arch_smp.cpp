@@ -38,7 +38,7 @@
 
 void copy_trampoline_code(uint64 trampolineCode, uint64 trampolineStack);
 void prepare_trampoline_args(uint64 trampolineCode, uint64 trampolineStack,
-	uint32 pagedir, uint64 kernelEntry, addr_t virtKernelArgs,
+	uint64 pagedir, uint64 kernelEntry, addr_t virtKernelArgs,
 	uint32 currentCpu);
 uint32 get_sentinel(uint64 trampolineStack);
 
@@ -190,7 +190,7 @@ arch_smp_init_other_cpus(void)
 
 
 void
-arch_smp_boot_other_cpus(uint32 pagedir, uint64 kernelEntry, addr_t virtKernelArgs)
+arch_smp_boot_other_cpus(uint64 pagedir, uint64 kernelEntry, addr_t virtKernelArgs)
 {
 	TRACE("trampolining other cpus\n");
 
@@ -201,6 +201,15 @@ arch_smp_boot_other_cpus(uint32 pagedir, uint64 kernelEntry, addr_t virtKernelAr
 
 	// copy the trampoline code over
 	copy_trampoline_code(trampolineCode, trampolineStack);
+	/*
+	 Support PML4 above 4GiB
+
+	 It's allocated by EFI so we have little control on their placement.
+	 On some systems it ends up way above 4GiB. Fix is copy pml4 page to low memory.
+	 Then we use those temporary PML4 root in order to enter 64-bit mode nad then
+	 reload correct pml4 once we're in 64-bit mode
+	 */
+	memcpy((void *)0xa000, (void *)pagedir, 0x1000);
 
 	// boot the cpus
 	TRACE("we have %" B_PRId32 " CPUs to boot...\n", gKernelArgs.num_cpus - 1);
