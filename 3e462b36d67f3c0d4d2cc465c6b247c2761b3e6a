@@ -395,6 +395,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "38264d2e_93440fc5",
+        "filename": "src/add-ons/kernel/file_systems/xfs/BPlusTree.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2025-02-18T06:44:37Z",
+      "side": 1,
+      "message": "I\u0027ll refactor the code and test it with both Node and Leaf directories to evaluate how these buffers are functioning. Based on the results, I\u0027ll determine whether retaining the buffers is necessary or if using only the block cache is a viable approach.",
+      "parentUuid": "5635256e_c1f15ca4",
+      "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a76ae76a_73432c10",
@@ -712,6 +730,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b557f80_857a89e2",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2025-02-18T06:44:37Z",
+      "side": 1,
+      "message": "From what I see in [https://github.com/haiku/haiku/blob/master/headers/private/fs_shell/fssh_fs_cache.h](fssh_fs_cache.h). Is it designed for caching a single block at a time? If multiple blocks need to be cached, I might need to extend or modify the caching logic. Do you have any recommendations on how to handle this in the existing codebase?",
+      "parentUuid": "f516ec74_f6857b40",
+      "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad66507_99dae515",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
         "patchSetId": 1
@@ -836,6 +872,24 @@
       "writtenOn": "2025-02-04T08:16:16Z",
       "side": 1,
       "message": "here as well, \"len\" may require to read more than one block from disk.\n\nThis pattern repeats multiple time in all the changed files, so I will not comment on each of them. You may consider extracting the code in a common function to avoid having to repeat it in so many places.",
+      "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "121ce73f_f1babac6",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Inode.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2025-02-18T06:44:37Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. I see the repetition across multiple files, and extracting this logic into a common function makes sense. I\u0027ll refactor the code to improve maintainability and avoid redundancy.",
+      "parentUuid": "bd7ff451_28981b8a",
       "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1213,6 +1267,24 @@
       "writtenOn": "2025-02-04T08:16:16Z",
       "side": 1,
       "message": "I don\u0027t understand why this needed to be renamed from TotalBlocks to NumBlocks. Can you explain your decision to change it?",
+      "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b846506_552a21ce",
+        "filename": "src/add-ons/kernel/file_systems/xfs/kernel_interface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2025-02-18T06:44:37Z",
+      "side": 1,
+      "message": "I renamed TotalBlocks to NumBlocks because the previous contributor mentioned it. I should have reviewed the reasoning behind this change more carefully—my mistake on that. At this stage, I’ve created a rough outline for the Block Cache, but I’ll be doing a complete refactor soon. During that process, I’ll look at the naming conventions and make adjustments as needed.",
+      "parentUuid": "fb69c118_c3398a0f",
       "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
