@@ -249,6 +249,24 @@
       "parentUuid": "b624c880_9af9f698",
       "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e9cd245_53941e8b",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3769,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-18T19:45:00Z",
+      "side": 1,
+      "message": "Oh I know what the real bug is: same bug as https://dev.haiku-os.org/ticket/12024 https://dev.haiku-os.org/ticket/19317 or any time BMenuItems are rapidly deleted and recreated in a BMenu.",
+      "parentUuid": "0c19f363_3d45afb4",
+      "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
