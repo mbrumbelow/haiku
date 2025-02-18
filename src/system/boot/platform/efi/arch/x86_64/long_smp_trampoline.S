@@ -67,6 +67,8 @@ long_trampoline_32:
 	// Point CR3 to the kernel's PML4.
 	popl	%eax
 	movl	%eax, %cr3
+	// Pop padding
+	popl	%eax
 
 	// Enable long mode by setting EFER.LME.
 	movl	$0xc0000080, %ecx
@@ -80,17 +82,37 @@ long_trampoline_32:
 	orl		$(1 << 31), %ecx
 	movl	%ecx, %cr0
 
-	// Load 64-bit enabled GDT
-	popl	%eax
-	lgdtl	(%eax)
-
 	// Jump into the 64-bit code segment.
-	pushl	$KERNEL_CODE_SELECTOR
-	leal	(.Llmode - long_smp_trampoline)(%ebx), %eax
+	pushl	$0x18	// offsetof(long_trampoline_args, gdt64)
+	leal	(.Llmode_tmp - long_smp_trampoline)(%ebx), %eax
 	pushl	%eax
 	lret
 .align 8
 .code64
+.Llmode_tmp:
+	// Set data segments.
+	mov		$0x20, %ax
+	mov		%ax, %ss
+	xor		%ax, %ax
+	mov		%ax, %ds
+	mov		%ax, %es
+	mov		%ax, %fs
+	mov		%ax, %gs
+
+	// We can't load the GDT from its kernel locations in the code above,
+	// because the GDT could be above 4 GiB. So we used a temporary GDT
+	// there, and now we'll load the kernel one.
+
+	// Load kernel GDT
+	popq	%rax
+	lgdtq	(%rax)
+
+	// Jump into the 64-bit code segment.
+	pushq	$KERNEL_CODE_SELECTOR
+	leaq	(.Llmode - long_smp_trampoline)(%ebx), %rax
+	pushq	%rax
+	lretq
+.align 8
 .Llmode:
 	// Set data segments.
 	mov		$KERNEL_DATA_SELECTOR, %ax
