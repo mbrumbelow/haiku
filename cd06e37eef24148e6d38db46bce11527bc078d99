@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eefb3666_186c9b35",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3730,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T18:37:07Z",
+      "side": 1,
+      "message": "Why not just check if fMenuSem \u003c 0?",
+      "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b262d20d_9e0258ec",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3769,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T18:37:07Z",
+      "side": 1,
+      "message": "Why do we need to protect against it happening again?",
+      "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
