@@ -189,6 +189,24 @@
       "parentUuid": "448987cb_2f607cda",
       "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa8778cf_19464d3e",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T07:41:05Z",
+      "side": 1,
+      "message": "Correction: SetPosition function is currently built to be called from MSG_CONTROLLER_POSITION_CHANGED, not MSG_CONTROLLER_HOVER_POSITION_CHANGED",
+      "parentUuid": "2f098062_fa327703",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
