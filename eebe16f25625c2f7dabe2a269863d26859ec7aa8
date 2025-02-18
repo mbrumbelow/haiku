@@ -171,6 +171,24 @@
       "message": "Why do we need this? Why can\u0027t we just use the old SetPosition?",
       "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f098062_fa327703",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T06:22:53Z",
+      "side": 1,
+      "message": "So SetPosition function is currently built to be called from MSG_CONTROLLER_HOVER_POSITION_CHANGED only and if we were to utilize it for updating tooltip, then the function internals would change,as we need to add checks to update only the tooltip and not seekslider value and duration value. To add this check, the function must be aware of the context from where it is called, so we may need an additional boolean argument in the function parameter to get an idea of that.",
+      "parentUuid": "448987cb_2f607cda",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
