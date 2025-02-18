@@ -267,6 +267,24 @@
       "parentUuid": "0c19f363_3d45afb4",
       "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02a784b7_d183c574",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3769,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T20:11:48Z",
+      "side": 1,
+      "message": "But those were since fixed by adding proper locking. So I don\u0027t think that\u0027s the issue here anymore.",
+      "parentUuid": "0e9cd245_53941e8b",
+      "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
