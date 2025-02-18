@@ -124,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dd550c4_d241fe35",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T11:09:49Z",
+      "side": 1,
+      "message": "do you mean instead of PostMessage, Invoke should be called ?\n\nif Invoke is called, then it would be received in transportcontrolgroup.cpp istead of MainWin.cpp. \n\nIn my implementation, When it is received in MainWin.cpp, I can access timeduration using fcontrols-\u003etimeduration() function and call tooltip update function as the function requires both hover position and time duration of the media.\n\nBut If I change postmessage to invoke, then the message would be received in TransportControlGroup.cpp, now in transportcontrolgroup.cpp, I don\u0027t have access to the timeDuration function of fcontrols, so, I can\u0027t call tooltip update function without it. \n\nThat\u0027s the reason why I posted the message on Window.",
+      "parentUuid": "176c9d48_55bd82d8",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dffb8f9_97c9808c",
         "filename": "src/apps/mediaplayer/interface/SeekSlider.h",
         "patchSetId": 4
