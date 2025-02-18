@@ -88,6 +88,24 @@
       "parentUuid": "563dd110_f4008b11",
       "revId": "8b7ab140785039f348971adc5dafc1c890fed9c1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcc3ff76_3ce69dd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T20:57:17Z",
+      "side": 1,
+      "message": "jmairboeck tested in VirtualBox and got values below 1GHz in both cases.",
+      "parentUuid": "ed7323b5_34788c35",
+      "revId": "8b7ab140785039f348971adc5dafc1c890fed9c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
