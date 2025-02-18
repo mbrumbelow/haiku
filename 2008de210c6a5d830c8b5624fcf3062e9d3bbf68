@@ -88,6 +88,24 @@
       "parentUuid": "ad757990_ca479aa9",
       "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb68b474_8e596c5f",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-18T16:16:54Z",
+      "side": 1,
+      "message": "Isn\u0027t fPathRef still uninitialized?",
+      "parentUuid": "e879e078_2a128e6f",
+      "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
