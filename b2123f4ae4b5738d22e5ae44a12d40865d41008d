@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d0dd40_eaf4b6e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-18T21:11:25Z",
+      "side": 1,
+      "message": "I\u0027ve fixed this particular bug up in Tracker instead, but I still think this is a more general issue that can affect other places and be addressed in BWindow.",
+      "revId": "b2123f4ae4b5738d22e5ae44a12d40865d41008d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
