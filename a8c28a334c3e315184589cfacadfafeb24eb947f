@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a26552e9_139b021a",
+        "filename": "src/system/boot/platform/bios_ia32/smp.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T17:23:09Z",
+      "side": 1,
+      "message": "Why not make this option enable/disable use of PKU at all? (And is there a reason to not enable by default?)",
+      "revId": "a8c28a334c3e315184589cfacadfafeb24eb947f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93e7c69_b35e51a0",
+        "filename": "src/system/kernel/arch/x86/paging/64bit/paging.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T17:23:09Z",
+      "side": 1,
+      "message": "Consistent naming here would be `EXECUTE_ONLY`?\n\nAnd if this is a bit we\u0027ve chosen rather than one hardcoded in the architecture, we should probably make that clear somehow.",
+      "revId": "a8c28a334c3e315184589cfacadfafeb24eb947f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
