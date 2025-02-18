@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6143e39_c33af9fb",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3730,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-18T19:05:36Z",
+      "side": 1,
+      "message": "We don\u0027t want the MenusBeginning() to trigger if fMenuSem \u003d\u003d B_INTERRUPTED or B_WOULD_BLOCK or B_TIMED_OUT, only if no semaphore exists. We delete it if is does exist when we\u0027re done so it shouldn\u0027t exist unless you call this more than once within the timeout period.",
+      "parentUuid": "eefb3666_186c9b35",
+      "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b262d20d_9e0258ec",
         "filename": "src/kits/interface/Window.cpp",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2025-02-18T18:37:07Z",
       "side": 1,
       "message": "Why do we need to protect against it happening again?",
+      "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c32da59_cf424d60",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3769,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-18T19:05:36Z",
+      "side": 1,
+      "message": "No, because acquire_sem_etc() will return B_INTERRUPTED while it is acquiring the semaphore. Once the timeout is reached we can call MenusBeginning() again.\n\nWe only want to call MenusBeginning() the first time this is called but I\u0027m not sure if applications are going to add shortcuts later on thus we do this each time. The case where this crashes is if you send B_DELETE over and over again by holding it down and so it rebuilds the add-ons menus over and over again. The timeout on acquiring the semaphor prevents this from happening too fast and thus the crash.",
+      "parentUuid": "b262d20d_9e0258ec",
       "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
