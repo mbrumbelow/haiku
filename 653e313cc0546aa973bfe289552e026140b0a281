@@ -16,6 +16,24 @@
       "message": "This probably needs a cast to uint32 or a change of the format specifier above to avoid a type mismatch.",
       "revId": "653e313cc0546aa973bfe289552e026140b0a281",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fff13c5e_a8a2920e",
+        "filename": "src/system/kernel/arch/x86/timers/x86_apic.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T18:58:08Z",
+      "side": 1,
+      "message": "Good catch, thanks!",
+      "parentUuid": "022ebb42_1d56cebf",
+      "revId": "653e313cc0546aa973bfe289552e026140b0a281",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
