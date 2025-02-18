@@ -106,6 +106,24 @@
       "parentUuid": "e879e078_2a128e6f",
       "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "441c31b2_2d4a09bd",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-18T16:21:18Z",
+      "side": 1,
+      "message": "fPathRef is initialized in the header as an entry_ref here: https://git.haiku-os.org/haiku/tree/src/preferences/sounds/HWindow.h#n61 However, it may not be set to an existing directory if all 4 sound directory paths are not found.",
+      "parentUuid": "eb68b474_8e596c5f",
+      "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
