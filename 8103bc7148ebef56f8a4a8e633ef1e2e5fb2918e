@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd16ee72_932afd56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-18T16:35:43Z",
+      "side": 1,
+      "message": "The commit message comment deserves to be at least a brief inline comment somewhere (probably around the memcpy?)",
+      "revId": "8103bc7148ebef56f8a4a8e633ef1e2e5fb2918e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
