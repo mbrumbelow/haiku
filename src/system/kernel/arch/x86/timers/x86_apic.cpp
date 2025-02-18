@@ -59,16 +59,16 @@ apic_timer_interrupt(void *data)
 }
 
 
-#define MIN_TIMEOUT 1
-
 static status_t
 apic_timer_set_hardware_timer(bigtime_t relativeTimeout)
 {
-	if (relativeTimeout < MIN_TIMEOUT)
-		relativeTimeout = MIN_TIMEOUT;
+	if (relativeTimeout < 1)
+		relativeTimeout = 1;
 
-	// calculation should be ok, since it's going to be 64-bit
-	uint32 ticks = ((relativeTimeout * sApicTicsPerSec) / 1000000);
+	// calculation should be ok, since it's 64-bit
+	uint64 ticks = ((relativeTimeout * sApicTicsPerSec) / 1000000);
+	if (ticks > UINT32_MAX)
+		ticks = UINT32_MAX;
 
 	cpu_status state = disable_interrupts();
 
