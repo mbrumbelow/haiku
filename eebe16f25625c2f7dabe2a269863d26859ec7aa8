@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7aad2385_b67cdf14",
+        "filename": "src/apps/mediaplayer/Controller.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-18T11:47:19Z",
+      "side": 1,
+      "message": "Oh sorry, didn\u0027t saw your last commment. By using std::max and min, I am casting the float to int32, hope that\u0027s okay !",
+      "parentUuid": "2d388460_3c765099",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae918b42_5e6ca83f",
         "filename": "src/apps/mediaplayer/ControllerView.h",
         "patchSetId": 4
