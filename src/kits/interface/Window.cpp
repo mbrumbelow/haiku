@@ -3727,7 +3727,9 @@ BWindow::_HandleKeyDown(BMessage* event)
 		// chance to update its menus. This may install new shortcuts,
 		// which is why we have to call it here, before trying to find
 		// a shortcut for the given key.
-		MenusBeginning();
+		status_t semStatus = acquire_sem_etc(fMenuSem, 0, B_RELATIVE_TIMEOUT, 50000);
+		if (semStatus == B_BAD_SEM_ID)
+			MenusBeginning();
 
 		// look for B_NO_COMMAND_KEY shortcut then B_COMMAND_KEY
 		Shortcut* shortcut = _FindShortcut(key, modifiers | B_NO_COMMAND_KEY);
@@ -3762,7 +3764,21 @@ BWindow::_HandleKeyDown(BMessage* event)
 			}
 		}
 
-		MenusEnded();
+		if (semStatus == B_BAD_SEM_ID) {
+			MenusEnded();
+			// protect against doing this again with a semaphore
+			_set_menu_sem_(this, create_sem(0, "window shortcut sem"));
+		} else {
+			// delete the window shortcut semaphore
+			int32 cookie = 0;
+			sem_info info;
+			while (get_next_sem_info(0, &cookie, &info) == B_OK) {
+				if (strcmp(info.name, "window shortcut sem") == 0) {
+					delete_sem(fMenuSem);
+					break;
+				}
+			}
+		}
 	}
 
 	if ((modifiers & B_COMMAND_KEY) != 0 || foundShortcut) {
