@@ -285,6 +285,24 @@
       "parentUuid": "0e9cd245_53941e8b",
       "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67da76a_6a0f0e65",
+        "filename": "src/kits/interface/Window.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3769,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-18T21:06:13Z",
+      "side": 1,
+      "message": "The underlying bug was never addressed, we fixed the problem by not doing the the thing that makes the crash happen, that is rebuild menu items quickly. For example in #12024 we don\u0027t delete the menu items, we sort them in place instead. For the one in Tracker about rebuilding the Navigation menus we solved that by not repening the menu on successive clicks. The ticket number may be a bit different but the crash is the same as on #19317. I couldn\u0027t find the ticket about crashing on right-clicking repeatedly which makes nav items crash. But either way the real bug is in BMenu somewhere which should be able to delete and re-add menu items rapidly without crashing but can\u0027t.",
+      "parentUuid": "0e9cd245_53941e8b",
+      "revId": "cd06e37eef24148e6d38db46bce11527bc078d99",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
