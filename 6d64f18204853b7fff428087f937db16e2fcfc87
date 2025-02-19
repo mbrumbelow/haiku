@@ -16,6 +16,23 @@
       "message": "korli, any comments?",
       "revId": "6d64f18204853b7fff428087f937db16e2fcfc87",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e574f1a0_304243a7",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/long_smp_trampoline.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T17:23:51Z",
+      "side": 1,
+      "message": "Where does this value come from?",
+      "revId": "6d64f18204853b7fff428087f937db16e2fcfc87",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
