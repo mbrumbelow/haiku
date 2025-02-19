@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba8423c_fd8809fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-19T18:22:39Z",
+      "side": 1,
+      "message": "... also make the folder icon in top-right corner a bit more opaque on drag.",
+      "revId": "94abdcb33efda8de192610a067b9620bf4a63ae1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
