@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51953d1d_a5449a5d",
+        "filename": "headers/os/interface/MenuBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T05:53:40Z",
+      "side": 0,
+      "message": "need to add 1 to reserved. And, actually, check the class sizeof on 64-bit, because the pointer here will be aligned on 8 bytes and not 4 so there could have been padding...",
+      "revId": "13d645a0feae6cc36f9c8b5f293e3050fa3cd020",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
