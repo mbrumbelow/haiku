@@ -34,6 +34,24 @@
       "parentUuid": "1c14d367_aec95fd0",
       "revId": "00e6cee62f810fc29dcb91182ab537e975fe8511",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb86b9f_b7654645",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T17:37:26Z",
+      "side": 1,
+      "message": "Not really, it\u0027s one message on the link (same as any draw command), and one allocation plus a few memory sets on the server side. Pretty cheap compared to an actual pixel draw operation I think.",
+      "parentUuid": "8ef9b2a0_f194a9ad",
+      "revId": "00e6cee62f810fc29dcb91182ab537e975fe8511",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
