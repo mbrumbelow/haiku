@@ -693,12 +693,24 @@ void x86_unexpected_exception(iframe* frame);
 void x86_hardware_interrupt(iframe* frame);
 void x86_page_fault_exception(iframe* iframe);
 
+static inline uint64_t
+x86_read_msr(uint32_t msr)
+{
+	uint32_t high, low;
+	asm volatile("rdmsr" : "=a" (low), "=d" (high) : "c" (msr));
+	return (((uint64_t) high) << 32) | low;
+}
+
+
+static inline void
+x86_write_msr(uint32_t msr, uint64_t value)
+{
+	asm volatile("wrmsr" : : "a" ((uint32_t)value) , "d" ((uint32_t)(value >> 32)), "c" (msr));
+}
+
 #ifndef __x86_64__
 
 void x86_swap_pgdir(addr_t newPageDir);
-
-uint64 x86_read_msr(uint32 registerNumber);
-void x86_write_msr(uint32 registerNumber, uint64 value);
 
 void x86_context_switch(struct arch_thread* oldState,
 	struct arch_thread* newState);
