@@ -16,6 +16,159 @@
       "message": "Hey, Feel free to ask if my PR needs more changes or any doubts you have !",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c9113f_a52a2169",
+        "filename": "src/apps/mediaplayer/Controller.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "This should probably be called `TimePositionFor`. And the brace belongs on the next line.",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30f24f35_80dfd9e8",
+        "filename": "src/apps/mediaplayer/Controller.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "trailing whitespace",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f555a4_677b6e5d",
+        "filename": "src/apps/mediaplayer/ControllerView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "I don\u0027t think this method should be needed? Note that there\u0027s no TimePosition() or Seek() methods here, the Controller itself should be used for that. So whatever class is calling into this should use the Controller object directly.",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3098061_922a2e16",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "Should get moved to the new HoverPositionChanged method.",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "102e2b1b_d7086208",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "need 2 blank lines below not 1",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8baaa5b4_92c2e783",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "unneeded change",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fc4b26f_daa39304",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "ValueForPoint already checks the limits, so all the code dealing with limits can be deleted here.",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97209ec5_bc5ed02a",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "We should just pass in a (position, duration) to this function so that it doesn\u0027t need to call TimePosition().",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd0b3f43_6d3ab403",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "Instead of adding this method, I would instead add a hook called `void HoverPositionChanged(float)`, and then let the parent class decide what to do with the given position.",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

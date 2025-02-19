@@ -232,6 +232,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0017c3c_68623478",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "I meant that the message (`MSG_CONTROLLER_...`) should be passed into this class and not stored here, the same as for the ModificationMessage. Just add a new BMessage member field to the class and pass in a BMessage from the TransportControlGroup instead of constructing one fresh here every time.",
+      "parentUuid": "2dd550c4_d241fe35",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dffb8f9_97c9808c",
         "filename": "src/apps/mediaplayer/interface/SeekSlider.h",
         "patchSetId": 4
@@ -349,6 +367,24 @@
       "side": 1,
       "message": "Correction: SetPosition function is currently built to be called from MSG_CONTROLLER_POSITION_CHANGED, not MSG_CONTROLLER_HOVER_POSITION_CHANGED",
       "parentUuid": "2f098062_fa327703",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26706ce3_16bfa3c5",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T18:01:44Z",
+      "side": 1,
+      "message": "Ah, I see. OK, that makes sense.",
+      "parentUuid": "fa8778cf_19464d3e",
       "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
