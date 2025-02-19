@@ -33,6 +33,24 @@
       "message": "I haven\u0027t followed closely the development of other BMenu / BWindow patches, but why is this needed ?",
       "revId": "1767cdaa1361e1edc3d52546bc45ffed6b0aa44f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2618e11_4a7b7e77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-19T08:11:30Z",
+      "side": 1,
+      "message": "This simplifies deleting the semaphore, but other than that it doesn\u0027t do much. There\u0027s a part 2 to this where I revert hrev58264 and allow Tracker to display the same right-click menu twice consecutively but unfortunately that doesn\u0027t quite work yet. However this does prevent Tracker from crashing in a couple cases that it would have before hrev58264 worked around the underlying issue. So Traker wouldn\u0027t crash with this, but it still has some odd behavior with consecutive right-clicks, especially quickly.",
+      "parentUuid": "69d448dd_d342c60c",
+      "revId": "1767cdaa1361e1edc3d52546bc45ffed6b0aa44f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
