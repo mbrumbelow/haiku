@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c171c99_2485b9ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-19T06:55:29Z",
+      "side": 1,
+      "message": "Also compose the max size to make the whole fade rect a bit bigger with bigger font sizes.\n\nThis is the size of the rect that contains dragged icons and fading to transparent as it gets further from the drag start location/mouse pointer.",
+      "revId": "a174761f84f01f9204091101a775a4706ed26a13",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
