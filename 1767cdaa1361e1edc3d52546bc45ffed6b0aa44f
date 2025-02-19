@@ -16,6 +16,23 @@
       "message": "ok FBC padding fixed.",
       "revId": "1767cdaa1361e1edc3d52546bc45ffed6b0aa44f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d448dd_d342c60c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2025-02-19T08:05:30Z",
+      "side": 1,
+      "message": "I haven\u0027t followed closely the development of other BMenu / BWindow patches, but why is this needed ?",
+      "revId": "1767cdaa1361e1edc3d52546bc45ffed6b0aa44f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
