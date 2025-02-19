@@ -3252,7 +3252,7 @@ BPoseView::SetPosesClipboardMode(uint32 clipboardMode)
 			BPose* pose = poseList->ItemAt(index);
 			if (pose->ClipboardMode() != clipboardMode) {
 				pose->SetClipboardMode(clipboardMode);
-				Invalidate(pose->CalcRect(loc, this, false));
+				Invalidate(pose->CalcRect(loc, this, true));
 			}
 			loc.y += fListElemHeight;
 		}
@@ -3317,7 +3317,7 @@ BPoseView::UpdatePosesClipboardModeFromClipboard(BMessage* clipboardReport)
 					if (pose != NULL) {
 						loc.y = foundNodeIndex * fListElemHeight;
 						if (loc.y <= bounds.bottom && loc.y >= bounds.top)
-							Invalidate(pose->CalcRect(loc, this, false));
+							Invalidate(pose->CalcRect(loc, this, true));
 					}
 				} else {
 					BRect poseRect(pose->CalcRect(this));
@@ -3963,7 +3963,7 @@ BPoseView::SelectPoses(int32 start, int32 end)
 			if (iconMode)
 				poseRect = pose->CalcRect(this);
 			else
-				poseRect = pose->CalcRect(loc, this, false);
+				poseRect = pose->CalcRect(loc, this, true);
 
 			if (bounds.Intersects(poseRect)) {
 				Invalidate(poseRect);
@@ -4099,7 +4099,7 @@ BPoseView::RemovePoseFromSelection(BPose* pose)
 		BPoint loc(0, 0);
 		for (int32 index = 0; index < poseCount; index++) {
 			if (pose == poseList->ItemAt(index)) {
-				Invalidate(pose->CalcRect(loc, this));
+				Invalidate(pose->CalcRect(loc, this, true));
 				break;
 			}
 			loc.y += fListElemHeight;
@@ -6428,7 +6428,7 @@ BPoseView::SelectAll()
 			if (iconMode)
 				poseRect = pose->CalcRect(this);
 			else
-				poseRect = pose->CalcRect(loc, this);
+				poseRect = pose->CalcRect(loc, this, true);
 
 			if (bounds.Intersects(poseRect)) {
 				pose->Draw(poseRect, bounds, this, false);
@@ -6482,7 +6482,7 @@ BPoseView::InvertSelection()
 		if (iconMode)
 			poseRect = pose->CalcRect(this);
 		else
-			poseRect = pose->CalcRect(loc, this);
+			poseRect = pose->CalcRect(loc, this, true);
 
 		if (bounds.Intersects(poseRect))
 			Invalidate();
@@ -8646,7 +8646,7 @@ BPoseView::ClearSelection()
 				BPose* pose = poseList->ItemAt(index);
 				if (pose->IsSelected()) {
 					pose->Select(false);
-					Invalidate(pose->CalcRect(loc, this, false));
+					Invalidate(pose->CalcRect(loc, this, true));
 				}
 
 				loc.y += fListElemHeight;
@@ -8714,7 +8714,7 @@ BPoseView::ShowSelection(bool show)
 					if (!fShowSelectionWhenInactive)
 						pose->Select(show);
 
-					Invalidate(pose->CalcRect(loc, this, false));
+					Invalidate(pose->CalcRect(loc, this, true));
 				}
 			}
 
