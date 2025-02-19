@@ -51,6 +51,23 @@
       "parentUuid": "69d448dd_d342c60c",
       "revId": "1767cdaa1361e1edc3d52546bc45ffed6b0aa44f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceaddb99_2ebc15f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-19T08:16:55Z",
+      "side": 1,
+      "message": "Crash that is avoided, or would be avoided were hrev58264 to be reverted by this:\n\nhttps://64.media.tumblr.com/cf4f427b71b1e5bdd0a7a3fc77fc5f0a/403725a1979623df-44/s1280x1920/ecc6b1d16acb6cde7739d72a604fa4e355d34e28.pnj",
+      "revId": "1767cdaa1361e1edc3d52546bc45ffed6b0aa44f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
