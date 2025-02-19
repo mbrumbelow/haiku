@@ -16,6 +16,24 @@
       "message": "need to add 1 to reserved. And, actually, check the class sizeof on 64-bit, because the pointer here will be aligned on 8 bytes and not 4 so there could have been padding...",
       "revId": "13d645a0feae6cc36f9c8b5f293e3050fa3cd020",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "190e2f35_01951f1f",
+        "filename": "headers/os/interface/MenuBar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-19T05:58:28Z",
+      "side": 0,
+      "message": "OK I just checked. The class size doesn\u0027t change when deleting `fMenuSem` and adding 1 to `reserved` below. And we can even move `fLastBounds` up above `fBorder` without affecting the class size either, so maybe we should do that to be safe (especially as there are 4 uint32s here, and removing sem_id makes it 3 instead.)",
+      "parentUuid": "51953d1d_a5449a5d",
+      "revId": "13d645a0feae6cc36f9c8b5f293e3050fa3cd020",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
