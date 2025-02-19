@@ -52,6 +52,24 @@
       "parentUuid": "8ef9b2a0_f194a9ad",
       "revId": "00e6cee62f810fc29dcb91182ab537e975fe8511",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b771afce_2f8114f6",
+        "filename": "src/kits/tracker/Pose.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-02-19T17:50:14Z",
+      "side": 1,
+      "message": "Well if it\u0027s cheap I\u0027ll do PushState() and PopState() in icon mode as well, even though it\u0027s about to get PopState()\u0027d again at the end since there\u0027s nothing more to draw in icon mode. I prefer to declare direct at the top, just to keep it consistent with the rest. The direct parameter used to be passed in, but instead I recalculate it as needed now.",
+      "parentUuid": "7bb86b9f_b7654645",
+      "revId": "00e6cee62f810fc29dcb91182ab537e975fe8511",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
