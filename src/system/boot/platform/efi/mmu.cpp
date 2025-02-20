@@ -144,6 +144,38 @@ platform_allocate_region(void **_address, size_t size, uint8 /* protection */,
 	return B_OK;
 }
 
+extern "C" status_t
+platform_allocate32(void **_address, size_t size)
+{
+	TRACE("%s: called\n", __func__);
+
+	efi_physical_addr addr = 0xffffffff;
+	size_t pages = ROUNDUP(size, B_PAGE_SIZE) / B_PAGE_SIZE;
+	efi_status status;
+
+	status = kBootServices->AllocatePages(AllocateMaxAddress,
+					      EfiLoaderData, pages, &addr);
+
+	if (status != EFI_SUCCESS)
+		return B_NO_MEMORY;
+
+	memory_region *region = new(std::nothrow) memory_region {
+		next: allocated_regions,
+		vaddr: 0,
+		paddr: (phys_addr_t)addr,
+		size: size
+	};
+
+	if (region == NULL) {
+		kBootServices->FreePages(addr, pages);
+		return B_NO_MEMORY;
+	}
+
+	allocated_regions = region;
+	*_address = (void *)region->paddr;
+	return B_OK;
+}
+
 
 extern "C" status_t
 platform_allocate_lomem(void **_address, size_t size)
