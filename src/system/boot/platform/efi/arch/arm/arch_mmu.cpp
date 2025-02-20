@@ -219,7 +219,7 @@ static void
 arch_mmu_allocate_page_tables(void)
 {
 	if (platform_allocate_region((void **)&sPageDirectory,
-		ARM_MMU_L1_TABLE_SIZE + ALIGN_PAGEDIR + PAGE_TABLE_AREA_SIZE, 0, false) != B_OK)
+			ARM_MMU_L1_TABLE_SIZE + ALIGN_PAGEDIR + PAGE_TABLE_AREA_SIZE, 0) != B_OK)
 		panic("Failed to allocate page directory.");
 	sPageDirectory = (uint32 *)ROUNDUP((uint32)sPageDirectory, ALIGN_PAGEDIR);
 	memset(sPageDirectory, 0, ARM_MMU_L1_TABLE_SIZE);
@@ -238,7 +238,7 @@ arch_mmu_allocate_page_tables(void)
 static void
 arch_mmu_allocate_vector_table(void)
 {
-	if (platform_allocate_region((void **)&sVectorTable, B_PAGE_SIZE, 0, false) != B_OK)
+	if (platform_allocate_region((void **)&sVectorTable, B_PAGE_SIZE, 0) != B_OK)
 		panic("Failed to allocate vector table.");
 
 	memset(sVectorTable, 0, B_PAGE_SIZE);
