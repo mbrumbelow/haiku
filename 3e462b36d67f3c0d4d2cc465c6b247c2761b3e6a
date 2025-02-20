@@ -784,6 +784,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "970841b2_4e29a5eb",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-20T19:09:23Z",
+      "side": 1,
+      "message": "Basically, you shouldn\u0027t need to fetch more than one block at a time. This method \"FillBlockBuffer\" should just be deleted entirely. Instead, whenever you need to read data from an Extent, you should just use one cached block at a time. The block cache\u0027s \"get_cached_block\" routine will be very fast in the case where the block is already cached in memory, and we shouldn\u0027t need to do much more inside the filesystems.",
+      "parentUuid": "cf961f92_f786fd50",
+      "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad66507_99dae515",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
         "patchSetId": 1
