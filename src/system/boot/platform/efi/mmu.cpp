@@ -30,6 +30,7 @@ struct memory_region {
 	addr_t vaddr;
 	phys_addr_t paddr;
 	size_t size;
+	bool execute;
 
 	void dprint(const char * msg) {
  	  dprintf("%s memory_region v: %#" B_PRIxADDR " p: %#" B_PRIxPHYSADDR " size: %lu\n", msg, vaddr,
@@ -42,7 +43,10 @@ struct memory_region {
 };
 
 
-static addr_t sNextVirtualAddress = KERNEL_LOAD_BASE + 32 * 1024 * 1024;
+static addr_t sNextVirtualExecuteAddress = KERNEL_LOAD_BASE;
+static const addr_t kEndVirtualExecuteAddress = KERNEL_LOAD_BASE + 32 * 1024 * 1024;
+static addr_t sNextVirtualAddress = kEndVirtualExecuteAddress;
+
 static memory_region *allocated_regions = NULL;
 
 
@@ -62,14 +66,29 @@ mmu_allocate_page()
 }
 
 
-extern "C" addr_t
-get_next_virtual_address(size_t size)
+static addr_t
+get_next_virtual_address(size_t size, bool execute)
 {
 	TRACE("%s: called. size: %" B_PRIuSIZE "\n", __func__, size);
+
+	// On some architectures, the kernel may be non-relocatable, so we should
+	// try to allocate executable regions exactly at KERNEL_LOAD_BASE first.
+	if (execute && (sNextVirtualExecuteAddress + size) <= kEndVirtualExecuteAddress) {
+		addr_t address = sNextVirtualExecuteAddress;
+		sNextVirtualExecuteAddress += ROUNDUP(size, B_PAGE_SIZE);
+		return address;
+	}
 
 	addr_t address = sNextVirtualAddress;
 	sNextVirtualAddress += ROUNDUP(size, B_PAGE_SIZE);
 	return address;
+}
+
+
+extern "C" addr_t
+get_next_virtual_address(size_t size)
+{
+	return get_next_virtual_address(size, false);
 }
 
 
@@ -91,24 +110,14 @@ get_current_virtual_address()
 // addresses to kernel addresses.
 
 extern "C" status_t
-platform_allocate_region(void **_address, size_t size, uint8 /* protection */,
-	bool exactAddress)
+platform_allocate_region(void **_address, size_t size, uint8 protection)
 {
 	TRACE("%s: called\n", __func__);
 
-	efi_physical_addr addr;
 	size_t pages = ROUNDUP(size, B_PAGE_SIZE) / B_PAGE_SIZE;
-	efi_status status;
-
-	if (exactAddress) {
-		addr = (efi_physical_addr)(addr_t)*_address;
-		status = kBootServices->AllocatePages(AllocateAddress,
-			EfiLoaderData, pages, &addr);
-	} else {
-		addr = 0;
-		status = kBootServices->AllocatePages(AllocateAnyPages,
-			EfiLoaderData, pages, &addr);
-	}
+	efi_physical_addr addr = 0;
+	efi_status status = kBootServices->AllocatePages(AllocateAnyPages,
+		EfiLoaderData, pages, &addr);
 
 	if (status != EFI_SUCCESS)
 		return B_NO_MEMORY;
@@ -121,14 +130,10 @@ platform_allocate_region(void **_address, size_t size, uint8 /* protection */,
 
 	memory_region *region = new(std::nothrow) memory_region {
 		next: allocated_regions,
-#ifdef __riscv
-		// Disables allocation at fixed virtual address
 		vaddr: 0,
-#else
-		vaddr: *_address == NULL ? 0 : (addr_t)*_address,
-#endif
 		paddr: (phys_addr_t)addr,
-		size: size
+		size: size,
+		execute: (protection & B_EXECUTE_AREA) != 0
 	};
 
 	if (region == NULL) {
@@ -146,11 +151,11 @@ platform_allocate_region(void **_address, size_t size, uint8 /* protection */,
 
 
 extern "C" status_t
-platform_allocate_lomem(void **_address, size_t size)
+platform_allocate_region_below(void **_address, size_t size, phys_addr_t maxAddress)
 {
 	TRACE("%s: called\n", __func__);
 
-	efi_physical_addr addr = KERNEL_LOAD_BASE - B_PAGE_SIZE;
+	efi_physical_addr addr = maxAddress;
 	size_t pages = ROUNDUP(size, B_PAGE_SIZE) / B_PAGE_SIZE;
 	efi_status status = kBootServices->AllocatePages(AllocateMaxAddress,
 		EfiLoaderData, pages, &addr);
@@ -159,7 +164,7 @@ platform_allocate_lomem(void **_address, size_t size)
 
 	memory_region *region = new(std::nothrow) memory_region {
 		next: allocated_regions,
-		vaddr: (addr_t)addr,
+		vaddr: 0,
 		paddr: (phys_addr_t)addr,
 		size: size
 	};
@@ -235,6 +240,33 @@ convert_physical_ranges()
 
 
 extern "C" status_t
+platform_assign_kernel_address_for_region(void *address, addr_t assign)
+{
+	// Double cast needed to avoid sign extension issues on 32-bit architecture
+	phys_addr_t addr = (phys_addr_t)(addr_t)address;
+
+	for (memory_region *region = allocated_regions; region;
+			region = region->next) {
+		if (region->paddr <= addr && addr < region->paddr + region->size) {
+			if (region->paddr != addr)
+				return EINVAL;
+			if (region->vaddr != 0)
+				return EALREADY;
+
+			status_t status = insert_virtual_allocated_range(addr, region->size);
+			if (status != B_OK)
+				return status;
+
+			region->vaddr = addr;
+			return B_OK;
+		}
+	}
+
+	return B_ERROR;
+}
+
+
+extern "C" status_t
 platform_bootloader_address_to_kernel_address(void *address, addr_t *_result)
 {
 	TRACE("%s: called\n", __func__);
@@ -249,9 +281,9 @@ platform_bootloader_address_to_kernel_address(void *address, addr_t *_result)
 			region = region->next) {
 		if (region->paddr <= addr && addr < region->paddr + region->size) {
 			// Lazily allocate virtual memory.
-			if (region->vaddr == 0) {
-				region->vaddr = get_next_virtual_address(region->size);
-			}
+			if (region->vaddr == 0)
+				region->vaddr = get_next_virtual_address(region->size, region->execute);
+
 			*_result = region->vaddr + (addr - region->paddr);
 			//dprintf("Converted bootloader address %p in region %#lx-%#lx to %#lx\n",
 			//	address, region->paddr, region->paddr + region->size, *_result);
@@ -325,7 +357,7 @@ mmu_next_region(void** cookie, addr_t* vaddr, phys_addr_t* paddr, size_t* size)
 		return false;
 
 	if (region->vaddr == 0)
-		region->vaddr = get_next_virtual_address(region->size);
+		region->vaddr = get_next_virtual_address(region->size, region->execute);
 
 	*vaddr = region->vaddr;
 	*paddr = region->paddr;
