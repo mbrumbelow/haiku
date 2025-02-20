@@ -766,6 +766,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf961f92_f786fd50",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2025-02-20T05:30:51Z",
+      "side": 1,
+      "message": "A similar implementation exists in the XFS driver; however, in our case, we utilize extents, which are continuous block allocations for specific files and directories. If we can implement a caching strategy that enables multiple blocks to be cached simultaneously, we could avoid reloading these extents repeatedly, improving overall efficiency.\n\nI have created a post on the forum discussing the implementation of this Block Cache and plan to experiment with this approach. From my analysis of the existing code, I have observed that when reading directories, a series of operations are redundantly executed—even when they were already performed for a previous directory within the same block. This inefficiency contributes to increased read times.\n\nAny insights or suggestions on optimizing this caching mechanism would be greatly appreciated.",
+      "parentUuid": "215110f8_d26f8236",
+      "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad66507_99dae515",
         "filename": "src/add-ons/kernel/file_systems/xfs/Extent.h",
         "patchSetId": 1
