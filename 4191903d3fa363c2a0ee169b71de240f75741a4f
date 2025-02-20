@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8831d124_223bd9b2",
+        "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-20T22:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e4f9f7_63d0944d",
+      "revId": "4191903d3fa363c2a0ee169b71de240f75741a4f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e7c1c40a_77523047",
         "filename": "headers/private/kernel/arch/x86/arch_cpu.h",
         "patchSetId": 5
