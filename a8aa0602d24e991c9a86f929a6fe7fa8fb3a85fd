@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "10336961_9d2cadc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-21T04:08:47Z",
+      "side": 1,
+      "message": "Fixed. It was the vector table allocation. Also refactored the kernel loading a bit more to make it less fragile.",
+      "parentUuid": "fc202158_bc02c702",
+      "revId": "a8aa0602d24e991c9a86f929a6fe7fa8fb3a85fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "29219361_0141598c",
         "filename": "headers/private/kernel/boot/platform.h",
         "patchSetId": 5
