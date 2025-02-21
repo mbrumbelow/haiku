@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6157091c_3699aee1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-21T02:13:04Z",
+      "side": 1,
+      "message": "This does seem to break ARM boot after all. But I\u0027m confused as to how, because we actually get \"Welcome to kernel debugger output!\" indicating we got into the kernel OK, but then it stalls and we don\u0027t get \"Haiku revision: ...\"",
+      "revId": "a8aa0602d24e991c9a86f929a6fe7fa8fb3a85fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "29219361_0141598c",
