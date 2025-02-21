@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc202158_bc02c702",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-21T02:15:13Z",
+      "side": 1,
+      "message": "Ah, I misread the logs. We do actually get \"Haiku revision:...\" it\u0027s just nothing after that happens.",
+      "parentUuid": "6157091c_3699aee1",
+      "revId": "a8aa0602d24e991c9a86f929a6fe7fa8fb3a85fd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "29219361_0141598c",
