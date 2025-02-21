@@ -46,6 +46,30 @@
       },
       "revId": "2ef4221668a48eb0e2b129f27debe9aaa00bca25",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14188d71_b38d6ffa",
+        "filename": "src/servers/input/MouseSettings.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-02-21T12:25:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28afa7ba_ade3e1b4",
+      "range": {
+        "startLine": 201,
+        "startChar": 16,
+        "endLine": 201,
+        "endChar": 22
+      },
+      "revId": "2ef4221668a48eb0e2b129f27debe9aaa00bca25",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
