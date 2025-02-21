@@ -124,6 +124,24 @@
       "parentUuid": "eb68b474_8e596c5f",
       "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55df2b5d_d3469830",
+        "filename": "src/preferences/sounds/HWindow.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-02-21T07:23:29Z",
+      "side": 1,
+      "message": "I had to create a BEntry for this, because \"\u0027struct entry_ref\u0027 has no member named \u0027Exists\u0027\".",
+      "parentUuid": "441c31b2_2d4a09bd",
+      "revId": "2008de210c6a5d830c8b5624fcf3062e9d3bbf68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
