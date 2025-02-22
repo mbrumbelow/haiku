@@ -800,6 +800,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "556def76_327b25ca",
+        "filename": "src/add-ons/kernel/file_systems/xfs/Extent.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000632
+      },
+      "writtenOn": "2025-02-22T09:04:10Z",
+      "side": 1,
+      "message": "Yes, that is exactly what has been implemented here. However, instead of removing the fillBlockBuffer method, I have incorporated reading from the block cache within it.",
+      "parentUuid": "970841b2_4e29a5eb",
+      "revId": "3e462b36d67f3c0d4d2cc465c6b247c2761b3e6a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ad66507_99dae515",
