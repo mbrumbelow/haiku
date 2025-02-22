@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9337cd89_170dba18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2025-02-22T07:19:20Z",
+      "side": 1,
+      "message": "If I remember correctly, we already deviate from BeOS\u0027s behaviour as in our menus are always sticky or always non-sticky, for consistency: IOW it\u0027s a global user setting, not changed by how you create the BMenus.",
+      "revId": "b1558a201507c2f2f367de3fadaba0f1e3d05fbd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "126d46da_ecdf16df",
         "filename": "headers/os/interface/Menu.h",
         "patchSetId": 11
