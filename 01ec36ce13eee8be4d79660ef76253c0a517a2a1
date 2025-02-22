@@ -16,6 +16,24 @@
       "message": "This seems like a good thing to have?",
       "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c978890_bb2210e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-22T21:32:06Z",
+      "side": 1,
+      "message": "Yes, I thought about restoring this change because I think it should happen eventually.  I think the sniffer rule is OK but for some reason I have this thought that it caused certain files to be misidentified.",
+      "parentUuid": "4f4b2033_756de7d1",
+      "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
