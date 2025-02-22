@@ -16,6 +16,24 @@
       "message": "What\u0027s wrong with this one?",
       "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "362f6cc0_36d00594",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-22T21:38:35Z",
+      "side": 1,
+      "message": "I have never really investigated whether the current Haiku Terminal behavior is correct or not.  I just know that it started behaving differently after the ECMA-48 support was added and this change made it \"feel\" like my other terminals.",
+      "parentUuid": "87d02c6f_114cfc0d",
+      "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
