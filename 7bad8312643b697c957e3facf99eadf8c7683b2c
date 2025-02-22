@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5084fee_53b8d36a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-22T21:31:00Z",
+      "side": 1,
+      "message": "Why not make the setting an integer, and keep that many syslogs?\n\nProbably should get a different name then, e.g. \"syslog_keep_old\".",
+      "revId": "7bad8312643b697c957e3facf99eadf8c7683b2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
