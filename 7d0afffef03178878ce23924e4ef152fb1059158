@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b81a23fa_56188d8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-02-22T13:17:06Z",
+      "side": 1,
+      "message": "\u003e Anyway, at the moment this doesn\u0027t build because we need a replacement for get_next_entry and get_next_device. I\u0027m not sure if these can be replaced by walk_resources or if other iteration methods from uacpi are needed.\n\nAn alternative to `AcpiGetNextObject` is now merged into uACPI, see `uacpi_namespace_node_next{_typed}`.",
+      "parentUuid": "1067f139_03f68b57",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990e2045_0f7a1c08",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1
