@@ -16,6 +16,24 @@
       "message": "Hmm, not sure about this one. Is it really so useful?",
       "revId": "788a8b0e1c5b469c958c975541a551d194851829",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6faccb21_0416ad79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-23T08:18:25Z",
+      "side": 1,
+      "message": "I actually had thought about doing a bunch of these as haikuports recipes until I had my little git accident.  There are a number of other toys and tools in the repository that might be useful.  This command, the joystick test app, possibly the hid_decode command, etc...",
+      "parentUuid": "8d44bb9c_efb7f29b",
+      "revId": "788a8b0e1c5b469c958c975541a551d194851829",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
