@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a416b6b3_790fbaa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-02-23T02:55:20Z",
+      "side": 1,
+      "message": "I think that it is better to have some generic resource override mechanism for arbitrary files.",
+      "revId": "acc79553b78fbbf5151f9aefdb3fadb075f7b055",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "77610c28_1f5a0e2e",
         "filename": "src/apps/deskbar/BarMenuBar.cpp",
         "patchSetId": 2
