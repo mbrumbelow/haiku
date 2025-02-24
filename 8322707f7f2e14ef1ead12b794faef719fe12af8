@@ -523,6 +523,24 @@
       "message": "Instead of adding this method, I would instead add a hook called `void HoverPositionChanged(float)`, and then let the parent class decide what to do with the given position.",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b4d896_0a7f034a",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-24T04:48:03Z",
+      "side": 1,
+      "message": "the parent class in this case would be MainWin.cpp, right ? \nif the parent is MainWin.cpp, the logic to convert value to bigtime_t (by dividing it by kPositionFactor) should be moved to MainWin.cpp, right ? \nNote that, I don\u0027t have access to kPositionFactor in MainWin.cpp, so the conversion operation can\u0027t be performed. (I tried importing transportControlGroup.cpp in MainWin.cpp but was getting error while compiling).",
+      "parentUuid": "cd0b3f43_6d3ab403",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
