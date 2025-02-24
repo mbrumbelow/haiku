@@ -34,6 +34,24 @@
       "parentUuid": "87d02c6f_114cfc0d",
       "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3db724c_465c41c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-24T18:13:05Z",
+      "side": 1,
+      "message": "What difference does this actually make? Seeing as there\u0027s a for() loop that would just do nothing if repetitions \u003d\u003d 0, the only difference adding a \"break\" makes is that we don\u0027t set parsestate\u003dgroundtable.",
+      "parentUuid": "362f6cc0_36d00594",
+      "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
