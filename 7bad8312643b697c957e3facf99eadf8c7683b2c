@@ -16,6 +16,24 @@
       "message": "Why not make the setting an integer, and keep that many syslogs?\n\nProbably should get a different name then, e.g. \"syslog_keep_old\".",
       "revId": "7bad8312643b697c957e3facf99eadf8c7683b2c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d19b74_728d68e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-24T03:31:47Z",
+      "side": 1,
+      "message": "Yeah, seems cleaner to use an integer and do away with the old style.",
+      "parentUuid": "b5084fee_53b8d36a",
+      "revId": "7bad8312643b697c957e3facf99eadf8c7683b2c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
