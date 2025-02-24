@@ -52,6 +52,23 @@
       "parentUuid": "8c978890_bb2210e9",
       "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b473d86_752feb1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-24T18:15:22Z",
+      "side": 1,
+      "message": "1. Did BeOS R5 have a MIME type for its flattened messages? If so we should try and copy its layout. \"Haiku-BMessage\" seems a bit strange as the format name but maybe it makes sense (the format is Haiku-specific so there should be \"Haiku\" in there somehow, at least.)\n\n2. Maybe \"BMessage (flattened, Haiku)\" would be a better description?",
+      "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
