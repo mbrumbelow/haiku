@@ -16,6 +16,24 @@
       "message": "Why not?",
       "revId": "68c333633f20871fbc23f4e5c3cc7d69ddd8e56d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e03417b_28d990b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-24T08:40:11Z",
+      "side": 1,
+      "message": "Might be better to just combine /bin/query and /bin/filteredquery instead?\n\nhttps://review.haiku-os.org/c/haiku/+/9057",
+      "parentUuid": "0df14019_92f98b11",
+      "revId": "68c333633f20871fbc23f4e5c3cc7d69ddd8e56d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
