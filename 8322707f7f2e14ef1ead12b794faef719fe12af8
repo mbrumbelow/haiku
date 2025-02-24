@@ -256,6 +256,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1c91f00_f666b9da",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-24T04:15:12Z",
+      "side": 1,
+      "message": "do you mean this case block be removed and its content be moved to the new HoverPositionChanged method which is going to defined in MainWin.cpp ? if yes, how to call this new method in MainWin.cpp ? will it be automatically invoked by the system like mouseMoved function ?a \nor,\nshould I call the hoverPositionChanged method from transportControlGroup.cpp, to get the bigtime_t corresponding to the value, and then call the setToolTipPosition method which expects (position, duration) both in bigtime_t ?",
+      "parentUuid": "e3098061_922a2e16",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "102e2b1b_d7086208",
         "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
         "patchSetId": 5
