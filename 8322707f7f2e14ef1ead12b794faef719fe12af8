@@ -541,6 +541,24 @@
       "parentUuid": "cd0b3f43_6d3ab403",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6da74b8e_3a839f9b",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-24T04:49:21Z",
+      "side": 1,
+      "message": "No, I meant the inherited class, not the \"parent\" class, sorry.",
+      "parentUuid": "64b4d896_0a7f034a",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
