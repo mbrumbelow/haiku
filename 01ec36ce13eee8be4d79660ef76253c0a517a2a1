@@ -69,6 +69,24 @@
       "message": "1. Did BeOS R5 have a MIME type for its flattened messages? If so we should try and copy its layout. \"Haiku-BMessage\" seems a bit strange as the format name but maybe it makes sense (the format is Haiku-specific so there should be \"Haiku\" in there somehow, at least.)\n\n2. Maybe \"BMessage (flattened, Haiku)\" would be a better description?",
       "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5ce45c_1146d55e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000015
+      },
+      "writtenOn": "2025-02-24T19:10:02Z",
+      "side": 1,
+      "message": "1. I\u0027m pretty sure it didn\u0027t ; That said, it\u0027d be worth noting that its flat format is different anyhow (5.1d0 as well as a Haiku use a different message format that allows flattening to be reduced to little more than a memcpy, which was not the case for R5).",
+      "parentUuid": "6b473d86_752feb1f",
+      "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
