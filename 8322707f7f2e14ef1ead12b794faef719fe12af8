@@ -613,6 +613,24 @@
       "parentUuid": "6da74b8e_3a839f9b",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f925c49a_86d1e9d6",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-25T05:58:40Z",
+      "side": 1,
+      "message": "It looks like the class hierarchy is a little different than I realized, but I still think the basic structure I was suggesting should work:\n\nControllerObserver inherits Controller::Listener. This is what should generate the MSG_CONTROLLER_HOVER_POSITION_CHANGED message, same as it generates MSG_CONTROLLER_POSITION_CHANGED.\n\nThe message itself should contain a `float position` same as the POSITION_CHANGED message does, and so TransportControlGroup should have no need to call `TimePosition` inside the tooltip method.",
+      "parentUuid": "efb07583_b654a4af",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
