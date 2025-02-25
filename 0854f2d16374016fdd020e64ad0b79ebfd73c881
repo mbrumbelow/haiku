@@ -16,6 +16,23 @@
       "message": "fix typo in commit message",
       "revId": "0854f2d16374016fdd020e64ad0b79ebfd73c881",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c85f7f52_0e1ff4cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-25T20:14:58Z",
+      "side": 1,
+      "message": "I don\u0027t think this will fix the problem. The issues look like memory corruption, not NULL dereferences. See e.g. https://dev.haiku-os.org/attachment/ticket/18905/Tracker-2439-debug-16-07-2024-04-04-58.report\n\nOne way to try and track this down might be to disable the \"operator new\" and \"operator delete\" in BMessage; just #if 0 those methods out, and then do a clean build of libbe.so and libtracker.so. This will break ABI compatibility, but it will make the guarded heap better able to track BMessage usage. So you might try that and see what happens.",
+      "revId": "0854f2d16374016fdd020e64ad0b79ebfd73c881",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
