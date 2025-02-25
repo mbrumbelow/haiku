@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c598b48_9f11dda6",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-25T17:22:34Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "d0f0b65e_5e91475f",
+      "revId": "c8252422b8b3a2a293fb3be039eec6f87b30b467",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "365d51d7_314240a4",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-02-19T18:01:44Z",
       "side": 0,
       "message": "2 blank lines between functions",
+      "revId": "c8252422b8b3a2a293fb3be039eec6f87b30b467",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0625824_de38e1a7",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-25T17:22:34Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "365d51d7_314240a4",
       "revId": "c8252422b8b3a2a293fb3be039eec6f87b30b467",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

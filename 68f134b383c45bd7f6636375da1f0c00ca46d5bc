@@ -106,6 +106,24 @@
       "parentUuid": "d353f568_eed90fc2",
       "revId": "68f134b383c45bd7f6636375da1f0c00ca46d5bc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18165527_ec1232f7",
+        "filename": "headers/os/interface/Slider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-25T17:22:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db890342_533ef901",
+      "revId": "68f134b383c45bd7f6636375da1f0c00ca46d5bc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
