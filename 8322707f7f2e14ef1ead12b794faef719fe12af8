@@ -739,6 +739,24 @@
       "parentUuid": "f925c49a_86d1e9d6",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eb234a6_b7ee5464",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-25T17:26:30Z",
+      "side": 1,
+      "message": "It should be a mirror of `Listener::PositionChanged`, so look at how that method is called and used. That method already sends `float position`, so `HoverPositionChanged` should just do the same thing, I think?",
+      "parentUuid": "843deb1b_7e1f53f7",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
