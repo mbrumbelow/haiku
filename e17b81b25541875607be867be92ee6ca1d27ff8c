@@ -70,6 +70,24 @@
       "parentUuid": "e3db724c_465c41c4",
       "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "911410db_7e4fc80a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-25T02:47:04Z",
+      "side": 1,
+      "message": "From what I can tell from the spec it seems like repetitions should instead be set to 1 when it\u0027s 0. \"0\" means default, and the default for this command is 1.  I\u0027ll have to do some more testing with that change.",
+      "parentUuid": "cad34039_1fbb81d0",
+      "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
