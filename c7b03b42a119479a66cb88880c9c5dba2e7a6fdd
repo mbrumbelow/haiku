@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "319202a8_134e81b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000852
+      },
+      "writtenOn": "2025-02-25T22:24:01Z",
+      "side": 1,
+      "message": "I have updated the deviceName of the RX 470/480 to also include the RX 570, 580 and 590. I have personally tested this on RX 570 and it seems to work with some hacks (that is the reason I kept it disabled). Also, I have changed the dce values from 12.0 to 11.2 following https://dri.freedesktop.org/docs/drm/gpu/amdgpu/driver-misc.html. I can also update the rest of the DCE values if this change is approved.",
+      "revId": "c7b03b42a119479a66cb88880c9c5dba2e7a6fdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f54e239b_86393628",
         "filename": "headers/private/graphics/radeon_hd/radeon_hd.h",
         "patchSetId": 1
