@@ -1172,6 +1172,17 @@ VMCache::Resize(off_t newSize, int priority)
 		while (_FreePageRange(pages.GetIterator(newPageCount, true, true)))
 			;
 	}
+	if (newSize < virtual_end && newPageCount > 0) {
+		off_t offset = newSize % B_PAGE_SIZE;
+		if (offset > 0) {
+			// clear the unused part of the last page
+			vm_page* page = LookupPage(newPageCount - 1);
+			if (page != NULL) {
+				vm_memset_physical((page->physical_page_number << PAGE_SHIFT) + offset, 0,
+					B_PAGE_SIZE - offset);
+			}
+		}
+	}
 
 	if (priority >= 0) {
 		status_t status = Commit(PAGE_ALIGN(newSize - virtual_base), priority);
