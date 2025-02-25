@@ -775,6 +775,24 @@
       "parentUuid": "9eb234a6_b7ee5464",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bbebf5b_83a55d8e",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-25T19:12:56Z",
+      "side": 1,
+      "message": "\u003e Now, what we can do in MouseMoved function of seekslider is: create a copy of modification message and add the position value to it in\n\nAs I noted in another comment, SeekSlider should have a second message parameter, for the \"hover message\". The management of the hover message should indeed mirror that of MSG_SEEK, only instead of resulting in a seek it should result in a tooltip being shown, yes.\n\nSorry if my replies have not been too clear here; I am admittedly not the most familiar with MediaPlayer\u0027s architecture.",
+      "parentUuid": "846ac649_a8c4379c",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
