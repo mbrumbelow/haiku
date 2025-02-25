@@ -559,6 +559,24 @@
       "parentUuid": "64b4d896_0a7f034a",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efb07583_b654a4af",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-25T05:24:24Z",
+      "side": 1,
+      "message": "Apologies, but I still don\u0027t get the usage of HoverPositionChanged(float) and how it is going to be defined in inherited class ? and what is the inherited class ?",
+      "parentUuid": "6da74b8e_3a839f9b",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
