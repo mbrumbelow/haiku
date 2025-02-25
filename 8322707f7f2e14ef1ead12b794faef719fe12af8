@@ -757,6 +757,24 @@
       "parentUuid": "843deb1b_7e1f53f7",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "846ac649_a8c4379c",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-25T18:48:40Z",
+      "side": 1,
+      "message": "`Listener::PositionChanged` is called from NotifyCurrentFrameChanged function in Controller.cpp, this is itself triggered when playbackState Changes.\n\nso, the main thing we are trying to achieve by using hoverPositionChanged is change the `SetToolTipPosition` from (float value, bigtime_t duration) to (bigtime_t position, bigtime_t duration) ?\n\nI have a solution in my mind if this is what is needed:\n\nwe are currently initializing seekslider.cpp in transportcontrolgroup.cpp, we pass MSG_SEEK as an argument in seekslider constructor which gets set as a modification message in seekslider class. Now, what we can do in MouseMoved function of seekslider is: create a copy of modification message and add the position value to it in, and deliver it. this would then be received in transportcontrolgroup.cpp messageReceived function. More specifically, in the MSG_SEEK case, and we can check to find if its a normal MSG_SEEK or MSG_SEEK with a hover value. If it\u0027s the latter one, we would call TimePositionFor() function here only, this would return `bigtime_t position` and then call the new SetToolTipPosition function with modified function signature.",
+      "parentUuid": "9eb234a6_b7ee5464",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
