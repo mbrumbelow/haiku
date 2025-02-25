@@ -52,6 +52,24 @@
       "parentUuid": "362f6cc0_36d00594",
       "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cad34039_1fbb81d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-25T01:02:02Z",
+      "side": 1,
+      "message": "I\u0027m not against having this included since that means one less feature branch I have to maintain in my git clone 😋\n\nI just wanted to point out that this change wasn\u0027t based on reading the spec or anything like that.  There was something different about Terminal and this quick hack seemed to make it better for me.",
+      "parentUuid": "e3db724c_465c41c4",
+      "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
