@@ -560,7 +560,7 @@ const struct supported_device {
 	{0x67cc, 12, 0, RADEON_POLARIS10, CHIP_STD, "Radeon Polaris 10"},
 	{0x67cf, 12, 0, RADEON_POLARIS10, CHIP_STD, "Radeon Polaris 10"},
 	{0x67d0, 12, 0, RADEON_POLARIS10, CHIP_STD, "Radeon Pro V7300X"},
-	{0x67df, 12, 0, RADEON_POLARIS10, CHIP_STD, "Radeon RX 470/480"},
+	{0x67df, 11, 2, RADEON_POLARIS10, CHIP_STD, "Radeon RX 470/480/570/580/590"},
 	// Polaris 12
 	{0x6980, 12, 2, RADEON_POLARIS12, CHIP_STD, "Radeon Polaris 12"},
 	{0x6981, 12, 2, RADEON_POLARIS12, CHIP_STD, "Radeon Pro WX 3200"},
