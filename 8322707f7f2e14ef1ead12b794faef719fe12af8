@@ -239,6 +239,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "981794cd_8fb46b05",
+        "filename": "src/apps/mediaplayer/ControllerView.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-25T05:34:26Z",
+      "side": 1,
+      "message": "it doesn\u0027t seem to work. Also TimePosition() function defined in Controller.cpp is meant to be called from MainWin.cpp.",
+      "parentUuid": "52f555a4_677b6e5d",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3098061_922a2e16",
         "filename": "src/apps/mediaplayer/MainWin.cpp",
         "patchSetId": 5
