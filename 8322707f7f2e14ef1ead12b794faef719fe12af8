@@ -502,6 +502,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae4b812_ca049ed0",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-25T05:39:05Z",
+      "side": 1,
+      "message": "Note I don\u0027t call TimePositionFor, formely TimePosition(), then it needs to be called in MainWin.cpp, which would be possible, but the argument of TimePositionFor is (value / (float)kPositionFactor), in this kPositionFactor is only accessible in TransportControlGroup.cpp, not in MainWin.cpp. So, that\u0027s why I got no choice but to Call TimePositionFor in SetToolTipPosition function body.",
+      "parentUuid": "97209ec5_bc5ed02a",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "be6d5ed7_81b81f26",
