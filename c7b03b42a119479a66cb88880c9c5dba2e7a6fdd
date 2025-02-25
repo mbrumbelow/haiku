@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "439dae90_706bea02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000852
+      },
+      "writtenOn": "2025-02-25T22:28:26Z",
+      "side": 1,
+      "message": "Uhm, the bot is asking me to change some lines that I didn\u0027t even touch. So, I am waiting for some human input before addressing them :)",
+      "revId": "c7b03b42a119479a66cb88880c9c5dba2e7a6fdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f54e239b_86393628",
         "filename": "headers/private/graphics/radeon_hd/radeon_hd.h",
         "patchSetId": 1
