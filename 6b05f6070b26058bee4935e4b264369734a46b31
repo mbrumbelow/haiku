@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47e107d2_659d9ac1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-25T20:03:04Z",
+      "side": 1,
+      "message": "This does seem to be in accord with the POSIX specification: \"The system shall always zero-fill any partial page at the end of an object.\"",
+      "revId": "6b05f6070b26058bee4935e4b264369734a46b31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
