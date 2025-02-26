@@ -16,6 +16,24 @@
       "message": "It would be nice to have more details here (for example a link or hrev number of the commit that disabled it).",
       "revId": "d823630a43912a2246390ba7eacbeb7d4f1d08af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d384f65_eb169992",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T19:00:18Z",
+      "side": 1,
+      "message": "It appears it was disabled in hrev19264 (2006). Does it really cause problems with Begin/EndLayer still? What commit messages said it does?",
+      "parentUuid": "12e7a44a_44154089",
+      "revId": "d823630a43912a2246390ba7eacbeb7d4f1d08af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
