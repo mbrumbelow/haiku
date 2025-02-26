@@ -793,6 +793,24 @@
       "parentUuid": "846ac649_a8c4379c",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d941c9_1321e1be",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-26T05:12:02Z",
+      "side": 1,
+      "message": "this is a draft implementation of mousemoved function in seekslider.cpp:\n```\nvoid\nSeekSlider::MouseMoved(BPoint point, uint32 transit,\n\tconst BMessage* dragMessage)\n{\n\tif (!IsTracking()) {\n\t\tint32 value \u003d ValueForPoint(point);\n\n\t\tfHoverMessage-\u003eReplaceInt32(\"hover value\", value);\n\t\tInvokeNotify(fHoverMessage, B_CONTROL_MODIFIED);\n\t}\n\tBSlider::MouseMoved(point, transit, dragMessage);\n}\n```\nHere, `fhoverMessage` is the data member in seekslider.h\n\nNow in TransportControlGroup.cpp, I am getting the message: \"MSG_HOVER\", and doing the following operation:\n```\n\t\tcase MSG_HOVER:\n\t\t{\n\t\t\tint32 value;\n\t\t\tif (message-\u003eFindInt32(\"hover value\", \u0026value) \u003d\u003d B_OK) {\n\t\t\t\tbigtime_t position \u003d TimePositionFor(value / (float)kPositionFactor);\n\t\t\t\tSetToolTipPosition(position, fDurationView-\u003eTimeDuration());\n\t\t\t}\n\t\t}\n```\n\nIn this, I had to define a new function in DurationView.cpp named `TimeDuration` as I didn\u0027t had access to it in transportControlGroup.cpp. Hope that\u0027s okay!\n\nlet me know if my changes are in the correct direction.",
+      "parentUuid": "5bbebf5b_83a55d8e",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
