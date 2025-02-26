@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ecc2709_ef6728ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T23:32:49Z",
+      "side": 1,
+      "message": "How? The comment was removed in your patchset 7...",
+      "parentUuid": "c3e41d7a_168d67b3",
+      "revId": "39120d5e0e0b9da93cdf83839d6ce976c7b76f37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e7c1568_33793e55",
