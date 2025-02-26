@@ -155,6 +155,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "751aa163_a2b1ce8d",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-26T19:45:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e2b5076_093bd142",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc6218db_f178f632",
@@ -168,6 +186,24 @@
       "writtenOn": "2025-02-26T18:56:51Z",
       "side": 1,
       "message": "This isn\u0027t needed, you can put the `new` inline same as `MSG_SEEK`.",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "798eedf5_c1e343bd",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-26T19:45:36Z",
+      "side": 1,
+      "message": "I was not sure if ReplaceInt32 used in mouseMoved function in seekslider.cpp creates the int32 if not present.\n\nAlso, removing the addInt32 seems to break the changes as positiontooltip text only shows \"0:00 / 0:00\". \n\nIf this needs to be removed, I would suggest we add a check in seekslider like below:\n```\n             if (fHoverMessage-\u003eFindInt32(\"hover value\", \u0026tmp) \u003d\u003d B_OK)\n\t\tfHoverMessage-\u003eReplaceInt32(\"hover value\", value);\n```",
+      "parentUuid": "bc6218db_f178f632",
       "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -215,6 +251,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dab81978_58cd406a",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-26T19:45:36Z",
+      "side": 1,
+      "message": "Sorry, Couldn\u0027t get you. Are you implying on removing the if condition check with B_OK and directing fetching the hover value using FindInt32 ?",
+      "parentUuid": "9d47fce6_899d25fd",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52e9f431_5cb347bf",
         "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
         "patchSetId": 7
@@ -226,6 +280,24 @@
       "writtenOn": "2025-02-26T18:56:51Z",
       "side": 1,
       "message": "Why not call SetToolTipPosition here?",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7de0ca_3bf5692a",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-26T19:45:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52e9f431_5cb347bf",
       "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
