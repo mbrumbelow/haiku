@@ -269,6 +269,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93e2a549_0b747322",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T20:38:02Z",
+      "side": 1,
+      "message": "No, I mean don\u0027t add the value to the BMessage at all, and instead just fetch it by calling Slider-\u003eValue().",
+      "parentUuid": "dab81978_58cd406a",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52e9f431_5cb347bf",
         "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
         "patchSetId": 7
