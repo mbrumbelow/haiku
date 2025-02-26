@@ -55,6 +55,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dcb613ab_5fd8b456",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-02-26T12:44:12Z",
+      "side": 1,
+      "message": "I have tested on another laptop. I have to investigate more but pointer goes to top left corner. \n\nWe have to take into account that i2c trackpad use multitouch reports and we can\u0027t handle that properly, so maybe is a the Digitizer handler reading from an unused finger report.\n\nThing is, i2c bus is detected, i2c hid is also detected, takes the report descriptor, fetchs some feature reports like the win8 blob... Then I got a stream of i2c read timeouts. So I don\u0027t know if the issue is lower, at i2c driver or upper, at Hid handler.\n\nSo, now, my question. Does anyone have tested on an already working device? Did my patch break something? (this driver isn\u0027t included in the image). What is preventing this patch to be accepted? If it is only style issues I can put my hands on it.",
+      "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1d1d2202_2ddc7416",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 1
