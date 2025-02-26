@@ -54,6 +54,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "947642d3_c6f87c61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000852
+      },
+      "writtenOn": "2025-02-26T09:36:58Z",
+      "side": 1,
+      "message": "Now, about the black screen issue that I faced, the problem goes away if I set the refresh rate to 60hz or 50hz. But it is there at 75z. Also the problem is fixed if I switch to other resolutions like 1600x900 or 1400x1050 instead of 1920x1080 probably because haiku doesn\u0027t offer me the 75hz ref rate at those resolutions. I have a theory about why this is happening. According to my tests and comparisons with linux I think the problem is related to the accuracy of the screenmode refresh rate. If I check the gnome display panel it only offers me 74.97 hz and not 75hz, this is also true for some other resolutions where the gnome display panel is only showing me non integer refresh rates. I was looking at the ScreenMode related code in the source and it also mentions some potential floating point accuracy issues. Let me know about your thoughts on this theory :).\n\nAlso, a tip if you have locked yourself with a black screen. The fastest way that I found to reset this without a reboot and enabling the fallback driver in the boot menu is to invoke the terminal with opt+alt+T and type screenmode ... (whatever you think will work with your monitor) blindly.",
+      "revId": "c7b03b42a119479a66cb88880c9c5dba2e7a6fdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f54e239b_86393628",
         "filename": "headers/private/graphics/radeon_hd/radeon_hd.h",
         "patchSetId": 1
