@@ -326,6 +326,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e19ecb_5e746d74",
+        "filename": "src/apps/mediaplayer/MainWin.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T18:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1c91f00_f666b9da",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "102e2b1b_d7086208",
@@ -606,6 +624,24 @@
       "side": 1,
       "message": "Note I don\u0027t call TimePositionFor, formely TimePosition(), then it needs to be called in MainWin.cpp, which would be possible, but the argument of TimePositionFor is (value / (float)kPositionFactor), in this kPositionFactor is only accessible in TransportControlGroup.cpp, not in MainWin.cpp. So, that\u0027s why I got no choice but to Call TimePositionFor in SetToolTipPosition function body.",
       "parentUuid": "97209ec5_bc5ed02a",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9066c6f1_c6d26ce1",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T18:56:51Z",
+      "side": 1,
+      "message": "Well, we could do what the _UpdatePosition codepath does. But at this point I am inclined to just think that all this code is too convoluted and could really use a refactor (or multiple refactors.) So I guess we can leave it as-is for the moment.",
+      "parentUuid": "4ae4b812_ca049ed0",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

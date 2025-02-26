@@ -248,6 +248,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3ce4dfd_c3b66dd4",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T18:56:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0017c3c_68623478",
+      "revId": "eebe16f25625c2f7dabe2a269863d26859ec7aa8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dffb8f9_97c9808c",
