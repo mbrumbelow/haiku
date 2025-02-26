@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c3e41d7a_168d67b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-26T22:58:07Z",
+      "side": 1,
+      "message": "Looks resolved",
+      "parentUuid": "a7037217_f88b9fea",
+      "revId": "39120d5e0e0b9da93cdf83839d6ce976c7b76f37",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3e7c1568_33793e55",
         "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
         "patchSetId": 6

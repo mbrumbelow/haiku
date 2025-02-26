@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f0c9f88_2cacbb7d",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-26T22:58:07Z",
+      "side": 1,
+      "message": "Are you sure? All examples I know of reload data segments to 64-bit ones. I don\u0027t want to hit a weird bug on an obscure CPU",
+      "parentUuid": "12590b28_dffe0872",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b8bfdfe_45087ab0",
         "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
         "patchSetId": 7
@@ -157,6 +175,24 @@
       "writtenOn": "2025-02-23T15:41:11Z",
       "side": 1,
       "message": "Setting again data segments can be skipped",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f54cae01_763f5ca6",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/long_smp_trampoline.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-26T22:58:07Z",
+      "side": 1,
+      "message": "This makes GDT and registers uniform across BSP and AP which is nicer",
+      "parentUuid": "cf5c2f0c_f369789e",
       "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
