@@ -104,6 +104,23 @@
       "message": "Don\u0027t have a strong opinion on the name, but this would be good to have.\n\nThe snuffetr rule is not that important. We can properly set this attribute at file creation tume.",
       "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "882fe9c1_425f594c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-02-26T03:26:08Z",
+      "side": 1,
+      "message": "I also added BMessage file MIME type to my local setup (with scroll icon). We need to agree on exact MIME type string.",
+      "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
