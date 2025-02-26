@@ -829,6 +829,24 @@
       "parentUuid": "f2d941c9_1321e1be",
       "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4144ec5_aede25bb",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-26T13:33:54Z",
+      "side": 1,
+      "message": "made the changes! \n\nthe thing which remains to be done right now, is when tooltip position is updated then it should result in the tooltip being shown. Right now, tooltip position is shown with previous data, not the updated data. Also, It would be really helpful if anyone can point me where the display function of the tooltip is called when we hover over the seekslider, as I am having a hard time finding it.\n\nDo let me know if there are more changes required.",
+      "parentUuid": "9384f2e2_b9aa34e2",
+      "revId": "8322707f7f2e14ef1ead12b794faef719fe12af8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
