@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dce5902_ba5fb428",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T17:09:37Z",
+      "side": 0,
+      "message": "need 2 blank lines between methods",
+      "revId": "8854ac7e4c02e3561d3d5dc692072615315af297",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b084fb_9f2ddbda",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-26T17:09:37Z",
+      "side": 0,
+      "message": "If these methods are not needed, they should be entirely deleted. If they might be needed in the future but not yet, they should be #if 0\u0027d out, not commented out.",
+      "revId": "8854ac7e4c02e3561d3d5dc692072615315af297",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
