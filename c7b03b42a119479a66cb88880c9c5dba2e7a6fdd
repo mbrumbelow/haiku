@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "44e775d2_3270100e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000852
+      },
+      "writtenOn": "2025-02-26T09:13:23Z",
+      "side": 1,
+      "message": "After talking with nephele on IRC I am not addressing the changes requested by the format bot since it\u0027s asking me to changes some lines I didn\u0027t even touch and also I think my style is consistent with the rest of the code and should follow the haiku code style. Like it\u0027s asking me to not align the dce comments and add a { } around the single line if block. The only thing I am not sure about is putting the || part in the next line but I think it\u0027s easier to read that way.",
+      "revId": "c7b03b42a119479a66cb88880c9c5dba2e7a6fdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f54e239b_86393628",
         "filename": "headers/private/graphics/radeon_hd/radeon_hd.h",
         "patchSetId": 1
