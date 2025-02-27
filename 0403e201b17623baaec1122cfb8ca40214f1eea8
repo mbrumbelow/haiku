@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e17e7973_848714c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-27T17:48:42Z",
+      "side": 1,
+      "message": "The build also seems to have failed on GCC2.",
+      "parentUuid": "c7a9d96b_bf333e45",
+      "revId": "0403e201b17623baaec1122cfb8ca40214f1eea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ab511688_cc40ec3d",
