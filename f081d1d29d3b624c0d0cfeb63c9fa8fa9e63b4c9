@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ff9d311b_67bba756",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af22223d_c0b24077",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4ddd50a6_dbbb0718",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -88,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c564f52_348a6c66",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ef41ca_9060303a",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b8bfdfe_45087ab0",
@@ -105,6 +141,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9858562d_017bf86a",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b8bfdfe_45087ab0",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32d18ba4_2f1306be",
@@ -118,6 +172,24 @@
       "writtenOn": "2025-02-23T15:41:11Z",
       "side": 1,
       "message": "data64 isn\u0027t needed",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f05b43da_e0f0b7f8",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32d18ba4_2f1306be",
       "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -163,6 +235,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ab4ae6a_17a807d1",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/long_smp_trampoline.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc763718_abc1b835",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b8fc58b_8a5ae996",
@@ -176,6 +266,24 @@
       "writtenOn": "2025-02-23T15:41:11Z",
       "side": 1,
       "message": "when using data instead of data64, same as $KERNEL_DATA_SELECTOR",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7fc6af_5f051dce",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/long_smp_trampoline.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b8fc58b_8a5ae996",
       "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -229,6 +337,24 @@
       "side": 1,
       "message": "when using data instead of data64, they are already set.",
       "parentUuid": "f54cae01_763f5ca6",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea9e6eb_047bf1be",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/long_smp_trampoline.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000867
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "121efa35_eb9ea8b4",
       "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
