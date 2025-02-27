@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3346054_11eb6e8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-27T22:25:03Z",
+      "side": 1,
+      "message": "Build still failed. The error is:\n```\n/s/src/apps/mediaplayer/Controller.cpp:710: no matching function for call to `max (int, const long int \u0026)\u0027\n```\nYou may need to cast the first 0 to int32.",
+      "parentUuid": "e17e7973_848714c5",
+      "revId": "0403e201b17623baaec1122cfb8ca40214f1eea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ab511688_cc40ec3d",
@@ -156,6 +174,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92bf117c_77dc335e",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-27T22:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cb2d29c_4c2978ce",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 0
+      },
+      "revId": "0403e201b17623baaec1122cfb8ca40214f1eea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc3f4af1_9e4047a7",
@@ -169,6 +211,24 @@
       "writtenOn": "2025-02-27T17:48:26Z",
       "side": 1,
       "message": "No need for a temporary, you can just call `ValueForPoint(point)` inline here.",
+      "revId": "0403e201b17623baaec1122cfb8ca40214f1eea8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a9bcb71_376a662f",
+        "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-27T22:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc3f4af1_9e4047a7",
       "revId": "0403e201b17623baaec1122cfb8ca40214f1eea8",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
