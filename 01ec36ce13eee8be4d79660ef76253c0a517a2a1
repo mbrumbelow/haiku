@@ -121,6 +121,24 @@
       "message": "I also added BMessage file MIME type to my local setup (with scroll icon). We need to agree on exact MIME type string.",
       "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7633e639_faf1be36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-27T01:22:30Z",
+      "side": 1,
+      "message": "\u003e \"Haiku-BMessage\" seems a bit strange as the format name but maybe it makes sense (the format is Haiku-specific so there should be \"Haiku\" in there somehow, at least.)\n\nI browsed through the mozilla and official mimetype lists.  It seems like this fits in with other vendor specific mimetypes, except that it\u0027s more common to use a period as a separator.  Microsoft tends to hyphenate things like vnd.ms-excel, vnd.ms-cab-compressed, and so on.  Other orgs use naming like vnd.mozilla.xul+xml, vnd.apple.keynote, vnd.gentoo.ebuild, and so on.\n\nI think perhaps something like vnd.haiku.flatmessage or vnd.haiku.bmesssage would be ok, but I don\u0027t really have an opinion on what it ends up being called.\n\nhttps://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types\n\nhttps://www.iana.org/assignments/media-types/media-types.xhtml#application",
+      "parentUuid": "bb5ce45c_1146d55e",
+      "revId": "01ec36ce13eee8be4d79660ef76253c0a517a2a1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
