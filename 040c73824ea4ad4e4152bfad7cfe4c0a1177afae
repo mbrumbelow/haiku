@@ -305,6 +305,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43f2b130_547d4969",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-27T04:39:15Z",
+      "side": 1,
+      "message": "Ah, I see. OK, maybe keeping it in the BMessage is better after all... At any rate, it should just be called \"value\" in the BMessage not \"hover value\", and you should use `SetInt32` which will add it if it doesn\u0027t exist and replace it if it does.",
+      "parentUuid": "731b36f7_97ae7852",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52e9f431_5cb347bf",
         "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
         "patchSetId": 7
