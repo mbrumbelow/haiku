@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f27a43b7_a4a40f7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-02-27T09:40:59Z",
+      "side": 1,
+      "message": "I do not think that breaking compatibility is a good idea.\n\nIs this tool present in BeOS? Does it use the same `-h` flag?",
+      "revId": "54333e2e9f41632dfcd862e9a21784162dc58596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1061b6d1_f5fac3d9",
         "filename": "src/bin/keymap/main.cpp",
         "patchSetId": 1
