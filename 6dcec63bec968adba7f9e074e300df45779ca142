@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bda7197_bcd95fb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-27T07:10:11Z",
+      "side": 1,
+      "message": "Maybe we should \"re-dump\" all .keymap files? (would get rid of some spurious lines as `Acute \u0027\u0027 \u003d \u0027\u0027` and the like, use `-s` on the shebang, along with an updated \"header\" that shows one more key on the sample keyboard layout.\n\nAlso... is there any way to signal \"do not generate any chars for this key-combo\"? (specifically for the OPT+key case?).",
+      "revId": "6dcec63bec968adba7f9e074e300df45779ca142",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
