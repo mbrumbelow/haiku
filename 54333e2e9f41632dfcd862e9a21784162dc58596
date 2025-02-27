@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fb223b9a_a2e4a652",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-27T07:12:15Z",
+      "side": 1,
+      "message": "Tried finding usage of `keymap -h`, but I may have missed some, as I haven\u0027t built an entire haiku.hpkg with this change. Commit checker bot will at lease do so.",
+      "revId": "54333e2e9f41632dfcd862e9a21784162dc58596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1061b6d1_f5fac3d9",
         "filename": "src/bin/keymap/main.cpp",
         "patchSetId": 1
