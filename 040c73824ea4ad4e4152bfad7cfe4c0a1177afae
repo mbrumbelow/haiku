@@ -44,6 +44,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "440e951c_fdd9dbab",
+        "filename": "src/apps/mediaplayer/ControllerView.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-27T17:48:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "31b67672_1fe51174",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e18a4af8_aed5c159",
         "filename": "src/apps/mediaplayer/interface/SeekSlider.cpp",
         "patchSetId": 7
@@ -204,6 +222,24 @@
       "side": 1,
       "message": "I was not sure if ReplaceInt32 used in mouseMoved function in seekslider.cpp creates the int32 if not present.\n\nAlso, removing the addInt32 seems to break the changes as positiontooltip text only shows \"0:00 / 0:00\". \n\nIf this needs to be removed, I would suggest we add a check in seekslider like below:\n```\n             if (fHoverMessage-\u003eFindInt32(\"hover value\", \u0026tmp) \u003d\u003d B_OK)\n\t\tfHoverMessage-\u003eReplaceInt32(\"hover value\", value);\n```",
       "parentUuid": "bc6218db_f178f632",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbe6ce63_8081918d",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-27T17:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "798eedf5_c1e343bd",
       "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
