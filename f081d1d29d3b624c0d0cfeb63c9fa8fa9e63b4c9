@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9ef41ca_9060303a",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-27T07:53:33Z",
+      "side": 1,
+      "message": "Well the spec is pretty clear, the L bit is only for code segments.\n\nL (64-bit code segment) flag\nIn IA-32e mode, bit 21 of the second doubleword of the segment descriptor indicates whether a\ncode segment contains native 64-bit code. A value of 1 indicates instructions in this code segment\nare executed in 64-bit mode. A value of 0 indicates the instructions in this code segment are\nexecuted in compatibility mode. If L-bit is set, then D-bit must be cleared. When not in IA-32e mode\nor for non-code segments, bit 21 is reserved and should always be set to 0.",
+      "parentUuid": "0f0c9f88_2cacbb7d",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b8bfdfe_45087ab0",
         "filename": "src/system/boot/platform/efi/arch/x86_64/arch_smp_64.cpp",
         "patchSetId": 7
@@ -193,6 +211,24 @@
       "side": 1,
       "message": "This makes GDT and registers uniform across BSP and AP which is nicer",
       "parentUuid": "cf5c2f0c_f369789e",
+      "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "121efa35_eb9ea8b4",
+        "filename": "src/system/boot/platform/efi/arch/x86_64/long_smp_trampoline.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-27T07:53:33Z",
+      "side": 1,
+      "message": "when using data instead of data64, they are already set.",
+      "parentUuid": "f54cae01_763f5ca6",
       "revId": "f081d1d29d3b624c0d0cfeb63c9fa8fa9e63b4c9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
