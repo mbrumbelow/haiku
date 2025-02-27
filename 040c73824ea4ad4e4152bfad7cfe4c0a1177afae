@@ -358,6 +358,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6f309620_84e587b1",
+        "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000667
+      },
+      "writtenOn": "2025-02-27T05:10:03Z",
+      "side": 1,
+      "message": "hey, The only thing SetToolTipPosition is doing apart from calling positiontooltip update function is do a check on time duration for zero. Will it be good to remove the function and call the Update function directly in switch case ?",
+      "parentUuid": "ee7de0ca_3bf5692a",
+      "revId": "040c73824ea4ad4e4152bfad7cfe4c0a1177afae",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "11c7c085_cffa1db8",
         "filename": "src/apps/mediaplayer/interface/TransportControlGroup.cpp",
         "patchSetId": 7
