@@ -85,6 +85,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6f939d41_fdb1001f",
+        "filename": "src/servers/syslog_daemon/syslog_output.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-28T04:24:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe79f61a_e110aa53",
+      "revId": "e84524661532cfb48e267af799279f2212b7dd3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f45ec073_d679bdc6",
         "filename": "src/servers/syslog_daemon/syslog_output.cpp",
         "patchSetId": 6
@@ -120,6 +138,24 @@
       "writtenOn": "2025-02-25T21:07:23Z",
       "side": 1,
       "message": "This seems to fit into a single line (same as the syslog_max_size setting).",
+      "revId": "e84524661532cfb48e267af799279f2212b7dd3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02e32658_71246ef9",
+        "filename": "src/servers/syslog_daemon/syslog_output.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-02-28T04:24:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde5bf95_51dfeb2f",
       "revId": "e84524661532cfb48e267af799279f2212b7dd3e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
