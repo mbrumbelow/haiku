@@ -17,6 +17,7 @@
 
 #include "Request.h"
 #include "RootInode.h"
+#include "VnodeToInode.h"
 
 
 #define ERROR(x...) dprintf("nfs4: " x)
@@ -143,7 +144,7 @@ GetInodeNames(const char** root, const char* _path)
 
 status_t
 FileSystem::Mount(FileSystem** _fs, RPC::Server* serv, const char* serverName,
-	const char* fsPath, dev_t id, const MountConfiguration& configuration)
+	const char* fsPath, fs_volume* volume, const MountConfiguration& configuration)
 {
 	CALLED();
 
@@ -223,8 +224,9 @@ FileSystem::Mount(FileSystem** _fs, RPC::Server* serv, const char* serverName,
 	FileInfo fi;
 
 	fs->fServer = serv;
-	fs->fDevId = id;
+	fs->fDevId = volume->id;
 	fs->fFsId = *fsid;
+	fs->fFsVolume = volume;
 
 	fi.fHandle = fh;
 
@@ -471,6 +473,58 @@ FileSystem::GetDelegation(const FileHandle& handle)
 		return NULL;
 
 	return it.Current();
+}
+
+
+/*! Used when creating a file to check for an stale node with the same ino. If it exists,
+	the stale node is deleted.
+	@param id The file ID assigned by the server to a file now being created.
+	@param handle The handle assigned by the server to the same file.
+	@pre The caller has not yet updated fInoIdMap with the FileInfo of the file that we are
+	creating. The VFS list of vnodes has also not been updated yet.
+	@post Any stale node object with this id is gone. Any stale entry in fInoIdMap is still
+	present, and will be replaced when the caller calls fInoIdMap->AddName.
+	@return B_BAD_VALUE if a collision exists and could not be resolved. Otherwise, B_OK.
+*/
+status_t
+FileSystem::HandleCollision(ino_t id, const FileHandle& handle)
+{
+	FileInfo existingInfo;
+	status_t result = fInoIdMap.GetFileInfo(&existingInfo, id);
+	if (result == B_OK && existingInfo.fHandle != handle) {
+		// We are already using this file ID for a previously existing file.  If the server has
+		// assigned that ID to the file that we are now creating, it means someone else must have
+		// deleted the other file from the server, and the server is recycling the file ID.
+		result = acquire_vnode(fFsVolume, id);
+		if (result == B_OK) {
+			// we still have a vnode for the stale file present in memory
+
+			// mark it as stale
+			VnodeToInode* vti;
+			result = get_vnode(fFsVolume, id, reinterpret_cast<void**>(&vti));
+			Inode* inode = vti->GetPointer();
+			if (inode != NULL)
+				inode->SetStale();
+			put_vnode(fFsVolume, id);
+
+			// delete it
+			result = remove_vnode(fFsVolume, id);
+			if (result != B_OK) {
+				ERROR("FileSystem::HandleCollision: remove_vnode returned %s\n", strerror(result));
+				return B_BAD_VALUE;
+			}
+			put_vnode(fFsVolume, id);
+
+			// verify it is gone
+			result = acquire_vnode(fFsVolume, id);
+			if (result == B_OK) {
+				ERROR("FileSystem::HandleCollision: pre-existing node was not removed\n");
+				return B_BAD_VALUE;
+			}
+		}
+	}
+
+	return B_OK;
 }
 
 

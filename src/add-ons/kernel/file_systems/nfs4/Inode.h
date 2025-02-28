@@ -118,6 +118,9 @@ public:
 					void		BeginAIOOp();
 					void		EndAIOOp();
 	inline			void		WaitAIOComplete();
+
+	inline			void		SetStale(bool stale = true);
+	inline			bool		GetStale() const;
 protected:
 								Inode();
 
@@ -168,6 +171,8 @@ private:
 					sem_id		fAIOWait;
 					uint32		fAIOCount;
 					mutex		fAIOLock;
+
+					bool		fStale;
 };
 
 
@@ -252,6 +257,20 @@ inline OpenState*
 Inode::GetOpenState()
 {
 	return fOpenState;
+}
+
+
+inline void
+Inode::SetStale(bool stale)
+{
+	fStale = stale;
+}
+
+
+inline bool
+Inode::GetStale() const
+{
+	return fStale;
 }
 
 

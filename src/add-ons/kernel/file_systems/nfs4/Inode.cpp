@@ -19,6 +19,7 @@
 #include "IdMap.h"
 #include "Request.h"
 #include "RootInode.h"
+#include "VnodeToInode.h"
 
 
 Inode::Inode()
@@ -32,7 +33,8 @@ Inode::Inode()
 	fOpenState(NULL),
 	fWriteDirty(false),
 	fAIOWait(create_sem(1, NULL)),
-	fAIOCount(0)
+	fAIOCount(0),
+	fStale(false)
 {
 	rw_lock_init(&fDelegationLock, NULL);
 	mutex_init(&fStateLock, NULL);
@@ -272,6 +274,7 @@ Inode::Remove(const char* name, FileType type, ino_t* id)
 
 	ChangeInfo changeInfo;
 	uint64 fileID;
+
 	status_t result = NFS4Inode::RemoveObject(name, type, &changeInfo, &fileID);
 	if (result != B_OK)
 		return result;
@@ -417,6 +420,9 @@ Inode::CreateObject(const char* name, const char* path, int mode, FileType type,
 		&changeInfo, &fileID, &handle);
 	if (result != B_OK)
 		return result;
+
+	result = fFileSystem->HandleCollision(FileIdToInoT(fileID), handle);
+	ASSERT(result == B_OK);
 
 	fFileSystem->Root()->MakeInfoInvalid();
 

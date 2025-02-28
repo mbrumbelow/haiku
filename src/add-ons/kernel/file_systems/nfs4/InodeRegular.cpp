@@ -40,6 +40,9 @@ Inode::CreateState(const char* name, int mode, int perms, OpenState* state,
 	fileInfo.fFileId = fileID;
 	fileInfo.fHandle = handle;
 
+	result = fFileSystem->HandleCollision(FileIdToInoT(fileID), handle);
+	ASSERT(result == B_OK);
+
 	fFileSystem->InoIdMap()->AddName(fileInfo, fInfo.fNames, name,
 		FileIdToInoT(fileID));
 
