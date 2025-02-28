@@ -57,5 +57,5 @@ string_for_rate(double rate, char* string, size_t stringSize)
 }
 
 
-}	// namespace BPrivate
+} // namespace BPrivate
 
