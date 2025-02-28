@@ -7,7 +7,7 @@
  *  Initial.
  *
  * waitfor threadname
- * thesnooze() time is the same as the original, found using bdb waitfor foobar,
+ * the snooze() time is the same as the original, found using bdb waitfor foobar,
  * and stepping until the snooze() call returns, the value is at the push
  * instruction just before the call.
  */
@@ -16,15 +16,38 @@
 #include <string.h>
 
 #include <Messenger.h>
+#include <NetworkInterface.h>
+#include <NetworkRoster.h>
 
 
 #define SNOOZE_TIME 100000
 
 
+bool
+CheckNetworkConnection()
+{
+	BNetworkRoster& roster = BNetworkRoster::Default();
+	BNetworkInterface interface;
+	uint32 cookie = 0;
+	while (roster.GetNextInterface(&cookie, interface) == B_OK) {
+		uint32 flags = interface.Flags();
+		if ((flags & IFF_LOOPBACK) == 0 && (flags & (IFF_UP | IFF_LINK)) == (IFF_UP | IFF_LINK))
+			return true;
+	}
+	// No network connection detected
+	return false;
+}
+
+
 int
 main(int argc, char** argv)
 {
-	if (argc == 2) {
+	if (argc == 2 && strcmp(argv[1], "-n") == 0) {
+		while (CheckNetworkConnection() == false) {
+			if (snooze(SNOOZE_TIME * 5) != B_OK)
+				return 1;
+		}
+	} else if (argc == 2) {
 		while (find_thread(argv[1]) < 0) {
 			if (snooze(SNOOZE_TIME) != B_OK)
 				return 1;
@@ -51,7 +74,10 @@ main(int argc, char** argv)
 			"      wait until all threads with thread_name have ended.\n\n"
 			"  %s -m <app_signature>\n"
 			"      wait until the application specified by 'app_signature' is "
-			"is ready to receive messages.\n", argv[0], argv[0], argv[0]);
+			"ready to receive messages.\n\n"
+			"  %s -n\n"
+			"      wait until the network connection is up.\n",
+			argv[0], argv[0], argv[0], argv[0]);
 		return 1;
 	}
 
