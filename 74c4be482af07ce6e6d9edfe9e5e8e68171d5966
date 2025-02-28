@@ -33,6 +33,24 @@
       "message": "This looks pretty good now, and my idea of using a static BNumberFormat didn\u0027t work out, but SetPrecision() implementation should be moved into the DecimalSpinner.cpp file now since it\u0027s doing more than simply setting a variable.",
       "revId": "74c4be482af07ce6e6d9edfe9e5e8e68171d5966",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0147c195_d4004bd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-02-28T22:46:10Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1400f00f_3340172a",
+      "revId": "74c4be482af07ce6e6d9edfe9e5e8e68171d5966",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
