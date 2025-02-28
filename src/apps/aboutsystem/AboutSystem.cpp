@@ -47,6 +47,7 @@
 #include <Screen.h>
 #include <ScrollView.h>
 #include <String.h>
+#include <StringForFrequency.h>
 #include <StringFormat.h>
 #include <StringList.h>
 #include <StringView.h>
@@ -1144,12 +1145,16 @@ SysInfoView::_GetCPUInfo()
 
 	delete[] topology;
 
-	BString cpuType;
-	cpuType << get_cpu_vendor_string(cpuVendor) << " "
-		<< get_cpu_model_string(platform, cpuVendor, cpuModel)
-		<< " @ " << _GetCPUFrequency();
+	BString cpuString;
+	BString cpuVendorString = get_cpu_vendor_string(cpuVendor);
+	BString cpuModelString = get_cpu_model_string(platform, cpuVendor, cpuModel);
+	BString cpuFrequencyString = _GetCPUFrequency();
+	
+	cpuString.SetToFormat("%s %s @ %s", cpuVendorString.String(),
+		cpuModelString.String() ? cpuModelString.String() : B_TRANSLATE("Unknown Model"),
+		cpuFrequencyString.String());
 
-	return cpuType;
+	return cpuString;
 }
 
 
@@ -1157,16 +1162,8 @@ BString
 SysInfoView::_GetCPUFrequency()
 {
 	BString clockSpeed;
-
-	long int frequency = get_rounded_cpu_speed();
-	if (frequency < 1000) {
-		clockSpeed.SetToFormat(B_TRANSLATE_COMMENT("%ld MHz",
-			"750 Mhz (CPU clock speed)"), frequency);
-	}
-	else {
-		clockSpeed.SetToFormat(B_TRANSLATE_COMMENT("%.2f GHz",
-			"3.49 Ghz (CPU clock speed)"), frequency / 1000.0f);
-	}
+	int64 frequency = get_rounded_cpu_speed();
+	clockSpeed = BPrivate::string_for_frequency(frequency);
 
 	return clockSpeed;
 }
