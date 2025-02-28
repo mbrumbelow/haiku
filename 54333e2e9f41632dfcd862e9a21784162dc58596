@@ -108,6 +108,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "116cb48e_caf91310",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-28T22:56:49Z",
+      "side": 1,
+      "message": "BeOS R5 had only options -d -l -r, so no legacy apps should use this.",
+      "parentUuid": "303caf01_9f6dcc9e",
+      "revId": "54333e2e9f41632dfcd862e9a21784162dc58596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1061b6d1_f5fac3d9",
         "filename": "src/bin/keymap/main.cpp",
         "patchSetId": 1
