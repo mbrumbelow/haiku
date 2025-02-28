@@ -29,6 +29,7 @@ private:
 			Utility*	fUtility;
 			bool		fSilent;
 			bool		fClipboard;
+			bool		fLaunchWithAreaSelect;
 };
 
 

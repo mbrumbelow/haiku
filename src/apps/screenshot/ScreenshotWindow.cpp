@@ -60,7 +60,8 @@ enum {
 	kChooseLocation,
 	kSaveScreenshot,
 	kSettings,
-	kCloseTranslatorSettings
+	kCloseTranslatorSettings,
+	kSelectArea
 };
 
 
@@ -164,6 +165,10 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 	if (fIncludeCursor)
 		fShowCursor->SetValue(B_CONTROL_ON);
 
+	fActiveWindow->SetEnabled(fUtility.selectAreaBitmap == NULL);
+	fWindowBorder->SetEnabled(fUtility.selectAreaBitmap == NULL);
+	fShowCursor->SetEnabled(fUtility.selectAreaBitmap == NULL);
+
 	BString delay;
 	delay << fDelay / 1000000;
 	fDelayControl = new BTextControl("", B_TRANSLATE("Delay:"), delay.String(),
@@ -236,6 +241,8 @@ ScreenshotWindow::ScreenshotWindow(const Utility& utility, bool silent,
 				new BMessage(B_COPY)))
 			.Add(new BButton("", B_TRANSLATE("New screenshot"),
 				new BMessage(kNewScreenshot)))
+			.Add(new BButton("", B_TRANSLATE("Select area"),
+				new BMessage(kSelectArea)))
 			.AddGlue()
 			.Add(saveScreenshot);
 
@@ -374,6 +381,14 @@ ScreenshotWindow::MessageReceived(BMessage* message)
 			fSettingsWindow = NULL;
 			break;
 
+		case kSelectArea:
+		{
+			fDelay = (atoi(fDelayControl->Text()) * 1000000) + 50000;
+			_NewScreenshot(false, false, false, true);
+			this->Quit();
+			break;
+		}
+
 		default:
 			BWindow::MessageReceived(message);
 			break;
@@ -391,7 +406,7 @@ ScreenshotWindow::Quit()
 
 
 void
-ScreenshotWindow::_NewScreenshot(bool silent, bool clipboard, bool ignoreDelay)
+ScreenshotWindow::_NewScreenshot(bool silent, bool clipboard, bool ignoreDelay, bool selectArea)
 {
 	BMessage message(B_ARGV_RECEIVED);
 	int32 argc = 1;
@@ -403,6 +418,11 @@ ScreenshotWindow::_NewScreenshot(bool silent, bool clipboard, bool ignoreDelay)
 		delay << fDelay / 1000000;
 		message.AddString("argv", "--delay");
 		message.AddString("argv", delay);
+	}
+
+	if (selectArea) {
+		argc++;
+		message.AddString("argv", "--select");
 	}
 
 	if (silent || clipboard) {
