@@ -95,6 +95,7 @@ DoCatalogs libbe.so
 	Dragger.cpp
 	Menu.cpp
 	PrintJob.cpp
+	StringForFrequency.cpp
 	StringForRate.cpp
 	StringForSize.cpp
 	TextView.cpp

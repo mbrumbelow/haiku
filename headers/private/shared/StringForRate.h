@@ -20,4 +20,4 @@ const char* string_for_rate(double rate, char* string, size_t stringSize);
 using BPrivate::string_for_rate;
 
 
-#endif // COLOR_QUANTIZER_H
+#endif // STRING_FOR_RATE_H
