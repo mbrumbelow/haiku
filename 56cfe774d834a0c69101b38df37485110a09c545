@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7230948c_b2fe8409",
+        "filename": "src/bin/waitfor.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-28T18:43:19Z",
+      "side": 1,
+      "message": "Probably should put these two below the statics, maybe above enum command.",
+      "revId": "56cfe774d834a0c69101b38df37485110a09c545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db12328_c74b97b9",
+        "filename": "src/bin/waitfor.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-28T18:43:19Z",
+      "side": 1,
+      "message": "What\u0027s the point of this assignment? Also, should have two blank lines below.",
+      "revId": "56cfe774d834a0c69101b38df37485110a09c545",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7e6fc634_8ff8be5a",
