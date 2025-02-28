@@ -48,7 +48,8 @@ Utility::Utility()
 	:
 	wholeScreen(NULL),
 	cursorBitmap(NULL),
-	cursorAreaBitmap(NULL)
+	cursorAreaBitmap(NULL),
+	selectAreaBitmap(NULL)
 {
 }
 
@@ -136,6 +137,9 @@ BBitmap*
 Utility::MakeScreenshot(bool includeMouse, bool activeWindow,
 	bool includeBorder) const
 {
+	if (selectAreaBitmap != NULL)
+		return new BBitmap(selectAreaBitmap);
+
 	if (wholeScreen == NULL)
 		return NULL;
 
