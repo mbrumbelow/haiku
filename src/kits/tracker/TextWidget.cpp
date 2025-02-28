@@ -445,8 +445,10 @@ BTextWidget::StartEdit(BRect bounds, BPoseView* view, BPose* pose)
 		return;
 
 	// do not start edit while dragging
-	if (view->IsDragging())
+	if (view->IsDragging()) {
+		view->MakeFocus();
 		return;
+	}
 
 	view->SetActiveTextWidget(this);
 
@@ -562,21 +564,21 @@ void
 BTextWidget::StopEdit(bool saveChanges, BPoint poseLoc, BPoseView* view,
 	BPose* pose, int32 poseIndex)
 {
+	ASSERT(view != NULL);
+	ASSERT(view->Window() != NULL);
+
 	view->SetActiveTextWidget(NULL);
 
 	// find the text editing view
 	BView* scrollView = view->FindView("BorderView");
-	ASSERT(scrollView != NULL);
 	if (scrollView == NULL)
 		return;
 
 	BTextView* textView = dynamic_cast<BTextView*>(scrollView->FindView("WidgetTextView"));
-	ASSERT(textView != NULL);
 	if (textView == NULL)
 		return;
 
 	BColumn* column = view->ColumnFor(fAttrHash);
-	ASSERT(column != NULL);
 	if (column == NULL)
 		return;
 
@@ -593,7 +595,6 @@ BTextWidget::StopEdit(bool saveChanges, BPoint poseLoc, BPoseView* view,
 	scrollView->RemoveSelf();
 	delete scrollView;
 
-	ASSERT(view->Window() != NULL);
 	view->Window()->UpdateIfNeeded();
 	view->MakeFocus();
 
