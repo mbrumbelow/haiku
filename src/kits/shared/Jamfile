@@ -64,6 +64,7 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			SettingsMessage.cpp
 			ShakeTrackingFilter.cpp
 			StatusView.cpp
+			StringForFrequency.cpp
 			StringForRate.cpp
 			StringForSize.cpp
 			StripeView.cpp
