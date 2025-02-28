@@ -33,6 +33,24 @@
       "message": "this also needs to update the fNumberFormat",
       "revId": "5002cf3ba22e8525132806b9464709f5e506feee",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55dbd012_155492b7",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-02-28T18:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c08b589_5dc66b0c",
+      "revId": "5002cf3ba22e8525132806b9464709f5e506feee",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

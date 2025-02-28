@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ebbc5d6_13c4b85f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-02-28T18:12:20Z",
+      "side": 1,
+      "message": "Hopefully got it right this time. Tested with Slayer, seems to be working fine.",
+      "revId": "74c4be482af07ce6e6d9edfe9e5e8e68171d5966",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
