@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f63c4821_b9e6152f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-02-28T13:37:56Z",
+      "side": 1,
+      "message": "There is start_watching_network(B_WATCH_NETWORK_LINK_CHANGES) to wait on link changes, instead of polling.",
+      "revId": "423c18d3cbb0b5788f90121142f8473c67332b41",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
