@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f357cd4c_7d9b135b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-02-28T17:08:34Z",
+      "side": 1,
+      "message": "This seems strange to me. Does NFSv4 provide no notifications at all when files are deleted? It looks like the NFSv4 driver doesn\u0027t implement the node monitoring interface (notify_entry_* and related methods), but there must be some way to do that, right? If it does, handling those messages and removing caches at the same time as sending node monitor messages sounds like a much better solution.\n\nFurthermore, there appears to be a \"cache time\" value. Does your server send that? It looks like the DirectoryCache does take it into account, so how does that come into play here?",
+      "revId": "6d5143954e8ad66472397d56dffbc7037fd30786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df003bd3_e15db0b1",
