@@ -72,6 +72,42 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9825ecb5_7684d9c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-28T02:55:29Z",
+      "side": 1,
+      "message": "re: breaking compatibility\n\nHow much usage of the `keymap --header` functionality outside of Haiku\u0027s build system (where it is only used once) can we reasonably expect it to have?\n\nShould that *really* prevent us from making changes here?",
+      "parentUuid": "114f2b8e_8714c4e0",
+      "revId": "54333e2e9f41632dfcd862e9a21784162dc58596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "303caf01_9f6dcc9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-02-28T02:55:29Z",
+      "side": 1,
+      "message": "re: bike-shedding\n\n`keynap -h` just \"sitting there doing nothing\" has bothered me in several occasions over time.\n\nIMO, expecting commands to show some help/usage info when called with \"-h\" is a reasonable (and pretty low) expectation for a user to have.\n\nI hope you reconsider.",
+      "parentUuid": "e87006fd_a080b617",
+      "revId": "54333e2e9f41632dfcd862e9a21784162dc58596",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1061b6d1_f5fac3d9",
         "filename": "src/bin/keymap/main.cpp",
         "patchSetId": 1
