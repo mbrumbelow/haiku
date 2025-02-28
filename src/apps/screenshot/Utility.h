@@ -15,6 +15,8 @@
 
 // Command constant for sending utility data to the GUI app
 const int32 SS_UTILITY_DATA = 'SSUD';
+// Command constant for retrieving selected area bitmap from select view
+const int32 SS_SELECT_AREA_BITMAP = 'SAB';
 
 
 class Utility {
@@ -34,6 +36,7 @@ public:
 			BBitmap*	wholeScreen;
 			BBitmap*	cursorBitmap;
 			BBitmap*	cursorAreaBitmap;
+			BBitmap*	selectAreaBitmap;
 			BPoint		cursorPosition;
 			BRect		activeWindowFrame;
 			BRect		tabFrame;

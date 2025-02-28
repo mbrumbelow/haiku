@@ -15,8 +15,10 @@
 #include <Catalog.h>
 #include <Locale.h>
 #include <Roster.h>
+#include <Screen.h>
 
 #include "ScreenshotWindow.h"
+#include "SelectAreaView.h"
 #include "Utility.h"
 
 
@@ -25,7 +27,8 @@ ScreenshotApp::ScreenshotApp()
 	BApplication("application/x-vnd.haiku-screenshot"),
 	fUtility(new Utility),
 	fSilent(false),
-	fClipboard(false)
+	fClipboard(false),
+	fLaunchWithAreaSelect(false)
 {
 }
 
@@ -80,8 +83,24 @@ ScreenshotApp::MessageReceived(BMessage* message)
 			if (status != B_OK)
 				break;
 
+			status = message->FindBool("selectArea", &fLaunchWithAreaSelect);
+			if (status != B_OK)
+				break;
+
 			break;
 		}
+
+		case SS_SELECT_AREA_BITMAP:
+		{
+			BMessage bitmap;
+			status = message->FindMessage("selectArea", &bitmap);
+			if (status != B_OK)
+				break;
+
+			fUtility->selectAreaBitmap = new BBitmap(&bitmap);
+			new ScreenshotWindow(*fUtility, fSilent, fClipboard);
+			break;
+		};
 
 		default:
 			BApplication::MessageReceived(message);
@@ -110,7 +129,13 @@ ScreenshotApp::ArgvReceived(int32 argc, char** argv)
 void
 ScreenshotApp::ReadyToRun()
 {
-	new ScreenshotWindow(*fUtility, fSilent, fClipboard);
+	if (fLaunchWithAreaSelect) {
+		BWindow* window = new BWindow(BScreen().Frame(), "Area Window", window_type(1026),
+			B_ASYNCHRONOUS_CONTROLS|B_NOT_RESIZABLE|B_NOT_CLOSABLE|B_NOT_ZOOMABLE);
+		window->AddChild(new SelectAreaView(fUtility->wholeScreen));
+		window->Show();
+	} else
+		new ScreenshotWindow(*fUtility, fSilent, fClipboard);
 }
 
 

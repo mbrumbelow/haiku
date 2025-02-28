@@ -41,7 +41,8 @@ public:
 private:
 			void			_NewScreenshot(bool silent = false,
 								bool clipboard = false,
-								bool ignoreDelay = false);
+								bool ignoreDelay = false,
+								bool selectArea = false);
 			void			_UpdatePreviewPanel();
 			void			_DisallowChar(BTextView* textView);
 			void			_SetupOutputPathMenu(const BMessage& settings);
@@ -81,6 +82,5 @@ private:
 			BString			fExtension;
 			int32			fImageFileType;
 };
-
 
 #endif // SCREENSHOT_WINDOW_H
