@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e0c624_2f09630e",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T21:22:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fff2e2c6_50a55a60",
+      "revId": "0c58f1a634c13ea08328f64d30c1e754d7c202d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ffb1136_4c0af649",

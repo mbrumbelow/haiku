@@ -16,6 +16,24 @@
       "message": "This won\u0027t work on GCC2, and the padding size is not part of the member size so this assert does not check anything. Only an assert on the class size itself will help.\n\nI just checked though, and on x86_64, the class size starts out at 616 bytes. Adding the void* and then removing 2 uint32s worth of padding, we wind up at 616 bytes again.\n\nHowever, there is 4 bytes of compiler-added padding at the end of the class (on x64) which this change removes. If there are any classes that inherit from BDecimalSpinner, that change will break their ABI, because the compiler would have used it for storage. But I am not sure whether that matters or not here? This is technically a Haiku-introduced class so maybe a small ABI break isn\u0027t a problem?",
       "revId": "e6af0f64514c7862241c3466a3f351ec1d1d151a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f27a9f28_805d8f34",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T21:22:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83c03cfb_b58e3f16",
+      "revId": "e6af0f64514c7862241c3466a3f351ec1d1d151a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d3021a_8d7c701c",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T21:22:20Z",
+      "side": 1,
+      "message": "You can just drop the check and just break ABI, leave it at the original 20.",
+      "revId": "231500cc3626f2a306fa34943ad214685a1613de",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
