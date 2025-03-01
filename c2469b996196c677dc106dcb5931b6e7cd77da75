@@ -16,6 +16,24 @@
       "message": "Looks good, @PulkoMandy",
       "revId": "c2469b996196c677dc106dcb5931b6e7cd77da75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f593f5_bb22438c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T01:40:05Z",
+      "side": 1,
+      "message": "There is probably padding added to the 64-bit version. The BNumberFormat should likely be placed at the beginning. And depending on the existing padding layout the #ifdef may not be needed. static_assert()s should be used to check the actual class size and padding layouts.",
+      "parentUuid": "02a22341_05801482",
+      "revId": "c2469b996196c677dc106dcb5931b6e7cd77da75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
