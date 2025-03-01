@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "629273f6_862591f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-03-01T10:13:37Z",
+      "side": 1,
+      "message": "It breaks Tracker add-on protocol and existing out-of-tree add-ons (legacy BeOS binaries and HaikuPorts).",
+      "revId": "0c9a65557217e897785cd3dfe452d8bf98144033",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
