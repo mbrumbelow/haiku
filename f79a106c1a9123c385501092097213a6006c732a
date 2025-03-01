@@ -186,6 +186,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "33293c03_a995fea3",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-01T05:27:38Z",
+      "side": 1,
+      "message": "Should be \"nHz\".\n\nBTW, are non-breaking spaces supported by BString? How do you create them while typing? Sorry, if those are dumb questions, I never encountered those outside explicit HTML code...",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "869594a1_7733cffc",
