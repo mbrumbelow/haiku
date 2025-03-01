@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c653a7_d0f7ae7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T19:23:43Z",
+      "side": 1,
+      "message": "This should have been added as a new version of https://review.haiku-os.org/c/haiku/+/7590 and not a new change.",
+      "revId": "1d7a8e00935cedade0d6c7ffaa716eb0e20a5488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c1fc8852_769bd69c",
