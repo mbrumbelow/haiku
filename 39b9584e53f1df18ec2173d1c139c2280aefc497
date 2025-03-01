@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e38478d7_ac26d696",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-01T22:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aabda64_8a412465",
+      "revId": "39b9584e53f1df18ec2173d1c139c2280aefc497",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23e8bbe5_212d4006",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-03-01T21:35:42Z",
       "side": 1,
       "message": "Why do we need to recreate the number format here? Why can\u0027t it just be created once in the _Init method?",
+      "revId": "39b9584e53f1df18ec2173d1c139c2280aefc497",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2190c179_f626befe",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-01T22:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23e8bbe5_212d4006",
       "revId": "39b9584e53f1df18ec2173d1c139c2280aefc497",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
