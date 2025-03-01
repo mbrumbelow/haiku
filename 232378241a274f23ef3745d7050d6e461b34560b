@@ -16,6 +16,24 @@
       "message": "Can you declare BString label outside of the loop? Tracker does the same thing and it includes the comment:\n\nconst char* comment \u003d \"The \u0027×\u0027 is the Unicode multiplication sign U+00D7\";\n\nhttps://git.haiku-os.org/haiku/tree/src/kits/tracker/ContainerWindow.cpp#n1812",
       "revId": "232378241a274f23ef3745d7050d6e461b34560b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "120b037b_3de448c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-01T20:29:10Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e788e9a1_ab5054f3",
+      "revId": "232378241a274f23ef3745d7050d6e461b34560b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
