@@ -34,6 +34,24 @@
       "parentUuid": "cff996cf_f6ac87c7",
       "revId": "c083ba87e0ca94a08de665baba49f2acef208db5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f5932a2_d681bab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T06:04:22Z",
+      "side": 1,
+      "message": "If the addon is actually \"loaded\" that means it has been loaded via load_add_on. So that\u0027s the place any changes should be made.\n\nRight now that\u0027s done in menu generation, yes. It shouldn\u0027t be, I agree; instead it should happen via node monitoring, probably. But either way, the point at which load_add_on is called is where things should happen, this message should not be needed.",
+      "parentUuid": "2ecf4f38_b9b4b358",
+      "revId": "c083ba87e0ca94a08de665baba49f2acef208db5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
