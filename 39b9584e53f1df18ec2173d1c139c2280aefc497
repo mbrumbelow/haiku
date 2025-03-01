@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aabda64_8a412465",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T21:35:42Z",
+      "side": 1,
+      "message": "Why not drop this entirely?",
+      "revId": "39b9584e53f1df18ec2173d1c139c2280aefc497",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23e8bbe5_212d4006",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T21:35:42Z",
+      "side": 1,
+      "message": "Why do we need to recreate the number format here? Why can\u0027t it just be created once in the _Init method?",
+      "revId": "39b9584e53f1df18ec2173d1c139c2280aefc497",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
