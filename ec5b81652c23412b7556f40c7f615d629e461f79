@@ -34,6 +34,24 @@
       "parentUuid": "7b26f2cc_b49ff539",
       "revId": "ec5b81652c23412b7556f40c7f615d629e461f79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a07f239_35b9594e",
+        "filename": "src/kits/tracker/ContainerWindow.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T19:42:30Z",
+      "side": 1,
+      "message": "Won\u0027t it happen on every single node change in the open window?\n\nOr maybe not, since those messages go to BPoseView? So maybe this is fine, then...",
+      "parentUuid": "6a97e2d9_d222cbbb",
+      "revId": "ec5b81652c23412b7556f40c7f615d629e461f79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
