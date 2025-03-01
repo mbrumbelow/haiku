@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1146d4ba_d51a0906",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T20:47:06Z",
+      "side": 1,
+      "message": "Ah, I just realized this class is still in \"private\" headers. So ABI isn\u0027t so much of a concern, and all the previous efforts at keeping it are probably moot :/\n\nJust leave this at 20 and break ABI then, would be my vote. And in the process, also delete the `fPrecision` value, and change the inline `SetPrecision` to be an out-of-line method that calls `SetPrecision` on the NumberFormat.",
+      "parentUuid": "dae4a345_f6453788",
+      "revId": "0c58f1a634c13ea08328f64d30c1e754d7c202d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ffb1136_4c0af649",
         "filename": "src/kits/interface/DecimalSpinner.cpp",
         "patchSetId": 10
