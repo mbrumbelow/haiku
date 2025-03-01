@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f890c3a_bfa58947",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-01T11:37:51Z",
+      "side": 1,
+      "message": "\u003e I am unable to get past the values always displaying in KHz\n\nAnd the value is not correct, I guess. If you look a little closer at what you are doing you may easily see the problem: you are passing the function a value in MHz and it uses it as if it was Hz.",
+      "parentUuid": "108363c6_7d375cd7",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad089d8e_6dd5454a",
@@ -199,6 +217,23 @@
       "writtenOn": "2025-03-01T05:27:38Z",
       "side": 1,
       "message": "Should be \"nHz\".\n\nBTW, are non-breaking spaces supported by BString? How do you create them while typing? Sorry, if those are dumb questions, I never encountered those outside explicit HTML code...",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35d3330d_d9694174",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-01T11:37:51Z",
+      "side": 1,
+      "message": "How do you get this to output smaller than Hz units when the value is an integer in Hz?",
       "revId": "f79a106c1a9123c385501092097213a6006c732a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
