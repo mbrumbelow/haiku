@@ -123,6 +123,24 @@
       "parentUuid": "0ffb1136_4c0af649",
       "revId": "0c58f1a634c13ea08328f64d30c1e754d7c202d9",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20756450_494dc210",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T21:40:34Z",
+      "side": 1,
+      "message": "It needs to happen inside SetPrecision(), because that can be changed after creation. This comment is obsolete now though.",
+      "parentUuid": "689fa671_1d1d5c21",
+      "revId": "0c58f1a634c13ea08328f64d30c1e754d7c202d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
