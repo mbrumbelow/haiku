@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dae4a345_f6453788",
+        "filename": "headers/private/interface/DecimalSpinner.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T20:38:35Z",
+      "side": 1,
+      "message": "You still need to do something different on x86_64 vs 32-bit here, you need [18] on 64-bit at least.",
+      "revId": "0c58f1a634c13ea08328f64d30c1e754d7c202d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ffb1136_4c0af649",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T20:38:35Z",
+      "side": 1,
+      "message": "this probably needs to happen in SetValue, otherwise changes won\u0027t be reflected.",
+      "revId": "0c58f1a634c13ea08328f64d30c1e754d7c202d9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
