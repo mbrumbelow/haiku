@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3787381b_3da7df73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T20:18:55Z",
+      "side": 1,
+      "message": "Preserving the full discussion history is the difference.\n\nUn-abandoning a change takes two clicks. And commit chains don\u0027t matter on Gerrit, they can be broken at any time. Just alter the Change-Id in the message of this commit to be the same as that one and push again, it will overwrite that change with this commit. Then this one can be abandoned instead.",
+      "parentUuid": "33eb79ea_606f50c6",
+      "revId": "1d7a8e00935cedade0d6c7ffaa716eb0e20a5488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c1fc8852_769bd69c",
