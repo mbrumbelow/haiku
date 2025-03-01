@@ -16,6 +16,24 @@
       "message": "This really should not be needed.",
       "revId": "4bf35f9788821557e8effa7ec7f08f0fd9f32eda",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1b53c48_653ecaf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-01T21:29:12Z",
+      "side": 1,
+      "message": "This is indeed not needed but I\u0027d like to publish the secret message constant that Zip-O-Matic is already using by looking for refs. I\u0027m not sure how it happened and my system might have been a bit messed up at the time but I swear that I saw Zip-O-Matic pop up before the system was fully loaded while the first boot prompt was still up. It hasn\u0027t happened since, but that\u0027s what initiated this change in the first place.",
+      "parentUuid": "a4a9f760_4cd5cfd7",
+      "revId": "4bf35f9788821557e8effa7ec7f08f0fd9f32eda",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
