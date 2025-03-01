@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d14fbcb1_6b4e568e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-01T02:47:00Z",
+      "side": 1,
+      "message": "This does not fix #19402 which is what I was trying to fix, but it does fix shortcuts after Edit name which turned out to be the problem in #19439.\n\nIf you do Alt+N for New folder it starts edit so you can rename, that\u0027s enough to trigger the bug. The rest of the cases of this bug are explained by you renaming a file yourself.\n\nUnfortunately if you type a new name without hitting Enter and then push Alt+O to open the folder, it will do the rename but the new Tracker window will say \"New folder\" in the tab instead of the name you typed, but that\u0027s a different bug...",
+      "revId": "6bbaaba66101feee14783a75a9d03927507ed8f5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
