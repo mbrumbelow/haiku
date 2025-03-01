@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ea37b953_ff7db869",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-01T13:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f890c3a_bfa58947",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ad089d8e_6dd5454a",
         "filename": "headers/private/shared/StringForFrequency.h",
         "patchSetId": 1
@@ -234,6 +252,42 @@
       "writtenOn": "2025-03-01T11:37:51Z",
       "side": 1,
       "message": "How do you get this to output smaller than Hz units when the value is an integer in Hz?",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df81b5e6_4d04fa8e",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-01T13:33:18Z",
+      "side": 1,
+      "message": "Actually your comment made me realise, that the ALTGR+Space I added to the Turkish keymaps in my very first commit to Haiku did not work properly. This time I copied-pasted from the Internet, should be fine now.",
+      "parentUuid": "33293c03_a995fea3",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd56ae2_69bedb17",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-01T13:33:18Z",
+      "side": 1,
+      "message": "Absolutely right. Should be fixed now.",
+      "parentUuid": "35d3330d_d9694174",
       "revId": "f79a106c1a9123c385501092097213a6006c732a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
