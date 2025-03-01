@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "33eb79ea_606f50c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-01T20:02:31Z",
+      "side": 1,
+      "message": "What\u0027s the difference? That one has merge conflicts due to unrelated commit chain which I don\u0027t want to spend time on fixing. That one is abandoned already.",
+      "parentUuid": "54c653a7_d0f7ae7b",
+      "revId": "1d7a8e00935cedade0d6c7ffaa716eb0e20a5488",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c1fc8852_769bd69c",
