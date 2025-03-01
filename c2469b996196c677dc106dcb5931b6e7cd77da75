@@ -52,6 +52,24 @@
       "parentUuid": "82f593f5_bb22438c",
       "revId": "c2469b996196c677dc106dcb5931b6e7cd77da75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edff30d9_a40cf1ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T19:30:08Z",
+      "side": 1,
+      "message": "Doesn\u0027t compile on GCC2 it appears. The static_assert shouldn\u0027t be added permanently, just used to check the class size at compile time. But I just checked this anyway so it can be removed.",
+      "parentUuid": "05fead45_09957b13",
+      "revId": "c2469b996196c677dc106dcb5931b6e7cd77da75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
