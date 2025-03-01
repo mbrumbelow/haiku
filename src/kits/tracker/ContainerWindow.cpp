@@ -51,8 +51,8 @@ All rights reserved.
 #include <MenuBar.h>
 #include <MenuItem.h>
 #include <NodeMonitor.h>
-#include <PathFinder.h>
 #include <Path.h>
+#include <PathFinder.h>
 #include <PopUpMenu.h>
 #include <Roster.h>
 #include <Screen.h>
