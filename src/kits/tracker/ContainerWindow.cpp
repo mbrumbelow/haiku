@@ -51,6 +51,7 @@ All rights reserved.
 #include <MenuBar.h>
 #include <MenuItem.h>
 #include <NodeMonitor.h>
+#include <PathFinder.h>
 #include <Path.h>
 #include <PopUpMenu.h>
 #include <Roster.h>
@@ -821,6 +822,16 @@ BContainerWindow::Init(const BMessage* message)
 	// load Tracker add-on menus into main menu bar
 	if (ShouldAddMenus() && ShouldHaveAddOnMenus())
 		BuildAddOnMenus(fMenuBar);
+
+	// monitor add-ons paths for changes
+	BStringList addOnPaths;
+	BPathFinder::FindPaths(B_FIND_PATH_ADD_ONS_DIRECTORY, "Tracker", addOnPaths);
+	int32 count = addOnPaths.CountStrings();
+	for (int32 index = 0; index < count; index++) {
+		node_ref nodeRef;
+		BDirectory(addOnPaths.StringAt(index)).GetNodeRef(&nodeRef);
+		TTracker::WatchNode(&nodeRef, B_WATCH_DIRECTORY, this);
+	}
 
 	CheckScreenIntersect();
 
@@ -1677,6 +1688,10 @@ BContainerWindow::MessageReceived(BMessage* message)
 
 		case B_NODE_MONITOR:
 			UpdateTitle();
+
+			// a Tracker add-on may have loaded/unloaded
+			if (fMenuBar != NULL)
+				RebuildAddOnMenus(fMenuBar);
 			break;
 
 		default:
