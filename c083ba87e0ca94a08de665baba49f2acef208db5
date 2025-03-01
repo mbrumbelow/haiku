@@ -16,6 +16,24 @@
       "message": "This shouldn\u0027t be needed. One way or another, Tracker should be able to detect when an addon is loaded; isn\u0027t that process only ever initiated by Tracker itself, anyway?",
       "revId": "c083ba87e0ca94a08de665baba49f2acef208db5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ecf4f38_b9b4b358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-01T06:02:08Z",
+      "side": 1,
+      "message": "Tracker never had a way to detect an add-on is loaded, instead it loads the add-on on MenusBeginning(), basically when you click to open a menu as a substitute. But that had issues even before, and even more now.\n\nThis is my attempt at providing an alternative. I don\u0027t know how to tell Tracker that a new add-on has loaded. Node monitoring?",
+      "parentUuid": "cff996cf_f6ac87c7",
+      "revId": "c083ba87e0ca94a08de665baba49f2acef208db5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
