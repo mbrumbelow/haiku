@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "923ffd38_1d13fbfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-01T16:22:16Z",
+      "side": 1,
+      "message": "Nodes being removed from the directory cache on refresh should also remove them from the entry cache, right? Wouldn\u0027t that solve this issue? The refresh time seems to come from the NFS server; it wouldn\u0027t make much sense for the server to reuse inode numbers within the refresh time window...\n\nI agree doing an additional check makes sense, but does it need to be as complicated as the HandleCollision method is here? Doing acquire_vnode will cause the VFS to try and fetch the vnode anew from the FS, which will probably cause RPC calls unnecessarily. If we have the vnode ID we should just be able to call remove_vnode() directly and this should just do nothing if the VFS does not know about the vnode, I think.",
+      "parentUuid": "c15f4d77_f8abe40e",
+      "revId": "6d5143954e8ad66472397d56dffbc7037fd30786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df003bd3_e15db0b1",
