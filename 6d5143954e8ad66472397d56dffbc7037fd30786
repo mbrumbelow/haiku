@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c15f4d77_f8abe40e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-03-01T15:10:53Z",
+      "side": 1,
+      "message": "I can\u0027t find anything in the NFSv4 RFC to indicate that NFS notifies clients when a file is deleted.  This is consistent with this line about NFS in Wikipedia:  \"changes made by one client are not immediately broadcast to other clients\" (https://en.wikipedia.org/wiki/Inotify).\n\nThe DirectoryCache refreshes automatically (every 5 seconds by default).  One effect of this is that \u0027ls\u0027 will not list a deleted file.  Should a check for stale nodes could be done every time the DirectoryCache is refreshed?  This would get rid of stale nodes sooner and more consistently, although maybe even then doing a additional check in Inode::CreateState/CreateObject would still be desirable to cover operations that happen right after a file was deleted by someone else, and before the DirectoryCache update got rid of the stale node.",
+      "parentUuid": "f357cd4c_7d9b135b",
+      "revId": "6d5143954e8ad66472397d56dffbc7037fd30786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df003bd3_e15db0b1",
