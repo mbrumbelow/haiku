@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "014aa380_51fbf9d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-02T14:04:36Z",
+      "side": 1,
+      "message": "$ jam -q -j4 Tracker\nStarting build of type regular ...\nAsked for bios_ia32 target boot platform\nUnknown path to handle adding to image\nAsked for pxe_ia32 target boot platform\nUnknown path to handle adding to image\n...patience...\n...patience...\n...found 13568 target(s)...\n...updating 247 target(s)...\nLink /Volumes/Haiku/Haiku/haiku/generated/objects/darwin/lib/libbe_build.so\nld: warning: search path \u0027/opt/local/lib\u0027 not found\nld: warning: search path \u0027/opt/homebrew/lib\u0027 not found\nUndefined symbols for architecture x86_64:\n  \"_heap_debug_get_allocation_info\", referenced from:\n      BBlockCache::BBlockCache(unsigned int, unsigned long, unsigned int) in support_kit.o\n      BBlockCache::BBlockCache(unsigned int, unsigned long, unsigned int) in support_kit.o\n      BBlockCache::Get(unsigned long) in support_kit.o\n      BBlockCache::Save(void*, unsigned long) in support_kit.o\nld: symbol(s) not found for architecture x86_64\nclang: error: linker command failed with exit code 1 (use -v to see invocation)\n\ngcc -lm -ldl -L/opt/local/lib -L/usr/local/lib -L/opt/homebrew/lib -dynamic -dynamiclib -Xlinker -flat_namespace -o \"/Volumes/Haiku/Haiku/haiku/generated/objects/darwin/lib/libbe_build.so\"    \\\n\"generated/objects/darwin/x86_64/release/build/libroot/libroot_build_function_remapper.a\" \"/Volumes/Haiku/Haiku/haiku/generated/objects/darwin/lib/libroot_build.so\" \"generated/objects/darwin/x86_64/release/build/libbe/app/app_kit.o\" \"generated/objects/darwin/x86_64/release/build/libbe/icon/icon_kit.o\" \"generated/objects/darwin/x86_64/release/build/libbe/interface/interface_kit.o\" \"generated/objects/darwin/x86_64/release/build/libbe/storage/storage_kit.o\" \"generated/objects/darwin/x86_64/release/build/libbe/support/support_kit.o\" \"generated/objects/darwin/x86_64/release/build/libshared/libshared_build.a\" -lz -lzstd -lgcc_s.1 -lstdc++  \\\n\n\n...failed Link /Volumes/Haiku/Haiku/haiku/generated/objects/darwin/lib/libbe_build.so ...\n\nBUILD FAILURE:\n...failed updating 1 target(s)...\n...skipped 1610 target(s)...",
+      "revId": "e18c603251cc638db2a5a2b9f839091b5143ba8f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
