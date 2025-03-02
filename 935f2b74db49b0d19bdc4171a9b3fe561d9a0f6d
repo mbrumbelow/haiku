@@ -16,6 +16,24 @@
       "message": "You\u0027re declaring the message inside the loop here. This could get created outside the loop and reused. Possibly that is being a bit too pedantic...\n\nAlso you could B_TRANSLATE_COMMENT the label like Tracker does. I\u0027m not sure how much the translation really helps here though or in Tracker.",
       "revId": "935f2b74db49b0d19bdc4171a9b3fe561d9a0f6d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "857de7cc_1b7624aa",
+        "filename": "src/apps/terminal/TermWindow.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-02T11:15:15Z",
+      "side": 1,
+      "message": "I can add the comment, but this string is not meant to be translated. Would it still be needed then?",
+      "parentUuid": "b664c5f3_c6dd4968",
+      "revId": "935f2b74db49b0d19bdc4171a9b3fe561d9a0f6d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
