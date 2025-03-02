@@ -280,6 +280,8 @@ HOST_ASFLAGS = ;
 # linker flags
 if $(HOST_PLATFORM) != darwin {
 	HOST_LINKFLAGS += -Wl,--no-as-needed ;
+} else {
+	HOST_LINKFLAGS += -Wl,-undefined,dynamic_lookup ;
 }
 
 # C/C++ flags
