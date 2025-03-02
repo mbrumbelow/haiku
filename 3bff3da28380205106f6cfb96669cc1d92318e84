@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0b2012ad_babae7d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-02T18:14:31Z",
+      "side": 1,
+      "message": "ok",
+      "revId": "3bff3da28380205106f6cfb96669cc1d92318e84",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5cf8f220_e955f5c3",
         "filename": "src/kits/interface/DecimalSpinner.cpp",
         "patchSetId": 17
