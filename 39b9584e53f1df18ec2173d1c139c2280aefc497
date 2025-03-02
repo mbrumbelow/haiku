@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29b00d7e_fc429a62",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-02T17:13:22Z",
+      "side": 1,
+      "message": "Hold on I disagree with this, either you drop fPrecision entirely or you keep it and set it in SetPrecision. Don\u0027t set it to 2 on init and never change it. I\u0027d prefer to keep the variable.",
+      "parentUuid": "e38478d7_ac26d696",
+      "revId": "39b9584e53f1df18ec2173d1c139c2280aefc497",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23e8bbe5_212d4006",
