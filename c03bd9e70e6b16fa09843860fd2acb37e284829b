@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "141a6883_985dc2b0",
+        "filename": "src/kits/interface/DecimalSpinner.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-02T17:16:54Z",
+      "side": 1,
+      "message": "I would do:\n```\nif (precision \u003d\u003d fPrecision)\n    return;\n\nfPrecision \u003d precision;\nfNumberFormat-\u003eSetPrecision(precision);\n```\nThat gives a purpose to saving fPrecision to guard against setting the same precision twice.",
+      "revId": "c03bd9e70e6b16fa09843860fd2acb37e284829b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
