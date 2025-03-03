@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "02ba7095_dde042d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-03T18:19:15Z",
+      "side": 1,
+      "message": "OK, I see that now re. expiration periods.\n\nIf the node isn\u0027t in memory, then get_vnode will cause the VFS to try and read it in, which isn\u0027t what we want here.\n\nMaybe we should not use the EntryCache here at all? It looks like nfs4_lookup() doesn\u0027t use the DirectoryCache, but maybe it could, just like read_dir does, and then that would get most of the performance benefit of the EntryCache with the expiration-refresh behavior.\n\nIt\u0027s not really possible to force a vnode to be freed, there may still be open FDs that point to it. All that can be done here is to mark it removed, and then to have the object inside NFS4 just return errors instead of trying to do anything. (Well, there\u0027s the \"disconnect vnodes\" feature of the VFS, but this is very expensive and only used on unmount currently. We could potentially extend it, but this is such a niche usecase that it\u0027s probably best for NFS to just handle it.)\n\nSo, the collision detection should just set some flag on the existing inode/etc. objects and \"orphan\" them. When the last FDs are closed, then the VFS will free the object.",
+      "parentUuid": "2d7737e9_284ed198",
+      "revId": "6d5143954e8ad66472397d56dffbc7037fd30786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df003bd3_e15db0b1",
