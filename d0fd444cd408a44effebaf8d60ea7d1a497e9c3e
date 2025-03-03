@@ -228,6 +228,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d31cdaa_8a514a2f",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4681,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-03T18:23:44Z",
+      "side": 1,
+      "message": "Well, there seems to still be a lot of code duplication even with this. Is there any advantage in keeping the single Add/Remove methods around in OutlineListView? It seems to just be code duplication; why not delete them and just have BColumnListView invoke the BList versions with a single item instead?",
+      "parentUuid": "149d71ba_a3817a6b",
+      "revId": "d0fd444cd408a44effebaf8d60ea7d1a497e9c3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a31b4fe_b2db6c28",
