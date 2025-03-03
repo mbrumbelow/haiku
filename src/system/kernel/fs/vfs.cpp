@@ -3293,19 +3293,28 @@ dump_vnode(int argc, char** argv)
 static int
 dump_vnodes(int argc, char** argv)
 {
-	if (argc != 2 || !strcmp(argv[1], "--help")) {
-		kprintf("usage: %s [device]\n", argv[0]);
+	bool privateOnly = false;
+	int argi = 1;
+	if (argc >= 2 && strcmp(argv[argi], "-p") == 0) {
+		privateOnly = true;
+		argi++;
+	}
+
+	if (argi >= argc || argi + 1 < argc || strcmp(argv[argi], "--help") == 0) {
+		print_debugger_command_usage(argv[0]);
 		return 0;
 	}
 
 	// restrict dumped nodes to a certain device if requested
-	dev_t device = parse_expression(argv[1]);
+	dev_t device = parse_expression(argv[argi]);
 
 	struct vnode* vnode;
 
-	kprintf("%-*s   dev     inode  ref %-*s   %-*s   %-*s   flags\n",
-		B_PRINTF_POINTER_WIDTH, "address", B_PRINTF_POINTER_WIDTH, "cache",
-		B_PRINTF_POINTER_WIDTH, "fs-node", B_PRINTF_POINTER_WIDTH, "locking");
+	if (privateOnly == false) {
+		kprintf("%-*s   dev     inode  ref %-*s   %-*s   %-*s   flags\n",
+			B_PRINTF_POINTER_WIDTH, "address", B_PRINTF_POINTER_WIDTH, "cache",
+			B_PRINTF_POINTER_WIDTH, "fs-node", B_PRINTF_POINTER_WIDTH, "locking");
+	}
 
 	VnodeTable::Iterator iterator(sVnodeTable);
 	while (iterator.HasNext()) {
@@ -3313,11 +3322,15 @@ dump_vnodes(int argc, char** argv)
 		if (vnode->device != device)
 			continue;
 
-		kprintf("%p%4" B_PRIdDEV "%10" B_PRIdINO "%5" B_PRId32 " %p %p %p %s%s%s\n",
-			vnode, vnode->device, vnode->id, vnode->ref_count, vnode->cache,
-			vnode->private_node, vnode->advisory_locking,
-			vnode->IsRemoved() ? "r" : "-", vnode->IsBusy() ? "b" : "-",
-			vnode->IsUnpublished() ? "u" : "-");
+		if (privateOnly == false) {
+			kprintf("%p%4" B_PRIdDEV "%10" B_PRIdINO "%5" B_PRId32 " %p %p %p %s%s%s\n",
+				vnode, vnode->device, vnode->id, vnode->ref_count, vnode->cache,
+				vnode->private_node, vnode->advisory_locking,
+				vnode->IsRemoved() ? "r" : "-", vnode->IsBusy() ? "b" : "-",
+				vnode->IsUnpublished() ? "u" : "-");
+		} else {
+			kprintf("%p\n", vnode->private_node);
+		}
 	}
 
 	return 0;
@@ -5312,8 +5325,11 @@ vfs_init(kernel_args* args)
 		"constructed and printed. It might not be possible to construct a\n"
 		"complete path, though.\n",
 		0);
-	add_debugger_command("vnodes", &dump_vnodes,
-		"list all vnodes (from the specified device)");
+	add_debugger_command_etc("vnodes", &dump_vnodes,
+		"list all vnodes (from the specified device)",
+		"[ \"-p\" ] <devID>\n"
+		"If \"-p\" is given, only the private node addresses are listed.\n",
+		0);
 	add_debugger_command("vnode_caches", &dump_vnode_caches,
 		"list all vnode caches");
 	add_debugger_command("mount", &dump_mount,
