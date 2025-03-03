@@ -264,6 +264,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6bdb2f3_599d305e",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4681,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-03T20:58:26Z",
+      "side": 1,
+      "message": "Ah, I see. OK, just leave the change as-is then. We really need to completely rewrite this class to use a model/view system anyway, which would be a much bigger optimization, but that has waited this long and can wait longer.",
+      "parentUuid": "5565567f_a2c2932b",
+      "revId": "d0fd444cd408a44effebaf8d60ea7d1a497e9c3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a31b4fe_b2db6c28",
