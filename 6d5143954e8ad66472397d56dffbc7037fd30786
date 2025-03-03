@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7737e9_284ed198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-03-03T17:56:35Z",
+      "side": 1,
+      "message": "Currently, an entry is only removed from the entry cache if the file is deleted by the client.  If someone else deletes a file, the entry cache is not updated at the time of the DirectoryCache refresh.  There\u0027s no reason that DirectoryCache refresh code can\u0027t be updated to compare the new and old DirectoryCache contents and update the entry cache accordingly.  However, (and I was not thinking about this when I wrote my last reply) the DirectoryCache refresh is \u0027lazy.\u0027  After the cache expires, it will not refresh until prompted (for example, by nfs4_read_dir).  So even if I modify the DirectoryCache refresh to remove stale vnodes and entry cache entries, these actions will only happen when the client user runs ls or opens a Tracker window, not every x seconds.\n\nThe expiration time that I\u0027m looking at (DirectoryCache::fExpirationTime) seems to come from the client end rather than the server.  The DirectoryCache constructor sets fExpirationTime based on the MountConfiguration that is initialized in ParseArguments, which sets MountConfiguration::fDirectoryCacheTime to 5 seconds unless the client user provided a different value as a command line argument.  Given this and the lazy refresh method, I would expect the server to reuse an inode number even if the client\u0027s DirectoryCache still has that number assigned to a file.\n\nTo simplify HandleCollision, I don\u0027t think I can use remove_vnode() alone because it won\u0027t free a published node, even if the node has a ref count of 0 at the time.  It\u0027s the call to put_vnode(), after the node is marked removed, that actually triggers free_vnode() and nfs4_remove_vnode() (if the ref count is dropping to 0).  I thought that if the vnode is already in memory, then acquire_vnode() and get_vnode() would be efficient because they would just lookup and work with that existing node, but maybe I am wrong about that.",
+      "parentUuid": "923ffd38_1d13fbfa",
+      "revId": "6d5143954e8ad66472397d56dffbc7037fd30786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df003bd3_e15db0b1",
