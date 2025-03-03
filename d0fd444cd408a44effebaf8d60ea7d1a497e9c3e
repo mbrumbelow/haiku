@@ -246,6 +246,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5565567f_a2c2932b",
+        "filename": "src/kits/interface/ColumnListView.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4681,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-03T20:34:42Z",
+      "side": 1,
+      "message": "The single add/remove has a number of re-draw and geometry optimizations that I have not carried over into the multi add/remove. It would be conceivable to re-visit the multi add/remove logic to incorporate those optimizations although it is likely to take some time to work through as it is not trivial. Also, because the change will be more risky to other clients of `BColumnListView`, wider testing and experimentation will be required.\n\nIf merging the two implementations is desirable short-term then I will cancel this PR and put up a different PR to implement multi add/remove that simply repeatedly invokes the single add/remove. After this, I can get the bulk of the accompanying HaikuDepot \"big bang\" changes through (currently blocking other people) and later come back and deal with optimizing the `BColumnListView` add/remove rows to provide end user benefit to HaikuDepot users -- probably mid 2025.",
+      "parentUuid": "3d31cdaa_8a514a2f",
+      "revId": "d0fd444cd408a44effebaf8d60ea7d1a497e9c3e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a31b4fe_b2db6c28",
