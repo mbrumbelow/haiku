@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa774a2_612fdea5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-03-04T10:21:57Z",
+      "side": 1,
+      "message": "How this change is related to #19431 (Broken colors in large name files)?",
+      "revId": "31a58cc5f16a46a9cc99f83de1da5f0385ced3b8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
