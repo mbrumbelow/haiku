@@ -364,6 +364,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5026f872_79611ac6",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-04T13:36:15Z",
+      "side": 1,
+      "message": "The general aim is to provide a locale-friendly standardised way of displaying frequency values, didn’t have anything more than that.\n\nAside from that I’d appreciate any feedback about the latest state of the code, anything I can do to fix the -1?",
+      "parentUuid": "509a231f_1a4076a5",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "869594a1_7733cffc",
