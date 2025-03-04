@@ -34,6 +34,24 @@
       "parentUuid": "8a777e86_a0d2b147",
       "revId": "1faa5fed96bfface15176f752928c9a7fb26923d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e5f2af5_91cf96f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-04T20:12:32Z",
+      "side": 1,
+      "message": "\u003e Should we really merge this then, if it\u0027s just masking some broader issue?\n\nThe broader issue described in #19439 is still unverified, but is presumably related to shortcut changes outside of Tracker. I was told that TextSearch() displays such issues with copy/paste, but I\u0027ve been unable to reproduce these issues. The issues I have been able to reproduce in Tracker are covered by this one.",
+      "parentUuid": "dd857158_45b7617b",
+      "revId": "1faa5fed96bfface15176f752928c9a7fb26923d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
