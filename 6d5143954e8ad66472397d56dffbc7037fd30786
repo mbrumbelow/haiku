@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ed32da4_1c4d65e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-03-04T17:29:26Z",
+      "side": 1,
+      "message": "I will try to revise nfs4_lookup() to make use of the DirectoryCache.\n\nIf our response to a collision is to mark a stale node invalid at the FS level, and mark it removed at the VFS level, I think when the FS calls get_vnode() to try to construct a new node with the same inode number, the VFS will just return a pointer to the stale node, since the VFS won\u0027t ignore a vnode just because it is marked removed.  It seems like the stale node needs to be freed at the VFS level in order to make way for the new one.\n\nI noticed that if I delete a test file at the server end, then create a new file on the client, the server consistently assigns the inode number of the deleted file to the new file.  However, if I do the same thing, except that I open the file to be deleted on the client end before deleting it, the server won\u0027t reuse that inode number until after the client closes it.  I interpret this to mean that if we do detect a collision, then we know that there are no open FDs to the deleted file, and can rely on the vnode being freed when HandleCollision drops its last ref because at that point the node\u0027s ref count will go to 0.  Since this FS seems to internally track whether this client has a file open (with Inode::fOpenState) I could probably add an inexpensive assert to HandleCollision that confirms the assumption that there are no open FDs.\n\nI am hoping that by conditionally calling get_vnode only if aqcuire_vnode succeeds,  HandleCollision will never cause a vnode to be constructed.  If acquire_vnode succeeds, doesn\u0027t that tell us the vnode is already in memory?\n\nInstead of freeing the vnode, it might be possible to just swap out the private node.  This is what the driver\u0027s get_new_vnode() seems to be intended to do.  But I don\u0027t think this will work in all cases.  For example, if the inode of a directory is reused and assigned to a regular file, the VFS will continue to see that vnode\u0027s file type as S_IFDIR, which will cause file_write() to return an error.",
+      "parentUuid": "02ba7095_dde042d1",
+      "revId": "6d5143954e8ad66472397d56dffbc7037fd30786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "df003bd3_e15db0b1",
