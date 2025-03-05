@@ -16,6 +16,24 @@
       "message": "Should we reset the .control and .mxcsr to the defaults here?",
       "revId": "16db148e63b94f3cd45ea4c06f63c6f74c0f1fca",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153ef93a_6b332209",
+        "filename": "src/system/kernel/arch/x86/64/thread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-05T23:17:09Z",
+      "side": 0,
+      "message": "Maybe like this?\n```\n\tsavefpu* initialState \u003d ((savefpu*)\u0026sInitialState.fpu_state);\n\tinitialState-\u003efp_fxsave.control \u003d\u003d __INITIAL_FPUCW__;\n\tinitialState-\u003efp_fxsave.mxcsr \u003d\u003d __INITIAL_MXCSR__;\n\n\tmemset(initialState-\u003efp_fxsave.fp, 0, sizeof(initialState-\u003efp_fxsave.fp));\n\tmemset(initialState-\u003efp_fxsave.xmm, 0, sizeof(initialState-\u003efp_fxsave.xmm));\n\tmemset(initialState-\u003efp_ymm, 0, sizeof(initialState-\u003efp_ymm));\n```",
+      "parentUuid": "88972cd9_88840c0a",
+      "revId": "16db148e63b94f3cd45ea4c06f63c6f74c0f1fca",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
