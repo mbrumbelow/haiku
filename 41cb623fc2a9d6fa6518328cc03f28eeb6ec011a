@@ -52,6 +52,24 @@
       "parentUuid": "a56bbbd4_8c9ea8b6",
       "revId": "41cb623fc2a9d6fa6518328cc03f28eeb6ec011a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d75b73e_2d056a5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-05T22:38:45Z",
+      "side": 1,
+      "message": "It seems to me these are deprecated *because* of the non-existant way to check for errors.\n\nIf the error doesn\u0027t matter here there is no point in switching this over imo. It\u0027s not a good code example then. There should be atleast an assertion in debug builds for opcode 0 then.\n\nI don\u0027t think using \"typically\" is a good idea for these, unless the compiler specifically forbids this, the undelying numeric value shouldn\u0027t matter, and someone accidentally adding an unexpected number for a new opcode shouldn\u0027t break this code.",
+      "parentUuid": "46525ebb_24314d31",
+      "revId": "41cb623fc2a9d6fa6518328cc03f28eeb6ec011a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
