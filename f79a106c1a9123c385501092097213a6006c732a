@@ -400,6 +400,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0bdc5d0_7909e970",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-05T16:17:39Z",
+      "side": 1,
+      "message": "The reason for asking for MHz refers to the comment of PulkoMandy here[1], initially it was asking for Hz values only.\n\nThe precision preference is purely visual, generally we see integer MHz values around, but GHz values are usually floating point, to show a more accurate representation of the processor speed.\n\n[1] https://review.haiku-os.org/c/haiku/+/7548/comment/10e6d39f_91b862d2/",
+      "parentUuid": "56a72342_1bb682ae",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "869594a1_7733cffc",
