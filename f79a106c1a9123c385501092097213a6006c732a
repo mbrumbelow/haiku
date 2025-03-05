@@ -382,6 +382,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a72342_1bb682ae",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-05T11:40:28Z",
+      "side": 1,
+      "message": "Why ask for the value in MHz instead of Hz, then? Why precision 2 for GHz onwards and 0 for smaller values?\n\nOn the other hand, as long as it works for the current use and it is private, I guess those can be changed when other needs arise, for example for media frame rates.",
+      "parentUuid": "5026f872_79611ac6",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "869594a1_7733cffc",
