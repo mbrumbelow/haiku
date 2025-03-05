@@ -16,6 +16,24 @@
       "message": "korli: I\u0027m not sure what you were trying to solve in the commit this reverts, but this seems much more correct: we now preserve the FPU status words as set by applications or the kernel rather than clobbering them.",
       "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0c2d39c_618a748a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-05T22:39:16Z",
+      "side": 1,
+      "message": "Using the default values from fenv.h alone fixes #19454 at least, but this seems more correct.",
+      "parentUuid": "c52a6729_19bd7a7c",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
