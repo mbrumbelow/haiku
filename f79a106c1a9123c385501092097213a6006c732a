@@ -436,6 +436,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "725bb2f3_4d4d72d7",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-05T19:26:14Z",
+      "side": 1,
+      "message": "Would adding a precision argument be desirable? This could allow fine-tuning wherever needed.",
+      "parentUuid": "58da3fd8_ec3524db",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "869594a1_7733cffc",
