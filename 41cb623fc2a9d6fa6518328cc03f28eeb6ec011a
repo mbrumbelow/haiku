@@ -34,6 +34,24 @@
       "parentUuid": "2ff96050_b0c00f75",
       "revId": "41cb623fc2a9d6fa6518328cc03f28eeb6ec011a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46525ebb_24314d31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-03-05T20:53:37Z",
+      "side": 1,
+      "message": "Initially I thought using FindInt32() could be an error, but then I realized it was using the int32 value version of FindInt32(), not the status_t version. I wanted to add GetInt32() to B_NODE_MONITOR to filter out stat changes but everywhere else uses FindInt32() and I didn\u0027t want to be different. 0 is an invalid opcode, typically opcode will start at 1. We weren\u0027t checking the status_t before so it should be ok that we\u0027re taking a similar shortcut in these cases.",
+      "parentUuid": "a56bbbd4_8c9ea8b6",
+      "revId": "41cb623fc2a9d6fa6518328cc03f28eeb6ec011a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
