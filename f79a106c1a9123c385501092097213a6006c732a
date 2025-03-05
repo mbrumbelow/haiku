@@ -418,6 +418,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "58da3fd8_ec3524db",
+        "filename": "src/kits/shared/StringForFrequency.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-05T18:01:21Z",
+      "side": 1,
+      "message": "\u003e The reason for asking for MHz refers to the comment of PulkoMandy here[1],\n\nWhich was about a broken modification of something else, not about a new generic function.\n\n\u003e generally we see integer MHz values around, but GHz values are usually floating point,\n\nFor CPU or bus frequencies, and if that\u0027s the only intended use, the small units are a nuisance. Audio CD has 44.1 kHz frame rate. Some codecs use multiples or divisors of that. I can also see 1.536 MHz, which would be shown as 2 MHz. The equalizer in media addons has bands of 31.25 and 62.5 Hz. The slider for screen refresh rate currently shows tenths of Hz, though I doubt that\u0027s significant, and the main screen uses integers.",
+      "parentUuid": "f0bdc5d0_7909e970",
+      "revId": "f79a106c1a9123c385501092097213a6006c732a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "869594a1_7733cffc",
