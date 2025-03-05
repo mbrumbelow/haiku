@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "27a797b7_710b194b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-05T15:40:31Z",
+      "side": 1,
+      "message": "You know, I\u0027m so dumb I didn\u0027t know what the \"#if 0\" did... 😊",
+      "parentUuid": "97ed6aa1_24a47296",
+      "revId": "29cb9bb754af2d8807ece7af5a2c82277f93407c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b22befbe_7ce258f5",
         "filename": "src/apps/aboutsystem/Credits.h",
         "patchSetId": 1
