@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6b542746_60533a8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-05T15:01:46Z",
+      "side": 1,
+      "message": "The other patch implementing this feature did use BScreenCapture\u0027s \"Select region\": https://review.haiku-os.org/c/haiku/+/6985\n\nBut it has some bugs remaining. I think that may be a better basis to work from than this change though.\n\n\u003e then clicked \"Select area\" to select an area of the just taken screenshot.\n\nThis is an interesting idea indeed, it\u0027s not how I\u0027m used to this feature working on other OSes, but it does sound better after some thought.",
+      "parentUuid": "3f32a6f9_5f8d8fdf",
+      "revId": "be341e2882ba31332f2e2a8c3a37a80e6bbfde62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "563356d8_d84d4e2d",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 6
