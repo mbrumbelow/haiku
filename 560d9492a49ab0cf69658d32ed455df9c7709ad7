@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a9a510d_b79415a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-05T20:20:42Z",
+      "side": 1,
+      "message": "Maybe sExitValue should only be set to success when the condition is found. Otherwise when quitting because of other reasons, it could still exit with 0.",
+      "revId": "560d9492a49ab0cf69658d32ed455df9c7709ad7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2fc0ed7d_f0b60890",
