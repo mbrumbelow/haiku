@@ -29,6 +29,7 @@
 #include <arch/x86/msi_priv.h>
 
 #include <stdio.h>
+#include <fenv.h>
 
 // interrupt controllers
 #include <arch/x86/ioapic.h>
@@ -178,12 +179,29 @@ x86_unexpected_exception(iframe* frame)
 			break;
 
 		case 19: 	// SIMD Floating-Point Exception (#XF)
+		{
 			type = B_FLOATING_POINT_EXCEPTION;
 			signalNumber = SIGFPE;
-			signalCode = FPE_FLTDIV;
-				// TODO: Determine the correct cause via the MXCSR register!
+			signalCode = FPE_FLTINV;
 			signalAddress = frame->ip;
+
+			// Determine the real cause of the exception, if possible.
+			uint32 mxcsr = 0;
+			__stmxcsr(&mxcsr);
+			if ((mxcsr & FE_INVALID) != 0)
+				signalCode = FPE_FLTINV;
+			else if ((mxcsr & FE_DENORMAL) != 0)
+				signalCode = FPE_FLTUND;
+			else if ((mxcsr & FE_DIVBYZERO) != 0)
+				signalCode = FPE_FLTDIV;
+			else if ((mxcsr & FE_OVERFLOW) != 0)
+				signalCode = FPE_FLTOVF;
+			else if ((mxcsr & FE_UNDERFLOW) != 0)
+				signalCode = FPE_FLTUND;
+			else if ((mxcsr & FE_INEXACT) != 0)
+				signalCode = FPE_FLTRES;
 			break;
+		}
 
 		default:
 			x86_invalid_exception(frame);
