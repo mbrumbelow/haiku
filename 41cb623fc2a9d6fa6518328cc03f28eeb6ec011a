@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ff96050_b0c00f75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-05T12:21:22Z",
+      "side": 1,
+      "message": "Only one variant of FindInt32 is deprecated, the other ones return a status_t you can use to check wether the value was found in the message or not.\nI think it is not a good idea to use the GetInt32 one here that implicitly returns a 0. Instead we should check if the Message contains the value before the switch, and if it does not we could even add an assettion for debug builds.",
+      "revId": "41cb623fc2a9d6fa6518328cc03f28eeb6ec011a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
