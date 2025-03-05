@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "97ed6aa1_24a47296",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-05T11:25:18Z",
+      "side": 1,
+      "message": "kr is still disabled, maybe you\u0027d like to enable?",
+      "parentUuid": "92c18257_57ddb437",
+      "revId": "29cb9bb754af2d8807ece7af5a2c82277f93407c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b22befbe_7ce258f5",
         "filename": "src/apps/aboutsystem/Credits.h",
         "patchSetId": 1
