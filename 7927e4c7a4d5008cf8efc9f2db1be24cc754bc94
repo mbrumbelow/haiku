@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e814518c_558f372b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-06T16:06:06Z",
+      "side": 1,
+      "message": "I think we should use the c++14 Deprecated attribute instead. This will allow us to formulate the deprecation message directly, and allow people to get proper debug output from their compiler as to what they should do instead.",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fac84af4_ba13fcdb",
         "filename": "headers/os/BeBuild.h",
         "patchSetId": 2
