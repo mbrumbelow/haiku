@@ -143,6 +143,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a09ba09_a52c76fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T20:09:27Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to fix the profile problem, no. I didn\u0027t investigate that further yet. And I didn\u0027t retest #18656 so it\u0027s possible this regresses that too, I need to check.\n\nFreeBSD does allow use of FPU in the kernel, but only inside fpu_kern_enter()/fpu_kern_leave() blocks, which manage a context separately.\n\nConsidering they don\u0027t invoke \"emms\", do we need to here? What about invoking it before the context switch instead of after?",
+      "parentUuid": "c82fbb6b_081352d0",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
