@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "74541023_244c0ac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T13:03:34Z",
+      "side": 1,
+      "message": "Ah, OK.\n\nWhy does that happen before the context switch occurs, though? I.e. why do we see the stack of the previous thread and not the new thread? The FPU context switch happens after the the thread context switch, right?\n\nWould it help to invoke EMMS in int_user_bottom and other such places rather than here?\n\nActually I can\u0027t find any reference to EMMS in FreeBSD AMD64 sources. So how do they handle this case?",
+      "parentUuid": "6d335f35_fbb83909",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
