@@ -53,6 +53,42 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d335f35_fbb83909",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-06T05:40:15Z",
+      "side": 1,
+      "message": "Was trying to fix when using the debugger as described in #18656",
+      "parentUuid": "d0c2d39c_618a748a",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a080a52_0c6829c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-06T05:40:15Z",
+      "side": 1,
+      "message": "Restoring the state with the FP exception might trigger the FP exception again. It\u0027s difficult to know whether it is expected, meaning the user code should handle SIGFPE.",
+      "parentUuid": "719c17a4_a20097e2",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
