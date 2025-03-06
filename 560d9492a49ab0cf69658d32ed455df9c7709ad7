@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6d24a195_f66464af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-06T17:13:16Z",
+      "side": 1,
+      "message": "Done. Now sExitValue is initiated with EXIT_FAILURE and only set to EXIT_SUCCESS when the condition is met.",
+      "parentUuid": "4a9a510d_b79415a6",
+      "revId": "560d9492a49ab0cf69658d32ed455df9c7709ad7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2fc0ed7d_f0b60890",
         "filename": "src/bin/waitfor.cpp",
         "patchSetId": 5
