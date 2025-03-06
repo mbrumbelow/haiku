@@ -414,16 +414,17 @@ public:
 									const BFlattenable* object) const;
 			bool				HasData(const char* name, type_code ,
 									int32 n = 0) const;
-			BRect				FindRect(const char* name, int32 n = 0) const;
-			BPoint				FindPoint(const char* name, int32 n = 0) const;
-			const char*			FindString(const char* name, int32 n = 0) const;
-			int8				FindInt8(const char* name, int32 n = 0) const;
-			int16				FindInt16(const char* name, int32 n = 0) const;
-			int32				FindInt32(const char* name, int32 n = 0) const;
-			int64				FindInt64(const char* name, int32 n = 0) const;
-			bool				FindBool(const char* name, int32 n = 0) const;
-			float				FindFloat(const char* name, int32 n = 0) const;
-			double				FindDouble(const char* name, int32 n = 0) const;
+
+			BRect				FindRect(const char* name, int32 n = 0) const _DEPRECATED;
+			BPoint				FindPoint(const char* name, int32 n = 0) const _DEPRECATED;
+			const char*			FindString(const char* name, int32 n = 0) const _DEPRECATED;
+			int8				FindInt8(const char* name, int32 n = 0) const _DEPRECATED;
+			int16				FindInt16(const char* name, int32 n = 0) const _DEPRECATED;
+			int32				FindInt32(const char* name, int32 n = 0) const _DEPRECATED;
+			int64				FindInt64(const char* name, int32 n = 0) const _DEPRECATED;
+			bool				FindBool(const char* name, int32 n = 0) const _DEPRECATED;
+			float				FindFloat(const char* name, int32 n = 0) const _DEPRECATED;
+			double				FindDouble(const char* name, int32 n = 0) const _DEPRECATED;
 
 	// Convenience methods
 			bool				GetBool(const char* name,

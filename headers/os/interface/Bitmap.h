@@ -113,9 +113,8 @@ public:
 	class Private;
 
 public:
-	// deprecated
 			void				SetBits(const void* data, int32 length,
-									int32 offset, color_space colorSpace);
+									int32 offset, color_space colorSpace) _DEPRECATED;
 
 private:
 			status_t			ImportBits(const void* data, int32 length,
