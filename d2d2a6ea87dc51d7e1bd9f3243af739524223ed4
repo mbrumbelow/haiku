@@ -98,6 +98,24 @@
       "message": "this requires SSE AFAICT",
       "revId": "d2d2a6ea87dc51d7e1bd9f3243af739524223ed4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134fb300_d020b246",
+        "filename": "src/system/kernel/arch/x86/arch_int.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T12:51:56Z",
+      "side": 1,
+      "message": "I think this exception can only happen with SSE anyway? OSDev says https://wiki.osdev.org/Exceptions#SIMD_Floating-Point_Exception that it can only happen if OSXMMEXCPT is set to 1 by the OS. We do that in x86_init_fpu.\n\nI guess it may deserve a comment here though?",
+      "parentUuid": "64cba938_77f6675c",
+      "revId": "d2d2a6ea87dc51d7e1bd9f3243af739524223ed4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
