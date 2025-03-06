@@ -16,6 +16,24 @@
       "message": "Seems sensible.\nJust for my understanding, currently the first column shows the cached memory of a team, an the second the actually used at this moment. E.g.: \"launch_daemon - 2.16 MiB - 12.73 MiB\" means 2.16 MiB are cache, 12.73 MiB are currently in use.",
       "revId": "2ae415f84a7d67854536f4c1bbef9c011faeb54f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ab57555_cc84d33c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T16:16:32Z",
+      "side": 1,
+      "message": "No, that\u0027s not correct; AFAIK the first column shows \"resident memory usage\", and the second \"total memory usage\". The second thus includes e.g. memory mapped files shared across processes (like libroot, libbe, and the like.)",
+      "parentUuid": "5d3e4be7_507cd4c2",
+      "revId": "2ae415f84a7d67854536f4c1bbef9c011faeb54f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
