@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7f4d8e_481e405a",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T02:39:04Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4dce5902_ba5fb428",
+      "revId": "8854ac7e4c02e3561d3d5dc692072615315af297",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4b084fb_9f2ddbda",

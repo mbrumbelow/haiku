@@ -155,6 +155,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6f37d389_3a621032",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T02:39:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbba38d4_4e37f8e5",
+      "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0c786b1a_fd264699",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 1
@@ -742,6 +760,24 @@
       "writtenOn": "2025-02-26T17:09:37Z",
       "side": 1,
       "message": "It looks like this command building is common to multiple methods. Perhaps it should be refactored out into its own utility method?",
+      "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59a45f04_594f1e7b",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T02:39:04Z",
+      "side": 1,
+      "message": "Very nice.",
+      "parentUuid": "bfa4c5a9_62a3bc6a",
       "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
