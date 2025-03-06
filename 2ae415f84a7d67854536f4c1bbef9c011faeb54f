@@ -34,6 +34,24 @@
       "parentUuid": "5d3e4be7_507cd4c2",
       "revId": "2ae415f84a7d67854536f4c1bbef9c011faeb54f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ee8b10_b06e999b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-06T16:40:12Z",
+      "side": 1,
+      "message": "I assumed wrongly, seeing \"fCachedMemory\" then...\nI wanted to add some info to the \"Memory usage\" section of PC in the userguide, but I don\u0027t think I understand enough to write about it. If someone supplies a correct and layman-suited explanation, I can add it... 😊",
+      "parentUuid": "1ab57555_cc84d33c",
+      "revId": "2ae415f84a7d67854536f4c1bbef9c011faeb54f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
