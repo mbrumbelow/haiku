@@ -71,5 +71,38 @@
       "revId": "2ae415f84a7d67854536f4c1bbef9c011faeb54f",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
+  ],
+  "submitRequirementResults": [
+    {
+      "submitRequirement": {
+        "name": "Build-Check",
+        "description": {
+          "value": "Builds OK on all architectures"
+        },
+        "applicabilityExpression": {
+          "value": {
+            "expressionString": "-branch:refs/meta/config"
+          }
+        },
+        "submittabilityExpression": {
+          "expressionString": "-label:Verified\u003d-1"
+        },
+        "overrideExpression": {},
+        "allowOverrideInChildProjects": false
+      },
+      "applicabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"-branch:refs/meta/config"},"status":"PASS","errorMessage":{"value":null},"passingAtoms":[],"failingAtoms":["branch:refs/meta/config"]}
+      },
+      "submittabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"-label:Verified=-1"},"status":"PASS","errorMessage":{"value":null},"passingAtoms":[],"failingAtoms":["label:Verified=-1"]}
+      },
+      "overrideExpressionResult": {},
+      "patchSetCommitId": "2ae415f84a7d67854536f4c1bbef9c011faeb54f",
+      "legacy": {
+        "value": false
+      },
+      "forced": {},
+      "hidden": {}
+    }
   ]
 }
