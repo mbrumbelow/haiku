@@ -255,6 +255,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f23f36_add18184",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/FileSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T19:59:11Z",
+      "side": 1,
+      "message": "OK. I suppose the asserts are likely to catch this case anyway, and we can deal with it more if it arises.",
+      "parentUuid": "ba1aea8c_5caf2695",
+      "revId": "6d5143954e8ad66472397d56dffbc7037fd30786",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "867181dc_d72bb7be",
