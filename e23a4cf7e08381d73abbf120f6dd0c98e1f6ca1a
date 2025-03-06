@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bf63728_fb7b14dc",
+        "filename": "headers/os/storage/Resources.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-06T19:21:59Z",
+      "side": 0,
+      "message": "This one is in fact for the four methods below. WriteResource -\u003e AddResource. ReadResource and FindResource -\u003e LoadResource.",
+      "revId": "e23a4cf7e08381d73abbf120f6dd0c98e1f6ca1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
