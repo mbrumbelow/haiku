@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6a7c002_3a419bdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T13:16:42Z",
+      "side": 1,
+      "message": "Looks like FreeBSD just lets the FP exception happen again: https://github.com/freebsd/freebsd-src/blob/main/sys/amd64/amd64/fpu.c#L682\n\nSo can we delete the additions to x86_context_switch altogether, and just leave the EMMS? Or what else is needed to make this case work properly?\n\nThis also may be relevant? https://github.com/freebsd/freebsd-src/blob/main/sys/amd64/amd64/fpu.c#L1009",
+      "parentUuid": "1a080a52_0c6829c4",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
