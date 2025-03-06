@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1415f613_8a601b0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-06T16:12:10Z",
+      "side": 1,
+      "message": "1: That won\u0027t work in C mode, so we need to use the attribute for C anyway.\n\n2: It also won\u0027t work in C++11 mode or anything before it, so we would need a macro anyway to disable using that in public headers if the C version is below C++11. And furthermore I don\u0027t think we should leave people who use a C++ version below C++11 out of deprecation warnings and messages.\n\n3: We have a general policy of not including documentation in headers. If you get a deprecation warning, wouldn\u0027t the first instinct be to go read the documentation anyway? Why do we need custom messages about deprecation in headers?\n\n4: Adding messages will increase the size of the header files as well as compilation time. Presently we have either brief notices about deprecation in source code comments (which we can have just one for a whole block of deprecated methods, like in BMessage, and not need to copy/paste the same string multiple times in the same file), or nothing at all. If we have a string per deprecated method then the compiler needs to store it specially, which will increase parsing time and memory usage.\n\nSo on the whole I think the downsides to using the C++14 version here far outweigh any advantages.",
+      "parentUuid": "e814518c_558f372b",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
