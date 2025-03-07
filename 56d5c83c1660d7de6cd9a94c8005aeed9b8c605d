@@ -269,6 +269,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fd91931_dcff7ccd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-07T20:23:12Z",
+      "side": 1,
+      "message": "With more testing, it seems either FNCLEX or EMMS is needed to avoid exceptions indeed. I guess if OSv went with EMMS then we might as well use that. But I wonder why FreeBSD does not seem to have the same problem, and apparently stopped using EMMS? I did run the tests under FreeBSD.",
+      "parentUuid": "260df1e1_2654a06e",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
