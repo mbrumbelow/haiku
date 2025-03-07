@@ -287,6 +287,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a900607_eec04721",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-07T20:24:48Z",
+      "side": 1,
+      "message": "Ah, I guess it\u0027s just because they don\u0027t allow FPU usage by default in the kernel. So they only change the control words with FXRSTOR or the like in general, which do not raise exceptions.",
+      "parentUuid": "2fd91931_dcff7ccd",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
