@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef37b949_1b041865",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-07T22:40:04Z",
+      "side": 1,
+      "message": "FXRSTOR includes MXCSR as well, however, we don\u0027t invoke it on context switch on x86_64, we just let the compiler assume the context switch clobbers.\n\nPoking around a bit, it appears x86_64_thread_entry does not reset FPU state. That seems a likely cause of this Debugger problem.",
+      "parentUuid": "877671cf_2bd8ad1a",
+      "revId": "8495155bdd3afcb095d7e21ad8cf7e7a11293cf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7f783220_8c8a7c59",
