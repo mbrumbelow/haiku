@@ -215,6 +215,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a7668b_2879b579",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-07T19:09:05Z",
+      "side": 1,
+      "message": "Yes, I saw that. However, FreeBSD doesn\u0027t execute EMMS at all. Doesn\u0027t OSv execute everything inside ring 0, it doesn\u0027t use userspace? So that may make a difference.\n\nsyscalls are voluntary context switches, however, it seems MXCSR is callee-saved. So that explains why we need to save it specially here.\n\nAlso if we don\u0027t clobber XMM regs on return to userland, we might leak kernel data, or other threads\u0027 data. So that should probably be fixed too.",
+      "parentUuid": "f6f03a67_17b6833e",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
