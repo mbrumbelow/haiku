@@ -161,6 +161,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d05edd3_8586cd81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-07T18:18:03Z",
+      "side": 1,
+      "message": "Well, I investigated more, and I\u0027m still confused.\n\nI tried removing the LDMXCSR and FLDCW entirely, because as far as I can tell from the documentation, FXRSTOR and other like operations restore x87 status words and MXCSR (as long as OSFXSR is set, and I asserted it is), but I am seeing exception 19 happen in other threads with similar MXCSR states to the first faulting thread (this is with a dprintf in the exception handler to print the FCW/MXCSR state and then signal code):\n```\nFPU exception 19: 1, 26\ndebug_server: Thread 244 entered the debugger: Floating point exception\nFPU exception 19: 33, 26\ndebug_server: Thread 225 entered the debugger: Floating point exception\nFPU exception 19: 33, 26\ndebug_server: Thread 213 entered the debugger: Floating point exception\n```\n\nThe same happens with the x87 FPU:\n```\nFPU exception 16: 32897, 26\ndebug_server: Thread 249 entered the debugger: Floating point exception\nFPU exception 16: 32897, 26\ndebug_server: Thread 256 entered the debugger: Floating point exception\n```\n\nFreeBSD\u0027s fputrap_* methods don\u0027t clear this state (indeed a context switch might have happened by the time they are called.) Moreover I grepped through FreeBSD source and see no references to LDMXCSR except in amd64/fpu.c and include/ieeefp.h in their kernel (besides disassemblers and i386 code also of course.)\n\nI disabled XSAVE support, it made no difference the same faults still happen.\n\nSo what is supposed to happen here? I don\u0027t see anything in Intel documentation that indicates MXCSR and FLCW will be left unchanged by FXRSTOR if it contains exception bits. So what is going wrong?",
+      "parentUuid": "3a09ba09_a52c76fe",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
