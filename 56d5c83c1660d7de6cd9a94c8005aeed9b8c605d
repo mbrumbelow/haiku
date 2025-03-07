@@ -179,6 +179,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b781265b_1b78b724",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-07T18:46:43Z",
+      "side": 1,
+      "message": "Mh... we don\u0027t save or restore FPU state at syscall entry. That seems like a security hole actually, we need to clobber anything the kernel set on syscall exit. And we also need to preserve the control word and flags because the kernel may modify those too. So I guess that likely explains it.",
+      "parentUuid": "7d05edd3_8586cd81",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
