@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "877671cf_2bd8ad1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-07T22:37:25Z",
+      "side": 1,
+      "message": "I checked on x86, fxsave/fxstor indeed includes mxcsr. Makes me wonder why this was left out for x86_64.",
+      "parentUuid": "0abffb60_829c92c3",
+      "revId": "8495155bdd3afcb095d7e21ad8cf7e7a11293cf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7f783220_8c8a7c59",
