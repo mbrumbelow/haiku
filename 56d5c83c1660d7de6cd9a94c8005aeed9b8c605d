@@ -233,6 +233,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d6868b_09a33894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-07T20:10:31Z",
+      "side": 1,
+      "message": "we clobber XMM regs on return to userland, when they aren\u0027t restored:\nhttps://cgit.haiku-os.org/haiku/tree/src/system/kernel/arch/x86/64/interrupts.S#n481",
+      "parentUuid": "c0a7668b_2879b579",
+      "revId": "56d5c83c1660d7de6cd9a94c8005aeed9b8c605d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "92dbee55_5dfd40e5",
