@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "44da6daf_90e43628",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-07T23:16:45Z",
+      "side": 1,
+      "message": "Posted another patch: https://review.haiku-os.org/c/haiku/+/9092/1\n\nI didn\u0027t try Debugger nearly as many times but at least it didn\u0027t crash immediately. I\u0027ll test more later.\n\nIt also appears we don\u0027t clear FPU regs in return_to_userland, that should probably be done.",
+      "parentUuid": "ef37b949_1b041865",
+      "revId": "8495155bdd3afcb095d7e21ad8cf7e7a11293cf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7f783220_8c8a7c59",
