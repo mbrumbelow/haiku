@@ -181,6 +181,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bf99b2ea_3a736dcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T05:32:39Z",
+      "side": 1,
+      "message": "In Intel manuals, there\u0027s section \"13.2.1 Effect of MMX, x87 FPU, FXSAVE, and FXRSTOR Instructions on the x87 FPU Tag Word\". If I understand this correctly, FXSAVE sets all tags to 1 (like EMMS), so there should be no need for it on context switch in particular.\n\nThough, we don\u0027t seem to clear/reset x87 state in interrupts.S, if I read correctly? That might be a problem.",
+      "parentUuid": "3b84077f_913ac394",
+      "revId": "8495155bdd3afcb095d7e21ad8cf7e7a11293cf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7f783220_8c8a7c59",
         "filename": "headers/private/kernel/arch/x86/64/cpu.h",
         "patchSetId": 3
