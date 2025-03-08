@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a22b463_205fd976",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T13:14:43Z",
+      "side": 1,
+      "message": "fork return should be the same as syscall exit, so that should be OK.",
+      "parentUuid": "ba3e69e0_4e4e47ee",
+      "revId": "2206d5c09023ae8a72ec3833554416e831ec34be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dd864cf_98b660e9",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-03-08T13:01:28Z",
       "side": 1,
       "message": "this means the initial user fpu state is also used to init the kernel state. the initial user fpu state wasn\u0027t used until now anyway, on userland return, because the fpu state doesn\u0027t get restored, right?",
+      "revId": "2206d5c09023ae8a72ec3833554416e831ec34be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "556b263e_7d08acd7",
+        "filename": "src/system/kernel/arch/x86/64/arch.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T13:14:43Z",
+      "side": 1,
+      "message": "At the point this function is called the thread should be completely clean, so this should be OK, yes. But restoring the user FPU state would be fine anyway because we don\u0027t touch it on kernel syscall entry, so we enter the kernel with a user FPU state all the time anyway.",
+      "parentUuid": "0dd864cf_98b660e9",
       "revId": "2206d5c09023ae8a72ec3833554416e831ec34be",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
