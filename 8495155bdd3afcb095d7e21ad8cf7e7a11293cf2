@@ -325,6 +325,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e952de5c_08fd2c1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T13:56:35Z",
+      "side": 1,
+      "message": "I think it isn\u0027t needed, because it\u0027s callee-saved, so the compiler should automatically take care of saving it on the stack in kernel space if it generates code that changes it.\n\nMeanwhile, while FNINIT doesn\u0027t clear data registers, it looks like most normal ways of accessing them would cause faults and not work if the tag word indicates they are empty (and the tag word can only be written by FRSTOR or the like, I think.) So maybe we don\u0027t need to do anything in syscall exit after this, not sure.",
+      "parentUuid": "7603466d_8d35da53",
+      "revId": "8495155bdd3afcb095d7e21ad8cf7e7a11293cf2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7f783220_8c8a7c59",
         "filename": "headers/private/kernel/arch/x86/64/cpu.h",
         "patchSetId": 3
