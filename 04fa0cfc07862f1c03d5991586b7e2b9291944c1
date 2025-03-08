@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6e0dc2_1f00190d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T22:47:21Z",
+      "side": 1,
+      "message": "Is this \u0027paradigm\u0027 documented (just a few remarks in a `/*!` before the class probably suffices)? I didn\u0027t look closely for that but nothing jumped out at me either.",
+      "revId": "04fa0cfc07862f1c03d5991586b7e2b9291944c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89163f61_c050612f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T22:47:21Z",
+      "side": 1,
+      "message": "Andrew, as you are the primary one maintaining HaikuDepot, you will probably have to tell us if you want anything in here reviewed. I scrolled through all the changes, but rather quickly and didn\u0027t spend much time thinking about them. From my perspective it\u0027s probably all OK.",
+      "revId": "04fa0cfc07862f1c03d5991586b7e2b9291944c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9542d310_81b1e85e",
+        "filename": "src/apps/haikudepot/util/IdentityAndAccessUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T22:47:21Z",
+      "side": 1,
+      "message": "No need for this message, we do things like this in the source tree relatively frequently.",
+      "revId": "04fa0cfc07862f1c03d5991586b7e2b9291944c1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
