@@ -144,6 +144,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc120d12_a9bad726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-08T22:39:18Z",
+      "side": 1,
+      "message": "No, I still don\u0027t think it makes sense to add for the other reasons I listed (we have a policy of keeping documentation out of headers with rare exceptions, and I don\u0027t think it is one.) I merely meant that, if for whatever reason we do decide to add it and/or change things to use it, it wouldn\u0027t be so invasive as re-ordering things to use the C23/C++14 version would be.",
+      "parentUuid": "d4752d5c_19fc7646",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
