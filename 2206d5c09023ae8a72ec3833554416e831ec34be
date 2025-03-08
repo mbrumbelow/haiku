@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba3e69e0_4e4e47ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-08T13:01:28Z",
+      "side": 1,
+      "message": "Please note that x86_initial_return_to_userland() is also used on fork for the child. I suppose the user fpu state would be to be copied to the new thread.",
+      "revId": "2206d5c09023ae8a72ec3833554416e831ec34be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dd864cf_98b660e9",
+        "filename": "src/system/kernel/arch/x86/64/arch.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-08T13:01:28Z",
+      "side": 1,
+      "message": "this means the initial user fpu state is also used to init the kernel state. the initial user fpu state wasn\u0027t used until now anyway, on userland return, because the fpu state doesn\u0027t get restored, right?",
+      "revId": "2206d5c09023ae8a72ec3833554416e831ec34be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
