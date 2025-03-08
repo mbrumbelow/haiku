@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e65739d_776faa89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-08T11:42:25Z",
+      "side": 1,
+      "message": "I would add the name in the x86 struct:\nhttps://cgit.haiku-os.org/haiku/tree/headers/posix/arch/x86/signal.h#n117",
+      "revId": "2d162d21dc20cec11f565980da3786e4a1c7eb2b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
