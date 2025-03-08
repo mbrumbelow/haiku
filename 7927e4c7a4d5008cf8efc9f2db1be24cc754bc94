@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f806f9_d7c27eb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2025-03-08T10:31:39Z",
+      "side": 1,
+      "message": "C supports the attribute since C23: https://en.cppreference.com/w/c/language/attributes/deprecated\n\nBut being compatible with older language standards is better, so I think @waddlesplash is still right.\n\nThe gcc attribute also supports an optional message to be specified: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-deprecated-function-attribute",
+      "parentUuid": "e002bdc4_04e4daf7",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
