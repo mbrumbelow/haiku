@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d09958a_25999265",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-09T10:52:06Z",
+      "side": 1,
+      "message": "Yes it\u0027s big! I\u0027ve put through a few smaller preparatory PRs in 2024 but the rest is hard to do in chunks so unfortunately it is a big one. Thanks for the comments; I will go through them...",
+      "parentUuid": "a6767e7e_39637830",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b516494b_f1eebed8",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-03-09T09:55:48Z",
       "side": 1,
       "message": "Are these identifiers \"normally\" managed by the server application? is it possible, in theory, that they can colide since they are not serverside?",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a063d1a1_044798dc",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-09T10:52:06Z",
+      "side": 1,
+      "message": "This is a special case for the scenario where a locally stored HPKG file locally has been opened in HaikuDepot; it might be at `${HOME}/Desktop/art_program.hpkg` for example. There is no repo that the loose file belongs to, but the internals of HaikuDepot need to associate the HPKG with a Depot to be able to use it; hence this \"fake Depot\" is used.\n\nIn theory, this string could collide with an identifier in a configured Haiku repository or in HDS but this is very unlikely and is why I added the \"rubbish\" on the end.",
+      "parentUuid": "b516494b_f1eebed8",
       "revId": "53e49805617572a737f59436fc8cf8d199a11612",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "180c6317_774fc877",
+        "filename": "src/apps/haikudepot/icon/PackageIconDefaultRepository.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-09T10:52:06Z",
+      "side": 1,
+      "message": "I\u0027m not sure that\u0027s worth being a fatal error; the application is still able to continue even if this data is not available for some reason. It just won\u0027t show icons.",
+      "parentUuid": "7fa3f5f5_70a615fd",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b82d6d1_b253953b",
         "filename": "src/apps/haikudepot/icon/PackageIconDefaultRepository.cpp",
         "patchSetId": 3
@@ -65,6 +119,24 @@
       "writtenOn": "2025-03-09T09:55:48Z",
       "side": 1,
       "message": "this comparison is always true",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dbdbfa4_07a14226",
+        "filename": "src/apps/haikudepot/icon/PackageIconDefaultRepository.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-09T10:52:06Z",
+      "side": 1,
+      "message": "This is true, but I\u0027m often using a pattern that breaks the logic into guarded blocks like this.\n\n```\nstatus_t status;\n\nif status \u003d\u003d B_OK) { .. }\nif status \u003d\u003d B_OK) { .. }\nif status \u003d\u003d B_OK) { .. }\n```\n\nIt makes it easier to read and I find safer to change.",
+      "parentUuid": "6b82d6d1_b253953b",
       "revId": "53e49805617572a737f59436fc8cf8d199a11612",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99edf6a1_91607e27",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-09T10:52:06Z",
+      "side": 1,
+      "message": "This area is a bit of an initialization headache.\n\nThe model gets setup to start with using a default preferred language of English like you see. This is because I want the `Model` to not contain any real business logic and English is a reasonable default although it probably never gets used.\n\nThe `MainWindow::_InitPreferredLanguage` logic detects the user\u0027s default language from the well-known languages that are known to be on the server and configures it. More work is required in that method actually (see TODO) ... but not for this PR. This preferred language is most likely only used to fetch the reference data (languages, categories etc...) from the server.\n\nShortly after, when the application interacts with the server in `ServerReferenceDataUpdateProcess::_ProcessNaturalLanguages` then it will finally have the actual current list of supported languages from the server system and will again attempt to pick the user\u0027s preferred language from that list. Further interaction with the server is then possible with the correct preferred language.\n\nAs it happens, I realize this line you have highlighted is now superfluous so I will remove that!",
+      "parentUuid": "331e6363_5f9fc97b",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "959ba3cb_99259ae8",
         "filename": "src/apps/haikudepot/model/Model.cpp",
         "patchSetId": 3
@@ -99,6 +189,24 @@
       "writtenOn": "2025-03-09T09:55:48Z",
       "side": 1,
       "message": "this is always true",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e01ec59b_4442d923",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-09T10:52:06Z",
+      "side": 1,
+      "message": "Same reason as above; I would prefer to guard even the first block of logic that could fail as it is easier to read and adjust later.",
+      "parentUuid": "959ba3cb_99259ae8",
       "revId": "53e49805617572a737f59436fc8cf8d199a11612",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
