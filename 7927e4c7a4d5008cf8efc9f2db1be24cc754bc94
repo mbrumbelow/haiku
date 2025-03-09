@@ -180,6 +180,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c7896c_62afd110",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T09:19:32Z",
+      "side": 1,
+      "message": "a) this is not documentation\nand b) this doesn\u0027t have anything to do with adding the define.\n\nIf you think something is relevant or not relevant to be annotated for a deprecation then you can mention it on the code review adding that specific deprecation, adding a blanket ban here solely because you think it might not be a case makes no sense.\n\nIf there is a \"policy\" for this, please link it. Thus far you have only claimed severall times there is a policy, but again, marking stuff as deprecated is not documentation. If anything the random comments in headers that just say \"deprecated\" qualify more as documentation than this attribute might.\n\nSetting -2 since this discussion is not resolved any you\u0027ve again +2\u0027d your own change and resolved the comment chain on your own.",
+      "parentUuid": "d0dccd44_65c6f398",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
