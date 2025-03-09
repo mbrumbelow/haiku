@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcbb48e6_f2e0d59a",
+        "filename": "src/servers/launch/Conditions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-09T23:21:45Z",
+      "side": 0,
+      "message": "Probably should return false at the end of this block rather than try to load the file as driver settings if the type doesn\u0027t match?",
+      "revId": "a3ab1be8df027c2cee5ef7d7bbe85c33a7b0c047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
