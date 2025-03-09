@@ -162,6 +162,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0dccd44_65c6f398",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-09T09:05:20Z",
+      "side": 1,
+      "message": "the idea was more about version. deprecated since r1beta6. so it can be defined one time and reused in headers.",
+      "parentUuid": "dc120d12_a9bad726",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
