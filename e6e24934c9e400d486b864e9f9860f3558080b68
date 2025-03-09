@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc1b0a2b_8e141708",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-09T23:37:19Z",
+      "side": 1,
+      "message": "I just looked into the implementation of these methods in app_server, and if I understand the code correctly, this change won\u0027t make any difference: app_server already coalesces multiple color change requests received in a short window into one update, but it always sends out multiple \"color changed\" messages to applications, no matter whether set_ui_color or set_ui_colors was the invoking method. So this doesn\u0027t make a difference and is just extra code for no reason.\n\nNow, that being said, I don\u0027t think we should change how this API/ABI works in app_server to send out one message for multiple color changes, either, because:\n\n1: It won\u0027t just \"possibly\" break existing applications, it *will* break them. And it\u0027s the worst kind of API/ABI break: a totally silent one. Broken applications won\u0027t fail to start and won\u0027t fail to build, and depending on how they are written will probably not throw any errors at runtime either, they will just fail to behave as expected.\n\nThe `B_COLORS_CHANGED` message does not come from BeOS, so technically we are free to break it, but for user-facing APIs we try to keep at least binary compatibility if we can. And we certainly could here ... by just continuing to send the existing multiple messages per color.\n\n2: I don\u0027t really see what benefit it would provide anyway. As an \"efficiency\" gain it\u0027s negligible to meaningless (on a mostly idle system there will still be dozens or more BMessages sent per second anyway, such as mouse movements and B_PULSE, so a few dozen more sent rarely doesn\u0027t make much difference if any.) So then it\u0027s only applications that would want to update colors in batches that get any benefit; but what applications actually want to do this? Meanwhile all other applications that don\u0027t care whether color updates are sent all at once or in multiple messages would have to have much more complicated logic to process the messages.\n\n3: Introducing something which does require applications to store the color name and not just the constant color_which sounds fragile: changing the constant name will now break ABI rather than just source compatibility (and moreover it *won\u0027t* break source compatibility, so tracking down that brokenness will be annoying). The existing set_ui_colors seems like a strange API to me as a result and I find it questionable, but at least it\u0027s not commonly used and applications don\u0027t have to call it at present.\n\nSo I don\u0027t think there\u0027s much reason for this change, and many reasons not to go with it.",
+      "revId": "e6e24934c9e400d486b864e9f9860f3558080b68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0d17f7e4_1a7a0255",
