@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc1c611_3d730721",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c61fb34a_8d16928d",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4f1a1dc_53af1107",
@@ -66,6 +84,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "Each BView has 6 colors defined:\n* 3 are color_which that specify semantic colors for the view.\n* 3 are rgb_color that specify specific colors for the view.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00621491_ded78927",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4f1a1dc_53af1107",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -87,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d91eed49_265a31a4",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d283e460_551f7f1a",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5e895f1_a406d4da",
@@ -100,6 +154,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "These specify their intent to be used for documents. Applications that have a document-like view can then use these colors, for example a mail application, a webrowser, or text editor.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa8f4f63_a4703960",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5e895f1_a406d4da",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -121,6 +193,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12e2b2d8_936f8c76",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9766c8d4_39358786",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5843aac_16aed34c",
@@ -134,6 +224,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "These specific colors are set by SetHighColor(), SetLowColor() and SetViewColor().\nThe semantic colors are set by SetHighUIColor(), SetLowUIColor() and SetViewUIColor().",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77bd3a52_2522caae",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5843aac_16aed34c",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -155,6 +263,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e322f005_f5da1d3f",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cfe949c_32abcf0c",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7d8e4d4_a38897c3",
@@ -168,6 +294,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "And instead use a semantic color like this: SetHighUIColor(B_PANEL_TEXT_COLOR);",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0286bb19_63828c1f",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7d8e4d4_a38897c3",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -189,6 +333,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fa5f6eb_eb20ebac",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e8cac06_8f62a518",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "221888ca_d47e075c",
@@ -202,6 +364,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "The BLooper of your main BApplication will get messages of the type B_COLORS_UPDATED (defined in AppDefs.h).",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a1c68b7_b0aa8e26",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "221888ca_d47e075c",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -223,6 +403,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3259667c_02b16f38",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae01f421_e9754548",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ccd6542_f6194bc4",
@@ -236,6 +434,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "In your ::MessageReceived method you can grab the B_COLORS_UPDATED message and extract the color(s).\nFor example, if there is a special view that deals with control colors, I could do this:",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05a180da_a8de7251",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ccd6542_f6194bc4",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -257,6 +473,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a72eafdb_ef50ac04",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8cfd26d_eba57388",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "570e42eb_0fd55d1c",
@@ -270,6 +504,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "During the ::Draw phase of each BView, those will either give instructions to the application server directly on how to draw with the specified color, draw themselves into an off-screen buffer/bitmap and then pass this on. Or more commonly, instruct the specified OS-defined control look what drawing operation with which colors it is supposed to do.",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cbe8b15_e6873572",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "570e42eb_0fd55d1c",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -291,6 +543,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "551cae02_e602768c",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ef2de69_eea76df5",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8d5bbc8_b70d96a5",
@@ -304,6 +574,24 @@
       "writtenOn": "2025-02-11T19:04:54Z",
       "side": 1,
       "message": "Alternatively, if styling is used but no custom colors are used, the entire BTextView color can be updated with SetFontAndColor(NULL, NULL, newColor);",
+      "revId": "b275a7f67015d3964d5869429b60d67be311245e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c49aee_cc4532b4",
+        "filename": "docs/user/ui/colors.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8d5bbc8_b70d96a5",
       "revId": "b275a7f67015d3964d5869429b60d67be311245e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }

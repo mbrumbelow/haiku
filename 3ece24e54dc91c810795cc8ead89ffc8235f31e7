@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afd9f7b3_7a4a79cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T11:09:32Z",
+      "side": 1,
+      "message": "Applied your suggestions, thanks!\n\nNow I only need feedback on the technical aspects of this 😊",
+      "revId": "3ece24e54dc91c810795cc8ead89ffc8235f31e7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
