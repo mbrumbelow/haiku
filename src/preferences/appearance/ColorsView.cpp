@@ -32,6 +32,7 @@
 #include "Colors.h"
 #include "ColorsView.h"
 
+#include <private/app/ServerReadOnlyMemory.h>
 
 #undef B_TRANSLATION_CONTEXT
 #define B_TRANSLATION_CONTEXT "Colors tab"
@@ -46,6 +47,52 @@ using BPrivate::BColorItem;
 using BPrivate::BColorListView;
 using BPrivate::BColorPreview;
 
+// copied from InterfaceDefs.cpp since this is declared inline, and we need this because
+// BMessage->AddColor takes a string for the name, and the IK verifies this matches the system name
+// with this table.
+static const char* kColorNames[kColorWhichCount] = {
+	"B_PANEL_BACKGROUND_COLOR",
+	"B_MENU_BACKGROUND_COLOR",
+	"B_WINDOW_TAB_COLOR",
+	"B_KEYBOARD_NAVIGATION_COLOR",
+	"B_DESKTOP_COLOR",
+	"B_MENU_SELECTED_BACKGROUND_COLOR",
+	"B_MENU_ITEM_TEXT_COLOR",
+	"B_MENU_SELECTED_ITEM_TEXT_COLOR",
+	"B_MENU_SELECTED_BORDER_COLOR",
+	"B_PANEL_TEXT_COLOR",
+	"B_DOCUMENT_BACKGROUND_COLOR",
+	"B_DOCUMENT_TEXT_COLOR",
+	"B_CONTROL_BACKGROUND_COLOR",
+	"B_CONTROL_TEXT_COLOR",
+	"B_CONTROL_BORDER_COLOR",
+	"B_CONTROL_HIGHLIGHT_COLOR",
+	"B_NAVIGATION_PULSE_COLOR",
+	"B_SHINE_COLOR",
+	"B_SHADOW_COLOR",
+	"B_TOOLTIP_BACKGROUND_COLOR",
+	"B_TOOLTIP_TEXT_COLOR",
+	"B_WINDOW_TEXT_COLOR",
+	"B_WINDOW_INACTIVE_TAB_COLOR",
+	"B_WINDOW_INACTIVE_TEXT_COLOR",
+	"B_WINDOW_BORDER_COLOR",
+	"B_WINDOW_INACTIVE_BORDER_COLOR",
+	"B_CONTROL_MARK_COLOR",
+	"B_LIST_BACKGROUND_COLOR",
+	"B_LIST_SELECTED_BACKGROUND_COLOR",
+	"B_LIST_ITEM_TEXT_COLOR",
+	"B_LIST_SELECTED_ITEM_TEXT_COLOR",
+	"B_SCROLL_BAR_THUMB_COLOR",
+	"B_LINK_TEXT_COLOR",
+	"B_LINK_HOVER_COLOR",
+	"B_LINK_VISITED_COLOR",
+	"B_LINK_ACTIVE_COLOR",
+	"B_STATUS_BAR_COLOR",
+	// 100...
+	"B_SUCCESS_COLOR",
+	"B_FAILURE_COLOR",
+	NULL
+};
 
 ColorsView::ColorsView(const char* name)
 	:
@@ -332,34 +379,37 @@ ColorsView::_SetColor(color_which which, rgb_color color)
 	if (ui_color(which) == color)
 		return;
 
+	// Create a New BMessage to commit all colors to
+	fColorQue = new BMessage();
+
 	if (which == B_PANEL_BACKGROUND_COLOR) {
 		const bool isDark = color.IsDark();
 
-		_SetOneColor(B_MENU_BACKGROUND_COLOR, color);
-		_SetOneColor(B_SCROLL_BAR_THUMB_COLOR, color);
+		_QueOneColor(B_MENU_BACKGROUND_COLOR, color);
+		_QueOneColor(B_SCROLL_BAR_THUMB_COLOR, color);
 
 		const rgb_color menuSelectedBackground
 			= tint_color(color, isDark ? 0.8 /* lighten "< 1" */ : B_DARKEN_2_TINT);
-		_SetOneColor(B_MENU_SELECTED_BACKGROUND_COLOR, menuSelectedBackground);
+		_QueOneColor(B_MENU_SELECTED_BACKGROUND_COLOR, menuSelectedBackground);
 
 		const rgb_color controlBackground = tint_color(color, isDark
 			? 0.8 /* lighten "< 1" */ : 0.25 /* lighten "> 2" */);
-		_SetOneColor(B_CONTROL_BACKGROUND_COLOR, controlBackground);
+		_QueOneColor(B_CONTROL_BACKGROUND_COLOR, controlBackground);
 
 		const rgb_color controlBorder
 			= tint_color(color, isDark ? 0.4875 : 1.20 /* lighten/darken "1.5" */);
-		_SetOneColor(B_CONTROL_BORDER_COLOR, controlBorder);
+		_QueOneColor(B_CONTROL_BORDER_COLOR, controlBorder);
 
 		const rgb_color windowBorder = tint_color(color, 0.75);
-		_SetOneColor(B_WINDOW_BORDER_COLOR, windowBorder);
+		_QueOneColor(B_WINDOW_BORDER_COLOR, windowBorder);
 
 		const rgb_color inactiveWindowBorder = tint_color(color, B_LIGHTEN_1_TINT);
-		_SetOneColor(B_WINDOW_INACTIVE_TAB_COLOR, inactiveWindowBorder);
-		_SetOneColor(B_WINDOW_INACTIVE_BORDER_COLOR, inactiveWindowBorder);
+		_QueOneColor(B_WINDOW_INACTIVE_TAB_COLOR, inactiveWindowBorder);
+		_QueOneColor(B_WINDOW_INACTIVE_BORDER_COLOR, inactiveWindowBorder);
 
 		const rgb_color listSelectedBackground
 			= tint_color(color, isDark ? 0.77 : 1.12 /* lighten/darken "< 1" */ );
-		_SetOneColor(B_LIST_SELECTED_BACKGROUND_COLOR, listSelectedBackground);
+		_QueOneColor(B_LIST_SELECTED_BACKGROUND_COLOR, listSelectedBackground);
 
 		const color_which fromDefaults[] = {
 			B_MENU_ITEM_TEXT_COLOR,
@@ -384,18 +434,18 @@ ColorsView::_SetColor(color_which which, rgb_color color)
 			B_LINK_VISITED_COLOR,
 		};
 		for (size_t i = 0; i < B_COUNT_OF(fromDefaults); i++)
-			_SetOneColor(fromDefaults[i], BPrivate::GetSystemColor(fromDefaults[i], isDark));
+			_QueOneColor(fromDefaults[i], BPrivate::GetSystemColor(fromDefaults[i], isDark));
 	} else if (which == B_STATUS_BAR_COLOR) {
 		const hsl_color statusColorHSL = hsl_color::from_rgb(color);
 
 		hsl_color controlHighlight = statusColorHSL;
 		controlHighlight.saturation = max_c(0.2f, controlHighlight.saturation / 2.f);
-		_SetOneColor(B_CONTROL_HIGHLIGHT_COLOR, controlHighlight.to_rgb());
+		_QueOneColor(B_CONTROL_HIGHLIGHT_COLOR, controlHighlight.to_rgb());
 
 		hsl_color controlMark = statusColorHSL;
 		controlMark.saturation = max_c(0.2f, controlMark.saturation * 0.67f);
 		controlMark.lightness = max_c(0.25f, controlMark.lightness * 0.55f);
-		_SetOneColor(B_CONTROL_MARK_COLOR, controlMark.to_rgb());
+		_QueOneColor(B_CONTROL_MARK_COLOR, controlMark.to_rgb());
 
 		rgb_color keyboardNav; {
 			hsl_color keyboardNavHSL = statusColorHSL;
@@ -410,29 +460,30 @@ ColorsView::_SetColor(color_which which, rgb_color color)
 			else
 				keyboardNav.red = keyboardNav.blue = 0;
 		}
-		_SetOneColor(B_KEYBOARD_NAVIGATION_COLOR, keyboardNav);
+		_QueOneColor(B_KEYBOARD_NAVIGATION_COLOR, keyboardNav);
 	} else if (which == B_WINDOW_TAB_COLOR) {
 		const bool isDark = color.IsDark();
 		const hsl_color tabColorHSL = hsl_color::from_rgb(color);
 		const float tabColorSaturation
 			= tabColorHSL.saturation != 0 ? tabColorHSL.saturation : tabColorHSL.lightness;
 
-		_SetOneColor(B_WINDOW_TEXT_COLOR,
+		_QueOneColor(B_WINDOW_TEXT_COLOR,
 			BPrivate::GetSystemColor(B_WINDOW_TEXT_COLOR, isDark));
-		_SetOneColor(B_TOOL_TIP_TEXT_COLOR,
+		_QueOneColor(B_TOOL_TIP_TEXT_COLOR,
 			BPrivate::GetSystemColor(B_TOOL_TIP_TEXT_COLOR, isDark));
 
 		const rgb_color toolTipBackground = tint_color(color, isDark ? 1.7 : 0.15);
-		_SetOneColor(B_TOOL_TIP_BACKGROUND_COLOR, toolTipBackground);
+		_QueOneColor(B_TOOL_TIP_BACKGROUND_COLOR, toolTipBackground);
 
 		hsl_color success = hsl_color::from_rgb(BPrivate::GetSystemColor(B_SUCCESS_COLOR, isDark));
 		success.saturation = max_c(0.25f, tabColorSaturation * 0.68f);
-		_SetOneColor(B_SUCCESS_COLOR, success.to_rgb());
+		_QueOneColor(B_SUCCESS_COLOR, success.to_rgb());
 
 		hsl_color failure = hsl_color::from_rgb(BPrivate::GetSystemColor(B_FAILURE_COLOR, isDark));
 		failure.saturation = max_c(0.25f, tabColorSaturation);
-		_SetOneColor(B_FAILURE_COLOR, failure.to_rgb());
+		_QueOneColor(B_FAILURE_COLOR, failure.to_rgb());
 	}
+	_CommitColors();
 }
 
 
@@ -444,4 +495,24 @@ ColorsView::_SetOneColor(color_which which, rgb_color color)
 
 	set_ui_color(which, color);
 	fCurrentColors.SetColor(ui_color_name(which), color);
+}
+
+
+void
+ColorsView::_QueOneColor(color_which which, rgb_color color)
+{
+	if (ui_color(which) == color)
+		return;
+
+	fCurrentColors.SetColor(ui_color_name(which), color);
+
+	const char* name = kColorNames[color_which_to_index(which)];
+	fColorQue->AddColor(name, color);
+}
+
+
+void
+ColorsView::_CommitColors()
+{
+	set_ui_colors(fColorQue);
 }

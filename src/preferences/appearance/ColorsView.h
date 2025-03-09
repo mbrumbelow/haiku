@@ -32,9 +32,6 @@
 #include <DecorInfo.h>
 
 
-class APRWindow;
-
-
 using BPrivate::BColorPreview;
 
 
@@ -63,6 +60,10 @@ private:
 			void				_SetCurrentColor(rgb_color color);
 			void				_SetUIColors(const BMessage& colors);
 
+
+			void				_QueOneColor(color_which which, rgb_color color);
+			void				_CommitColors();
+
 private:
 			BColorControl*		fPicker;
 
@@ -78,6 +79,8 @@ private:
 			BMessage			fPrevColors;
 			BMessage			fDefaultColors;
 			BMessage			fCurrentColors;
+
+			BMessage*			fColorQue;
 };
 
 #endif	// COLORS_VIEW_H_
