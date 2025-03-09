@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6767e7e_39637830",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T09:55:48Z",
+      "side": 1,
+      "message": "This is pretty big. Going through it one file at a time.\nIn general, I think merging this as is is probably fine (but have not yet read all of it), and we can do changes atop of it later...\neven if this horribly breaks nightlies, that is what they are for :D and i don\u0027t see ways how you could easily split this up.",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b516494b_f1eebed8",
+        "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T09:55:48Z",
+      "side": 1,
+      "message": "Are these identifiers \"normally\" managed by the server application? is it possible, in theory, that they can colide since they are not serverside?",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fa3f5f5_70a615fd",
+        "filename": "src/apps/haikudepot/icon/PackageIconDefaultRepository.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T09:55:48Z",
+      "side": 1,
+      "message": "this seems to only be possible if the init in _InitDefaultVectorIcon failed (for mimeType.GetIcon)\n\nPerhaps this should have a call to the debugger below where this\u0027d be possible to have?",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b82d6d1_b253953b",
+        "filename": "src/apps/haikudepot/icon/PackageIconDefaultRepository.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T09:55:48Z",
+      "side": 1,
+      "message": "this comparison is always true",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "331e6363_5f9fc97b",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T09:55:48Z",
+      "side": 1,
+      "message": "Why is this hardcoded to english? shouldn\u0027t the locale prefered languages be available here already?\n\nWhat is the effect of this beeing set to english by default?",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "959ba3cb_99259ae8",
+        "filename": "src/apps/haikudepot/model/Model.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-09T09:55:48Z",
+      "side": 1,
+      "message": "this is always true",
+      "revId": "53e49805617572a737f59436fc8cf8d199a11612",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
