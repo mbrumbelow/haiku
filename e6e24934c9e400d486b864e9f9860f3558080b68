@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "249a2be4_3a7cdda3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T13:08:12Z",
+      "side": 1,
+      "message": "\u003e Then let\u0027s make app_server use the screen refresh rate as a delay rather than hardcoding to 60Hz here? There are probably other places that makes sense to as well.\n\nSure, we can do this. But the problem here is that these effects are cummulative in regards to worst-case latency. If we have a value equivalen to the screen refresh rate this will give 1 frame of latency, but every other place that would also need to pass through would also give an additoonal frame. I don\u0027t know what other places there are. But atleast using the screen refresh rate would be better than what it is now.\n\nApart from pref/Appearence, apps/Installer, and third party Theme Manager I don\u0027t know of any places that would want to commit all colors at once. But then this functionality is already provided so we can use it as is.\n\nI will update this change to remove the table.\n\n\u003e (1) your claims that we currently send multiple messages for multiple color updates here, and thus sending more than one per message would break existing applications\n\nI did not know about the delay in app_server then, i suppose i should have debugged this better. when making this change I did see that defaults and reverts already use this machenism. So to me it made sense to do this aswell when we update the entire set.",
+      "parentUuid": "d493d384_8aa53265",
+      "revId": "e6e24934c9e400d486b864e9f9860f3558080b68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0d17f7e4_1a7a0255",
