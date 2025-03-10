@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "916761d9_dcaf9666",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "could be -\u003e can be",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "467d0985_ff54ece8",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "Anyone -\u003e Any one",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5426fa1d_fffd0b93",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "Rather than duplicating documentation for the other variants of GetBitmap, can\u0027t we document multiple methods at a time, similar to how the Be Book is structured?\n\nDoxygen has \"member groups\": https://www.doxygen.nl/manual/grouping.html#memgroup\n\nHowever it appears these still all display as separate methods, oh well. Maybe we should patch Doxygen here. I guess we should just leave this for the moment.",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3cebd2c_61b9f8ce",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "I would omit \"The user has to delete\" at the beginning, and put a message at the end instead, perhaps: \"The caller owns the returned BBitmap.\" Same for the other methods with similar messages",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc01a08_a8057f7b",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "Maybe drop the rest of the documentation of this method and just let people look at the documentation for the other GetStyledText variant?",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b688506_53eb6355",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "same comment as above",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5abb291_39918755",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "I guess you mean `WriteStyledEditFile`?",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "008093c5_61f7dadf",
+        "filename": "docs/user/translation/TranslationUtils.dox",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:08:14Z",
+      "side": 1,
+      "message": "Not sure if \"only\" makes sense here?",
+      "revId": "f45c216493692c31023f682c0a1bfcd4fa2af519",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
