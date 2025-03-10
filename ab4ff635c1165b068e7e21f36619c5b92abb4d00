@@ -16,6 +16,24 @@
       "message": "BMenuItem takes ownership, a same message can\u0027t be assigned to multiple BMenuItem.",
       "revId": "ab4ff635c1165b068e7e21f36619c5b92abb4d00",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b865b8_98035e2c",
+        "filename": "src/apps/terminal/TermWindow.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1000509
+      },
+      "writtenOn": "2025-03-10T12:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b2d4dfb_ea9a9452",
+      "revId": "ab4ff635c1165b068e7e21f36619c5b92abb4d00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
