@@ -396,6 +396,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d7d783_3bd541a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T16:10:04Z",
+      "side": 1,
+      "message": "Any confusion created by that should be cleared up... in the documentation. Which, again, shouldn\u0027t be in header files, in general. We can there be as verbose as we like explaining that only one overload is deprecated, and why this is so.",
+      "parentUuid": "85cfd03e_6c58ed20",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
