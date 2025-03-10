@@ -414,6 +414,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa88b4ee_8aec9c87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T16:15:56Z",
+      "side": 1,
+      "message": "I disagree. If i know some other function can serve this purpose, and the compiler sais the function is deprecated I would not check the documentation of the *deprecated* function. This warning should serve to send you to the right place to check the documentation.",
+      "parentUuid": "88d7d783_3bd541a3",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
