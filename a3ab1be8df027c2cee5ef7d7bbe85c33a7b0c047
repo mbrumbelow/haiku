@@ -34,6 +34,24 @@
       "parentUuid": "fcbb48e6_f2e0d59a",
       "revId": "a3ab1be8df027c2cee5ef7d7bbe85c33a7b0c047",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a413a520_c38b0490",
+        "filename": "src/servers/launch/Conditions.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T12:05:35Z",
+      "side": 0,
+      "message": "Yes, seems fine.",
+      "parentUuid": "ea330411_2d4e0f9a",
+      "revId": "a3ab1be8df027c2cee5ef7d7bbe85c33a7b0c047",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
