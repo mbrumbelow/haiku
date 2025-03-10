@@ -432,6 +432,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ce88174_4fdbdb6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T16:19:50Z",
+      "side": 1,
+      "message": "\u003e I would not check the documentation of the deprecated function. \n\nI don\u0027t know why not, it\u0027s the first thing I check when I am using an API and get a deprecation warning/error. The documentation for the deprecated function almost always says \"deprecated: use XYZ and/or ABC instead, because ... ... \", which is exactly what I want to know.",
+      "parentUuid": "aa88b4ee_8aec9c87",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
