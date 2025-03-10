@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c8f36ca_d277686c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-10T19:32:22Z",
+      "side": 1,
+      "message": "I\u0027ve tried to copy the changes in hrev58397, but I don\u0027t know what I\u0027m doing.\n\nI\u0027ve left the accelerant hooks in DWindowHWInterface. Although only GetFrameBufferConfig seems to be used, quite a few were seemingly unused before the change.\n\nThe DirectWindow tests crash in test_app_server, but so they did before with hrev58397 reverted.",
+      "revId": "3b4c15c99b84ffed71a757f18822060198841977",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
