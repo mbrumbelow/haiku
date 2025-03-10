@@ -324,6 +324,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "02739480_0c58116b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T15:49:42Z",
+      "side": 1,
+      "message": "Again, the info of \"what is deprecated\" is missing\nThis should say if a) the class b) the method or c) the protoype is deprecated.\n\nAgain, this is only for compiler output and not inline documentation. You could remove all named paramaters by the same argument.\n\n\u003eHow do you know that other prototypes do or don\u0027t exist without reading either the header or the docs? So again, what assumptions are really being made here?\n??\nIf the message sais \"this function is deprecated\" it doesn\u0027t matter. if it sais \"this prototype is deprecated\" I know that different ones are available.\nDon\u0027t need to check the header to get rid of this ambiquity if the conpiler includes the proper message.",
+      "parentUuid": "15eefe3c_b48d66a4",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
