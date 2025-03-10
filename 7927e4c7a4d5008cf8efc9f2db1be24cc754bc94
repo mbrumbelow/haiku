@@ -306,6 +306,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "15eefe3c_b48d66a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T15:38:26Z",
+      "side": 1,
+      "message": "\u003e where you ought to not look\n\nWhy not? I look into headers all the time. It\u0027s quite useful to do so, it provides a nice overview of the class. The fact that it \"doesn\u0027t contain documentation\" is an advantage here, if present that would make it harder to scroll through.\n\n\u003e This will also not mislead people into thinking all prototypes are deprecated.\n\nOnce again: How will they know what to do without reading the documentation and/or other source code anyway? They will need to pick some other function to replace the deprecated one, and learn how to use it. How do you expect they are going to do that? What is it they will do that will result in them being \"mislead\"?\n\n\u003e this beeing stuck in review for about a month with no technical details added\n\nWhat do you mean by \"no technical details\"? It looks like humdinger reviewed it at least once. I didn\u0027t look at the change at all (again, humdinger reviewed it, so I assume he will follow up with more comments if requested.)\n\n\u003e Me thinking something is valid or not does not matter, the robot can decide this properly.\n\nMost of the review of new documentation is to check that the new docs actually make sense and properly describe the methods. Checking that the new documentation renders properly is quite easy; having a bot would be nice, but it\u0027s not hard to download the change and run Doxygen locally.\n\n\u003e the BTranslationUtils one you just reviewed for example I really have no clue about. I\u0027ve not used that class or investigated what it does.\n\nSounds like a great way to learn more about Haiku while you are reviewing the changes then! You can read the docs and say \"is that how it really works / what it really does?\" and then read the source code enough to determine whether the description is accurate or not. In most cases for userland APIs this should not be too difficult either.\n\n\u003e the functions themselves are documented this just makes it more \"bad\" documentation to sift through. Bad in the Short term\n\nI fail to see how this is the case. It\u0027s not as helpful as it could be, sure, but having documentation that describes what the function does and what the parameters do is often quite helpful, even if I often want more than that. That\u0027s not \"bad\", it\u0027s just not as good as it could be.\n\n\u003e But not getting the info that other prototypes exist basically sais that all protoypes are deprecated. \n\nHow do you know that other prototypes do or don\u0027t exist without reading either the header or the docs? So again, what assumptions are really being made here?\n\n\u003e because it was not clear only the prototype is deprecated\n\nRight now the documentation *and* the headers are both unclear on this. We should fix the documentation to be clear, and we should fix the headers to have annotations on only the deprecated prototypes. Then, IMO, both would be clear, and that should suffice to prevent that problem from happening.",
+      "parentUuid": "59353560_94cd5a5a",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
