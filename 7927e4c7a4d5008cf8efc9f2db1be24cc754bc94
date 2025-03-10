@@ -234,6 +234,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d98c9f_23c01043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T14:09:21Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t agree that this is documentation solely because it is not intended to be gotten by looking in a header. \n\nWhere is this idea coming from? You don\u0027t get most documentation by \"looking in headers\", you get it from websites.\n\n\u003e Compiler warnings are already usually a hassle to deal with, since those are not always clear what their problem is\n\nAnd as I noted before, the `ioctl` comment in the header makes sense because indeed the compiler messages will be confusing -- but in this case, the compiler messages will be very clear: this method is marked as deprecated. How is that \"not clear what the problem is\"?\n\n\u003e especially for newcomers to the language ... especially since not everyone is good with the \"check the doc\" variant\n\nI don\u0027t understand this. If they are a newcomer to the language, how will they know how to use the API at all without reading the documentation? We should try to make it easier for them to read the docs rather than making assumptions that they will not be able to and finding workarounds for that.\n\n\u003e For instance where functions want a bitmask but their documented type is \"uint32\" and doxygen just tells you this is a number type and such.\n\nThis is a problem with our documentation, not Doxygen in particular (and maybe even declarations in headers.) We should improve any documentation we have with this problem. But that is unrelated to this.\n\n\u003e The deprecation warning has to at least include the information that this specific prototype is deprecated, and not the othe prototypes of the function.\n\nBut that information by itself is still not useful. The message could indicate that, but then the programmer will wonder if the others will soon be deprecated too? Really, to explain the BMessage case, we need a full paragraph or more to explain the situation. And this paragraph will be for all the functions with this problem, not just one; we don\u0027t want to have to copy/paste it for every single one of these methods, we want to have one section in the API docs that explains the situation clearly.\n\n\u003e It doesn\u0027t really help that the documentation currently explains functions or prototypes of the functions first, and adds a \"btw this is deprecated\" below it. \n\nThen we should fix that in the documentation.",
+      "parentUuid": "894732b9_f28c8b66",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
