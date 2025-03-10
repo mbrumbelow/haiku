@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d493d384_8aa53265",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T12:48:06Z",
+      "side": 1,
+      "message": "\u003e And the \"flickering\" also likely comes from applications not receiving the messages at the same time\n\nThe messages should be all sent from app_server at once, and thus they should all be received by applications immediately (i.e. much less than 1ms latency there). We could add debugging code to BWindow that printed the message + a time to confirm this if necessary.\n\n\u003e With my current monitor 16ms is already 4 frames (screen refreshes) as extra latency. \n\nThen let\u0027s make app_server use the screen refresh rate as a delay rather than hardcoding to 60Hz here? There are probably other places that makes sense to as well.\n\n\u003e set_ui_colors would immidiently broadcast the colors, and I still think it should do this, since here, we semantically explicitly commit to this beeing one batch of colors.\n\nIf your motive really is cutting down latency, then fine, a change like this might make sense then.\n\n\u003e split _SetOne_color into a variant that does not send the update immidiently, and one that does.\n\nNo need to split, just add a \"bool commit\" and default it to false.\n\n\u003e This is not what a -2 is for. \n\nThe change IMO deserves a -2 alone for copy/pasting the whole block of color names. Whatever else should happen, that should not. And as repeatedly stated before, rescinding a -2 is easy and I have done it many times before. If you update the change to just use the bool parameter and then CommitColors, I will certainly remove it, that change sounds fine to me.",
+      "parentUuid": "6a92f823_39f9506e",
+      "revId": "e6e24934c9e400d486b864e9f9860f3558080b68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0d17f7e4_1a7a0255",
