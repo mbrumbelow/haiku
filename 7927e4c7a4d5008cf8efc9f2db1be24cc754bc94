@@ -378,6 +378,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "85cfd03e_6c58ed20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T16:02:06Z",
+      "side": 1,
+      "message": "From a purely language theoretical standpoint you are correct. But the GetInt32 confusion shows me that developers are not always aware that different prototypes for the same function name exist, and that those would or would not be deprecated.\n\nIn this case it seems that the \"other\" prototype exists to fix an error in the old one, so knowing it exists by explicitly stating that only this one of many prototypes is deprecated removes that ambiquity.",
+      "parentUuid": "6ac8b0da_e6e5a603",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
