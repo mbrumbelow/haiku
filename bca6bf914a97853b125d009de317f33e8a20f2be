@@ -52,6 +52,24 @@
       "parentUuid": "84447411_ec9d0b07",
       "revId": "bca6bf914a97853b125d009de317f33e8a20f2be",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "547c6ed5_a6ccc0c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-03-10T23:17:36Z",
+      "side": 1,
+      "message": "I\u0027m not sure that any of the other tickets are fixed by this patch.  The problems caused by #16924 seemed to occur during file operations such as open, stat, and fsync.  For #13843, somehow the file was successfully opened already before the KDL happened.  If the node was stale, I don\u0027t know how the driver was able to open it in the first place.",
+      "parentUuid": "0365bded_393cb9dc",
+      "revId": "bca6bf914a97853b125d009de317f33e8a20f2be",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
