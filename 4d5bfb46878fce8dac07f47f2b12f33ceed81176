@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58f94354_cb4acc0a",
+        "filename": "src/preferences/appearance/ColorsView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T10:36:36Z",
+      "side": 0,
+      "message": "missed from my previous refactor",
+      "revId": "4d5bfb46878fce8dac07f47f2b12f33ceed81176",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d0846b0_5727c1fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T10:36:36Z",
+      "side": 1,
+      "message": "This is really stupid. There is no ABI broken here, and my change documenting this, already present, behaviour has been unreviewed for months.\n\nIf app_server behaves in a dumb way if colors is used it should be fixed.\n\nThe color message spam causes useless redraws and flickering applications, to properly fix this the message has to contain all colors and the redraws can be minimized for their components.\n\nProperly processing a message with multiple colors is trivial, pretty much all Code in Haiku I checked already does this.\n\nThat beeing said, I don\u0027t really want to contribute anymore. I\u0027ve already talked with you on irc about this, and at this point It seems you are just vetoing all my changes put of spite.",
+      "parentUuid": "bc1b0a2b_8e141708",
+      "revId": "e6e24934c9e400d486b864e9f9860f3558080b68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0d17f7e4_1a7a0255",
