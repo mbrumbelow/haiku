@@ -89,6 +89,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a92f823_39f9506e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T12:28:35Z",
+      "side": 1,
+      "message": "\u003eThis uses DelayedMessage to coalesce all requests received within 16m\n\nI don\u0027t think this is a good idea.\nTo explain a bit why I am going to this, is that I want to cut down the end-to-end latency of the system to the absolute minimum we can With my current monitor 16ms is already 4 frames (screen refreshes) as extra latency. And the \"flickering\" also likely comes from applications not receiving the messages at the same time, or not processing it in a timely manner.\n\nI had assumed that explicitly using set_ui_colors would immidiently broadcast the colors, and I still think it should do this, since here, we semantically explicitly commit to this beeing one batch of colors.\n\n\u003e As regards the second, I had forgotten how B_COLORS_UPDATED already worked, indeed it uses the names already as keys; and this doesn\u0027t require applications to hardcode the names because there is the ui_color_name method. Had I read the code around your changes and not just your changes, I would have noticed that indeed ui_color_name is already used in this file.\n\nCopying the table into the file certainly seemed like the wrong thing to do, hence the comment and also me uploading this for code review, to see if someone has a better idea on how to do this.\n\nWe should pack all of these into one message in set_ui_colors. 16ms is a racy window aswell, because if you update the colors, the way appearence works now you will slide on the slider, and this action itself takes much longer than just 16ms. So it is bound to happen that in such a race condition the app_server may decide that the 16ms window is over and not include one batch completely in the message. Though maybe it makes sure the batch is in \"completely\", I\u0027ve not checked the code for that yet.\n\n\nIf we can\u0027t batch the message here we will just delay the UI redrawing for 16ms + whatever drawing time apps need for no reason. This is 2 frames for how Haiku can *currently* drive my display, 4 frames for how it should drive it, 8 frames for the newerish 480/500hz monitors and 16 frames for \"ideal\" 1khz monitors. (With an possible setup, in the future, with adaptive sync where the worst case input latency is up to 1ms(monitor)+0,125ms(usb2)+whateverNS we need to process it. USB3 could in theory go even quicker)\n\nSure, I have other problems aswell, like making sure mice use a high usb rate if available (currently the energy save vs low latency stuff in processcontroller doesn\u0027t effect this). But I really don\u0027t see why we should delay messages needlesly, especially if we know this is a batch that is ready to be used and processes.\n\nAnyhow. This is not what a -2 is for. I can understand if you want to keep it untill we discuss this change, sure. But not to just block it because you think this delay is acceptable. This is not really a hill we should have to fight over. Thanks for looking into the app_server side more closely.\n\n\nApart from all of this, The code complexity here (assuming the table is gone) is minimal. The only real addition is the \"commiting\" call, but as korli pointed out we can use  set_ui_colors(\u0026fCurrentColors) to commit the changes at the end of the function, only having to split _SetOne_color into a variant that does not send the update immidiently, and one that does.",
+      "parentUuid": "90541209_0def6b2d",
+      "revId": "e6e24934c9e400d486b864e9f9860f3558080b68",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0d17f7e4_1a7a0255",
