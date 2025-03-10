@@ -252,6 +252,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0cf28d5_30d6f15e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T14:54:48Z",
+      "side": 1,
+      "message": "The documentation in doxygen beeing up to par doesn\u0027t matter that much, If it was better we still should include this information in the warning. I don\u0027t see why someone would be \"wondering\" if something will be deprecated. That\u0027s not a thing. A deprecation means something is still available, but you should consider not using it, and in the future it will be removed.\nAs soon as you mark something as consideration for that, it too is deprecated effectively. The only difference would be formalizing that. But this has nothing to do with the compiler warning. There isn\u0027t really a thing as something beeing deprecated in the future. You can have something like an \"inofficial\" deprecation, like for the outline list, where it was not officially deprecated, but severall devs think it should be. This won\u0027t be the case for function prototypes, since you\u0027d just have deprecated all in one single go. And not wait a couple of months for no reason to then deprecate the rest.\n\nIf compiler warnings are vague or wrong I don\u0027t go check in the Haiku api documentation for random functions if something is more clearly explained there. If the compiler sais the *function* is deprecated I would trust this normally.\n\nMarking these variants as deprecated in the compiler without adding the info that only the prototype is deprecated is wrong.\n\n\u003e Where is this idea coming from? You don\u0027t get most documentation by \"looking in headers\", you get it from websites.\n... Yes? So where is your idea coming from that this is documentation *in the headers* and users would look for it there?\n\n\n\u003e I don\u0027t understand this. If they are a newcomer to the language, how will they know how to use the API at all without reading the documentation? We should try to make it easier for them to read the docs rather than making assumptions that they will not be able to and finding workarounds for that.\n\nHow would you figure out how to use *anything* in our api with only reading the documentation?\nIt doesn\u0027t really explain any programming pattersn we use, and is really really lacking in any examples. To be honest it is barely more than looking at the function declarations themselves. And the only way this is better than looking at source code only is the sparse places where it does explain what something is for, or how it should be used. \n(And on a side note, it is really difficult to improve this when documentation commits go unreviewed... Those especially need more review since wrong information there hurts us down the line, where a wrong commit can \"easily\" be fixed...)\n\nBut ignoring all that, I don\u0027t understand why you go from \"the documentation should be better\" to \"therefore the compiler warning should be vague or bad\". Those are unrealted issues on their own, and if anything if the documentation is already subpar then blocking the compiler message beeing better (So you as an api user actually look at the *correct* documentation) seems really wierd.\n\nYes, the paragraph for why this prototype in BMessage is deprecated is needed. Yes the documentation should make it better visible what is and what isn\u0027t deprecated. But still, this does not in any way imply we should make the compiler warning vague or less usefull.\n\nkorlis point about adding the version this was deprecated in is relevant aswell.",
+      "parentUuid": "b4d98c9f_23c01043",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
