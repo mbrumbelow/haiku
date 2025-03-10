@@ -288,6 +288,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "59353560_94cd5a5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T15:27:21Z",
+      "side": 1,
+      "message": "\u003e But we do have that info: we will mark the one function prototype that is deprecated as deprecated, and not the other prototypes. The attributes will then indicate exactly what we mean to indicate, no more, and no less. So the info is already \"added\" in that case.\n\nObtaining this info would require looking into the header itself, where you ought to not look, since as you said, it should not contain documentation. Adding the info that only one protoype is deprecated will remove the need to check in the header. This will also not mislead people into thinking all prototypes are deprecated.\n\n\u003e For that matter, you are a developer, and it seems you feel strongly that we should improve documentation more. So why not spend some time reviewing those changes yourself?\n\nCurrently, I am trying to document high-level stuff. If I write it it is obviously bound by my knowledge. As for wether something extracted automatically by doxygen passes doxygens syntax checks or not I can\u0027t review because a) I don\u0027t know enough about the doxygen syntax and b) This should be done by a robot instead. Me thinking something is valid or not does not matter, the robot can decide this properly.\n(e.g this beeing stuck in review for about a month with no technical details added: https://review.haiku-os.org/c/haiku/+/8968)\n\nI will also only review documentation changes I know about, the BTranslationUtils one you just reviewed for example I really have no clue about. I\u0027ve not used that class or investigated what it does.\nAdding documentation for stuff that is not documented at all is good. But if there is no additioonal sufficient documentation, like examples, high level overviews, documented caveats etc and only the functions themselves are documented this just makes it more \"bad\" documentation to sift through. Bad in the Short term, but neccesary for the long term. I guess. But no real reasson to commit changes if they have only the prototypes named. Some classes are in the book entirely with \"undocumented public method\". In that case not having this page would be easier to sort through, atleast you know directly you have to get into the source :)\n\nThe deprecation messages should include: The version this was deprecated in, the info that only this prototype is deprecated, if that is the case.\n\nIf you want programming advice you should indeed look at the docs. But not getting the info that other prototypes exist basically sais that all protoypes are deprecated. And I am strongly against that. (See the change from John where GetInt32 was removed and replaced by another version where the error code is also ignored because it was not clear only the prototype is deprecated)",
+      "parentUuid": "564e0b43_5c7c1f34",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
