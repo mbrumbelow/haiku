@@ -342,6 +342,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e35e2bbb_f7d6bd5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T15:54:34Z",
+      "side": 1,
+      "message": "\u003e What do you mean by \"no technical details\"? It looks like humdinger reviewed it at least once. I didn\u0027t look at the change at all (again, humdinger reviewed it, so I assume he will follow up with more comments if requested.)\n\nHumdinger gave usefull suggestioms on wording, but did not comment om the technical acuracy of the change. Seeing as this topic caused confusion in the paast I want to make extra sure this is acuracte.",
+      "parentUuid": "02739480_0c58116b",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
