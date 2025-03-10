@@ -216,6 +216,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "894732b9_f28c8b66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-10T13:18:54Z",
+      "side": 1,
+      "message": "I don\u0027t agree that this is documentation solely because it is not intended to be gotten by looking in a header. There are only two places you\u0027d get this information from, either the api docs on the website, or the warnings (or errors) from the compiler.\n\nCompiler warnings are already usually a hassle to deal with, since those are not always clear what their problem is, especially for newcomers to the language, and something like picking a wrong variant of a function that is only half-deprecated is easy to do.\nespecially since not everyone is good with the \"check the doc\" variant. I will for example search for examples in the haiku source instead for how to use something, if it is not clear to me based on the doc alone. And this will often be the case. For instance where functions want a bitmask but their documented type is \"uint32\" and doxygen just tells you this is a number type and such.\n\nNow, I\u0027d use an example, see it is deprecated and move on. Instead of figuring out that the prototype is deprecated.\n\nIf you pick for example GetInt32 for BMessage, and use the wrong function prototype it will say that the function is deprecated. So as a programmer you will immidiently search for another function to use. The deprecation warning has to *at least* include the information that this *specific* prototype is deprecated, and not the othe prototypes of the function.\n\nIt doesn\u0027t really help that the documentation currently explains functions or prototypes of the functions first, and adds a \"btw this is deprecated\" below it. Making it not so clear that this only referes to a protoype and not a function.",
+      "parentUuid": "489c34dd_17a5f595",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
