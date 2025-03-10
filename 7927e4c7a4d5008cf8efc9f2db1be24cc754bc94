@@ -360,6 +360,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ac8b0da_e6e5a603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-10T15:57:27Z",
+      "side": 1,
+      "message": "\u003e This should say if a) the class b) the method or c) the protoype is deprecated.\n\nAh, I see the problem: You are drawing a distinction between \"the method\" and \"the prototype\" which doesn\u0027t really exist. Two functions in C++ which have the same name but different parameters are *different functions*. The documentation is clear about this, e.g.: https://en.cppreference.com/w/cpp/language/functions\n\n\u003e Multiple functions in the same scope may have the same name, as long as their parameter lists and, for non-static member functions, cv/ref-qualifications are different. This is known as function overloading.\n\nSo in fact, definitionally, the functions with different prototypes are different functions. Deprecating one should thus say absolutely nothing about any of the others, neither to the compiler, nor to the user.\n\nThe compiler then saying \"this function is deprecated\" is exactly the same as saying \"this prototype is deprecated\", from a C++ standpoint.",
+      "parentUuid": "02739480_0c58116b",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
