@@ -16,6 +16,24 @@
       "message": "Only gave this a cursory look, so can\u0027t know if you missed any definition in the files itself (but surely the compiler would complain...)\n\nIt seems the openBSD compat layer still needs to be adjusted, from the buildbot: \"src/libs/compat/openbsd_network/compat/sys/systm.h\": [[16416, 12, \"int.h: No such file or directory\"]",
       "revId": "187c2a7be1d75bcb37b3d73a91a1a83856672d03",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c1b811_aa05769c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-11T14:32:38Z",
+      "side": 1,
+      "message": "I did try a full build and it worked and booted fine, but it seems those files weren\u0027t rebuilt for some reason. Should be fixed now.",
+      "parentUuid": "ef50a28c_563a7d36",
+      "revId": "187c2a7be1d75bcb37b3d73a91a1a83856672d03",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
