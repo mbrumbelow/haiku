@@ -404,6 +404,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77fd9f8c_d5a1c646",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-03-11T15:09:08Z",
+      "side": 1,
+      "message": "Do you know if those Microsoft usages are documented somewhere? I\u0027ve already done patches on usage page headers, I could add this too... If we know more than one constant.",
+      "parentUuid": "c047e784_07b08e8a",
+      "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ab0b939_815e2774",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 2
@@ -504,6 +522,24 @@
       "writtenOn": "2025-03-06T02:39:04Z",
       "side": 1,
       "message": "If not needed anymore, delete entirely",
+      "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9045202a_7a85d087",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-03-11T15:09:08Z",
+      "side": 1,
+      "message": "I don\u0027t know :\\ I mean... this is a topic I did not know anything a couple of months ago. I\u0027ve read the host must perform a reset before using the device but, If we do it here, we are resetting the device after fetching feature report (and blob report). Does it make sense? Would be nice to hear someone with more experience here than me.",
+      "parentUuid": "3aab4727_4f0f1941",
       "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

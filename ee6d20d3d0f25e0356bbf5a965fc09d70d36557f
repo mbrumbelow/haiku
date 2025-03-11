@@ -784,6 +784,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "24a304d1_e2fa345d",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000214
+      },
+      "writtenOn": "2025-03-11T15:09:08Z",
+      "side": 1,
+      "message": "Sorry, I still have to refactor this. I didn\u0027t on this patch because I need to understand well what I am doing (and I wasn\u0027t). Also I came to some ugly factorizations that worsen code readability.\n\nI will give it a try on next patch.",
+      "parentUuid": "59a45f04_594f1e7b",
+      "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b1f40ca3_299bc442",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 1
