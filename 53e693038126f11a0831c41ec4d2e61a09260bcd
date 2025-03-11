@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4c1fd9f_8740b907",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-03-11T23:41:10Z",
+      "side": 1,
+      "message": "Are you sure? ARM etc. have weaker memory ordering constraints.",
+      "revId": "53e693038126f11a0831c41ec4d2e61a09260bcd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
