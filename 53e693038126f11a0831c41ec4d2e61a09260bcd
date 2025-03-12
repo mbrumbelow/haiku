@@ -16,6 +16,24 @@
       "message": "Are you sure? ARM etc. have weaker memory ordering constraints.",
       "revId": "53e693038126f11a0831c41ec4d2e61a09260bcd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ce38abd_54d9d080",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-12T01:52:29Z",
+      "side": 1,
+      "message": "This value is only read and written by this same thread, not any others. So the memory ordering should be irrelevant.\n\nThe only way I can see a problem even potentially happening is if a page fault happens while we are incrementing or decrementing the value. But even then it should not cause any problems even if we are interrupted right there. And I don\u0027t know how that could happen anyway, we are in the kernel where page faults usually shouldn\u0027t happen.",
+      "parentUuid": "c4c1fd9f_8740b907",
+      "revId": "53e693038126f11a0831c41ec4d2e61a09260bcd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
