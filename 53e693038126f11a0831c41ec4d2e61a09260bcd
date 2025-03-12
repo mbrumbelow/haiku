@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72e6f49a_312cc9ce",
+        "filename": "src/add-ons/kernel/file_systems/ramfs/DataContainer.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-12T20:35:00Z",
+      "side": 1,
+      "message": "My thought was that this codepath will probably universally be hit by userland, since the kernel doesn\u0027t use mapped files usually. But I guess that\u0027s not really an excuse and we should add the branches. Changed.",
+      "parentUuid": "4985b417_81277454",
+      "revId": "53e693038126f11a0831c41ec4d2e61a09260bcd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "092f4ce1_90d3efd4",
@@ -66,6 +84,24 @@
       "writtenOn": "2025-03-12T20:06:35Z",
       "side": 1,
       "message": "why not user_memset or memset()?",
+      "revId": "53e693038126f11a0831c41ec4d2e61a09260bcd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03406434_9d767dd6",
+        "filename": "src/system/kernel/cache/file_cache.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-12T20:35:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "092f4ce1_90d3efd4",
       "revId": "53e693038126f11a0831c41ec4d2e61a09260bcd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
