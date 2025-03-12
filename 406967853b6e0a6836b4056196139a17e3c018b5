@@ -229,6 +229,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7c4d4b_63f8b3bd",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-12T11:53:02Z",
+      "side": 1,
+      "message": "Underscore and strikeout are only used in one place and they only depend on the font, which is also accessed in that place. You may use `(fRenderer.fFont.Face() \u0026 B_UNDERSCORE_FACE) !\u003d 0` instead of `fUnderscore`, likewise for `fStrikeout`.\n\n`fSubpixelAntiAliased` can be computed in the constructor as `gSubpixelAntialiasing \u0026\u0026 fRenderer.Antialiasing()`.\n\nWith that the only flag left is `dryRun`, and the problem of defining and naming a flags field is kicked to the future, an unlikely one as long as the new flags only depend on the font.",
+      "parentUuid": "e71ea336_f63f3198",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "632f9eb2_0edd85e9",
@@ -266,6 +284,24 @@
       "writtenOn": "2025-01-26T14:14:48Z",
       "side": 1,
       "message": "This could be passed to the function instead, this scales with the font *size* but that may not be what is wanted. For example if in the future strikeout and underline can respect font weights (especially for variable fonts)",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8220a77_f9d7304c",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-12T11:53:02Z",
+      "side": 1,
+      "message": "Which may also be computed here instead of in the callers. No hard opinion about it, though.",
+      "parentUuid": "d437f9ee_fabaa95e",
       "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
