@@ -33,6 +33,24 @@
       "message": "did you check with qemu? -cpu qemu64,+la57 should enable it.",
       "revId": "34df3970738deb18953ed207f715d17545484c9c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6152c3d9_164f8485",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-13T12:54:32Z",
+      "side": 1,
+      "message": "Yes, I tested this and my LA57 patches yesterday with QEMU.",
+      "parentUuid": "406ef2d6_92ce6319",
+      "revId": "34df3970738deb18953ed207f715d17545484c9c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
