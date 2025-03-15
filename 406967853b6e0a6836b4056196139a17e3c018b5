@@ -247,6 +247,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1f97a74_e977cb3f",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000670
+      },
+      "writtenOn": "2025-03-15T10:42:36Z",
+      "side": 1,
+      "message": "Thanks for listing the exact changes I have to make.Knowing what exactly to do helps a lot.I hope it looks good now.",
+      "parentUuid": "9a7c4d4b_63f8b3bd",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "632f9eb2_0edd85e9",
