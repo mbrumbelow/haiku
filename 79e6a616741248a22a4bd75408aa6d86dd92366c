@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d5d5b7_7080354d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-16T04:18:40Z",
+      "side": 1,
+      "message": "I think the discussion is resolved.\n\nTo me this looks much nicer readable than before. Neat!",
+      "revId": "79e6a616741248a22a4bd75408aa6d86dd92366c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
