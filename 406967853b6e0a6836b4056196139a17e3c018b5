@@ -267,6 +267,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b80b45d0_bf345fe8",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-17T18:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1f97a74_e977cb3f",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "632f9eb2_0edd85e9",
         "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
         "patchSetId": 1
@@ -320,6 +338,24 @@
       "side": 1,
       "message": "Which may also be computed here instead of in the callers. No hard opinion about it, though.",
       "parentUuid": "d437f9ee_fabaa95e",
+      "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e5592d_cdc00cab",
+        "filename": "src/servers/app/drawing/Painter/AGGTextRenderer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-17T18:11:08Z",
+      "side": 1,
+      "message": "This is just a refactor change, which just copies this code from where it\u0027s duplicated. Let\u0027s leave this for now and change it in later commits if we need/want to.",
+      "parentUuid": "d8220a77_f9d7304c",
       "revId": "406967853b6e0a6836b4056196139a17e3c018b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
