@@ -16,6 +16,24 @@
       "message": "It may be worth adding an inline TODO comment about this somewhere?",
       "revId": "18e3d2b4e64a649814c883c850b8afb12e2e1b7d",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1a2afc3_8d3dc4b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-17T18:54:05Z",
+      "side": 1,
+      "message": "Added a line to the existing one to remember to update the parts touched in this change.",
+      "parentUuid": "9de9d0c5_dfac9da8",
+      "revId": "18e3d2b4e64a649814c883c850b8afb12e2e1b7d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
