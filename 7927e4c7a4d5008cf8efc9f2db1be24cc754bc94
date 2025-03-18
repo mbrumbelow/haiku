@@ -450,6 +450,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac5f26de_54f9c3b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T11:34:47Z",
+      "side": 1,
+      "message": "Besides the huge debate on documentation here, nephele, you have not explained how you plan for this to work for older version of C++. As far as I know, all our headers should support C++98 and C89 for ease of inter-operability with gcc2.\n\nGiven these constraints, there is no way to use a newer version of the deprecated attribute, or rather, it could be done, but it would make the header significantly more complex to read (as waddlesplash already explained).\n\nI think that means the entire debate is pointless: maybe it would be nice to have a helpful message, but we can\u0027t do it, or only at the cost of making the function declarations even harder to read.\n\nAlso, it is not a problem to change this later since there is no impact on the ABI or potential for bugs and regressions. This change is surely a net improvement. The -2 vote seems unjustified to me, then, and does not create a good setting for a productive discussion. I am not interested in reading two developers shouting at each other.",
+      "parentUuid": "8ce88174_4fdbdb6d",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
