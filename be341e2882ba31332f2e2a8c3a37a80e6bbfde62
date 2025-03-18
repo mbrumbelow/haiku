@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ba30c427_88d70e13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-18T04:55:35Z",
+      "side": 1,
+      "message": "I can add the radio button and mode/\u0027just taken\u0027 changes, but obviously it would be wasted effort if you want to use the other patch instead, so let me know if you guys end up wanting to use this one after all.",
+      "parentUuid": "6b542746_60533a8c",
+      "revId": "be341e2882ba31332f2e2a8c3a37a80e6bbfde62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "563356d8_d84d4e2d",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 6
