@@ -34,6 +34,24 @@
       "parentUuid": "12e7a44a_44154089",
       "revId": "d823630a43912a2246390ba7eacbeb7d4f1d08af",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f394981_1c98bdc7",
+        "filename": "src/servers/app/ServerWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T12:18:48Z",
+      "side": 1,
+      "message": "I adjusted the comment to link to that commit.",
+      "parentUuid": "7d384f65_eb169992",
+      "revId": "d823630a43912a2246390ba7eacbeb7d4f1d08af",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
