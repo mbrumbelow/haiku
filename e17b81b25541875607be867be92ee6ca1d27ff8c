@@ -88,6 +88,24 @@
       "parentUuid": "cad34039_1fbb81d0",
       "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce9d4b3d_b2951e1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T11:55:16Z",
+      "side": 1,
+      "message": "Marking as -1 to know that this has been reviewed and we\u0027re waiting on feedback as to wether setting repetitions to 1 is working.",
+      "parentUuid": "911410db_7e4fc80a",
+      "revId": "e17b81b25541875607be867be92ee6ca1d27ff8c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ],
   "submitRequirementResults": [
