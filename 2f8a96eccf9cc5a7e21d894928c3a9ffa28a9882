@@ -422,6 +422,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d396e14e_d41e25d5",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T11:52:06Z",
+      "side": 1,
+      "message": "What would the constant name be? \"UNKNOWN_MICROSOFT_MAGIC_NUMBER\"?\n\nThat seems not very helpful.\n\nI think the best way to \"fix\" this is to include a comment with a link showing where the value came from (probably a driver from another OS?). This way we know where it was found.",
+      "parentUuid": "77fd9f8c_d5a1c646",
+      "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ab0b939_815e2774",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 2
@@ -540,6 +558,24 @@
       "side": 1,
       "message": "I don\u0027t know :\\ I mean... this is a topic I did not know anything a couple of months ago. I\u0027ve read the host must perform a reset before using the device but, If we do it here, we are resetting the device after fetching feature report (and blob report). Does it make sense? Would be nice to hear someone with more experience here than me.",
       "parentUuid": "3aab4727_4f0f1941",
+      "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15efc471_84d27bf8",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T11:52:06Z",
+      "side": 1,
+      "message": "The coding style says to not leave commented code in without any justification. This would be confusing to people reading the code, as they will not know what to do with it.\n\nJust adding a comment will help a lot:\n\n    #if 0\n    // Supposedly the host should reset the device when connecting\n    // to it, but it seems Open() is already too late for that \n    // (we already fetched the feature report). For now, keep \n    // the device as it was initialized by the BIOS until we \n    // decide of a proper place to do this reset.\n    _Reset();\n    #endif\n    \nThen, people reading the code can understand why it is disabled, and what to look for if they want to try enabling it, or if they want to clean up the code and decide if it can be removed \"safely\" (without losing important knowledge).",
+      "parentUuid": "9045202a_7a85d087",
       "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -725,6 +761,24 @@
       "writtenOn": "2025-03-06T02:39:04Z",
       "side": 1,
       "message": "Will these be needed in the future? If not, delete entirely",
+      "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "236bd44a_62fd5d70",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T11:52:06Z",
+      "side": 1,
+      "message": "At least include a comment explaining why it is disabled",
+      "parentUuid": "f391691c_98e064a3",
       "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

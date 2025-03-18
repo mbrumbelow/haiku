@@ -90,6 +90,42 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fab48421_9c52f155",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T11:52:06Z",
+      "side": 1,
+      "message": "I think fix the format issues and let\u0027s merge this. It gives a better base to work from.",
+      "parentUuid": "9ed27ec9_5b5641c0",
+      "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c515f0f6_e458253b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T11:52:06Z",
+      "side": 1,
+      "message": "\u003e Then I got a stream of i2c read timeouts\n\nI am not familiar with HID over I2C, but I am somewhat familiar with both HID and I2C in other contexts.\n\nFor HID over USB, getting read timeouts isn\u0027t at all unusual. A mouse will typically stall a read transfer to mean \"I have nothing to report at the moment\" when nothing changed (no movement and no button presses).\n\nIn I2C protocols this also is not an unlikely way to do things.\n\nSo, it may just be the normal flow of the driver asking \"did anything move?\" and the touchpad replying \"no, not yet\". In that case it\u0027s up to the driver to decide how often it needs to ask for updates. That\u0027s generally how things work for both USB and I2C: the device cannot signal the host when it has data to send. So, the host has to periodically check if there is anything to read.",
+      "parentUuid": "c2be5e91_069d224a",
+      "revId": "ee6d20d3d0f25e0356bbf5a965fc09d70d36557f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1d1d2202_2ddc7416",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 1
