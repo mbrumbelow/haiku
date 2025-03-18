@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "08b79e3a_9badaabf",
+        "filename": "headers/os/app/Message.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-18T12:32:50Z",
+      "side": 1,
+      "message": "do we want to maintain the deprecation for these ones? They were deprecated in BeOS because the error handling is imperfect (they just return a default value if the field is not found), but in a lot of cases it turns out that is just what you need, and indeed a lot of code is using them.\n\nThe alternative would be the GetInt* functions below, but these have two versions with and without an index, which means they can\u0027t have a default default value (so you would write GetInt(\"foo\") and just get the first \"foo\", or 0 if not found).",
+      "revId": "6ab7ab7ce7782cfeccb270d206858bc705ac862d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8928c7ee_bd115390",
