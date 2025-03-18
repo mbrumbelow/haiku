@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "377bd828_d7361f40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-18T13:14:21Z",
+      "side": 1,
+      "message": "Nobody seems to be actively working on the other patch. Why not take some of its changes (like the more advanced drag-select view) and incorporate them here? Or the other way around, take some of your changes and use them to update that patch? Whatever works best.",
+      "parentUuid": "ba30c427_88d70e13",
+      "revId": "be341e2882ba31332f2e2a8c3a37a80e6bbfde62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "563356d8_d84d4e2d",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 6
