@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ecd4c4b_7d3875a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-18T13:10:07Z",
+      "side": 1,
+      "message": "Conceptually it\u0027s not really a \"backup\", is it? It doesn\u0027t back up the current syslog but rather keeps the old syslog. Maybe \"syslog_max_history\"?",
+      "revId": "3f456b232316af5438690c8c55e825a83b2efb0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ceda1a4e_700473dc",
