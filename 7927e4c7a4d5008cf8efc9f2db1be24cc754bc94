@@ -468,6 +468,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d1d732_bf62783d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-18T17:06:56Z",
+      "side": 1,
+      "message": "This part was already resolved, korli pointed out that the gcc specific version also supports compiler messages.",
+      "parentUuid": "ac5f26de_54f9c3b4",
+      "revId": "7927e4c7a4d5008cf8efc9f2db1be24cc754bc94",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fac84af4_ba13fcdb",
