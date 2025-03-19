@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e62acf3d_33aae8b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "the platform code in the generic code looks intrusive.",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "977a0fbc_477d3f10",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "return Visit(device, 0);",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c09b8f51_ed27bb3e",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "these two changes shouldn\u0027t be needed.",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad563178_2c62e500",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "if (path !\u003d drive.Path()) {",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd3c121b_e6704902",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "please assign outside the if block.",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a71860_081460e2",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "should come before boot/platform.h",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f6042af_9262c491",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "why changing from x to u?",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c809ddd_a3a09b8d",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "why not keep the static?",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3642474_b1c6f3d9",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "you can just add a break at line 472 instead",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a593563_ddc3945e",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "the size should be factored out.",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a1aa90_c893d5d2",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "why ii?",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ee6443_949b00b5",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "the star style shouldn\u0027t be mixed up:\nstruct stage2_args *stage2_args",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b845fad_1845ea57",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "why are changes needed here? the rest of the file isn\u0027t touched",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd7337ce_64157df5",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "please remove",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f4a32cb_3d4b3736",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:02:29Z",
+      "side": 1,
+      "message": "shouldn\u0027t this go in the switch below?",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
