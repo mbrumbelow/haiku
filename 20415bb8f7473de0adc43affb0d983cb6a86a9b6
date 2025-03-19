@@ -16,6 +16,23 @@
       "message": "I guess this is what the BSDs do?",
       "revId": "20415bb8f7473de0adc43affb0d983cb6a86a9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97fce09c_116c27f1",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-19T09:50:08Z",
+      "side": 1,
+      "message": "I don\u0027t understand this change. The weak symbol should be handled as a candidateSymbol at line 529, but we should keep looking for other symbols in case we find a non-weak one.\n\nOnly if the loop exits without finding a non-weak symbol, we end up using the candidateSymbol (at line 545).\n\nWith this change, as soon as we find a weak symbol, we accept it, without checking if another image has a non-weak version that we should use in priority.\n\nSo:\n\n- I don\u0027t understand how this fixes the problem mentionned in the commit message (the symbol should have be found eventually via the candidateSymbol system),\n- It looks like it will break overriding a weak symbol with a non-weak one.",
+      "revId": "20415bb8f7473de0adc43affb0d983cb6a86a9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
