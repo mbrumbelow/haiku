@@ -106,6 +106,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b18fe6d_b8ea6139",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T20:31:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "46e3dc14_6f725737",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad563178_2c62e500",
@@ -193,6 +211,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f173d60_6e898944",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T20:31:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80a71860_081460e2",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f6042af_9262c491",
@@ -206,6 +242,24 @@
       "writtenOn": "2025-03-19T18:02:29Z",
       "side": 1,
       "message": "why changing from x to u?",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c60c2fa6_a2f5fe47",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T20:31:29Z",
+      "side": 1,
+      "message": "I remember that compiler complained when activating the traces. But i revert it according to you.",
+      "parentUuid": "7f6042af_9262c491",
       "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
