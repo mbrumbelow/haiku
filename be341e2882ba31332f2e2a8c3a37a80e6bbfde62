@@ -92,6 +92,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c472dc25_758a772e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-19T22:45:06Z",
+      "side": 1,
+      "message": "Hmm. I still quite like the idea of the Windows/Mac-style drag, let go, and capture flow, and I\u0027m still not a fan of the big text on the shaded area and always needing to press enter to save. How about this - a key that you can hold down (shift probably) to show drag handles and allow repositioning, that way the simpler flow is the default; if you click capture as normal, you get the simple flow; if you hold shift and click capture, it will allow you to resize and drag, and the area will be saved when the key is released.",
+      "parentUuid": "377bd828_d7361f40",
+      "revId": "be341e2882ba31332f2e2a8c3a37a80e6bbfde62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "563356d8_d84d4e2d",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 6
