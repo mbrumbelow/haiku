@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ce4c0ea5_e46ff207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-19T17:41:59Z",
+      "side": 1,
+      "message": "Seems like it could get verbose, but I guess to start with it makes sense to print all of it and we can reduce later if needed.",
+      "revId": "1cc09de36baa929b4a25a04b6c656ef4b406a562",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f83ead46_605047be",
         "filename": "src/add-ons/kernel/drivers/disk/nvme/nvme_disk.cpp",
         "patchSetId": 1
