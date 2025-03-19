@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0269d7f4_e5bf8ab6",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T20:23:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "782adc5d_588b0374",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c09b8f51_ed27bb3e",
@@ -66,6 +84,24 @@
       "writtenOn": "2025-03-19T18:02:29Z",
       "side": 1,
       "message": "these two changes shouldn\u0027t be needed.",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46e3dc14_6f725737",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T20:23:48Z",
+      "side": 1,
+      "message": "\u003e these two changes shouldn\u0027t be needed.\n\nI had this segfault without those two changes : https://www.uploadfr.com/image/zdpt",
+      "parentUuid": "c09b8f51_ed27bb3e",
       "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -87,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d57b428_e16d7167",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T20:23:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad563178_2c62e500",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd3c121b_e6704902",
@@ -100,6 +154,24 @@
       "writtenOn": "2025-03-19T18:02:29Z",
       "side": 1,
       "message": "please assign outside the if block.",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c3668d5_57beff18",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T20:23:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd3c121b_e6704902",
       "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
