@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc0b839_83a2bd15",
+        "filename": "build/jam/images/NetBootArchive",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T19:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6df09d73_f24a368f",
+      "revId": "8b8a56a0ab1905716de51827f2c15111224ff9a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e142b8e2_9ccbba7c",
@@ -56,6 +74,30 @@
       "side": 1,
       "message": "extra tab before status_t that should not be there",
       "parentUuid": "e142b8e2_9ccbba7c",
+      "range": {
+        "startLine": 753,
+        "startChar": 0,
+        "endLine": 753,
+        "endChar": 0
+      },
+      "revId": "8b8a56a0ab1905716de51827f2c15111224ff9a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "955ab2f0_50cddf95",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T19:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9d2adc3_18e11aee",
       "range": {
         "startLine": 753,
         "startChar": 0,
@@ -116,6 +158,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "af139130_9c171aa7",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T19:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd13d020_21f5edf5",
+      "range": {
+        "startLine": 755,
+        "startChar": 0,
+        "endLine": 755,
+        "endChar": 0
+      },
+      "revId": "8b8a56a0ab1905716de51827f2c15111224ff9a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fe27732b_b4c8deaf",
         "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
         "patchSetId": 12
@@ -164,6 +230,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2871d433_7abc0fca",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T19:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38db1670_704dff89",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 0
+      },
+      "revId": "8b8a56a0ab1905716de51827f2c15111224ff9a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7c693770_950fa7ae",
         "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
         "patchSetId": 12
@@ -200,6 +290,30 @@
       "side": 1,
       "message": "extra tab that should not be there",
       "parentUuid": "7c693770_950fa7ae",
+      "range": {
+        "startLine": 841,
+        "startChar": 0,
+        "endLine": 841,
+        "endChar": 0
+      },
+      "revId": "8b8a56a0ab1905716de51827f2c15111224ff9a7",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de2fc405_a2e730e5",
+        "filename": "src/system/boot/loader/file_systems/tarfs/tarfs.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T19:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa6974da_a84b890f",
       "range": {
         "startLine": 841,
         "startChar": 0,
