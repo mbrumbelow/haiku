@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2b1c9548_d82c1b05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-19T18:28:36Z",
+      "side": 1,
+      "message": "Sure, and I think we don\u0027t have any tools to dump the current state of the drive.",
+      "parentUuid": "ce4c0ea5_e46ff207",
+      "revId": "1cc09de36baa929b4a25a04b6c656ef4b406a562",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f83ead46_605047be",
         "filename": "src/add-ons/kernel/drivers/disk/nvme/nvme_disk.cpp",
         "patchSetId": 1
