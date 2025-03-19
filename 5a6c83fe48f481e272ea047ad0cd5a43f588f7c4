@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "782adc5d_588b0374",
+        "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-19T19:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "977a0fbc_477d3f10",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c09b8f51_ed27bb3e",
         "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
         "patchSetId": 20
