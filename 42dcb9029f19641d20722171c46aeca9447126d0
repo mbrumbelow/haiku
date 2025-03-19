@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a24bd46c_bf657192",
+        "filename": "src/add-ons/kernel/file_systems/nfs4/FileInfo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-19T17:27:00Z",
+      "side": 0,
+      "message": "2 blank lines above and below methods",
+      "revId": "42dcb9029f19641d20722171c46aeca9447126d0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

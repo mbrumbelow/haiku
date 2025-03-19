@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91c6317_49ebaddf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-19T17:27:00Z",
+      "side": 1,
+      "message": "This seems like a hack. It\u0027s probably not useful for many filesystems besides NFS4 anyway, as those may have hundreds or thousands of vnodes...\n\nDoes userlandfs store the whole vnode table in userspace? Maybe this makes more sense as a userlandfs debugging feature? Or something with a callback at least?",
+      "revId": "4cfe1e4c986fb602631b978f42bbe42221aa3a3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8f75d50c_1f09ac31",
