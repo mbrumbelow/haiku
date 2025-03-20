@@ -121,6 +121,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "899e843b_07950ea5",
+        "filename": "headers/private/kernel/disk_device_manager/KDiskDevice.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-20T07:20:05Z",
+      "side": 1,
+      "message": "I see disk_device_data got a drive id too. Is this really needed?",
+      "revId": "0e9535c9112cdf8dac9ac848762050ebaad2550a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "eeb659bf_03c25286",
