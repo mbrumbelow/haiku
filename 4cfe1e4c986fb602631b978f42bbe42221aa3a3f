@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb3ff33d_10672b31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000366
+      },
+      "writtenOn": "2025-03-20T14:53:36Z",
+      "side": 1,
+      "message": "In userlandfs it looks like the vnode table is kept on the kernel side and the server has to send a request every time the FS calls a function like acquire_vnode, so it doesn\u0027t seem practical to make this a userlandfs debugging feature.\n\nMaybe a dump_vnodes() that took an optional pointer to a callback (for printing private data) as an argument could be added to the VFS public API, although this still might not make sense if most filesystems have no use for it.  I have removed the VFS change from the patch.",
+      "parentUuid": "e91c6317_49ebaddf",
+      "revId": "4cfe1e4c986fb602631b978f42bbe42221aa3a3f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8f75d50c_1f09ac31",
