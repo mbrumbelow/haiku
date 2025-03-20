@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64c6e4a_44b5a348",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-20T18:18:18Z",
+      "side": 1,
+      "message": "BSDs don\u0027t have add-ons I think. The aim here is to load add-ons more like we load a library.",
+      "parentUuid": "4af1cea6_fafbe396",
+      "revId": "20415bb8f7473de0adc43affb0d983cb6a86a9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97fce09c_116c27f1",
