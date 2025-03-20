@@ -440,6 +440,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85215a00_430e0887",
+        "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-20T07:04:09Z",
+      "side": 1,
+      "message": "FreeBSD names it HUMS_THQA_CERT\nhttps://github.com/freebsd/freebsd-src/blob/main/sys/dev/hid/hmt.c#L675",
+      "parentUuid": "d396e14e_d41e25d5",
+      "revId": "2f8a96eccf9cc5a7e21d894928c3a9ffa28a9882",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ab0b939_815e2774",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 2
