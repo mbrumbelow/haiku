@@ -110,6 +110,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b7cea036_adbbd59d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-20T16:34:53Z",
+      "side": 1,
+      "message": "How about this:\n* After clicking \"Select area\", left-dragging does the \u0027direct-selection\u0027. Holding SHIFT or right-dragging does the \u0027edit-with-handles\u0027.\n* After having selected an area, the button label is renamed to \"Edit area\". When clicked, the previously selected area is shown in the \u0027edit-with-handles\u0027 mode.\n* Besides ENTER, a double-click inside the selected area could confirm the area in \u0027edit-with-handles\u0027 mode.\n\nI appreciate that this is quite some work... 😊",
+      "parentUuid": "c472dc25_758a772e",
+      "revId": "be341e2882ba31332f2e2a8c3a37a80e6bbfde62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "563356d8_d84d4e2d",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 6
