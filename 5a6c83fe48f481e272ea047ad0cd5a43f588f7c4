@@ -351,6 +351,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cea1c49a_81495780",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-21T20:27:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a593563_ddc3945e",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10a1aa90_c893d5d2",
@@ -364,6 +382,24 @@
       "writtenOn": "2025-03-19T18:02:29Z",
       "side": 1,
       "message": "why ii?",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7621dc2_1002d72d",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-21T20:27:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10a1aa90_c893d5d2",
       "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
