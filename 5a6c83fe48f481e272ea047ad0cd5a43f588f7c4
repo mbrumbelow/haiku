@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d256d2ee_609eb15f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-21T22:50:07Z",
+      "side": 1,
+      "message": "Could you point me which files are concerned, and any clue if you have some ? I tried my best not to pollute generic code, so if I did, the explanation is that I could not find a better solution myself. But with your good advices i am sure i can improve that ! 😊",
+      "parentUuid": "e62acf3d_33aae8b5",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "977a0fbc_477d3f10",
         "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
         "patchSetId": 20
