@@ -69,6 +69,24 @@
       "parentUuid": "97fce09c_116c27f1",
       "revId": "20415bb8f7473de0adc43affb0d983cb6a86a9b6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e01f1a_90002960",
+        "filename": "src/system/runtime_loader/elf_symbol_lookup.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-21T08:12:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6dbf5b5_82ab85be",
+      "revId": "20415bb8f7473de0adc43affb0d983cb6a86a9b6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
