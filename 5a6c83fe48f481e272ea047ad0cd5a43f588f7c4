@@ -421,6 +421,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc26fa93_0f81de2a",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-21T22:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87ee6443_949b00b5",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b845fad_1845ea57",
@@ -434,6 +452,24 @@
       "writtenOn": "2025-03-19T18:02:29Z",
       "side": 1,
       "message": "why are changes needed here? the rest of the file isn\u0027t touched",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f393f6c1_bcd7144b",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-21T22:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b845fad_1845ea57",
       "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -455,6 +491,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6958a410_ce658d69",
+        "filename": "src/system/kernel/arch/x86/arch_platform.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-21T22:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd7337ce_64157df5",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f4a32cb_3d4b3736",
@@ -468,6 +522,24 @@
       "writtenOn": "2025-03-19T18:02:29Z",
       "side": 1,
       "message": "shouldn\u0027t this go in the switch below?",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b737ce_a10a9692",
+        "filename": "src/system/kernel/device_manager/devfs.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-21T22:45:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f4a32cb_3d4b3736",
       "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
