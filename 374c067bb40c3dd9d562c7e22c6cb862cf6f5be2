@@ -16,6 +16,24 @@
       "message": "Are these changes sufficient to show the flag in the Locale preferences?\nThe flag doesn\u0027t show up when running a Locale prefs built with these changes on an otherwise unchanged Beta5 install.",
       "revId": "374c067bb40c3dd9d562c7e22c6cb862cf6f5be2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f5ae11_d65edd2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-03-22T11:47:56Z",
+      "side": 1,
+      "message": "The resources are added to libbe. You may have noticed it was also rebuilt, if you had a previous build without this change. Run `LD_PRELOAD\u003dobjects/haiku/x86_64/release/kits/libbe.so objects/haiku/x86_64/release/preferences/locale/Locale` and enjoy the new flag.",
+      "parentUuid": "5d63c7b2_b9d66a32",
+      "revId": "374c067bb40c3dd9d562c7e22c6cb862cf6f5be2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
