@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5661fec2_13ff2002",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-03-23T19:04:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ecd4c4b_7d3875a4",
+      "revId": "3f456b232316af5438690c8c55e825a83b2efb0a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ceda1a4e_700473dc",
         "filename": "src/servers/syslog_daemon/syslog_output.cpp",
         "patchSetId": 7
