@@ -16,6 +16,24 @@
       "message": "Perhaps it makes sense to factorize these out into a `dir_create(vnode parent, name, perms)` (or something like that) method?",
       "revId": "0890cb405780246585afe4ee460926b1aa8605b5",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3796da04_df992fba",
+        "filename": "src/system/kernel/fs/vfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 5934,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-23T17:26:19Z",
+      "side": 0,
+      "message": "added dir_create_vnode(vnode, name, perms)",
+      "parentUuid": "e0af25e2_02318469",
+      "revId": "0890cb405780246585afe4ee460926b1aa8605b5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
