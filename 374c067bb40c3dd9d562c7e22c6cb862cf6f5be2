@@ -69,6 +69,24 @@
       "message": "We should avoid changing the IDs for existing flags, in case some application decided to refer to them by numeric ID instead of name.\n\nSo instead, just take the next available number (that should be245) for the new flag.",
       "revId": "374c067bb40c3dd9d562c7e22c6cb862cf6f5be2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d3eb37_149aec0f",
+        "filename": "src/kits/CountryFlags.rdef",
+        "patchSetId": 1
+      },
+      "lineNbr": 2603,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-23T08:12:20Z",
+      "side": 1,
+      "message": "Yeah, I only did that because the new flag was inserted at the far end of the file. It\u0027d be unpractical if one was inserted near the start and you\u0027d had to re-number 200 entries...\n\nMy concern was that you won\u0027t know the next free ID when another flag needs to be added. Or is it good enough to look at the commit log of the file for the last change?\nOr should there be a comment at the top of the file, like \"Used IDs: 0 - 245\" that should be updated accordingly? Though that may easily be overlooked...\nPlease advise. 😊",
+      "parentUuid": "51e12e6d_68ad194f",
+      "revId": "374c067bb40c3dd9d562c7e22c6cb862cf6f5be2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
