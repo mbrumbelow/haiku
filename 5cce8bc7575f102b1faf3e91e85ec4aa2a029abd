@@ -16,6 +16,23 @@
       "message": "BTW, korli, if you are looking in to ways to save power, you might take a look at sound output. My laptop here idles at around 8W on battery (if PowerStatus is to be believed anyway), but if I boot with HDA blocklisted, it idles at around 7.55W instead. (Right now if there\u0027s nothing being played the media server just sends silence buffers to the driver instead of turning it off.)",
       "revId": "5cce8bc7575f102b1faf3e91e85ec4aa2a029abd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5d4fca_1de8435b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-24T11:05:47Z",
+      "side": 1,
+      "message": "thanks for the suggestion. \nShould we upstream changes for libnvme at https://github.com/hgst/libnvme or is it dead?",
+      "revId": "5cce8bc7575f102b1faf3e91e85ec4aa2a029abd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
