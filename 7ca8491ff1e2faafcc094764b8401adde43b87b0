@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcdf1fef_d7cb6b33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-25T14:13:33Z",
+      "side": 1,
+      "message": "So, after hearing that BIOS drive IDs can change between boots (and that Anarchos observed this happening when loading bootman from different drives), I think this is a bad idea and the wrong way to solve it: because if they can change just based on what drive is being booted from, then what\u0027s to stop them from changing if (e.g.) someone boots with a USB drive plugged in (whether the drive is bootable or not)? And of course with buggy BIOSes, depending on how they do disk IO and assign the IDs it may even be nondeterministic. I don\u0027t think we can rely on the IDs at all, then; and so recording and making settings based on the drive IDs will thus break or cause unexpected behavior, which would be bad.\n\nInstead, I think the right solution would be: instead of trying to write all boot manager settings (including drive IDs) to one location on one drive, write the boot manager settings on a per-drive basis (perhaps with the full bootman code, too, so that all disks containing bootable partitions are themselves bootable). Then when bootmanager starts and scans all drives, it will read the settings from those drives too and add the entries to the menu, no matter what their current IDs are.\n\nImplementing this will probably be somewhat annoying as it will require making changes to \"bootman.S\" to load multiple lists of drives and combine them. Anarchos, I\u0027m sorry you\u0027ve spent so long on this only for it to turn out to be (IMHO) somewhat the wrong direction to take to solve this problem. I don\u0027t want you to have to redo all the work yourself when really we ought to have done some research and forseen some of these problems beforehand, and so if others agree that this proposal sounds like the right way to go, then I might take a stab at this alternative solution myself.",
+      "revId": "7ca8491ff1e2faafcc094764b8401adde43b87b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad532e24_7f35eb47",
