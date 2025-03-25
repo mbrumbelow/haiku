@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "939ea2af_0064a57c",
+        "filename": "headers/os/app/Message.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-25T16:17:32Z",
+      "side": 1,
+      "message": "I\u0027m confused. The Get* functions have default values already, and you normally *have* to pass defaults to them. The Find functions can be used if the error handeling is important and falling back to a default value is not desired.\n\nThese variants should be deprecated as they are now.",
+      "parentUuid": "1fe6fb6c_989ce7e5",
+      "revId": "6ab7ab7ce7782cfeccb270d206858bc705ac862d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8928c7ee_bd115390",
