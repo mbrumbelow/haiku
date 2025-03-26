@@ -24,13 +24,25 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 
 		MergeObject <$(architecture)>posix_gnu_wcsmbs.o :
 			wcsmbsload.c
+
 			wcstod.c
+			wcstod_l.c
+			wcstod_nan.c
 			wcstof.c
-			wcstol.c
-			wcstoll.c
+			wcstof_l.c
+			wcstof_nan.c
 			wcstold.c
+			wcstold_l.c
+			wcstold_nan.c
+
+			wcstol.c
+			wcstol_l.c
+			wcstoll.c
+			wcstoll_l.c
 			wcstoul.c
+			wcstoul_l.c
 			wcstoull.c
+			wcstoull_l.c
 			;
 	}
 }

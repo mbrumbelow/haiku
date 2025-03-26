@@ -1,5 +1,5 @@
-/* Internal header for proving correct grouping in strings of numbers.
-   Copyright (C) 1995-2025 Free Software Foundation, Inc.
+/* Helper macros for double variants of type generic functions of libm.
+   Copyright (C) 2016-2025 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -16,15 +16,28 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-/* Find the maximum prefix of the string between BEGIN and END which
-   satisfies the grouping rules.  It is assumed that at least one digit
-   follows BEGIN directly.  */
-extern const wchar_t *__correctly_grouped_prefixwc (const wchar_t *begin,
-						    const wchar_t *end,
-						    wchar_t thousands,
-						    const char *grouping);
+#ifndef _MATH_TYPE_MACROS_DOUBLE
+#define _MATH_TYPE_MACROS_DOUBLE
 
-extern const char *__correctly_grouped_prefixmb (const char *begin,
-						 const char *end,
-						 const char *thousands,
-						 const char *grouping);
+#define M_LIT(c) c
+#define M_MLIT(c) c
+#define M_PFX DBL
+#define M_SUF(c) c
+#define FLOAT double
+#define CFLOAT _Complex double
+#define M_STRTO_NAN __strtod_nan
+#define M_USE_BUILTIN(c) USE_ ##c ##_BUILTIN
+
+#define SET_NAN_PAYLOAD(flt, mant)			\
+  do							\
+    {							\
+      union ieee754_double u;				\
+      u.d = (flt);					\
+      u.ieee_nan.mantissa0 = (mant) >> 32;		\
+      u.ieee_nan.mantissa1 = (mant);			\
+      if ((u.ieee.mantissa0 | u.ieee.mantissa1) != 0)	\
+	(flt) = u.d;					\
+    }							\
+  while (0)
+
+#endif

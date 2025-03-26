@@ -47,6 +47,8 @@
 #define __need_wint_t
 #include <stddef.h>
 
+#include <locale_t.h>
+
 #include <bits/wchar.h>
 
 /* We try to get wint_t from <stddef.h>, but not all GCC versions define it
@@ -255,6 +257,13 @@ extern float __wcstof_internal (__const wchar_t *__restrict __nptr,
 extern long double __wcstold_internal (__const wchar_t *__restrict __nptr,
 				       wchar_t **__restrict __endptr,
 				       int __group) __THROW;
+
+extern float ____wcstof_l_internal (const wchar_t *, wchar_t **, int,
+				    locale_t);
+extern double ____wcstod_l_internal (const wchar_t *, wchar_t **, int,
+				     locale_t);
+extern long double ____wcstold_l_internal (const wchar_t *, wchar_t **,
+					   int, locale_t);
 
 #ifndef __wcstol_internal_defined
 extern long int __wcstol_internal (__const wchar_t *__restrict __nptr,

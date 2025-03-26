@@ -146,4 +146,9 @@ _nl_current_word(int value)
 	_nl_current_word(category##_##item)
 
 
+locale_t __current_locale_t();
+locale_t __posix_locale_t();
+#define _NL_CURRENT_LOCALE (__current_locale_t())
+
+
 #endif	/* _LOCALEINFO_H */

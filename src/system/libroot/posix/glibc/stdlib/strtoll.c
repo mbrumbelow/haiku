@@ -1,4 +1,4 @@
-/* Internal header for proving correct grouping in strings of numbers.
+/* Function to parse a `long long int' from text.
    Copyright (C) 1995-2025 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
@@ -16,15 +16,22 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-/* Find the maximum prefix of the string between BEGIN and END which
-   satisfies the grouping rules.  It is assumed that at least one digit
-   follows BEGIN directly.  */
-extern const wchar_t *__correctly_grouped_prefixwc (const wchar_t *begin,
-						    const wchar_t *end,
-						    wchar_t thousands,
-						    const char *grouping);
+#define	QUAD	1
 
-extern const char *__correctly_grouped_prefixmb (const char *begin,
-						 const char *end,
-						 const char *thousands,
-						 const char *grouping);
+#include <strtol.c>
+
+#ifndef __HAIKU__
+#ifdef _LIBC
+# ifdef SHARED
+#  include <shlib-compat.h>
+
+#  if SHLIB_COMPAT (libc, GLIBC_2_0, GLIBC_2_2)
+compat_symbol (libc, __strtoll_internal, __strtoq_internal, GLIBC_2_0);
+#  endif
+
+# endif
+weak_alias (strtoll, strtoq)
+weak_alias (strtoll, strtoimax)
+weak_alias (__isoc23_strtoll, __isoc23_strtoimax)
+#endif
+#endif

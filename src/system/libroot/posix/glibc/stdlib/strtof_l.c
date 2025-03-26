@@ -1,6 +1,6 @@
-/* Read decimal floating point numbers.
+/* Convert string representing a number to float value, using given locale.
+   Copyright (C) 1997-2025 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
-   Copyright (C) 1995-2025 Free Software Foundation, Inc.
 
    The GNU C Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public
@@ -16,35 +16,39 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-/* The actual implementation for all floating point sizes is in strtod.c.
-   These macros tell it to produce the `float' version, `strtof'.  */
-
 #include <bits/floatn.h>
 
 #if __HAVE_FLOAT32 && !__HAVE_DISTINCT_FLOAT32
-# define strtof32 __hide_strtof32
-# define wcstof32 __hide_wcstof32
+# define strtof32_l __hide_strtof32_l
+# define wcstof32_l __hide_wcstof32_l
 #endif
+
+#include <locale.h>
+
+extern float ____strtof_l_internal (const char *, char **, int, locale_t);
 
 #define	FLOAT		float
 #define	FLT		FLT
 #ifdef USE_WIDE_CHAR
-#define STRTOF		wcstof
-#define STRTOF_L	__wcstof_l
+# define STRTOF		wcstof_l
+# define __STRTOF	__wcstof_l
+# define STRTOF_NAN	__wcstof_nan
 #else
-# define STRTOF		strtof
-# define STRTOF_L	__strtof_l
+# define STRTOF		strtof_l
+# define __STRTOF	__strtof_l
+# define STRTOF_NAN	__strtof_nan
 #endif
+#define	MPN2FLOAT	__mpn_construct_float
+#define	FLOAT_HUGE_VAL	HUGE_VALF
 
-
-#include "strtod.c"
+#include "strtod_l.c"
 
 #if __HAVE_FLOAT32 && !__HAVE_DISTINCT_FLOAT32
-# undef strtof32
-# undef wcstof32
+# undef strtof32_l
+# undef wcstof32_l
 # ifdef USE_WIDE_CHAR
-weak_alias (wcstof, wcstof32)
+weak_alias (wcstof_l, wcstof32_l)
 # else
-weak_alias (strtof, strtof32)
+weak_alias (strtof_l, strtof32_l)
 # endif
 #endif

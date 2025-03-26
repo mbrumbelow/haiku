@@ -1,5 +1,5 @@
-/* Internal header for proving correct grouping in strings of numbers.
-   Copyright (C) 1995-2025 Free Software Foundation, Inc.
+/* Helper macros for float variants of type generic functions of libm.
+   Copyright (C) 2016-2025 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -16,15 +16,26 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-/* Find the maximum prefix of the string between BEGIN and END which
-   satisfies the grouping rules.  It is assumed that at least one digit
-   follows BEGIN directly.  */
-extern const wchar_t *__correctly_grouped_prefixwc (const wchar_t *begin,
-						    const wchar_t *end,
-						    wchar_t thousands,
-						    const char *grouping);
+#ifndef _MATH_TYPE_MACROS_FLOAT
+#define _MATH_TYPE_MACROS_FLOAT
 
-extern const char *__correctly_grouped_prefixmb (const char *begin,
-						 const char *end,
-						 const char *thousands,
-						 const char *grouping);
+#define M_LIT(c) c ## f
+#define M_PFX FLT
+#define M_SUF(c) c ## f
+#define FLOAT float
+#define CFLOAT _Complex float
+#define M_STRTO_NAN __strtof_nan
+#define M_USE_BUILTIN(c) USE_ ##c ##F_BUILTIN
+
+#define SET_NAN_PAYLOAD(flt, mant)		\
+  do						\
+    {						\
+      union ieee754_float u;			\
+      u.f = (flt);				\
+      u.ieee_nan.mantissa = (mant);		\
+      if (u.ieee.mantissa != 0)			\
+	(flt) = u.f;				\
+    }						\
+  while (0)
+
+#endif

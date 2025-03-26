@@ -21,12 +21,9 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 
 		MergeObject <$(architecture)>posix_gnu_stdlib.o :
 			drand48.c
-			drand48_r.c
 			drand48-iter.c
 			erand48.c
-			fpioconst.c
 			jrand48.c
-			inlines.c
 			lcong48.c
 			lrand48.c
 			mrand48.c
@@ -34,11 +31,33 @@ for architectureObject in [ MultiArchSubDirSetup ] {
 			random_r.c
 			seed48.c
 			srand48.c
+
+			fpioconst.c
+			grouping.c
+			groupingwc.c
+			inlines.c
+			tens_in_limb.c
+
+			strtod_nan.c
+			strtof_nan.c
 			strtod.c
+			strtod_l.c
 			strtold.c
+			strtold_l.c
 			strtof.c
+			strtof_l.c
+
+			strtol.c
+			strtol_l.c
+			strtoll.c
+			strtoll_l.c
+			strtoul.c
+			strtoul_l.c
+			strtoull.c
+			strtoull_l.c
 
 			# These are nonstandard but were declared in BeOS's headers.
+			drand48_r.c
 			erand48_r.c
 			jrand48_r.c
 			lcong48_r.c

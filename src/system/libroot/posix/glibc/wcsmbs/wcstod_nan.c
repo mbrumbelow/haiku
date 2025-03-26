@@ -1,5 +1,5 @@
-/* Internal header for proving correct grouping in strings of numbers.
-   Copyright (C) 1995-2025 Free Software Foundation, Inc.
+/* Convert string for NaN payload to corresponding NaN.  Wide strings, double.
+   Copyright (C) 2015-2025 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
@@ -16,15 +16,8 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-/* Find the maximum prefix of the string between BEGIN and END which
-   satisfies the grouping rules.  It is assumed that at least one digit
-   follows BEGIN directly.  */
-extern const wchar_t *__correctly_grouped_prefixwc (const wchar_t *begin,
-						    const wchar_t *end,
-						    wchar_t thousands,
-						    const char *grouping);
+#include "../stdlib/strtod_nan_wide.h"
+#include <math-type-macros-double.h>
 
-extern const char *__correctly_grouped_prefixmb (const char *begin,
-						 const char *end,
-						 const char *thousands,
-						 const char *grouping);
+#define STRTOD_NAN __wcstod_nan
+#include "../stdlib/strtod_nan_main.c"
