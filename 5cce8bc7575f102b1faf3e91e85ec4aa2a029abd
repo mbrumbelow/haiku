@@ -51,6 +51,24 @@
       "parentUuid": "7d5d4fca_1de8435b",
       "revId": "5cce8bc7575f102b1faf3e91e85ec4aa2a029abd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f424448e_62ef5a66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-03-26T14:29:22Z",
+      "side": 1,
+      "message": "I submitted a PR which is now closed: \"This project is unmaintained. I will archive it. Please feel free to fork it and patch as you see fit.\"",
+      "parentUuid": "ca895e06_cccc7257",
+      "revId": "5cce8bc7575f102b1faf3e91e85ec4aa2a029abd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
