@@ -126,17 +126,3 @@ noconv:
 		*endptr = (char *)(any ? s - 1 : nptr);
 	return (acc);
 }
-
-
-#ifdef __HAIKU__
-unsigned long __strtoul_internal(const char *number, char **_end, int base, int group);
-
-unsigned long
-__strtoul_internal(const char *number, char **_end, int base, int group)
-{
-	// ToDo: group is currently not supported!
-	(void)group;
-
-	return strtoul(number, _end, base);
-}
-#endif

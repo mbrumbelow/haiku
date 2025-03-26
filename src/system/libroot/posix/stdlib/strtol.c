@@ -147,17 +147,3 @@ noconv:
 		*endptr = (char *)(any ? s - 1 : nptr);
 	return (acc);
 }
-
-
-#ifdef __HAIKU__
-long __strtol_internal(const char *number, char **_end, int base, int group);
-
-long
-__strtol_internal(const char *number, char **_end, int base, int group)
-{
-	// ToDo: group is currently not supported!
-	(void)group;
-
-	return strtol(number, _end, base);
-}
-#endif

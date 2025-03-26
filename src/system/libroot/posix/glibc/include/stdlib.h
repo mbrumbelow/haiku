@@ -47,6 +47,7 @@ extern int __cxa_atexit (void (*func) (void *), void *arg, void *d);
 
 extern void __cxa_finalize (void *d);
 
+
 /* The internal entry points for `strtoX' take an extra flag argument
    saying whether or not to parse locale-dependent number grouping.  */
 
@@ -59,6 +60,24 @@ extern float __strtof_internal (__const char *__restrict __nptr,
 extern long double __strtold_internal (__const char *__restrict __nptr,
 					   char **__restrict __endptr,
 					   int __group) __THROW;
+
+extern double ____strtod_l_internal (const char *__restrict __nptr,
+				     char **__restrict __endptr, int __group,
+				     locale_t __loc);
+extern float ____strtof_l_internal (const char *__restrict __nptr,
+				    char **__restrict __endptr, int __group,
+				    locale_t __loc);
+extern long double ____strtold_l_internal (const char *__restrict __nptr,
+					   char **__restrict __endptr,
+					   int __group, locale_t __loc);
+
+extern float __strtof_nan (const char *, char **, char);
+extern double __strtod_nan (const char *, char **, char);
+extern long double __strtold_nan (const char *, char **, char);
+extern float __wcstof_nan (const wchar_t *, wchar_t **, wchar_t);
+extern double __wcstod_nan (const wchar_t *, wchar_t **, wchar_t);
+extern long double __wcstold_nan (const wchar_t *, wchar_t **, wchar_t);
+
 #ifndef __strtol_internal_defined
 extern long int __strtol_internal (__const char *__restrict __nptr,
 				   char **__restrict __endptr,

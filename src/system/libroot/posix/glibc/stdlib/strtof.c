@@ -1,22 +1,50 @@
+/* Read decimal floating point numbers.
+   This file is part of the GNU C Library.
+   Copyright (C) 1995-2025 Free Software Foundation, Inc.
+
+   The GNU C Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   The GNU C Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with the GNU C Library; if not, see
+   <https://www.gnu.org/licenses/>.  */
+
 /* The actual implementation for all floating point sizes is in strtod.c.
    These macros tell it to produce the `float' version, `strtof'.  */
 
+#include <bits/floatn.h>
+
+#if __HAVE_FLOAT32 && !__HAVE_DISTINCT_FLOAT32
+# define strtof32 __hide_strtof32
+# define wcstof32 __hide_wcstof32
+#endif
+
 #define	FLOAT		float
 #define	FLT		FLT
-#ifdef USE_IN_EXTENDED_LOCALE_MODEL
-# define STRTOF		__strtof_l
+#ifdef USE_WIDE_CHAR
+#define STRTOF		wcstof
+#define STRTOF_L	__wcstof_l
 #else
 # define STRTOF		strtof
+# define STRTOF_L	__strtof_l
 #endif
-#define	MPN2FLOAT	__mpn_construct_float
-#define	FLOAT_HUGE_VAL	HUGE_VALF
-#define SET_MANTISSA(flt, mant) \
-  do { union ieee754_float u;						      \
-       u.f = (flt);							      \
-       if ((mant & 0x7fffff) == 0)					      \
-	 mant = 0x400000;						      \
-       u.ieee.mantissa = (mant) & 0x7fffff;				      \
-       (flt) = u.f;							      \
-  } while (0)
+
 
 #include "strtod.c"
+
+#if __HAVE_FLOAT32 && !__HAVE_DISTINCT_FLOAT32
+# undef strtof32
+# undef wcstof32
+# ifdef USE_WIDE_CHAR
+weak_alias (wcstof, wcstof32)
+# else
+weak_alias (strtof, strtof32)
+# endif
+#endif
