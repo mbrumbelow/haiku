@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eca26bb_00a9c699",
+        "filename": "headers/os/app/Message.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-27T17:50:08Z",
+      "side": 1,
+      "message": "The Get* functions have no \"default default\" value.\n\nThat means the equivalent to FindString(\"somekey\"); is GetString(\"somekey\", \"\"); and likewise for each other type. One extra parameter allowing to set the default value.\n\nAll of the defined Find* have \"obvious\" default values (0 for numbers, false for bool, empty string for strings, empty rectangle for rectangles, B_ORIGIN for points) which is what you want in a lot of cases. And the Find* functions just use that obvious value, making the code simpler by not forcing you to explicitly state that default value.\n\nIt may be possible to declare these values as default parameters in the Get* functions, but this has been done only for GetBool and a few of the new ones that don\u0027t have Find* equivalents (GetPointer defaults to NULL for example). In the case that all Get* functions get default values, then, yes, maybe we can deprecate these as there is a good replacement.\n\nBut that raises another problem: there is no way to do this for the 3-parameter Get* functions (with an index). Suppose you have:\n\n    GetInt32(const char* name, int32 defaultValue \u003d 0) const;\n    GetInt32(const char* name, int32 index, int32 defaultValue \u003d 0) const;\n    \nNow you write:\n\n    int32 v \u003d GetInt32(\"somekey\", 0);\n    \nThe compiler does not know if you are trying to call the first variant (with defaultValue explicitly set to 0) or the second one (with index \u003d 0 and the default default value of 0).\n\nSo, we can\u0027t have default default values for all the variants of the Get* functions. That makes them annoying to use as you always have to specify a default value. Existing code in Haiku and applications shows that people have been ignoring the Be Book deprecation warning, and are indeed fine with the implicit default value used by Find* in most cases, with only occasional use of either the Find* variant returning a status_t, or, maybe even more rarely, the Get* version.",
+      "parentUuid": "939ea2af_0064a57c",
+      "revId": "6ab7ab7ce7782cfeccb270d206858bc705ac862d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8928c7ee_bd115390",
