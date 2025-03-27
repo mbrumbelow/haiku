@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23e10190_76f7c544",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b430374_13907508",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69b08439_4a3aebae",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-03-27T07:39:46Z",
       "side": 1,
       "message": "It would be better to make this `false` and then it will get set from `MainWindow` in the `MainWindow::_StartBulkLoad` method. This way if there is no bulk load happening then it won\u0027t incorrectly be true.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01a721ce_d68996bf",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69b08439_4a3aebae",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -52,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09b4a588_a850966d",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eed7369_d5d6af71",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb5241ea_9295ca8b",
@@ -65,6 +119,24 @@
       "writtenOn": "2025-03-27T14:10:03Z",
       "side": 1,
       "message": "As above: B_TRANSLATE_COMMENT(\"to search all packages\", \"Appears in the sentence \u0027Click here to search all packages\").\n\nAlso, there should be a full stop at the end.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0678bd05_509bb2e5",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb5241ea_9295ca8b",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -86,6 +158,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3853f168_95e11eb6",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7921d4a_d31004b3",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f82fb0d2_3b8bbc75",
@@ -99,6 +189,24 @@
       "writtenOn": "2025-03-27T14:10:03Z",
       "side": 1,
       "message": "This should use the color constant: ui_color(B_LIST_BACKGROUND_COLOR)",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82574021_1d469d59",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f82fb0d2_3b8bbc75",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -120,6 +228,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fd22570_b42ec500",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0e99db2_f798c15b",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "773b73c3_2b8f49ee",
@@ -133,6 +259,24 @@
       "writtenOn": "2025-03-27T07:39:46Z",
       "side": 1,
       "message": "Better to go `AdjustViews()` at the end then it will reconcile with the view\u0027s data.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42947205_e8cf834d",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773b73c3_2b8f49ee",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -154,6 +298,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d37834c_f499ebd4",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d11f11a_55d9be3b",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c7f9287_e297b31f",
@@ -167,6 +329,24 @@
       "writtenOn": "2025-03-27T07:39:46Z",
       "side": 1,
       "message": "To aid readability, are you able to set assign constants for these values 0, 1, 2 for the different cards.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a93b5006_5adb232e",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c7f9287_e297b31f",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -188,6 +368,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f147d512_6c289685",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48b09c9e_4b008d69",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60708514_fdef83c4",
@@ -201,6 +399,24 @@
       "writtenOn": "2025-03-27T07:39:46Z",
       "side": 1,
       "message": "There is already a similar class called `LinkView`. I think you should be ale to use this one rather than making this new one.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78259799_24e2e34a",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done; wish I had looked harder before rolling my own . . .",
+      "parentUuid": "60708514_fdef83c4",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -222,6 +438,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6729fdb0_3424cd57",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d1aeedb_f30e0004",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6224aa3a_07280eec",
@@ -235,6 +469,24 @@
       "writtenOn": "2025-03-27T07:39:46Z",
       "side": 1,
       "message": "As this is used in more than one place, can you please add it to the file `HaikuDepotConstants.h` and share it from there.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79a080b_bcb06af8",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6224aa3a_07280eec",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -256,6 +508,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1779f1a_58658a1b",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1b27f9c_f5c1303a",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64e2149b_5b5d6d87",
@@ -273,6 +543,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1469cbd8_dbbf38d3",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e2149b_5b5d6d87",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f85f8ab8_4daa26dc",
@@ -286,6 +574,24 @@
       "writtenOn": "2025-03-27T07:39:46Z",
       "side": 1,
       "message": "There is a constant for this `TAB_ALL_PACKAGES` which will be more readable than using a numerical literal.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af489f38_e045c5b5",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-03-27T21:20:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f85f8ab8_4daa26dc",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
