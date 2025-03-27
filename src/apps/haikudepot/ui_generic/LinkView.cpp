@@ -10,15 +10,16 @@
 #include <String.h>
 
 
-LinkView::LinkView(const char* name, const char* string, BMessage* message)
+LinkView::LinkView(const char* name, const char* string, BMessage* message,
+				   float minWidth, float maxWidth)
 	:
 	BStringView(name, string),
 	BInvoker(message, NULL),
 	fEnabled(true),
 	fMouseInside(false)
 {
-	SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNSET));
-	SetExplicitMinSize(BSize(120, B_SIZE_UNSET));
+	SetExplicitMaxSize(BSize(maxWidth, B_SIZE_UNSET));
+	SetExplicitMinSize(BSize(minWidth, B_SIZE_UNSET));
 }
 
 

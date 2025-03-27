@@ -12,8 +12,8 @@
 
 class LinkView : public BStringView, public BInvoker {
 public:
-								LinkView(const char* name, const char* string,
-									BMessage* message);
+								LinkView(const char* name, const char* string, BMessage* message,
+									float minWidth = 120, float maxWidth = B_SIZE_UNLIMITED);
 
 	virtual void				AttachedToWindow();
 

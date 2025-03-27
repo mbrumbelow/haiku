@@ -9,8 +9,11 @@
 
 #include <vector>
 
+#include <CardLayout.h>
 #include <View.h>
+#include <StringView.h>
 
+#include "LinkView.h"
 #include "Model.h"
 #include "PackageInfo.h"
 #include "PackageInfoListener.h"
@@ -25,6 +28,7 @@ public:
 	virtual						~FeaturedPackagesView();
 
 	virtual	void				DoLayout();
+			void				AttachedToWindow();
 
 			void				RetainPackages(const std::vector<PackageInfoRef>& packages);
 			void				AddRemovePackages(const std::vector<PackageInfoRef>& addedPackages,
@@ -38,6 +42,8 @@ public:
 
 			void				HandlePackagesChanged(const PackageInfoEvents& events);
 
+			void				SetLoading(bool isLoading);
+
 private:
 			void				_AdjustViews();
 			void				_HandlePackageChanged(const PackageInfoEvent& event);
@@ -47,7 +53,12 @@ private:
 			BScrollView*		fScrollView;
 			StackedFeaturedPackagesView*
 								fPackagesView;
+			BStringView*		fPleaseWaitText;
+			BStringView*		fNoResultsPrefix;
+			BStringView*		fNoResultsSuffix;
+			BCardLayout*		fFeaturedCardLayout;
+			LinkView*			fAllPackageSearch;
+			bool				fIsLoadingAndNoData;
 };
-
 
 #endif // FEATURED_PACKAGES_VIEW_H

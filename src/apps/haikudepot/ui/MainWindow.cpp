@@ -86,7 +86,7 @@ enum {
 	MSG_SHOW_AVAILABLE_PACKAGES				= 'savl',
 	MSG_SHOW_INSTALLED_PACKAGES				= 'sins',
 	MSG_SHOW_SOURCE_PACKAGES				= 'ssrc',
-	MSG_SHOW_DEVELOP_PACKAGES				= 'sdvl'
+	MSG_SHOW_DEVELOP_PACKAGES				= 'sdvl',
 };
 
 #define KEY_ERROR_STATUS				"errorStatus"
@@ -672,6 +672,10 @@ MainWindow::MessageReceived(BMessage* message)
 			break;
 		}
 
+		case MSG_SHOW_ALL_PACKAGES_TAB:
+			fListTabs->Select(TAB_ALL_PACKAGES);
+			break;
+
 		default:
 			BWindow::MessageReceived(message);
 			break;
@@ -1193,6 +1197,7 @@ MainWindow::_StartBulkLoad(bool force)
 	}
 
 	fPackageInfoView->Clear();
+	fFeaturedPackagesView->SetLoading(true);
 
 	fRefreshRepositoriesItem->SetEnabled(false);
 	ProcessCoordinator* bulkLoadCoordinator
@@ -1213,6 +1218,7 @@ MainWindow::_BulkLoadCompleteReceived(status_t errorStatus)
 						"logs." ALERT_MSG_LOGS_USER_GUIDE));
 	}
 
+	fFeaturedPackagesView->SetLoading(false);
 	fRefreshRepositoriesItem->SetEnabled(true);
 	_AdoptModel();
 	_UpdateAvailableRepositories();
