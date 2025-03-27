@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d988cd_3c9d7f34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-03-27T17:24:36Z",
+      "side": 1,
+      "message": "This change fixes one use case:\n\n- You have multiple hard disks\n- One of them is the boot hard disk\n- You want a menu to select partitions from other disks\n\nThis is a simple use case, and it has been solved this way for decades, this is how BeOS did it and this is how bootman is designed to work. It was just missing one small piece of the puzzle.\n\nYes, this approach has a liimitation: it breaks when you change your hard disk setup in a way that drive IDs are changed (that is not a so simple thing to do, except for the mentionned case where you insert a bootable USB disk and boot from it, but in that case, you are not booting from the bootman menu on the boot disk anyways).\n\nWhat you are suggesting is effectively a complete rewrite of bootman. Nice idea in theory, maybe, but it took 10 years to solve one relatively small issue with the current setup. Maybe let\u0027s merge that, and then we can wait the next 10 years for someone to do bootman 2.0, or maybe just wait until everyone stop using BIOS, as there is really no need to put any more effort in it at this point, and it is indeed a quirky platform with many such problems.\n\nWe are also limited by having to fit bootman into just a few sectors at the start of the drive, it is incompatible with GPT partitions, and so on. So, yes, all these things we may want to solve, but it\u0027s not at all related to the current issue.\n\n\u003e Perhaps your BIOS will, but I don\u0027t think there\u0027s any guarantee of this.\n\nThat\u0027s how it works. 0x80 is the boot drive and will always be. Otherwise, nothing would work, because you can\u0027t even load bootman (that issues command hardcoded to read from drive 0x80 to load a few sectors containing the menu code). Let\u0027s not chase hypothetical problems that would cause the system to be unbootable regardless of what we\u0027re trying to do.\n\nThis means at least this change doesn\u0027t break the currently working part of a single drive setup.\n\nAs a result, this change makes things better. It does not make things perfect, but if we wait for each change to make things perfect, we will never merge anything in Haiku and we will drive contributors away because we ask them to solve problems they have not caused (I\u0027m sure you have read some Linux developers complaining about it, let\u0027s not be like Linux on this part).",
+      "parentUuid": "c70da7c6_1a28c39e",
+      "revId": "7ca8491ff1e2faafcc094764b8401adde43b87b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad532e24_7f35eb47",
