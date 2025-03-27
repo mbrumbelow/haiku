@@ -37,6 +37,91 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0eed7369_d5d6af71",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-27T14:10:03Z",
+      "side": 1,
+      "message": "This and the next string get concatenated, which may make it difficult for the translators. If there\u0027s no better solution, you could use a comment as explanation:\nB_TRANSLATE_COMMENT(\"Click here\", \"Appears in the sentence \u0027Click here to search all packages\").",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5241ea_9295ca8b",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-27T14:10:03Z",
+      "side": 1,
+      "message": "As above: B_TRANSLATE_COMMENT(\"to search all packages\", \"Appears in the sentence \u0027Click here to search all packages\").\n\nAlso, there should be a full stop at the end.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7921d4a_d31004b3",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-27T14:10:03Z",
+      "side": 1,
+      "message": "Maybe a bit more explanatory: \"Creating package list…\"\nWith a B_UTF8_ELLIPSIS at the end.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f82fb0d2_3b8bbc75",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-27T14:10:03Z",
+      "side": 1,
+      "message": "This should use the color constant: ui_color(B_LIST_BACKGROUND_COLOR)",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e99db2_f798c15b",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-27T14:10:03Z",
+      "side": 1,
+      "message": "This should use the color constant: ui_color(B_LIST_BACKGROUND_COLOR)",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "773b73c3_2b8f49ee",
         "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
         "patchSetId": 2
@@ -82,6 +167,23 @@
       "writtenOn": "2025-03-27T07:39:46Z",
       "side": 1,
       "message": "To aid readability, are you able to set assign constants for these values 0, 1, 2 for the different cards.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b09c9e_4b008d69",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-03-27T14:10:03Z",
+      "side": 1,
+      "message": "This should use the color constant: ui_color(B_LINK_TEXT_COLOR)",
       "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
