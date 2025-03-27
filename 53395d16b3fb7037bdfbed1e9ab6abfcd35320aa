@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b430374_13907508",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "As this is used in more than one place, can you please add it to the file `HaikuDepotConstants.h` and share it from there.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b08439_4a3aebae",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "It would be better to make this `false` and then it will get set from `MainWindow` in the `MainWindow::_StartBulkLoad` method. This way if there is no bulk load happening then it won\u0027t incorrectly be true.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "773b73c3_2b8f49ee",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "Better to go `AdjustViews()` at the end then it will reconcile with the view\u0027s data.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d11f11a_55d9be3b",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "It would be good to set this to;\n\n```\n    fIsLoading \u003d isLoading \u0026\u0026 fPackagesView-\u003eIsEmpty();\n```\n\nWould it be good to check that there is a change in the `fIsLoading` value before invoking `_AdjustViews()`?",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c7f9287_e297b31f",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1113,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "To aid readability, are you able to set assign constants for these values 0, 1, 2 for the different cards.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60708514_fdef83c4",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "There is already a similar class called `LinkView`. I think you should be ale to use this one rather than making this new one.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d1aeedb_f30e0004",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "Nit; It may be good to rename this to `fIsLoading` --\u003e `isLoadingAndNoData` because it is not really just about loading.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6224aa3a_07280eec",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "As this is used in more than one place, can you please add it to the file `HaikuDepotConstants.h` and share it from there.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1b27f9c_f5c1303a",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "It would be better to set this value to `true` from inside `MainWindow::_StartBulkLoad` as then it will get caught for anywhere rather than just from the message-handling.\n\nAdd this after `fPackageInfoView-\u003eClear();`.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e2149b_5b5d6d87",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "Best not rely on this as it will trigger for a number of reasons. It would be best to instead set this value to `false` in `MainWindow::_BulkLoadCompleteReceived`.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f85f8ab8_4daa26dc",
+        "filename": "src/apps/haikudepot/ui/MainWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-27T07:39:46Z",
+      "side": 1,
+      "message": "There is a constant for this `TAB_ALL_PACKAGES` which will be more readable than using a numerical literal.",
+      "revId": "53395d16b3fb7037bdfbed1e9ab6abfcd35320aa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
