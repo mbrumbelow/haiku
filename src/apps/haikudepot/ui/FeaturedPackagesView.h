@@ -9,7 +9,9 @@
 
 #include <vector>
 
+#include <CardLayout.h>
 #include <View.h>
+#include <StringView.h>
 
 #include "Model.h"
 #include "PackageInfo.h"
@@ -18,6 +20,17 @@
 
 class StackedFeaturedPackagesView;
 
+class FeaturedPackagesLink: public BStringView {
+public:
+						FeaturedPackagesLink(const char* name, const char* text, BMessage* message);
+	virtual				~FeaturedPackagesLink();
+
+	void 				MouseMoved(BPoint point, uint32 transit, const BMessage* message);
+	void 				MouseDown(BPoint point);
+
+private:
+	BMessage*			fClickMessage;
+};
 
 class FeaturedPackagesView : public BView {
 public:
@@ -38,6 +51,8 @@ public:
 
 			void				HandlePackagesChanged(const PackageInfoEvents& events);
 
+			void				SetLoading(bool isLoading);
+
 private:
 			void				_AdjustViews();
 			void				_HandlePackageChanged(const PackageInfoEvent& event);
@@ -47,7 +62,13 @@ private:
 			BScrollView*		fScrollView;
 			StackedFeaturedPackagesView*
 								fPackagesView;
+			BStringView*		fPleaseWaitText;
+			BStringView*		fNoResultsPrefix;
+			BStringView*		fNoResultsSuffix;
+			BCardLayout*		fFeaturedCardLayout;
+			FeaturedPackagesLink*
+								fAllPackageSearch;
+			bool				fIsLoading;
 };
-
 
 #endif // FEATURED_PACKAGES_VIEW_H

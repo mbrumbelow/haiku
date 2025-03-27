@@ -51,6 +51,11 @@
 #define TITLE_RIGHT_TRAILING_ICON_PADDING_M_FACTOR 0.1
 
 
+enum {
+	MSG_SHOW_ALL_PACKAGES_TAB				= 'sapt'
+};
+
+
 // #pragma mark - PackageView
 
 
@@ -966,16 +971,61 @@ private:
 FeaturedPackagesView::FeaturedPackagesView(Model& model)
 	:
 	BView(B_TRANSLATE("Featured packages"), 0),
-	fModel(model)
+	fModel(model),
+	fIsLoading(true)
 {
 	fPackagesView = new StackedFeaturedPackagesView(fModel);
 
 	fScrollView = new BScrollView("featured packages scroll view", fPackagesView, 0, false, true,
 		B_FANCY_BORDER);
 
-	BLayoutBuilder::Group<>(this).Add(fScrollView, 1.0f);
-}
+	fNoResultsPrefix = new BStringView(
+		"no package view prefix", B_TRANSLATE("No results?"));
 
+	fAllPackageSearch = new FeaturedPackagesLink(
+		"click for all", B_TRANSLATE("Click here"), new BMessage(MSG_SHOW_ALL_PACKAGES_TAB));
+
+	fNoResultsSuffix = new BStringView(
+		"no package view suffix", B_TRANSLATE("to search all packages"));
+
+	fPleaseWaitText = new BStringView(
+		"please wait text", B_TRANSLATE("Please wait . . ."));
+
+	fPleaseWaitText->SetExplicitAlignment(
+		BAlignment(B_ALIGN_HORIZONTAL_CENTER, B_ALIGN_VERTICAL_CENTER));
+
+	fFeaturedCardLayout = new BCardLayout();
+	SetLayout(fFeaturedCardLayout);
+
+	BGroupView* pleaseWaitGroup = new BGroupView("please wait");
+	pleaseWaitGroup->SetViewColor(255, 255, 255);
+	AddChild(pleaseWaitGroup);
+
+	BGroupView* foundResultsGroup = new BGroupView("search results");
+	AddChild(foundResultsGroup);
+
+	BGroupView* noResultsGroup = new BGroupView("no search results");
+	noResultsGroup->SetExplicitAlignment(
+		BAlignment(B_ALIGN_HORIZONTAL_CENTER, B_ALIGN_VERTICAL_CENTER));
+	noResultsGroup->SetViewColor(255, 255, 255);
+	AddChild(noResultsGroup);
+
+	fFeaturedCardLayout->SetVisibleItem(0);
+
+	BLayoutBuilder::Group<>(pleaseWaitGroup)
+		.Add(fPleaseWaitText)
+		.SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNLIMITED));
+	BLayoutBuilder::Group<>(foundResultsGroup).Add(fScrollView, 1.0f);
+	BLayoutBuilder::Group<>(noResultsGroup)
+		.AddGroup(B_HORIZONTAL, 2)
+			.AddGlue()
+			.Add(fNoResultsPrefix)
+			.Add(fAllPackageSearch)
+			.Add(fNoResultsSuffix)
+			.AddGlue()
+		.End()
+		.SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, B_SIZE_UNLIMITED));
+}
 
 FeaturedPackagesView::~FeaturedPackagesView()
 {
@@ -994,6 +1044,9 @@ void
 FeaturedPackagesView::AddRemovePackages(const std::vector<PackageInfoRef>& addedPackages,
 	const std::vector<PackageInfoRef>& removedPackages)
 {
+	if (!addedPackages.empty())
+		fIsLoading = false;
+
 	if (!addedPackages.empty() || !removedPackages.empty()) {
 		fPackagesView->AddRemovePackages(addedPackages, removedPackages);
 		_AdjustViews();
@@ -1046,7 +1099,59 @@ FeaturedPackagesView::HandlePackagesChanged(const PackageInfoEvents& events)
 
 
 void
+FeaturedPackagesView::SetLoading(bool isLoading)
+{
+	fIsLoading = isLoading;
+	_AdjustViews();
+}
+
+
+void
 FeaturedPackagesView::_AdjustViews()
 {
+	if (fIsLoading)
+		fFeaturedCardLayout->SetVisibleItem(0);
+	else if (fPackagesView->IsEmpty())
+		fFeaturedCardLayout->SetVisibleItem(2);
+	else
+		fFeaturedCardLayout->SetVisibleItem(1);
+
 	fScrollView->FrameResized(fScrollView->Frame().Width(), fScrollView->Frame().Height());
+}
+
+
+
+FeaturedPackagesLink::FeaturedPackagesLink(const char* name, const char* text, BMessage* message)
+	:
+	BStringView(name, text),
+	fClickMessage(message)
+{
+	SetHighColor(0, 0, 255);
+}
+
+FeaturedPackagesLink::~FeaturedPackagesLink()
+{
+}
+
+
+void
+FeaturedPackagesLink::MouseMoved(BPoint point, uint32 transit, const BMessage* message)
+{
+	BFont font;
+	GetFont(&font);
+
+	if (transit == B_ENTERED_VIEW)
+		font.SetFace(B_UNDERSCORE_FACE);
+	else if (transit == B_EXITED_VIEW)
+		font.SetFace(B_REGULAR_FACE);
+
+	SetFont(&font);
+}
+
+
+void
+FeaturedPackagesLink::MouseDown (BPoint point)
+{
+	if (fClickMessage != NULL)
+		Window()->PostMessage(fClickMessage);
 }

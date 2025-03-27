@@ -86,7 +86,8 @@ enum {
 	MSG_SHOW_AVAILABLE_PACKAGES				= 'savl',
 	MSG_SHOW_INSTALLED_PACKAGES				= 'sins',
 	MSG_SHOW_SOURCE_PACKAGES				= 'ssrc',
-	MSG_SHOW_DEVELOP_PACKAGES				= 'sdvl'
+	MSG_SHOW_DEVELOP_PACKAGES				= 'sdvl',
+	MSG_SHOW_ALL_PACKAGES_TAB				= 'sapt'
 };
 
 #define KEY_ERROR_STATUS				"errorStatus"
@@ -441,10 +442,12 @@ MainWindow::MessageReceived(BMessage* message)
 			break;
 
 		case MSG_REFRESH_REPOS:
+			fFeaturedPackagesView->SetLoading(true);
 			_StartBulkLoad(true);
 			break;
 
 		case MSG_WORK_STATUS_CLEAR:
+			fFeaturedPackagesView->SetLoading(false);
 			_HandleWorkStatusClear();
 			break;
 
@@ -671,6 +674,10 @@ MainWindow::MessageReceived(BMessage* message)
 			_HandleUserUsageConditionsNotLatest(userDetail);
 			break;
 		}
+
+		case MSG_SHOW_ALL_PACKAGES_TAB:
+			fListTabs->Select(1);
+			break;
 
 		default:
 			BWindow::MessageReceived(message);
