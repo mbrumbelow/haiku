@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c70da7c6_1a28c39e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-27T03:40:24Z",
+      "side": 1,
+      "message": "\u003e From what i see, if you don\u0027t plug/unplug/exchange media , the BIOS will give them always the same ordering, beginning at 0x00 for the first bootable floppy, and 0x80 for the first bootable HDD/USB/CDROM.\n\nPerhaps your BIOS will, but I don\u0027t think there\u0027s any guarantee of this. And depending on the boot order specified in BIOS settings, the ordering of IDs can probably change, right? What if you have a non-bootable USB HDD inserted but start the boot manager off an internal HDD; will that USB HDD get the first ID and shift all the others up by 1?\n\nI don\u0027t think we can rely on any of these numbers staying constant. And the case you note from X512 seems relevant also.\n\n\u003e We can\u0027t foresee how grub/linux/Win will use the MBR/PBR of its disk/partition\n\nUnless there isn\u0027t a partitioning system, the MBR of the disk should be empty, right? So we can put the data there.\n\nMy suggestion for a multi-drive setup would just be to install bootman to all drives. Then, no matter what drive is booted from, bootman scans the other drives, sees the other installations of itself, and adds the partitions from those installs into its menu. This way the BIOS IDs can change all they want for other disks, but bootman will continue to work.\n\n\u003e And i think all my work is not junk :\n\nOh yes, I agree, some of this work is still quite valuable even if the \"proper\" implementation will need to take another direction.\n\n\u003e and as a proof of concept, i imlemented the B_GET_BIOS_DRIVE_ID ioctl, used in the CLI command \u0027driveinfo\u0027.\n\nWell, if there\u0027s really no use for the BIOS drive IDs after booting, we might as well drop this one case and then not try to pass them through the bootloader (which needs a kernel args ABI break no matter how we try to do it.)",
+      "parentUuid": "57db0370_66a12a48",
+      "revId": "7ca8491ff1e2faafcc094764b8401adde43b87b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad532e24_7f35eb47",
