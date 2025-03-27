@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f74eaa0_291b349a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-03-27T21:21:35Z",
+      "side": 1,
+      "message": "So, according to you, which file should I have not modified :\n\nheaders/os/drivers/disk_device_manager.h \nheaders/private/kernel/boot/disk_identifier.h \nheaders/private/kernel/disk_device_manager/KDiskDevice.h \n\nsrc/system/kernel/disk_device_manager/KDiskDevice.cpp \nsrc/system/kernel/fs/vfs_boot.cpp",
+      "parentUuid": "d256d2ee_609eb15f",
+      "revId": "5a6c83fe48f481e272ea047ad0cd5a43f588f7c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "977a0fbc_477d3f10",
         "filename": "src/apps/bootmanager/LegacyBootMenu.cpp",
         "patchSetId": 20
