@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f37bb6e_4b3b3148",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-03-27T17:44:42Z",
+      "side": 1,
+      "message": "0x80 being the drive booted from, yes, but why is there any guarantee of the ordering of the other drives after that?\n\nAnd I am not asking for other problems to be solved, I am just asking that this one be solved in a way that makes sense. Part of the problem with this change is that it breaks kernel args ABI, and that will at least need a bunch more code added in order to allow newer kernels to boot with the older kernel args structures, which this change does not take care of at present. So, right now, this change as-is will break multiple things in the process of solving this problem, it isn\u0027t merely a \"no-op\" for all cases except the one being fixed.\n\nI don\u0027t think I am suggesting a \"complete rewrite\" of bootman? It just needs additional code to iterate over the other drives besides the one being booted from. This would be easier to implement if bootman was written in C, to be sure, but it could be done either way.",
+      "parentUuid": "77d988cd_3c9d7f34",
+      "revId": "7ca8491ff1e2faafcc094764b8401adde43b87b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad532e24_7f35eb47",
