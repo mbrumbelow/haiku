@@ -34,6 +34,24 @@
       "parentUuid": "8bf74eaf_99539af9",
       "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a705388d_125ba2db",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-28T19:40:55Z",
+      "side": 1,
+      "message": "Oh so it does thanks waddlesplash! Pawan; are you able to look into how viable it would be to use this instead as it would seem like it would be more tidy and maintainable. You may be able to use `MarkupParser` to interface with the localization?",
+      "parentUuid": "337d0262_fad631f0",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
