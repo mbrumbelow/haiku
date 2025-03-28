@@ -75,10 +75,8 @@ KernelMemoryBarMenuItem::DrawBar(bool force)
 	cadre.InsetBy(1, 1);
 	BRect r = cadre;
 
-	double grenze1 = cadre.left + (cadre.right - cadre.left)
-						* fCachedMemory / fPhysicalMemory;
-	double grenze2 = cadre.left + (cadre.right - cadre.left)
-						* fCommittedMemory / fPhysicalMemory;
+	double grenze1 = cadre.left + (cadre.right - cadre.left) * fCommittedMemory / fPhysicalMemory;
+	double grenze2 = cadre.left + (cadre.right - cadre.left) * fCachedMemory / fPhysicalMemory;
 	if (grenze1 > cadre.right)
 		grenze1 = cadre.right;
 	if (grenze2 > cadre.right)
