@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf74eaf_99539af9",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-03-28T08:24:44Z",
+      "side": 1,
+      "message": "Comment only; it would be nice if the mini text-engine in `textview` was able to render links as this constellation of `BView`s to make this text appear as a sentence would not be necessary.",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
