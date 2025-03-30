@@ -16,6 +16,23 @@
       "message": "Had this as part of a larger commit (changing some variable names, code style, and trying to make the 5 variants of `xxxMenuItem::DrawBar(bool force)` look closer one to another), but I guess it is better to submit this one separately.",
       "revId": "61c422aa8c6d4524ab355084c6460c7e378f986b",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "785cf8b2_b50dc1ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-03-30T13:31:32Z",
+      "side": 1,
+      "message": "The original BeOS version concept of \"caches\" (the one represented in Purple/`kLavander` color) doesn\u0027t really aligns with the value of current `fCachedMemory`.\n\nSo I need to re-think this change.",
+      "revId": "61c422aa8c6d4524ab355084c6460c7e378f986b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
