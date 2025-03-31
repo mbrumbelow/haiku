@@ -72,6 +72,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "313a35ec_a9e422a5",
+        "filename": "headers/os/app/Message.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-03-31T06:43:55Z",
+      "side": 1,
+      "message": "I don\u0027t think implicit default values are a good idea in either case. I consider this a benefit and not a defect.\n\nThe code in which I\u0027ve seen that uses the deprecated methods does so in the assumtion that it cannot fail, i.e that there is never not the item requested in the message.\n\nAlso I don\u0027t thunk the default values you proposed are all too obvious. Stuff like B_ORIGIN requires specific knowledge about the api. And I don\u0027t think hoping that the right value is documented somewhere is a good idea. These methods could just aswell return null if nothing exists.\n\nWith the default values supplied in arguments the intent is explicit, if no default value is actually wanted a status_t check with a not reached assertion would be better suited. We should not undeprecate these.",
+      "parentUuid": "6eca26bb_00a9c699",
+      "revId": "6ab7ab7ce7782cfeccb270d206858bc705ac862d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8928c7ee_bd115390",
