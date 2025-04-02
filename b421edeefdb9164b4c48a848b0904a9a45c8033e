@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "819e2fca_e9872891",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2025-04-02T17:40:21Z",
+      "side": 1,
+      "message": "The launching of ref is moved to happen later. Previously if there was a ref, previous session was not loaded at all. Now we load the previous session first if requested by fStartupPolicy, and open the ref in new tab on current workspace, or new window on current workspace if no window exists on current workspace.",
+      "parentUuid": "0dcacd1a_e8662554",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28913996_4ea517c1",
         "filename": "src/apps/webpositive/BrowserApp.cpp",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2025-03-31T14:55:42Z",
       "side": 1,
       "message": "No braces here, the comment below about opening a new window is uneccesary. The enum NEW_WINDOW makes this clear",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29b6ba1c_1bf5e5ee",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2025-04-02T17:40:21Z",
+      "side": 1,
+      "message": "If omitting braces here, compiler warns of ambiguous else if I recall.",
+      "parentUuid": "28913996_4ea517c1",
       "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -78,6 +114,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9edde49f_9a6da93b",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2025-04-02T17:40:21Z",
+      "side": 1,
+      "message": "I don\u0027t see what you mean here, although you can see what is being done from the function name, but I think this (in connection and in context to one comment above and one below) explains the code flow better than without this comment. Perhaps I should re-word it a bit though.",
+      "parentUuid": "a316250c_12bd3087",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abff52e9_7390b0be",
         "filename": "src/apps/webpositive/BrowserWindow.cpp",
         "patchSetId": 2
@@ -89,6 +143,24 @@
       "writtenOn": "2025-03-31T14:55:42Z",
       "side": 1,
       "message": "Since you are touching this, it should be called \"status\", I guess this is an abreviation for return, but that is a reserved keyword. Nevertheless our variable names should not be abreviated.",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9db0d1e1_0f45eee8",
+        "filename": "src/apps/webpositive/BrowserWindow.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2025-04-02T17:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abff52e9_7390b0be",
       "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -106,6 +178,24 @@
       "writtenOn": "2025-03-31T14:55:42Z",
       "side": 1,
       "message": "The previous style with this aligned with ~BrowserWindow is correct",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a56ee5ea_5cec5f53",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2025-04-02T17:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0082c6a8_7f5e9af2",
       "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
