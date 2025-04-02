@@ -354,7 +354,13 @@ BHttpRequest::SetRequestBody(
 		throw std::invalid_argument("input cannot be null");
 
 	// TODO: support optional mimetype arguments like type/subtype;parameter=value
-	if (!BMimeType::IsValid(mimeType.String()))
+	// For now just remove the arguments part before checking validity
+	BString truncatedMimeType(mimeType);
+	int32 index = truncatedMimeType.FindFirst(';');
+	if (index != B_ERROR)
+		truncatedMimeType.Truncate(index);
+
+	if (!BMimeType::IsValid(truncatedMimeType.String()))
 		throw std::invalid_argument("mimeType must be a valid mimetype");
 
 	// TODO: review if there should be complex validation between the method and whether or not
