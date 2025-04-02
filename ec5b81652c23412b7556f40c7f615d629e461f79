@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3633319c_386b4c44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-02T11:57:56Z",
+      "side": 1,
+      "message": "That may be, but having node monitors registered for every ContainerWindow will still be expensive and unnecessary. Better to just do it in TTracker and then send messages to all ContainerWindows.",
+      "parentUuid": "880bda4d_15a5ae0a",
+      "revId": "ec5b81652c23412b7556f40c7f615d629e461f79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b26f2cc_b49ff539",
         "filename": "src/kits/tracker/ContainerWindow.cpp",
         "patchSetId": 8
