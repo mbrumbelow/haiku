@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2891ba7e_95401920",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-04-02T15:10:19Z",
+      "side": 1,
+      "message": "Please see if you can add a testcase in src/tests/kits/net/netservices2/HttpProtocolTest.cpp",
+      "revId": "1afec7d7b729504e6a177f81a0887606bef3c74e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
