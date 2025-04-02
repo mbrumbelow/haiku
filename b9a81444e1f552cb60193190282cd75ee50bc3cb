@@ -33,6 +33,23 @@
       "message": "It is intended to be used for port-based communication such as sending BMessage to another team. Creating separate socket and watcher thread just to accept FDs would be clumsy and error-prone.",
       "revId": "b9a81444e1f552cb60193190282cd75ee50bc3cb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09ff8b4a_f07b9837",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-04-02T21:56:20Z",
+      "side": 1,
+      "message": "This or extending write_port to accept PDs will be also needed to pass Vulkan buffer and semaphore FDs to app_server for accelerated rendering and display.",
+      "revId": "b9a81444e1f552cb60193190282cd75ee50bc3cb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
