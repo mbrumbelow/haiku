@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6cfc07_aee34c2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-04-02T05:07:14Z",
+      "side": 1,
+      "message": "\u003e Considering our thread scheduler doesn\u0027t make any use of this value itself, does it really make sense to expose it? In many ways this is a \"legacy UNIX\" value, isn\u0027t it?\n\nYou mean the thread count per core? As for the API, I\u0027ve already seen a few applications (ninja, openmp, samurai) using it, so it makes sense to me to provide at least a bit meaningful values. The fact that these are sampled every 5 second makes the load values very approximative anyway. And providing 1-, 5- and 15- minutes loads means the raw values of the scheduler don\u0027t really help. \n\n\u003e Why not just expose the Core \"Load\" value to userland instead? It sounds like OpenMP would be satisfied with that?\n\nYou mean we would be better with providing an Haiku load average tracking to userland, and \"convert\" to getloadavg there? I\u0027ve thought first that an Haiku load average tracking could be part of some existing system info API, if needed, so I wouldn\u0027t put an effort in this. \n\nscheduler_load.cpp right, this is a good idea.",
+      "parentUuid": "d1565a33_ce43a9dc",
+      "revId": "6d61109788d5773e4e878d59a0667767fbd18fd8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cd890df7_8f14b2dd",
