@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f39e2d3c_d3aaeac5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-03T18:38:58Z",
+      "side": 1,
+      "message": "Confirmed musl and FreeBSD expose this by default and not behind _BSD_SOURCE or anything like that.",
+      "revId": "990c36769e44a52bdfdf6d5b43830d84823853df",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "54799893_611582c2",
         "filename": "headers/posix/sys/mman.h",
         "patchSetId": 1
