@@ -197,7 +197,7 @@ private:
 			status_t			_InitObject(
 									const ShellParameters& shellParameters);
 
-			status_t			_AttachShell(Shell* shell);
+			status_t			_AttachShell(Shell* shell, const ShellParameters& shellParameters);
 			Shell*				_DetachShell();
 
 			void				_Activate();
