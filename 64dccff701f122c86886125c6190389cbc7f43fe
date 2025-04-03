@@ -82,6 +82,23 @@
       "parentUuid": "62fa795a_e37a845b",
       "revId": "64dccff701f122c86886125c6190389cbc7f43fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dad10539_fa73677d",
+        "filename": "src/system/kernel/scheduler/scheduler_load.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-04-03T22:14:15Z",
+      "side": 1,
+      "message": "Maybe it is better to register it as kernel daemon?",
+      "revId": "64dccff701f122c86886125c6190389cbc7f43fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
