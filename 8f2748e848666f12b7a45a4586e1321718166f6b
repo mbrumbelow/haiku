@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e945f0c_7c1fdb8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2025-04-04T10:32:56Z",
+      "side": 1,
+      "message": "Any chance this can be applied to beta5, too ?",
+      "revId": "8f2748e848666f12b7a45a4586e1321718166f6b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
