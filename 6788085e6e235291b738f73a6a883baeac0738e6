@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9facdc4_554c85a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2025-04-04T09:23:27Z",
+      "side": 1,
+      "message": "\u003e There also looks like some logic duplication in here, perhaps these methods could be unified somehow?\n\nYou mean the part inside B_EXECUTE_PROPERTY vs the same code inside the constructor, I guess ?",
+      "parentUuid": "d95a650a_62daff69",
+      "revId": "6788085e6e235291b738f73a6a883baeac0738e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "71d446c9_d363cdc2",
