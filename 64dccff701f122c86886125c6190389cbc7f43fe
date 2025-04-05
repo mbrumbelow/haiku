@@ -135,6 +135,24 @@
       "parentUuid": "8543cf73_c833b7a0",
       "revId": "64dccff701f122c86886125c6190389cbc7f43fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7ae9cf7_ba84031e",
+        "filename": "src/system/kernel/scheduler/scheduler_load.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-05T16:30:53Z",
+      "side": 1,
+      "message": "That seems weird. Maybe add some dprintfs to check the difference in system_times? As far as I can tell the kernel_daemon should behave basically the same way as the timer here, but with the advantage that there\u0027s one less timer and the interrupts can be coalesced better.",
+      "parentUuid": "ca85cb4e_dc423736",
+      "revId": "64dccff701f122c86886125c6190389cbc7f43fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
