@@ -153,6 +153,24 @@
       "parentUuid": "ca85cb4e_dc423736",
       "revId": "64dccff701f122c86886125c6190389cbc7f43fe",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b3984c2_289f6ede",
+        "filename": "src/system/kernel/scheduler/scheduler_load.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-04-05T19:25:32Z",
+      "side": 1,
+      "message": "The kernel daemon thread is always running whereas a timer doesn\u0027t appear in a run queue? This means the thread count is often one more with a kernel daemon thread.",
+      "parentUuid": "d7ae9cf7_ba84031e",
+      "revId": "64dccff701f122c86886125c6190389cbc7f43fe",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
