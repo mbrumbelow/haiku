@@ -144,6 +144,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "22574f49_6d0a5d8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2025-04-07T15:57:00Z",
+      "side": 1,
+      "message": "Improved a bit the situation. Another thing I could do is factor the part which extracts the arguments from the message into a new method, and call it from both the constructor and the B_EXECUTE_PROPERTY case label. What do you think ?",
+      "parentUuid": "95599447_f4ce3527",
+      "revId": "6788085e6e235291b738f73a6a883baeac0738e6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "71d446c9_d363cdc2",
