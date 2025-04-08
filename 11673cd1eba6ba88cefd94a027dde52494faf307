@@ -69,6 +69,24 @@
       "parentUuid": "85270caf_be4f5634",
       "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef6f998f_f76cbc02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-08T14:34:07Z",
+      "side": 1,
+      "message": "Correction: x86_64 is at hrev58293; it appears gcc2h is at hrev58259. So that may be a problem then?",
+      "parentUuid": "a39f36f4_b6bd4baa",
+      "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
