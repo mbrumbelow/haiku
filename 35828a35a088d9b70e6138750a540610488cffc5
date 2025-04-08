@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18e78ce_58011a60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-08T21:14:09Z",
+      "side": 1,
+      "message": "Breaks GCC and binutils, e.g.:\n```\n$ nm /boot/system/develop/tools/x86/bin/../lib/gcc/i586-pc-haiku/13.3.0/libgcc.a\nnm: /boot/system/develop/tools/x86/bin/../lib/gcc/i586-pc-haiku/13.3.0/libgcc.a: file format not recognized\n```\nI haven\u0027t figured out why yet.",
+      "revId": "35828a35a088d9b70e6138750a540610488cffc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
