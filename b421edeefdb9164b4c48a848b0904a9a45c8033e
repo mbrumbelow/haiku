@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10a3040a_c2a82c18",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-04-08T14:14:52Z",
+      "side": 1,
+      "message": "The previous code did:\n\n- Load the previous session\n- If that worked (pagesCreated is not 0), do not do anything else\n\nThe existing session would then be lost, since a new one is created and that will be saved to disk when closing that window.\n\nThe new code:\n\n- First restores the existing session or starts a new one\n- Then loads the new refs\n\nThis way, if you click a link in some other application, and Web+ is not started, it will first reload all your session, and then open the link you clicked, either in a new window, or in a restored window in the current workspace.",
+      "parentUuid": "819e2fca_e9872891",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28913996_4ea517c1",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "If omitting braces here, compiler warns of ambiguous else if I recall.",
       "parentUuid": "28913996_4ea517c1",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd8d3913_ba8440d4",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-04-08T14:14:52Z",
+      "side": 1,
+      "message": "It should not be a problem if the top-level if has braces, but the inner one doesn\u0027t:\n\n    if (fStartUpPolicy \u003d\u003d StartNewSession) {\n        if (fLaunchRefsMessage \u003d\u003d NULL)\n            PostMessage(NEW_WINDOW);\n    } else\n    \nHowever, the comment inside the if makes its body be two lines, so the braces are in fact needed anyway.",
+      "parentUuid": "29b6ba1c_1bf5e5ee",
       "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -126,6 +162,24 @@
       "side": 1,
       "message": "I don\u0027t see what you mean here, although you can see what is being done from the function name, but I think this (in connection and in context to one comment above and one below) explains the code flow better than without this comment. Perhaps I should re-word it a bit though.",
       "parentUuid": "a316250c_12bd3087",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05477b07_94dc6211",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-04-08T14:14:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9edde49f_9a6da93b",
       "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
