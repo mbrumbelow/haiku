@@ -34,6 +34,23 @@
       "parentUuid": "005d0689_90a7edb4",
       "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85270caf_be4f5634",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-04-08T07:47:34Z",
+      "side": 1,
+      "message": "Is it possible to update the buildbot haiku packages to include this fifo fix?\nIt would be needed to build openjdk on the buildbot. Otherwise we can only provide locally built binary hpkgs for openjdk.",
+      "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
