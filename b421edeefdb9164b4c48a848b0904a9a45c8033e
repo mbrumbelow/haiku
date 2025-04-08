@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a35adcd8_a723dd82",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-04-08T20:48:19Z",
+      "side": 1,
+      "message": "Yes, which is why I asked to remove the comment in the same message. Code comments should only be added if they explain something, not if they just reiterate what clear code already does.\n\nIf in doubt check the code guidelines: https://www.haiku-os.org/development/coding-guidelines",
+      "parentUuid": "fd8d3913_ba8440d4",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "09c30bbe_2d2e152e",
@@ -180,6 +198,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "9edde49f_9a6da93b",
+      "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec22e316_9c6bdda6",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-04-08T20:48:19Z",
+      "side": 1,
+      "message": "The comment is unecessary, it writes what the code already writes clearly.\n\nIf you want to add another comment that explains code flow that may be confusing or complex that is fine, but this comment should be removed as it is uneccesary. (and uneccesary comments make comments less usefull as code readers will start ignoring them)",
+      "parentUuid": "05477b07_94dc6211",
       "revId": "b421edeefdb9164b4c48a848b0904a9a45c8033e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
