@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cf0eb8af_588be61f",
+        "filename": "src/apps/webpositive/BrowserApp.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2025-04-08T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae05e545_70d73393",
+      "revId": "739b2c45aef6894564ac9a40914b80d58f9c8935",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "97e4d4ab_67825c8b",
         "filename": "src/apps/webpositive/BrowserApp.cpp",
         "patchSetId": 4
@@ -55,6 +73,24 @@
       "writtenOn": "2025-04-08T14:14:52Z",
       "side": 1,
       "message": "the previous indentation was correct here (aligned with the name of the other methods below). Even if it\u0027s annoying to read, that\u0027s what the coding style asks for.",
+      "revId": "739b2c45aef6894564ac9a40914b80d58f9c8935",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cf5038e_67f96f75",
+        "filename": "src/apps/webpositive/BrowserWindow.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000634
+      },
+      "writtenOn": "2025-04-08T20:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea8cb2cc_4ea67377",
       "revId": "739b2c45aef6894564ac9a40914b80d58f9c8935",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
