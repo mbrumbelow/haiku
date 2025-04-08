@@ -138,7 +138,7 @@ PPCVMTranslationMapClassic::~PPCVMTranslationMapClassic()
 #endif
 
 	if (fMapCount > 0) {
-		panic("vm_translation_map.destroy_tmap: map %p has positive map count %ld\n",
+		panic("vm_translation_map.destroy_tmap: map %p has positive map count %d\n",
 			this, fMapCount);
 	}
 
@@ -1121,7 +1121,8 @@ PPCVMTranslationMapClassic::ClearAccessedAndModified(VMArea* area,
 
 	locker.Unlock();
 
-	UnmapPage(area, address, false);
+	// TODO is deletingAddressSpace set properly?
+	UnmapPage(area, address, false, false, NULL);
 		// TODO: Obvious race condition: Between querying and unmapping the
 		// page could have been accessed. We try to compensate by considering
 		// vm_page::{accessed,modified} (which would have been updated by
