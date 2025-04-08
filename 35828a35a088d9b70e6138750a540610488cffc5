@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "09d45c84_0c463154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-08T21:23:32Z",
+      "side": 1,
+      "message": "Fixed. Needs more testing and GCC2 fixes however.",
+      "parentUuid": "a18e78ce_58011a60",
+      "revId": "35828a35a088d9b70e6138750a540610488cffc5",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bba4b85c_c1704c75",
         "filename": "src/system/libroot/posix/glibc/include/bits/stdio-lock.h",
         "patchSetId": 1
