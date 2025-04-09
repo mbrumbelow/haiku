@@ -90,6 +90,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3692c67_814658fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-04-09T07:07:37Z",
+      "side": 1,
+      "message": "I don\u0027t think the solution you propose is great, because it forces us to store info on all drives we want bootman to boot from. That may not even be possible. Maybe these drives have other bootloaders installed on them, or some quirky OS that requires a very specific layout. Or simply, one of your disks may be GPT formatted and you want to boot from partitions stored there (that\u0027s possible with the current design because it doesn\u0027t rely at all on the partition table, it stores its own info about the start sector of each partition to chainload from).\n\nSo, it doesn\u0027t seem great to change bootman to use an invasive method that requires storing data on all bootable disks.\n\nIt may also result in parasite entries appearing in the menu if you plug a disk that has some old bootman settings, or even one that has something that looks like bootman settings and results in \"garbage\" entries. So then we have to add some kind of checksum or signature, and we have to consider updating that if we change the boot menu structure.\n\nThe drive IDs should be sufficiently predictable. They are used by DOS (and I assume Windows still does this as well) to assign drive letters to each disk. 80 is drive C, 81 is drive D, and so on. So, yes, these may changes if you swap drives around, but that seems sufficiently unlikely, and an understandable reason for having to reconfigure your bootloader.\n\nThe proper solution to all that is to move to EFI and GPT, which was designed to more easily identify disks and partitions and solve this specific problem.",
+      "parentUuid": "5f37bb6e_4b3b3148",
+      "revId": "7ca8491ff1e2faafcc094764b8401adde43b87b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad532e24_7f35eb47",
