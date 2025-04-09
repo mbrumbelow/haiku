@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0695376_828fc28b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-04-09T13:52:54Z",
+      "side": 1,
+      "message": "I\u0027m confused why you submitted this now, the comments werent fixed yet. (and their chains not marked resolved intentionally)",
+      "revId": "e3a893afd8056ffdb50a00556cf95de439d2018d",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
