@@ -128,6 +128,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5f61e2e1_25248164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-09T23:16:47Z",
+      "side": 1,
+      "message": "Alright, I\u0027ve implemented a lot of this, but made some more tweaks where I thought it suitable. The right-dragging/shift to trigger a resizable/movable area is implemented, as is the radio button setup. The flow is a bit different though - the selected area radio option is disabled by default, while the select area button is always enabled. After an area is selected, the selected area radio option is enabled and automatically switched to. You can then switch between the modes at your leisure.\n\nI\u0027ve omitted the \u0027edit area\u0027 change so users will keep access to the quickselect option if they want to redo their selections; I figure they can do all the adjusting they need in one instance of the area selector, since they can see exactly what they selected in the selector itself.\n\nSome other tweaks - the active window radio option and border checkbox are now disabled if there is no active window (currently these can be enabled even if there is no active window, and they does nothing). Also, I have added a shortcut to launch Screenshot in area select mode if the super key is held while pressing prtscrn.",
+      "parentUuid": "b7cea036_adbbd59d",
+      "revId": "be341e2882ba31332f2e2a8c3a37a80e6bbfde62",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "563356d8_d84d4e2d",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 6
