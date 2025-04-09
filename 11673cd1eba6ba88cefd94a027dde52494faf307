@@ -105,6 +105,24 @@
       "parentUuid": "ef6f998f_f76cbc02",
       "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e3122b8_0e4d1257",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-09T18:16:20Z",
+      "side": 1,
+      "message": "Upgraded gcc2h to hrev58272 (it appears we can\u0027t go to ..293 due to a SCSI regression that wasn\u0027t fixed till after the syscall change.)",
+      "parentUuid": "7a613dc4_d19ca5ce",
+      "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
