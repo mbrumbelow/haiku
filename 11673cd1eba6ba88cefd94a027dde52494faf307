@@ -123,6 +123,24 @@
       "parentUuid": "7a613dc4_d19ca5ce",
       "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff4e78ed_e2e9d74f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-04-10T05:27:50Z",
+      "side": 1,
+      "message": "I see that https://build.haiku-os.org/buildmaster/master/x86_gcc2/logviewer.html?buildruns/7798/builds/85957.log is still blocked as with https://build.haiku-os.org/buildmaster/master/x86_gcc2/logviewer.html?buildruns/7797/builds/85955.log \nIt doesn\u0027t look like it helped.",
+      "parentUuid": "9e3122b8_0e4d1257",
+      "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
