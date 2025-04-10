@@ -108,6 +108,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef6352b1_d415fa1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-10T01:00:39Z",
+      "side": 1,
+      "message": "\u003e Maybe these drives have other bootloaders installed on them, or some quirky OS that requires a very specific layout. \n\nBootman is pretty simple, I don\u0027t know that we should necessarily try and cover all drive setups, especially weird and nonstandard ones?\n\n\u003e It may also result in parasite entries appearing in the menu if you plug a disk that has some old bootman settings\n\nThat sounds like a feature and not a bug to me; I would expect such drives appear in the menu with this setup, yes.\n\n\u003e or even one that has something that looks like bootman settings and results in \"garbage\" entries. \n\nIf we have a magic number or two then this shouldn\u0027t be an issue...\n\n\u003e They are used by DOS (and I assume Windows still does this as well) \n\nI would be very surprised if Windows didn\u0027t use some other mechanism other than the BIOS for identifying drives under MBR.\n\nThe primary advantage of my solution is that it will not require breaking the kernel args ABI (among other things). Realistically we should find some way to have kernel args ABI breaks not be such a big deal, but that\u0027s a set of problems we have not dealt with yet, so this will be pretty annoying if we go with the solution here as it stands.",
+      "parentUuid": "d3692c67_814658fa",
+      "revId": "7ca8491ff1e2faafcc094764b8401adde43b87b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad532e24_7f35eb47",
