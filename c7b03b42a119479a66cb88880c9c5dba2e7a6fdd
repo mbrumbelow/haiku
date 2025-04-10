@@ -220,6 +220,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "321ae48c_29a844e2",
+        "filename": "src/add-ons/accelerants/radeon_hd/connector.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-04-10T11:21:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d26e57_7ef32004",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 0
+      },
+      "revId": "c7b03b42a119479a66cb88880c9c5dba2e7a6fdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2f71327b_137e19d9",
         "filename": "src/add-ons/accelerants/radeon_hd/connector.cpp",
         "patchSetId": 1
@@ -255,6 +279,24 @@
       "writtenOn": "2025-03-18T12:02:55Z",
       "side": 1,
       "message": "Should it be moved up in the list with the other DCE 11.x IPs?\n\n(That won\u0027t change any behavior, just keep the list sorted by DCE versions for ease of navigating it)",
+      "revId": "c7b03b42a119479a66cb88880c9c5dba2e7a6fdd",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3bedae3_ebe05ba6",
+        "filename": "src/add-ons/kernel/drivers/graphics/radeon_hd/driver.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-04-10T11:21:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1be5432c_44081082",
       "revId": "c7b03b42a119479a66cb88880c9c5dba2e7a6fdd",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
