@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "56754248_c89720e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-10T20:43:52Z",
+      "side": 1,
+      "message": "Regarding point 3 - not totally sure what I should be going for here. I see IsDark and IsLight can be called on colors. Is there a specific system color I should be checking to determine if we\u0027re in light/dark mode?\n\nRegarding the striping - I gave that a shot, and it makes it more annoying to see what\u0027s underneath, so I think I\u0027d prefer to keep this solid. Hopefully adapting for light/dark mode will be sufficient here?",
+      "parentUuid": "e3917386_68e8cc20",
+      "revId": "b2dd6b618256c8099069941b515669a4ffd67274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6830eb5_c7ae44ee",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 9
