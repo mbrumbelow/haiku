@@ -120,6 +120,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "addee062_70628fa9",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-10T00:51:58Z",
+      "side": 1,
+      "message": "PulkoMandy added these APIs, let\u0027s see if he has any advice.",
+      "parentUuid": "b7ecef31_7a59ef81",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2282e60b_63d71564",
