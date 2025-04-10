@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e3917386_68e8cc20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-04-10T07:32:22Z",
+      "side": 1,
+      "message": "Very nice!\n\nA few points:\n* It\u0027d be nice if the radio options and the checkmark options were separated with a bit more padding. Similar to what\u0027s above the \"Delay\" option.\n* As the radio options are all \"Capture\" options, the second one could be shortened to \"Active window\". \n* The \"Select area\" feature should consider \"dark mode\". Right now it\u0027s hard to use with very dark backgrounds. There are IsDark()/IsLight() function for this.\nFor dark mode, it may be a good idea to reverse the masking colour: instead of darkening the screen and hightlighting the area, do it the reverse.\nAlso, depending on the background, the area rectangle and handles may be hard to see. You could try to use the Stroke/FillRectangle() with a pattern using the high and low colours. Maybe striped magenta and black/white (depending on dark mode), since magenta is rarely used.",
+      "revId": "b2dd6b618256c8099069941b515669a4ffd67274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6830eb5_c7ae44ee",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 9
