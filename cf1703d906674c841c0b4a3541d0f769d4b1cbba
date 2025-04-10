@@ -156,6 +156,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab003e0_e0e7bbaf",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-10T19:55:59Z",
+      "side": 1,
+      "message": "The message isn\u0027t dispatching when the relevant span is clicked; the cursor isn\u0027t changing either (I set it different from the default I-beam), so maybe something is wrong with ClickMessageAt and CursorAt? I\u0027ll try to troubleshoot more later, but if you have any ideas that can speed that along . . .",
+      "parentUuid": "17e1b49a_63bae9f1",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2282e60b_63d71564",
