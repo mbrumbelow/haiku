@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "89b01834_26b27aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-10T21:26:02Z",
+      "side": 1,
+      "message": "Well, for the time being I\u0027ve gone ahead and updated it to check B_DOCUMENT_BACKGROUND_COLOR and set high colors accordingly, which seems to work, though I\u0027m sure there\u0027s a better way to do this . . .\n\nThe spacing and Capture active window -\u003e Active window changes have been made as well.",
+      "parentUuid": "56754248_c89720e7",
+      "revId": "b2dd6b618256c8099069941b515669a4ffd67274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6830eb5_c7ae44ee",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 9
