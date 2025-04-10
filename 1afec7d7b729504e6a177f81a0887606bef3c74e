@@ -34,6 +34,23 @@
       "parentUuid": "2891ba7e_95401920",
       "revId": "1afec7d7b729504e6a177f81a0887606bef3c74e",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05e1cff_fee39ffd",
+        "filename": "src/kits/network/libnetservices2/HttpRequest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-04-10T05:58:55Z",
+      "side": 1,
+      "message": "The spec https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.1 indicates an optional whitespace before and after \";\".\nIt means, after Truncate(), the last character should be checked, and if a space or tab is found, it should be removed.",
+      "revId": "1afec7d7b729504e6a177f81a0887606bef3c74e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
