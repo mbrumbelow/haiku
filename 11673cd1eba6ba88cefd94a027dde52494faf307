@@ -141,6 +141,24 @@
       "parentUuid": "9e3122b8_0e4d1257",
       "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4777fe8f_192aef02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-10T13:38:33Z",
+      "side": 1,
+      "message": "That seems strange, because the fix is in hrev58271 isn\u0027t it? I did reboot and uname -a now says hrev58272.",
+      "parentUuid": "ff4e78ed_e2e9d74f",
+      "revId": "11673cd1eba6ba88cefd94a027dde52494faf307",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
