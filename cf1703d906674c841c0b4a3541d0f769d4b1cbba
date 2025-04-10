@@ -138,6 +138,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e1b49a_63bae9f1",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-04-10T08:06:52Z",
+      "side": 1,
+      "message": "Here\u0027s something to try;\n\n- Create the `TextDocument` (`TextDocumentRef`)\n- Append a `Paragraph`\n- Append a `TextSpan` with the prelude text\n- Append a `TextSpan` with the link (use `SetClickMessage`)\n- Append a `TextSpan` with the remaining text\n- Create a view class of `TextDocumentView`\n- Set the `TextDocumentRef` on the view",
+      "parentUuid": "addee062_70628fa9",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2282e60b_63d71564",
