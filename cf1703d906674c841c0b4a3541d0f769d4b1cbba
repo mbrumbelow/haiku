@@ -192,6 +192,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27f7921_6d5f7985",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-04-11T11:54:15Z",
+      "side": 1,
+      "message": "Well done sorting out those issues to this point!\n\nI am unsure how the text looks as you have the logic right now in your working branch. I am guessing it currently looks like;\n\n```\nNo results? \u003ca\u003eClick here\u003c/a\u003e to search all packages.\n```\n\nI imagine the `Click here` is blue text with underline? I am unsure why you need to change the appearance of the text when the user hovers over it. It would seems OK to me not to change the text appearance on-hover? (slow to reply)",
+      "parentUuid": "02d4d914_24cb3956",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2282e60b_63d71564",
