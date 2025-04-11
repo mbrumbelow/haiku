@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dcb036a_79dbdadc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-11T17:28:29Z",
+      "side": 1,
+      "message": "I checked, this exists on musl, OpenBSD, FreeBSD, NetBSD, and is not gated in any way behind _BSD_SOURCE on any of them.\n\nWe are stricter about that however, so perhaps adding a _DEFAULT_SOURCE guard here would make sense?",
+      "revId": "c35ea477870bd1cebccf9f9c0640bb57ba1dd0b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4566aef8_1a6f549c",
