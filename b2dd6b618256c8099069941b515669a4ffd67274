@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4fc2555d_dc938042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-04-11T15:28:35Z",
+      "side": 1,
+      "message": "\u003e Regarding the striping - I gave that a shot, and it makes it more annoying to see what\u0027s underneath, so I think I\u0027d prefer to keep this solid. Hopefully adapting for light/dark mode will be sufficient here?\n\nMaybe I expressed myself unclearly. I meant adding a striped border around the selected area (StrokeRect()) and striped FillRect()s for the handles to edit the area. Not striping the whole selected area. 😊\n\n\u003e Well, for the time being I\u0027ve gone ahead and updated it to check B_DOCUMENT_BACKGROUND_COLOR and set high colors accordingly, which seems to work, though I\u0027m sure there\u0027s a better way to do this . . .\n\nI think I\u0027ve seen B_PANEL_BACKGROUND_COLOR being used elsewhere, but chances are people with a dark theme also have a dark document background.",
+      "parentUuid": "89b01834_26b27aaa",
+      "revId": "b2dd6b618256c8099069941b515669a4ffd67274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6830eb5_c7ae44ee",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 9
