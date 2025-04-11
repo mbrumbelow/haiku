@@ -174,6 +174,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d4d914_24cb3956",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-11T01:45:05Z",
+      "side": 1,
+      "message": "Found the issues, it seems that Paragraph merges subsequent TextSpans if their styles are the same, discarding messages and cursors. There was also a check in ClickMessageAt that returned NULL if the message was empty, which it seems is the case even if message.what is set, so I removed that. The wall I\u0027m now running into is figuring out how to change the span style on hover (to make it behave like a link). I could do a text replace from TextDocumentView, but that would discard the span message and cursor. Do you have any idea how I could do this without majorly modifying how the TextDocumentView/TextDocument/Paragraph/Span stack works?",
+      "parentUuid": "3ab003e0_e0e7bbaf",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2282e60b_63d71564",
