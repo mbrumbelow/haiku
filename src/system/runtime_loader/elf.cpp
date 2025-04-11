@@ -651,7 +651,8 @@ load_library(char const *path, uint32 flags, bool addOn, void* caller,
 				path, image->id);
 			*_handle = image;
 			return image->id;
-		}
+		} else if ((flags & RTLD_NOLOAD) != 0)
+			return B_NAME_NOT_FOUND;
 
 		// First of all, find the caller image.
 		image_t* callerImage = find_loaded_image_by_address((addr_t)caller);
