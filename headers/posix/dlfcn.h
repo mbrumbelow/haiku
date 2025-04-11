@@ -14,6 +14,10 @@
 #define RTLD_LOCAL	0	/* symbols are not available for relocating any other object */
 #define RTLD_GLOBAL	2	/* all symbols are available */
 
+#ifdef _DEFAULT_SOURCE
+#define RTLD_NOLOAD	4	/* do not load any new object */
+#endif
+
 /* not-yet-POSIX extensions (dlsym() handles) */
 #define RTLD_DEFAULT	((void*)0)
 	/* find the symbol in the global scope */
