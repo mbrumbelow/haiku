@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "05b7f4d9_a8e48cc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-12T12:54:21Z",
+      "side": 1,
+      "message": "We should probably make the bootloader use identical type names if not actually the same types from the same headers, at least.",
+      "parentUuid": "db7f2a0a_9968bf21",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e5b6135_c474a65f",
