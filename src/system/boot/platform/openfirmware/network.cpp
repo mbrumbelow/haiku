@@ -14,10 +14,12 @@
 
 #include <OS.h>
 
-#include <boot/platform.h>
+#include <boot/net/DHCP.h>
 #include <boot/net/Ethernet.h>
 #include <boot/net/IP.h>
 #include <boot/net/NetStack.h>
+#include <boot/platform.h>
+#include <platform/openfirmware/devices.h>
 #include <platform/openfirmware/openfirmware.h>
 
 
@@ -40,6 +42,7 @@ public:
 
 	virtual	void *		AllocateSendReceiveBuffer(size_t size);
 	virtual	void		FreeSendReceiveBuffer(void *buffer);
+			void		AcquireIPoverDHCP();
 
 	virtual ssize_t		Send(const void *buffer, size_t size);
 	virtual ssize_t		Receive(void *buffer, size_t size);
@@ -137,26 +140,31 @@ OFEthernetInterface::FindMACAddress()
 status_t
 OFEthernetInterface::Init(const char *device, const char *parameters)
 {
+	dprintf("Initializing ethernet device\n");
 	if (!device)
 		return B_BAD_VALUE;
 
 	// open device
 	fHandle = of_open(device);
 	if (fHandle == OF_FAILED) {
-		printf("opening ethernet device failed\n");
+		dprintf("opening ethernet device failed\n");
 		return B_ERROR;
 	}
 
 	if (FindMACAddress() != B_OK) {
-		printf("Failed to get MAC address\n");
+		dprintf("Failed to get MAC address\n");
 		return B_ERROR;
 	}
 
-	// get IP address
+	// get IP address before initializing the interface if possible.
+	// If we are unable to do so, we'll set the IP to INADDR_ANY to
+	// signal that we'll have to get an IP after the interface has
+	// initialized, likely by running the DHCP client.
 
-	// Note: This is a non-standardized way. On my Mac mini the response of the
-	// DHCP server is stored as property of /chosen. We try to get it and use
-	// the IP address we find in there.
+	// Note: This is a non-standardized way. On my Mac mini and an
+	// eMac G4 the response of the DHCP server is stored as property
+	// of /chosen if we have booted using netboot over a tftp server.
+	// We try to get it and use the IP address we find in there.
 	// TODO Sun machines may use bootp-response instead?
 	struct {
 		uint8	irrelevant[16];
@@ -170,7 +178,7 @@ OFEthernetInterface::Init(const char *device, const char *parameters)
 		return B_OK;
 	}
 
-	// try to read manual client IP from boot path
+	// try to read a manual client IP from boot path
 	if (parameters != NULL) {
 		char *comma = strrchr(parameters, ',');
 		if (comma != NULL && comma != strchr(parameters, ',')) {
@@ -191,7 +199,24 @@ OFEthernetInterface::Init(const char *device, const char *parameters)
 		return B_OK;
 	}
 
-	return B_ERROR;
+	// if we get here, we have to do dhcp ourselves. However, the DHCP
+	// client cannot be run until the Ethernet device is registered.
+	SetIPAddress(INADDR_ANY);
+
+	return B_OK;
+}
+
+
+void
+OFEthernetInterface::AcquireIPoverDHCP()
+{
+	DHCPClient dhcpClient(this);
+	if (dhcpClient.run() != B_OK) {
+		dprintf("Could not aquire IP address!\n");
+	} else {
+		dprintf("Aquired the IP Address %X\n", dhcpClient.IPAddress());
+		SetIPAddress(dhcpClient.IPAddress());
+	}
 }
 
 
@@ -281,52 +306,64 @@ OFEthernetInterface::Receive(void *buffer, size_t size)
 status_t
 platform_net_stack_init()
 {
-	// Note: At the moment we only do networking at all, if the boot device
-	// is a network device. If it isn't, we simply fail here. For serious
-	// support we would want to iterate through the device tree and add all
-	// network devices.
+	intptr_t cookie = 0;
+	char path[256];
+	status_t status;
 
-	// get boot path
-	char bootPath[192];
-	int length = of_getprop(gChosen, "bootpath", bootPath, sizeof(bootPath));
-	if (length <= 1)
-		return B_ERROR;
+	// get all network devices
+	while ((status = of_get_next_device(&cookie, 0, "network", path, sizeof(path))) == B_OK) {
 
-	// we chop off parameters; otherwise opening the network device might have
-	// side effects
-	char *lastComponent = strrchr(bootPath, '/');
-	char *parameters = strchr((lastComponent ? lastComponent : bootPath), ':');
-	if (parameters)
-		*parameters = '\0';
+		dprintf("Found network device %s\n", path);
 
-	// get device node
-	intptr_t node = of_finddevice(bootPath);
-	if (node == OF_FAILED)
-		return B_ERROR;
+		// get device node
+		intptr_t node = of_finddevice(path);
+		if (node == OF_FAILED) {
+			dprintf("\tCouldn't find the node of the network device!\n");
+			continue;
+		}
 
-	// get device type
-	char type[16];
-	if (of_getprop(node, "device_type", type, sizeof(type)) == OF_FAILED
-		|| strcmp("network", type) != 0) {
-		return B_ERROR;
-	}
+		// get device type
+		char type[16];
+		if (of_getprop(node, "device_type", type, sizeof(type)) == OF_FAILED
+			|| strcmp("network", type) != 0) {
+			dprintf("\tdevice is not a network device!?\n");
+			continue;
+		}
 
-	// create an EthernetInterface object for the device
-	OFEthernetInterface *interface = new(nothrow) OFEthernetInterface;
-	if (!interface)
-		return B_NO_MEMORY;
+		// currently the bootloader's NetStack can only use one
+		// interface. As such, we'll ignore all other interfaces for
+		// now
+		// TODO make NetStack accept more than one interace
+		if(NetStack::Default()->GetEthernetInterface()) {
+			dprintf("\tNetStack already has an interface, skipping %s\n",
+				path);
+			continue;
+		}
 
-	status_t error = interface->Init(bootPath, parameters + 1);
-	if (error != B_OK) {
-		delete interface;
-		return error;
-	}
+		// create an EthernetInterface object for the device
+		OFEthernetInterface* interface = new(nothrow) OFEthernetInterface;
+		if (!interface) {
+			dprintf("\tInsufficient memory to create device!\n");
+			return B_NO_MEMORY;
+		}
 
-	// add it to the net stack
-	error = NetStack::Default()->AddEthernetInterface(interface);
-	if (error != B_OK) {
-		delete interface;
-		return error;
+		// initialize the ethernet interface
+		status_t error = interface->Init(path, nullptr);
+		if (error != B_OK) {
+			delete interface;
+			dprintf("\tCouldn't initialize the Ethernet Interface!\n");
+		} else {
+			// add it to the net stack
+			error = NetStack::Default()->AddEthernetInterface(interface);
+			if (error != B_OK) {
+				dprintf("\tCouldn't add Ethernet Interface to the stack!\n");
+				delete interface;
+			}
+
+			// check if DHCP has to be run
+			if (interface->IPAddress() == INADDR_ANY)
+				interface->AcquireIPoverDHCP();
+		}
 	}
 
 	return B_OK;
