@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a564cfc9_7f61e075",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-04-12T05:47:22Z",
+      "side": 1,
+      "message": "BTW, I don\u0027t know if I\u0027m doing it wrong, but if I try to launch the \"Screenshot\" app (-\u003e capital \"S\") I only see the window quickly flicker on screen, then it\u0027s gone. Same when pressing \"Print\" on the keyboard.\nExecuting the lower-case \"screenshot\" bin works.\n\nI\u0027ve put the executables into \"app\" and \"bin\" respectively, under /system/non-packaged.",
+      "revId": "0e4a49a001da175fc69e879b2ae6a7dcca558bc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5cfc03bf_ad8f83fb",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 10
