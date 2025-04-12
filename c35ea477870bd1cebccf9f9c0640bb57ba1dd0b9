@@ -54,6 +54,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ed6128d_840d82d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2025-04-12T00:17:42Z",
+      "side": 1,
+      "message": "Reverting this then, since guarding with `_DEFAULT_SOURCE` seems to confuse the implementation in `runtime_loader` and probably make things a bit more complex...",
+      "parentUuid": "a85a72f2_54bcdf65",
+      "revId": "c35ea477870bd1cebccf9f9c0640bb57ba1dd0b9",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4566aef8_1a6f549c",
