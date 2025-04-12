@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "db7f2a0a_9968bf21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-04-12T12:51:02Z",
+      "side": 1,
+      "message": "I guess you could use some structures from net_server, mainly stuct dhcp_message from DHCPClient.cpp, however, there are different type names (in_addr_t vs ip_addr_t). As the server for the bootloader should be simple, I don\u0027t think you could use DHCPClient\u0027s organization structure here",
+      "parentUuid": "f5662c7d_763aa3e0",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e5b6135_c474a65f",
