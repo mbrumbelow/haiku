@@ -37,13 +37,13 @@ platform_add_boot_device(struct stage2_args *args, NodeList *devicesList)
 	int length = of_getprop(gChosen, "bootpath", sBootPath, sizeof(sBootPath));
 	if (length <= 1)
 		return B_ENTRY_NOT_FOUND;
-	printf("boot path = \"%s\"\n", sBootPath);
+	dprintf("boot path = \"%s\"\n", sBootPath);
 
 	intptr_t node = of_finddevice(sBootPath);
 	if (node != OF_FAILED) {
 		char type[16];
 		of_getprop(node, "device_type", type, sizeof(type));
-		printf("boot type = %s\n", type);
+		dprintf("boot type = %s\n", type);
 
 		// If the boot device is a network device, we try to find a
 		// "remote disk" at this point.
@@ -217,7 +217,24 @@ platform_add_block_devices(stage2_args *args, NodeList *devicesList)
 
 		devicesList->Add(device);
 	}
-	printf("\t(loop ended with %ld)\n", status);
+	printf("\t(loop ended with %d)\n", status);
+
+	// add the network interfaces
+	// TODO add a way to disable this, or enable only when requested.
+	// most people will not network boot haiku
+	status_t error = net_stack_init();
+	if (error != B_OK) {
+		dprintf("Error initializing network stack!\n");
+	} else {
+		/* on success, find a network boot disk */
+		RemoteDisk* remoteDisk = RemoteDisk::FindAnyRemoteDisk();
+		if (remoteDisk != NULL) {
+			dprintf("Found remote disk!\n");
+			devicesList->Add(remoteDisk);
+		} else {
+			dprintf("Could not find a remote disk!\n");
+		}
+	}
 
 	return B_OK;
 }
