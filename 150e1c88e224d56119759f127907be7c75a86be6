@@ -16,6 +16,24 @@
       "message": "This appears to have caused a regression: https://dev.haiku-os.org/ticket/19517#no3\n\nPlease take a look there; if a solution can\u0027t be found we\u0027ll have to revert.",
       "revId": "150e1c88e224d56119759f127907be7c75a86be6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff912649_5e5b79ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-12T03:13:17Z",
+      "side": 1,
+      "message": "trungnt2910 reports the same problem on a VM setup.",
+      "parentUuid": "2b80e37e_ed44d090",
+      "revId": "150e1c88e224d56119759f127907be7c75a86be6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
