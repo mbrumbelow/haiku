@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5662c7d_763aa3e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-12T02:35:33Z",
+      "side": 1,
+      "message": "Is there no way to reuse any of the userland DHCP client code from net_server here? Maybe just the structures and general organization at least?",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e5b6135_c474a65f",
