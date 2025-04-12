@@ -204,7 +204,7 @@ RemoteDisk::FindAnyRemoteDisk()
 	UDPSocket socket;
 	status_t error = socket.Bind(INADDR_ANY, 6665);
 	if (error != B_OK) {
-		printf("RemoteDisk::GetAnyRemoteDisk(): Failed to bind socket.\n");
+		dprintf("RemoteDisk::GetAnyRemoteDisk(): Failed to bind socket.\n");
 		return NULL;
 	}
 
@@ -217,7 +217,7 @@ RemoteDisk::FindAnyRemoteDisk()
 	error = _SendRequest(&socket, INADDR_BROADCAST, REMOTE_DISK_SERVER_PORT,
 		&request, sizeof(request), REMOTE_DISK_HELLO_REPLY, &packet);
 	if (error != B_OK) {
-		printf("RemoteDisk::GetAnyRemoteDisk(): Got no server reply.\n");
+		dprintf("RemoteDisk::GetAnyRemoteDisk(): Got no server reply.\n");
 		return NULL;
 	}
 	remote_disk_header *reply = (remote_disk_header*)packet->Data();
@@ -275,8 +275,10 @@ RemoteDisk::_SendRequest(UDPSocket *socket, ip_addr_t serverAddress,
 	for (int i = 0; i < 3; i++) {
 		// send request
 		status_t error = socket->Send(serverAddress, serverPort, request, size);
-		if (error != B_OK)
+		if (error != B_OK) {
+			dprintf("RemoteDisk::_SendRequest: error on Socket::send\n");
 			return error;
+		}
 
 		// receive reply
 		bigtime_t timeout = system_time() + kRequestTimeout;
@@ -297,8 +299,10 @@ RemoteDisk::_SendRequest(UDPSocket *socket, ip_addr_t serverAddress,
 
 				// reply not OK
 				delete packet;
-			} else if (error != B_TIMED_OUT && error != B_WOULD_BLOCK)
+			} else if (error != B_TIMED_OUT && error != B_WOULD_BLOCK) {
+				dprintf("RemoteDisk::_SendRequest: timeout\n");
 				return error;
+			}
 
 		} while (timeout > system_time());
 	}
