@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f6914f3d_922191ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-13T23:42:14Z",
+      "side": 1,
+      "message": "\u003eI meant adding a striped border . . .\n\nYeah that makes more sense, my bad; done.\n\n\u003eI think I\u0027ve seen B_PANEL_BACKGROUND_COLOR being used elsewhere . . .\n\nIf that\u0027s the one others use, then I see no reason to do it differently; done.",
+      "parentUuid": "4fc2555d_dc938042",
+      "revId": "b2dd6b618256c8099069941b515669a4ffd67274",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6830eb5_c7ae44ee",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 9

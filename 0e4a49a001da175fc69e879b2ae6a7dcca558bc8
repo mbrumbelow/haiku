@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "19b8b75e_419ee421",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-13T23:42:14Z",
+      "side": 1,
+      "message": "Not sure why that would be; I\u0027ve just been rebuilding the whole system package since it\u0027s pretty quick on my machine, and it works fine for me. I haven\u0027t tried what you describe.",
+      "parentUuid": "a564cfc9_7f61e075",
+      "revId": "0e4a49a001da175fc69e879b2ae6a7dcca558bc8",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5cfc03bf_ad8f83fb",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 10
