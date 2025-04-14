@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e32fef03_902b21d3",
+        "filename": "src/system/runtime_loader/commpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2025-04-14T21:38:56Z",
+      "side": 1,
+      "message": "\u003e but that sounds like more work for unnecessary work.\n\nThat\u0027d put the burden on `dladdr`, which will have to make O(number of images) syscalls whenever the `commpage` is involved.",
+      "parentUuid": "6f4c85d9_b863c74a",
+      "revId": "a1a2bc281e52a809540dbc6f60d2e34f78eb89c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4c714897_5b1810e3",
@@ -72,6 +90,24 @@
       "writtenOn": "2025-04-14T16:31:49Z",
       "side": 1,
       "message": "I think it\u0027d be better to not set this at all, and leave it NULL?",
+      "revId": "a1a2bc281e52a809540dbc6f60d2e34f78eb89c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "984d286f_ccab6aa6",
+        "filename": "src/system/runtime_loader/commpage.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2025-04-14T21:38:56Z",
+      "side": 1,
+      "message": "This is the pointer to the value that will be passed to `Dl_info_t::dli_fname` by `dladdr`. Neither POSIX (https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/dladdr.html) nor the Linux man pages say this can be `NULL` for a successful call, while POSIX also says that the path pointed to by that member may be an invalid path:\n\u003e This might no longer resolve to the file that was mapped, for example if it was a link that has subsequently been removed or renamed.",
+      "parentUuid": "3729efc8_3567501d",
       "revId": "a1a2bc281e52a809540dbc6f60d2e34f78eb89c4",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
