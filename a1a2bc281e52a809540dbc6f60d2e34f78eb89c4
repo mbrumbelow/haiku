@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "94ef5de2_649ab150",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000391
+      },
+      "writtenOn": "2025-04-14T10:20:22Z",
+      "side": 1,
+      "message": "This is the `dladdr` extension discussed earlier.\n\nTested using `dladdr` with `__builtin_return_address(0)` from a signal handler. `dli_sname` correctly indicates `commpage_signal_handler`.\n\nFor the `libunwind` use case, there is one potential scenario where this may not work: If `commpage_signal_handler` is the last registered symbol on the `commpage`, and the program somehow has a function with a return address past this symbol, `dladdr` will incorrectly identify that address as the signal handler. Luckily, `commpage_signal_handler` is currently not the last symbol; there is one more: `commpage_thread_exit`.\n\nThe other implementation of a similar hack, GDB, cannot consume this feature, since the code detecting the signal handler is usually in a different address space, or even a different host.",
+      "revId": "a1a2bc281e52a809540dbc6f60d2e34f78eb89c4",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4c714897_5b1810e3",
