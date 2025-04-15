@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1b032824_cb7e8142",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-04-15T17:20:20Z",
+      "side": 1,
+      "message": "Works nicely!",
+      "revId": "ef0f043064a36181b99967259f8b077bdb821214",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4c49ebf1_46223462",
         "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
         "patchSetId": 6
