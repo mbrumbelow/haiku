@@ -68,6 +68,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "aa86586e_5b8b0e29",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-15T13:42:41Z",
+      "side": 1,
+      "message": "Done and done",
+      "parentUuid": "865b9a50_c0418874",
+      "revId": "b9c7db12a29e67b55cfb3b20b62e5c39275d3e35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0f4a79f6_bb1bd0b1",
         "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
         "patchSetId": 4
@@ -199,6 +217,24 @@
       "writtenOn": "2025-04-15T09:22:16Z",
       "side": 1,
       "message": "I think `fPleaseWaitText` and `fNoResultsView` do not need to be a member variables; they can just be a local variable?",
+      "revId": "b9c7db12a29e67b55cfb3b20b62e5c39275d3e35",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40ae6bb0_f4e2410a",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-15T13:42:41Z",
+      "side": 1,
+      "message": "fNoResultsView needs to be so I can set its target in AttachedToWindow, but done for fPleaseWaitText",
+      "parentUuid": "fa10536f_f35f47ad",
       "revId": "b9c7db12a29e67b55cfb3b20b62e5c39275d3e35",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
