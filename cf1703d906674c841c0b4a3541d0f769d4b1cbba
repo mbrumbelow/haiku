@@ -248,6 +248,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "830f18b2_114b9dbc",
+        "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-15T02:02:51Z",
+      "side": 1,
+      "message": "Okay, fair enough; I\u0027ve pushed this as-is, without color-change on hover.",
+      "parentUuid": "f20ca05c_3548c518",
+      "revId": "cf1703d906674c841c0b4a3541d0f769d4b1cbba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2282e60b_63d71564",
         "filename": "src/apps/haikudepot/ui/FeaturedPackagesView.cpp",
         "patchSetId": 3
