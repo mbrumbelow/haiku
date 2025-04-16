@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7109980a_49d7abd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2025-04-16T07:37:14Z",
+      "side": 1,
+      "message": "Hi Pawan; Thanks for adding this new feature!",
+      "revId": "ef0f043064a36181b99967259f8b077bdb821214",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4c49ebf1_46223462",
         "filename": "src/apps/haikudepot/HaikuDepotConstants.h",
         "patchSetId": 6
