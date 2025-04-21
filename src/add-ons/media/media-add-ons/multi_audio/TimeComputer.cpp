@@ -9,7 +9,7 @@
 
 TimeComputer::TimeComputer()
 	:
-	fRealTime(0),
+	fRealTime(system_time()),
 	fPerformanceTime(0),
 	fDrift(1),
 	fFrameRate(1000000),
