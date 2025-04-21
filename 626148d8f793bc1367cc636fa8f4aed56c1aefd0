@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3896cb5a_2df603b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-21T20:00:09Z",
+      "side": 1,
+      "message": "This shouldn\u0027t make any difference because `Init` should always be called before `AddTimeStamp`, and that sets `fRealTime`. So if the TimeComputer is being used without `Init` being called, that seems like a bug.",
+      "revId": "626148d8f793bc1367cc636fa8f4aed56c1aefd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
