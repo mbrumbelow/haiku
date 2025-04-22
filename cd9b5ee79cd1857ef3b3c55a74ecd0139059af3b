@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3efa1c99_ca3df91f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-04-22T19:54:55Z",
+      "side": 1,
+      "message": "right, I tested with and without the set_feature to check the behavior.",
+      "parentUuid": "ccaa99f0_3e27804f",
+      "revId": "cd9b5ee79cd1857ef3b3c55a74ecd0139059af3b",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "65f6917e_9be27a40",
