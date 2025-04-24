@@ -16,6 +16,24 @@
       "message": "This shouldn\u0027t make any difference because `Init` should always be called before `AddTimeStamp`, and that sets `fRealTime`. So if the TimeComputer is being used without `Init` being called, that seems like a bug.",
       "revId": "626148d8f793bc1367cc636fa8f4aed56c1aefd0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80aaaea9_a2208f3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-24T16:15:36Z",
+      "side": 1,
+      "message": "Looking at this some more, TimeComputer is only ever used after Init is called, because Init is called at the start of OutputThread, and AddTimeStamp is called from _UpdateTimeSource which is also only ever called from OutputThread. So there should really be no way this fixes anything.",
+      "parentUuid": "3896cb5a_2df603b5",
+      "revId": "626148d8f793bc1367cc636fa8f4aed56c1aefd0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
