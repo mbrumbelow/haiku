@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "59c61ebd_99ed2961",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-25T15:35:05Z",
+      "side": 1,
+      "message": "Only 2 comments on behavior:\n\n1. Pressing \"Esc\" in the select-area mode closes Screenshot entirely, rather than just exiting out of the select-area mode and back to Screenshot itself. Wouldn\u0027t the former make more sense?\n\n2. The area resize knobs are hard to hit in HiDPI mode. Perhaps use ComposeIconSize to choose a scaling size for them, and also, use the appropriate resize BCursor?",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "41e50096_863a08c4",
