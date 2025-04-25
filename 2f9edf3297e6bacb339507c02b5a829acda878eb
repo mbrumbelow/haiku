@@ -124,6 +124,24 @@
       "parentUuid": "0a787afa_3285e92c",
       "revId": "2f9edf3297e6bacb339507c02b5a829acda878eb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79530e52_a3470932",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-25T15:03:41Z",
+      "side": 1,
+      "message": "It\u0027s still there, but nobody ever replied to the Qt change that was holding up the fonts one... I guess we should probably just merge that at this point and see what happens.",
+      "parentUuid": "324111ee_e9be126d",
+      "revId": "2f9edf3297e6bacb339507c02b5a829acda878eb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
