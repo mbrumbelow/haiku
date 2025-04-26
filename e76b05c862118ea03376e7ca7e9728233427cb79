@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9ab2e158_db978a49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "1. I was thinking about the --area switch/super shortcut mode when I implemented this, and I think it makes sense in that mode, but you\u0027re right that otherwise we should probably return to the screenshot window instead. So I\u0027ve modified this to behave like that only in the former case.\n\n2. Done.",
+      "parentUuid": "59c61ebd_99ed2961",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "41e50096_863a08c4",
         "filename": "src/apps/screenshot/Screenshot.cpp",
         "patchSetId": 13
@@ -126,6 +144,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fdd24b06_3c3247fb",
+        "filename": "src/apps/screenshot/ScreenshotApp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a620c47_92bebc95",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59f4c541_36269a97",
         "filename": "src/apps/screenshot/ScreenshotApp.cpp",
         "patchSetId": 13
@@ -162,6 +198,30 @@
       "side": 1,
       "message": "This should be done (you can put `\u003d new BWindow(BScreen().Frame(),` on the same line as the variable declaration, though, so this would be 2 lines not 3.)",
       "parentUuid": "59f4c541_36269a97",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 0
+      },
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b5bbe4_ff7be909",
+        "filename": "src/apps/screenshot/ScreenshotApp.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3211aad_9eff20f5",
       "range": {
         "startLine": 110,
         "startChar": 0,
@@ -239,6 +299,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d21c436e_38b16145",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "070d8218_dda44a24",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0807ba8e_3d513873",
         "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
         "patchSetId": 13
@@ -274,6 +352,24 @@
       "writtenOn": "2025-04-25T15:13:13Z",
       "side": 1,
       "message": "continuation lines indented by 1 tab only",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbbb368a_5ee0d2ff",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "579b6f98_55ac9c57",
       "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -393,6 +489,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e26c803_2ba09f79",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "As of now, the only time an invalid frame is ever sent is if escape is pressed, and I kind of like the idea of preserving the preexisting selection if they escape out of another area selector. I can change it if you want though.",
+      "parentUuid": "73ed3e7e_db189da0",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4110961f_578c5583",
         "filename": "src/apps/screenshot/SelectAreaView.cpp",
         "patchSetId": 13
@@ -404,6 +518,24 @@
       "writtenOn": "2025-04-25T15:24:36Z",
       "side": 1,
       "message": "Please format this copyright header the same way as the rest of the files.",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22eca3ed_bf16a1bf",
+        "filename": "src/apps/screenshot/SelectAreaView.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4110961f_578c5583",
       "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -1093,6 +1225,24 @@
       "writtenOn": "2025-04-25T15:13:13Z",
       "side": 1,
       "message": "line too long",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f934e0f6_4d4b057f",
+        "filename": "src/apps/screenshot/Utility.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a2e8b5f_a9638343",
       "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },

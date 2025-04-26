@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2920cbb5_68ba504f",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "8b0bd3bb_4fb616fd",
+      "revId": "4b099fb79517fe5333a0c9aced6dc8587670bf31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9dabf70_0a7e73ca",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-04-25T15:13:13Z",
       "side": 0,
       "message": "should be kept",
+      "revId": "4b099fb79517fe5333a0c9aced6dc8587670bf31",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fa4736c_46b67aee",
+        "filename": "src/apps/screenshot/ScreenshotWindow.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-04-26T05:08:31Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b9dabf70_0a7e73ca",
       "revId": "4b099fb79517fe5333a0c9aced6dc8587670bf31",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
