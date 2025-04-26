@@ -505,6 +505,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72547539_4d3d4392",
+        "filename": "src/apps/screenshot/ScreenshotWindow.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-04-26T17:34:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5e26c803_2ba09f79",
+      "revId": "e76b05c862118ea03376e7ca7e9728233427cb79",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4110961f_578c5583",
