@@ -164,6 +164,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0395106_12756104",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-04-30T12:59:13Z",
+      "side": 1,
+      "message": "The internal representation seems out of scope to me, it can be improved/adressed in a subsequent change.",
+      "parentUuid": "7949d0eb_f58c316b",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
