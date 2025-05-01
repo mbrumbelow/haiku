@@ -235,6 +235,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a99b850_4617e2cf",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T11:37:33Z",
+      "side": 1,
+      "message": "I re-added the old constructor as private for ABI compatibility. Unfortunately, it forces all callers to explicitly set the boolean encode parameter to true (or false), the default value cannot apply because the call is ambiguous between the new and old constructor.\n\nIn the next commit in the patch series I fix all callers in Haiku codebase accordingly. The explicit boolean in the callers can be removed after we remove the legacy methods, I guess after one or two beta releases when every app has been recompiled with the new API/ABI.",
+      "parentUuid": "469c0d2e_3d505e53",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2167590c_e74f0aca",
         "filename": "src/kits/network/libnetapi/FileRequest.cpp",
         "patchSetId": 4
