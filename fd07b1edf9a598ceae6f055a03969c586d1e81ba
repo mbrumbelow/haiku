@@ -52,6 +52,24 @@
       "parentUuid": "bd83e4e4_0ef28684",
       "revId": "fd07b1edf9a598ceae6f055a03969c586d1e81ba",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa430aa5_e2ed4cdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T11:18:15Z",
+      "side": 1,
+      "message": "Redone with a newer version of ACPICA and not importing unused file as we did before.",
+      "parentUuid": "8b243207_6845ec09",
+      "revId": "fd07b1edf9a598ceae6f055a03969c586d1e81ba",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
