@@ -293,7 +293,7 @@ stream_handle_interrupt(hda_controller* controller, hda_stream* stream,
 	if (stream->use_dma_position && stream->incorrect_position_count >= 32) {
 		dprintf("hda: DMA position for stream (id:%" B_PRIu32 ") seems to be "
 			"broken. Switching to using LPIB.\n", stream->id);
-		stream->use_dma_position = false;
+		stream->use_dma_position = true;
 	}
 
 	// Determine the buffer we're switching to. Some chipsets seem to trigger
@@ -713,7 +713,7 @@ hda_stream_new(hda_audio_group* audioGroup, int type)
 	stream->type = type;
 	stream->controller = controller;
 	stream->incorrect_position_count = 0;
-	stream->use_dma_position = true;
+	stream->use_dma_position = false;
 
 	switch (type) {
 		case STREAM_PLAYBACK:
