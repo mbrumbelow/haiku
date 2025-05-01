@@ -900,6 +900,17 @@ hda_codec_parse_audio_group(hda_audio_group* audioGroup)
 		}
 	}
 
+	verbs[0] = 0x202f8100; hda_send_verbs(audioGroup->codec, verbs, NULL, 1);
+	verbs[0] = 0x202f8100; hda_send_verbs(audioGroup->codec, verbs, NULL, 1);
+
+	// VID_SET_AMPLIFIER_GAIN_MUTE(0)
+	verbs[0] = 0x2043b000; hda_send_verbs(audioGroup->codec, verbs, NULL, 1);
+	// VID_SET_PIN_WIDGET_CONTROL(40)
+	verbs[0] = 0x20470740; hda_send_verbs(audioGroup->codec, verbs, NULL, 1);
+	
+	verbs[0] = 0x2063b000; hda_send_verbs(audioGroup->codec, verbs, NULL, 1);
+	verbs[0] = 0x20670740; hda_send_verbs(audioGroup->codec, verbs, NULL, 1);
+
 	return B_OK;
 }
 

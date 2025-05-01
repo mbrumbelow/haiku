@@ -713,7 +713,7 @@ hda_stream_new(hda_audio_group* audioGroup, int type)
 	stream->type = type;
 	stream->controller = controller;
 	stream->incorrect_position_count = 0;
-	stream->use_dma_position = true;
+	stream->use_dma_position = false;
 
 	switch (type) {
 		case STREAM_PLAYBACK:
