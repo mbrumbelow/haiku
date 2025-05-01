@@ -16,6 +16,24 @@
       "message": "What is progress with uacpi?",
       "revId": "9b8426f66be08ea9dececbe7a00fe9e1ebc00bfc",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506e0380_b798c4e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T17:49:18Z",
+      "side": 1,
+      "message": "Working on acpica again this week, I took a week and a half off work to cross some things off my TODO list that is stressing me out because it\u0027s too long.\n\nI will update the uacpi patch later today, but it will require some testing time (a lot of code is changed in minor ways, a sure way to make mistakes for me). So I expect it won\u0027t be merged in the short term. Until then, we can at least keep ACPICA up to date.",
+      "parentUuid": "5725dce4_4ee07b0c",
+      "revId": "9b8426f66be08ea9dececbe7a00fe9e1ebc00bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
