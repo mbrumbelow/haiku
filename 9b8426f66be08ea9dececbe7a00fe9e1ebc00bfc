@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5725dce4_4ee07b0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-05-01T15:32:41Z",
+      "side": 1,
+      "message": "What is progress with uacpi?",
+      "revId": "9b8426f66be08ea9dececbe7a00fe9e1ebc00bfc",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
