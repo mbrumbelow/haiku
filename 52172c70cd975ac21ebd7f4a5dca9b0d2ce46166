@@ -182,6 +182,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c079ac02_8c4a7792",
+        "filename": "headers/os/support/Url.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T07:47:08Z",
+      "side": 1,
+      "message": "If I remember correctly, fUrlString is just a cache for optimization. IT avoids re-computing the complete string everything you access it. That\u0027s why it\u0027s declared mutable: this caching can be done even on a const object when you get the URL as a string. The UrlString() method relies on fUrlStringValid to know if it needs to regenerate the string, or if it can use the already generated one. This way, calling UrlString() (or converting the URL to const char* or to BString implicitly) is relatively cheap as long as the URL is not modified.\n\nThe same thing is done for the authority and userinfo, which are composite fields as well (userinfo is username and password, and authority is userinfo plus host and port).\n\nFor the parameter naming, I don\u0027t have a strong opinion, but \"encode\" seems easier to understand to me. This is better solved by providing documentation, I cna look into that, but maybe in a separate commit as discussing this one was already complicated enough.\n\nFinally regarding preserving ABI compatibility: indeed the patch has aged a lot and I expect there are more things using BUrl now than there were in 2018. So, this has become more important to keep working. This won\u0027t be solved by symbol versioning since the new methods are different from the old ones (methods entirely deleted, or new parameters added to existing methods). So, the correct solution is to keep the deprecated methods for now, and make them private. Then we can remove them later after all apps using them have been rebuilt.",
+      "parentUuid": "e0395106_12756104",
+      "revId": "52172c70cd975ac21ebd7f4a5dca9b0d2ce46166",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112c1e3f_defa6be7",
         "filename": "headers/os/support/Url.h",
         "patchSetId": 4
