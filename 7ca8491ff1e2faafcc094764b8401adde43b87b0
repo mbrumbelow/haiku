@@ -126,6 +126,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "66590e3e_2ce6deff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-05-01T18:04:31Z",
+      "side": 1,
+      "message": "@pulkomandy@pulkomandy.tk \n\n\u003e (that is not a so simple thing to do, except for the mentionned case where you insert a bootable USB disk and boot from it, but in that case, you are not booting from the bootman menu on the boot disk anyways)\n\nI fear the case where people boot from the USB key and run Installer to install boot menu on the hard drive. When you unplugged the USB key and boot, the boot partition is always found because of the 0x00 drive-id trick, but other may have changed. So people would need  (automatically at first boot maybe) to rerun BootManager.\nRunning two times the BootManager is not a nice setup, but i can\u0027t find a better way to address this issue.",
+      "parentUuid": "ef6352b1_d415fa1c",
+      "revId": "7ca8491ff1e2faafcc094764b8401adde43b87b0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ad532e24_7f35eb47",
