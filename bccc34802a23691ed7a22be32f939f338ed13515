@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7768a28f_13f161d7",
+        "filename": "src/system/boot/platform/openfirmware/network.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T15:17:51Z",
+      "side": 0,
+      "message": "why is this removed? I think this is what I used when working on the SPARC port, passing the IPs as command line parameters to the bootloader. I think keeping it wouldn\u0027t prevent using DHCP if this is not present?",
+      "revId": "bccc34802a23691ed7a22be32f939f338ed13515",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
