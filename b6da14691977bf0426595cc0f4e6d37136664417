@@ -18,6 +18,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fc3923e_d97d92e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T17:46:14Z",
+      "side": 1,
+      "message": "I think the build error is a good thing here: if the old code still built, it would  start url-encoding things that were not before (this is the whole point of this change: the old behavior was confusing).\n\nSo, breaking the build and having people check their url-encoding strategy as they fix it is a good thing to do, rather than keeping their code building, but changing the behavior silently.\n\nBut if that\u0027s not desirable, then yes, the ifdef/define should work to hide the old constructor.",
+      "parentUuid": "c027c632_472a396d",
+      "revId": "b6da14691977bf0426595cc0f4e6d37136664417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "77ad58a6_1c9f3866",
