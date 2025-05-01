@@ -51,6 +51,24 @@
       "message": "I\u0027m actually in the process of adding this interface, so I wouldn\u0027t convert this. I\u0027ll just support it on the uACPI\u0027s side.",
       "revId": "6c56c24eb2ed185fbb90c8c89f481573b63095a0",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e2bfeaa_59aca15e",
+        "filename": "src/system/kernel/arch/generic/acpi_irq_routing_table.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T21:41:28Z",
+      "side": 1,
+      "message": "I have now updated the code to use the new interface.",
+      "parentUuid": "e1333783_bafb8cff",
+      "revId": "6c56c24eb2ed185fbb90c8c89f481573b63095a0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }

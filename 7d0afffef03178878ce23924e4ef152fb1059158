@@ -162,6 +162,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbe56deb_ea95b17b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T21:41:28Z",
+      "side": 1,
+      "message": "Code is fully compiling now. Still completely untested, I\u0027ll have a try at booting it tomorrow. I probably got a few things wrong.\n\nCurrently the ACPI module interface tries to abstract things away from the underlying implementation, but this leads to redefining a lot of types (callbacks, enums) to be the same as uacpi types. In some cases they can be just forward declared, but not always. For now I used casts, but I\u0027m not happy about it because it degrades type safety. I think it would be better to just use uacpi definitions all around and not redefine our own types on top of it.\n\nIn the existing code we also have a mix of interfaces: either ACPIPrivate.h (direct method calls inside the ACPI module), ACPI.h (calls throug function pointers using the kernel module interface), and acpi.h (for userspace and used in a few other places).\n\nuacpi opaque types don\u0027t go so well with the module interface (the getter and setter functions have to either be part of the module interface, or compiled inside each module). I think I didn\u0027t get that right yet.",
+      "parentUuid": "b81a23fa_56188d8d",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c7aafb8_9dad7361",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T21:41:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3404f8b4_5c248cb7",
+      "revId": "7d0afffef03178878ce23924e4ef152fb1059158",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990e2045_0f7a1c08",
         "filename": "src/add-ons/kernel/bus_managers/acpi/arch/x86/arch_init.cpp",
         "patchSetId": 1

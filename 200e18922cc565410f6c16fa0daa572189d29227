@@ -87,6 +87,24 @@
       "parentUuid": "05e95419_ef601127",
       "revId": "200e18922cc565410f6c16fa0daa572189d29227",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5454dd2_0738ca15",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/ACPICAHaiku.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-01T21:41:28Z",
+      "side": 1,
+      "message": "Should be a bit better now but I may still have missed something.",
+      "parentUuid": "0aa70003_73594174",
+      "revId": "200e18922cc565410f6c16fa0daa572189d29227",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
