@@ -16,6 +16,23 @@
       "message": "The handler type and the code inside seems wrong, please take a look at `uacpi_region_{attach,detach}_data` and `uacpi_region_rw_data`",
       "revId": "9e23e92a4d2eccfae6fd1958ae1655e7be9d8568",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51e6b5d_a2bc2cf0",
+        "filename": "src/bin/acpi_call/acpi_call.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-05-02T11:18:54Z",
+      "side": 1,
+      "message": "Alternatively switch on `uacpi_object_get_type`",
+      "revId": "9e23e92a4d2eccfae6fd1958ae1655e7be9d8568",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
