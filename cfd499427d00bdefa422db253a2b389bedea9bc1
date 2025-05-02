@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cca1b549_6a62fd07",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/Call.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-05-02T09:47:06Z",
+      "side": 1,
+      "message": "I\u0027m not sure how it worked previously for package objects for example, you can\u0027t just memcpy a package since it\u0027s an array of pointers, so you must have some sort of a way to deep copy it, probably similar for uacpi, would have to add some sort of an object de-serialize based on type to generic structure code",
+      "parentUuid": "6c0adf1f_2c982a5e",
+      "revId": "cfd499427d00bdefa422db253a2b389bedea9bc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f13120b3_185f08cd",
         "filename": "src/add-ons/kernel/bus_managers/acpi/EmbeddedController.cpp",
         "patchSetId": 8
@@ -31,6 +49,24 @@
       "writtenOn": "2025-05-02T09:14:43Z",
       "side": 1,
       "message": "I\u0027m nost sure aht the right API to use is here. It looks like we want a namespace node from an object reference?",
+      "revId": "cfd499427d00bdefa422db253a2b389bedea9bc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768e934c_e43584bc",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/EmbeddedController.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-05-02T09:47:06Z",
+      "side": 1,
+      "message": "Very easy, `uacpi_object_resolve_as_aml_namepath`. I recommend reading the comments above `uacpi_object_is_aml_namepath` etc.",
+      "parentUuid": "f13120b3_185f08cd",
       "revId": "cfd499427d00bdefa422db253a2b389bedea9bc1",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
