@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c0adf1f_2c982a5e",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/Call.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-02T09:14:43Z",
+      "side": 1,
+      "message": "I didn\u0027t see a way to do this.\n\nHere we have an interface for running a method in kernel space and then sending (a copy of) the result object back to userspace.\n\nIn uacpi, the reply is an opaque oacpi_object type and there is no generic way to make it so it can be copied into an userspace buffer. What are our options here?",
+      "revId": "cfd499427d00bdefa422db253a2b389bedea9bc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f13120b3_185f08cd",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/EmbeddedController.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-02T09:14:43Z",
+      "side": 1,
+      "message": "I\u0027m nost sure aht the right API to use is here. It looks like we want a namespace node from an object reference?",
+      "revId": "cfd499427d00bdefa422db253a2b389bedea9bc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
