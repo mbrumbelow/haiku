@@ -33,6 +33,23 @@
       "message": "Alternatively switch on `uacpi_object_get_type`",
       "revId": "9e23e92a4d2eccfae6fd1958ae1655e7be9d8568",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d6f0a65_e809113e",
+        "filename": "src/bin/acpi_call/acpi_call.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-05-02T11:25:08Z",
+      "side": 1,
+      "message": "`uacpi_object_type_to_string`",
+      "revId": "9e23e92a4d2eccfae6fd1958ae1655e7be9d8568",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
