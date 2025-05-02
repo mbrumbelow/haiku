@@ -38,6 +38,7 @@ nightly builds.
  * `xorriso`
  * `mtools` (<https://gnu.org/software/mtools/intro.html>)
  * `python3`
+ * `bc`
  * case-sensitive file system
 
 Whether they are installed can be tested by running them in a shell with
