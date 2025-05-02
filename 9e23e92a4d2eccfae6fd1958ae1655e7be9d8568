@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "662a61de_93a8dd74",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/EmbeddedController.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000743
+      },
+      "writtenOn": "2025-05-02T11:16:05Z",
+      "side": 1,
+      "message": "The handler type and the code inside seems wrong, please take a look at `uacpi_region_{attach,detach}_data` and `uacpi_region_rw_data`",
+      "revId": "9e23e92a4d2eccfae6fd1958ae1655e7be9d8568",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
