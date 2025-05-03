@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9225814c_6e3aa0b7",
+        "filename": "src/add-ons/kernel/bus_managers/acpi/Call.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-03T10:54:59Z",
+      "side": 1,
+      "message": "I think this is only used by the acpi_call tool, and it only supports integers, strings, and buffers. Other objects will be copied to userspace but will be unusable there because of dangling references.\n\nContinuing the work I found out that some other places inside the kernel have similar problems as well. The uacpi functions are only available inside the ACPI module, anything else in the kernel and in other modules must go through the module API (function pointers) to access it. This was not a problem before because the object structures were accessible directly. But with uacpi opaque objects, the functions are needed to prepare objects (parameters to method calls for example) and extract data from the replies. This means either adding a lot more APIs to the module, re-exporting all of uacpi object manipulation functions, or adding conversion between the public API non-opaque types and UACPI object at the module entry and exit points.",
+      "parentUuid": "cca1b549_6a62fd07",
+      "revId": "cfd499427d00bdefa422db253a2b389bedea9bc1",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f13120b3_185f08cd",
         "filename": "src/add-ons/kernel/bus_managers/acpi/EmbeddedController.cpp",
         "patchSetId": 8
