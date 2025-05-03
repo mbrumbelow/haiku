@@ -33,6 +33,42 @@
       "message": "I think that Executable is better default than Application.",
       "revId": "cb7be6784a19afc30b5c09f7c21029e3fa2530e2",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ade87e44_fa761bc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-03T07:29:53Z",
+      "side": 1,
+      "message": "I went with Application because there is support for rdef files, so this is a little bit more than just compiling an Executable. But I\u0027m OK with changing that, I mainly want to have less redundant rules, the naming is not so important to me.",
+      "parentUuid": "f8fa9402_61e3067f",
+      "revId": "cb7be6784a19afc30b5c09f7c21029e3fa2530e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f473df69_2292dee3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-03T07:29:53Z",
+      "side": 1,
+      "message": "It has not been useful for the last 25 years. I think it\u0027s safe to say that it\u0027s not going to happen?\n\nAnd this makes documenting things easier, as then we don\u0027t have to explain that someone may have planned for something in the past 25 years, it didn\u0027t happen, but we are keeping it just in case.",
+      "parentUuid": "cbb2b7a2_17f629d6",
+      "revId": "cb7be6784a19afc30b5c09f7c21029e3fa2530e2",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
