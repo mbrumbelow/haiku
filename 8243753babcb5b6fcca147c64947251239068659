@@ -69,6 +69,24 @@
       "parentUuid": "ff7c9598_8aecb6a8",
       "revId": "8243753babcb5b6fcca147c64947251239068659",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ea6e8f_3094f21a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-04T18:35:01Z",
+      "side": 1,
+      "message": "This is the site: https://www.haiku-os.org/guides/building/pre-reqs\nI\u0027m not sure what file this corresponds to. :)\n\nAnyway, this lists commands to \"just\" install prequisites, it seems like a better candidate if ubuntu for some reason does not include some default posix tools in their install.\n\nChecking this page however, bc is already listed there. :D",
+      "parentUuid": "e591af6c_1a457c97",
+      "revId": "8243753babcb5b6fcca147c64947251239068659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
