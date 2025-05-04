@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "448fdfa2_b49a3612",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-05-04T04:11:17Z",
+      "side": 1,
+      "message": "This one is a work in progress mirror selection tool.  Eventually it should operate directly on the configured repositories and make adjustments... however for now it just spits out recommendations for a single repo.\n\nThe mirrors.txt location is not final, the format is not final.\n\nRun on Linux Example:\n\n```\n[kallisti5@eris bin]$ g++ pkgmirror.cpp -lcurl -o pkgmirror\n[kallisti5@eris bin]$ sudo ./pkgmirror\n[sudo] password for kallisti5:\nTesting known mirrors...\n  * cdn.haiku.nz (NZ)...169.35 ms\nRecommendation: pkgman add-repo https://cdn.haiku.nz/haikuports/x86_64/current\n```",
+      "revId": "ebc31d9ee188938b3b62af3458d0f13db3a12edb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
