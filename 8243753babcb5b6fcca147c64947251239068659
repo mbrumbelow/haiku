@@ -33,6 +33,42 @@
       "message": "bc is a POSIX tool, we shouldn\u0027t document each posix command here...\n\nIf anything this can be put into the Pre-require doc for ubuntu, not here.",
       "revId": "8243753babcb5b6fcca147c64947251239068659",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e591af6c_1a457c97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2025-05-04T17:33:34Z",
+      "side": 1,
+      "message": "that\u0027s fair. I submitted the patch because this was the -only- tool my system was missing, and I found out during the build, instead of during the ReadMe or ./configure.\n\nwhat prereq doc for ubuntu are you talking about?",
+      "parentUuid": "f003196f_1215b945",
+      "revId": "8243753babcb5b6fcca147c64947251239068659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b52981ac_33c70157",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2025-05-04T17:33:34Z",
+      "side": 1,
+      "message": "reducing dependencies is always good!",
+      "parentUuid": "ff7c9598_8aecb6a8",
+      "revId": "8243753babcb5b6fcca147c64947251239068659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
