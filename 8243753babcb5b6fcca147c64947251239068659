@@ -16,6 +16,23 @@
       "message": "It seems to be used in only one place in BuildFloppyBootImage.\n\nThat could easily be modified to use awk (https://tecadmin.net/awk-arithmetic-operations/) or Python, both of which are already dependencies of the build system.\n\nI\u0027m happy to provide a patch doing that, in order to keep our dependencies to a minimum, would that be desirable or do we prefer an extra dependency just for this?\n\nLooking at the very same rule, we also use dd and stat, so I guess these should be added to the documented dependencies as well? And there are probably many more.",
       "revId": "8243753babcb5b6fcca147c64947251239068659",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f003196f_1215b945",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-04T15:45:53Z",
+      "side": 1,
+      "message": "bc is a POSIX tool, we shouldn\u0027t document each posix command here...\n\nIf anything this can be put into the Pre-require doc for ubuntu, not here.",
+      "revId": "8243753babcb5b6fcca147c64947251239068659",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
