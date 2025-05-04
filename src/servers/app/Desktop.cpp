@@ -1473,7 +1473,6 @@ Desktop::MoveWindowBy(Window* window, float x, float y, int32 workspace)
 					}
 
 					stackWindow->Anchor(workspace).position += BPoint(x, y);
-					stackWindow->SetCurrentWorkspace(workspace);
 					_WindowChanged(stackWindow);
 				}
 			}
