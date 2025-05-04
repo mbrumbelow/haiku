@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506f1eb1_adb98cd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-05-04T22:14:32Z",
+      "side": 1,
+      "message": "NOTE: This is just a quick fix to solve an issue that has been annoying me - I do not know why this call was being made in the first place (removing it doesn\u0027t have any affect I can observe other than stopping this drawing glitch). I do not know why Window::IsVisible() is almost solely relying on whether fCurrentWorkspace is \u003e\u003d 0 for its return result. I do not know where exactly Window::IsVisible or Window::CurrentWorkspace are being used that causes this issue. And I do not know why this issue only affects some apps and not others. So if there is anyone who knows the answers to these questions, and/or knows a better way to solve this, please do mention it. Thanks!",
+      "revId": "037f8ccf9139e8ee347cc269b4f26b9aa13d3b33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
