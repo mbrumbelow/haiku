@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b267635_3e39cb95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-05T11:48:19Z",
+      "side": 1,
+      "message": "Wine has a switch case for CS5, CS6, CS7 and CS8. \nThe compiler rightfully complains that the switch statement has three times the same case.\nSince these are unsuppoorted they will never occur but in this way the build can suceed properly.",
+      "revId": "a4e711d9a9ee84e90be9687f76ae0fbe719ca2f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
