@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "026f465f_d35a70a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-05T14:05:21Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this, df is already too big for my terminal most of the time, adding two columns for the same thing unconditionally seems a bit much..",
+      "revId": "abd948034d451793c3bfb00cb9889eee8abc5632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
