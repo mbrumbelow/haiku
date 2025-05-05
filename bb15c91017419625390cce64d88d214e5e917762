@@ -34,6 +34,24 @@
       "parentUuid": "7a9d010a_7532f4d4",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "739cad15_b2a03c90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-05T21:02:19Z",
+      "side": 1,
+      "message": "The fact is that nothing else but Wine seems to use the switch (we have lots of ncurses applications and TUI tools but they don\u0027t seem to.) So patching Haiku just to make Wine slightly happier, especially if it uses up the last free bit here, seems overkill.\n\nIn POSIX, it says:\n\n\u003e The implementation shall support the functionality associated with the symbols CS7, CS8, CSTOPB, PARODD, and PARENB.\n\ni.e. there\u0027s no requirement to support CS5 or CS6.\n\nFurthermore, the standard for `tcsetattr` states:\n\n\u003e The tcsetattr() function shall return successfully if it was able to perform any of the requested actions, even if some of the requested actions could not be performed. It shall set all the attributes that the implementation supports as requested and leave all the attributes not supported by the implementation unchanged.\n\nSo returning error if CS5 or CS6 is set is actually wrong according to the spec, it should fall back to a supported width anyway. Thus there isn\u0027t any value to having specific values for these defined.",
+      "parentUuid": "bb632458_27f65a94",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
