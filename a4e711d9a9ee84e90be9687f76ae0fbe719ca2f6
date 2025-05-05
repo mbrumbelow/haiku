@@ -34,6 +34,24 @@
       "parentUuid": "5b267635_3e39cb95",
       "revId": "a4e711d9a9ee84e90be9687f76ae0fbe719ca2f6",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "785323bb_1f666467",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-05T12:11:33Z",
+      "side": 1,
+      "message": "Wine implements this with a case: statement, where the compiler complains about duplicate values.\n\nSince there seems to be no POSIX flag to indicate support this seems to be the best option, on the other hand Wine could only do heuristics like CS5 \u003d\u003d CS7 to see if this would be an issue or not.",
+      "parentUuid": "0fc6f9e9_4614b179",
+      "revId": "a4e711d9a9ee84e90be9687f76ae0fbe719ca2f6",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
