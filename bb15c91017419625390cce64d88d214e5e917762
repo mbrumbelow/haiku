@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a9d010a_7532f4d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-05T19:37:43Z",
+      "side": 1,
+      "message": "I don\u0027t think we should use up the last bits just to do this. Using symbol versioning with this structure may not be sufficient because if other libraries pass it around between them and applications, then changing it will also break those libraries\u0027 ABI, not just libroot\u0027s ABI. So we should not take up such bits arbitrarily.\n\nIf POSIX really requires these flags, then let\u0027s leave them as 0, and Wine or other applications can check `#if CS5 \u003d\u003d 0`. If POSIX doesn\u0027t, then let\u0027s delete them altogether. But I don\u0027t think we should take up bitspace for them simply because one application uses them in a strange way.",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
