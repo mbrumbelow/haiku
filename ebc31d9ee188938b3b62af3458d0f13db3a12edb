@@ -33,6 +33,24 @@
       "message": "1. We should use our own HTTP API.\n\n2. This should likely be built-in to pkgman.",
       "revId": "ebc31d9ee188938b3b62af3458d0f13db3a12edb",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be38c36_9dc1ee08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-05-05T21:44:47Z",
+      "side": 1,
+      "message": "\u003e 1. We should use our own HTTP API.\n\nAgree wholeheartedly.     I made the initial POC on Linux, thus libcurl :-)\n\n\u003e 2. This should likely be built-in to pkgman.\n\nHm.  The mirror file is at a higher level than the repos themselves (https://eu.hpkg.haiku-os.org/haikuports/mirrors.txt vs https://eu.hpkg.haiku-os.org/haikuports/master/x86_64/current/...), so this might be awkward.\n\nWe could a do a signed repo.mirror file in each repo, but do we want every individual repository to provide a list of other mirrors (with a differing server, but matching repository path?  We would need to keep one mirror definition per repo per architecture.  Then all the mirrors would mirror the repo.mirror file and it gets weird lol.\n\nI could add some infrastructure tooling to parse a master mirror list, validate the known mirrors, and populate each repos  repo.mirror... but now we\u0027re designing bigger systems to just help users find other mirrors.\n\nIdeally we would keep a central Haiku run location to offer known mirrors for specific repositories, then we would keep full control... but then the mirror system would only function for official repos (and 3rd party mirrors couldn\u0027t use the same system on their own)",
+      "parentUuid": "44d9f760_52180ab6",
+      "revId": "ebc31d9ee188938b3b62af3458d0f13db3a12edb",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
