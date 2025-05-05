@@ -16,6 +16,23 @@
       "message": "I\u0027m not sure about this, df is already too big for my terminal most of the time, adding two columns for the same thing unconditionally seems a bit much..",
       "revId": "abd948034d451793c3bfb00cb9889eee8abc5632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0047a903_ac1ada9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-05T19:36:29Z",
+      "side": 1,
+      "message": "Indeed this takes it over 80 columns. I think we should stick with \u003c\u003d 80 here ideally.",
+      "revId": "abd948034d451793c3bfb00cb9889eee8abc5632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
