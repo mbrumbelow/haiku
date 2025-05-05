@@ -16,6 +16,24 @@
       "message": "I don\u0027t think we should use up the last bits just to do this. Using symbol versioning with this structure may not be sufficient because if other libraries pass it around between them and applications, then changing it will also break those libraries\u0027 ABI, not just libroot\u0027s ABI. So we should not take up such bits arbitrarily.\n\nIf POSIX really requires these flags, then let\u0027s leave them as 0, and Wine or other applications can check `#if CS5 \u003d\u003d 0`. If POSIX doesn\u0027t, then let\u0027s delete them altogether. But I don\u0027t think we should take up bitspace for them simply because one application uses them in a strange way.",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb632458_27f65a94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-05T20:37:36Z",
+      "side": 1,
+      "message": "It\u0027s hardly a \"strange\" way. It checks them, and sets the width accordingly. That is the one thing these things are good for. I don\u0027t see why it is somehow bad that they use a switch case for this. You\u0027d get the same problem with any other library or application that supports systems that have 5 or 6 width here.\n\nThis has another annoying side-effect, if you\u0027d actually request something with CS5 or CS\u0026 this will get through but silently become a CS7 instead, that to me is just *literally* broken. No matter if you want to support this or not.\n\nPosix should have a feature flag, or remove these. But it doesn\u0027t. We implement the rest, and we should implement this properly or not at all.\n\nHow is it any better to let implementations check for this value instead?",
+      "parentUuid": "7a9d010a_7532f4d4",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
