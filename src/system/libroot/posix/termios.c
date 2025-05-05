@@ -46,6 +46,11 @@ tcsetattr(int fd, int opt, const struct termios *termios)
 			return -1;
 	}
 
+	if ((termios->c_cflag & CSIZE) == CS5 || (termios->c_cflag & CSIZE) == CS5) {
+		__set_errno(EINVAL);
+		return -1;
+	}
+
 	return ioctl(fd, method, termios);
 }
 
