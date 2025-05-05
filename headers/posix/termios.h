@@ -117,8 +117,6 @@ struct termios {
 #define	B31250		0x13			/* for MIDI */
 
 #define	CSIZE		0x20			/* character size */
-#define	CS5			0x00			/* only 7 and 8 bits supported */
-#define	CS6			0x00			/* Note, it was not very wise to set all of these */
 #define	CS7			0x00			/* to zero, but there is not much we can do about it*/
 #define	CS8			0x20
 #define	CSTOPB		0x40			/* send 2 stop bits, not 1 */
@@ -130,6 +128,8 @@ struct termios {
 #define	XLOBLK		0x1000			/* block layer output ?*/
 #define	CTSFLOW		0x2000			/* enable CTS flow */
 #define	RTSFLOW		0x4000			/* enable RTS flow */
+#define	CS5			0x8000			/* Unsupported */
+#define	CS6			0x8020			/* Unsupported */
 #define	CRTSCTS		(RTSFLOW | CTSFLOW)
 
 /* c_lflag - local modes */
