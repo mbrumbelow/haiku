@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e509588_6ab8b06d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-05-05T13:18:40Z",
+      "side": 1,
+      "message": "\"B_\" prefix should be used for int32 etc. types.\n\nint32 -\u003e B_PRId32 (SupportDefs.h, Haiku-specific)\nint32_t -\u003e PRId32 (inttypes.h, C standard)",
+      "revId": "ecf89caceeb1db1a036836bb8c294a7396a76a72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aac1798a_86551d01",
