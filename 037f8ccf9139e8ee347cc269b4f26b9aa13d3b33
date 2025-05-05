@@ -33,6 +33,24 @@
       "message": "Not familiar with this code myself, CC X512, stippi.\n\nAppears this line was added in https://github.com/haiku/haiku/commit/860dfc9a77381099c8c9549e28865ed015886bf7 -- so, does stack \u0026 tile still work properly after this?",
       "revId": "037f8ccf9139e8ee347cc269b4f26b9aa13d3b33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13b0a299_4eeaf25d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-05-05T20:16:07Z",
+      "side": 1,
+      "message": "Moving stacked windows works fine, which is the only one I\u0027d checked before, but it looks like this results in moving tiled windows on another workspace from Workspaces not working properly, so I guess that\u0027s why it\u0027s there. I\u0027ll see if I can fix that or find a better solution to this (I\u0027m sure there\u0027s a better way than setting them visible to do it).",
+      "parentUuid": "672031ba_1d3cb610",
+      "revId": "037f8ccf9139e8ee347cc269b4f26b9aa13d3b33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
