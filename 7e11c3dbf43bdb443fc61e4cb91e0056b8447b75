@@ -16,6 +16,24 @@
       "message": "POSIX does not require that. If you have no plans of actually implementing 5 bit and 6 bit support in UART drivers, I\u0027d rather not do this.",
       "revId": "7e11c3dbf43bdb443fc61e4cb91e0056b8447b75",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "701b0512_5297d005",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-05T12:03:10Z",
+      "side": 1,
+      "message": "To be precise: POSIX requires CS6 and CS5 to exist, but does not require the hardware to support them. They say nothing about having different values for them.",
+      "parentUuid": "b87d814a_11257ef3",
+      "revId": "7e11c3dbf43bdb443fc61e4cb91e0056b8447b75",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
