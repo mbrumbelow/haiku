@@ -87,6 +87,28 @@ ByteString(int64 numBlocks, int64 blockSize)
 }
 
 
+const char *
+UsePercentage(int64 totalBlocks, int64 freeBlocks)
+{
+	uint8 usage;
+	static char string[5];
+
+	if (totalBlocks == 0)
+		usage = 100;
+	else
+		usage = 100 - 100 * (1. * freeBlocks / totalBlocks);
+
+	if (usage < 10)
+		sprintf(string, "  %i%%", usage);
+	else if (usage < 100)
+		sprintf(string, " %i%%", usage);
+	else
+		sprintf(string, "%i%%", usage);
+
+	return string;
+}
+
+
 void
 PrintBlocks(int64 blocks, int64 blockSize, bool showBlocks)
 {
@@ -131,9 +153,14 @@ PrintVerbose(dev_t device)
 		ByteString(info.block_size, 1), info.block_size);
 	printf(" Total Blocks: %10s (%" B_PRIdOFF " blocks)\n",
 		ByteString(info.total_blocks, info.block_size), info.total_blocks);
+	printf("  Used Blocks: %10s (%" B_PRIdOFF " blocks)\n",
+		ByteString(info.total_blocks - info.free_blocks, info.block_size),
+		info.total_blocks - info.free_blocks);
 	printf("  Free Blocks: %10s (%" B_PRIdOFF " blocks)\n",
 		ByteString(info.free_blocks, info.block_size), info.free_blocks);
+	printf("      Usage %%: %s\n", UsePercentage(info.total_blocks, info.free_blocks));
 	printf("  Total Nodes: %" B_PRIdOFF "\n", info.total_nodes);
+	printf("   Used Nodes: %" B_PRIdOFF "\n", info.total_nodes - info.free_nodes);
 	printf("   Free Nodes: %" B_PRIdOFF "\n", info.free_nodes);
 	printf("   Root Inode: %" B_PRIdINO "\n", info.root);
 }
@@ -151,7 +178,9 @@ PrintCompact(dev_t device, bool showBlocks, bool all)
 
 	PrintType(info.fsh_name);
 	PrintBlocks(info.total_blocks, info.block_size, showBlocks);
+	PrintBlocks(info.total_blocks - info.free_blocks, info.block_size, showBlocks);
 	PrintBlocks(info.free_blocks, info.block_size, showBlocks);
+	printf(" %s", UsePercentage(info.total_blocks, info.free_blocks));
 
 	printf(" ");
 	PrintFlag(info.flags, B_FS_HAS_QUERY, 'Q', '-');
@@ -238,8 +267,10 @@ main(int argc, char **argv)
 
 	// If not, then just iterate over all devices and give a compact summary
 
-	printf(" Type      Total     Free      Flags   Device                   Mounted on\n"
-		   "--------- --------- --------- ------- ------------------------ -----------------\n");
+	printf(" Type      Total     Used      Free     Use%%   Flags   Device                "
+		   "   Mounted on\n"
+		   "--------- --------- --------- --------- ---- ------- ------------------------ "
+		   "-----------------\n");
 
 	int32 cookie = 0;
 	while ((device = next_dev(&cookie)) >= B_OK) {
