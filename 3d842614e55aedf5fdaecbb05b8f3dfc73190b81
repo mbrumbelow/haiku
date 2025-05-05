@@ -16,6 +16,24 @@
       "message": "This should now correctly error out if you try to use CS5 or CS6, but allow to distinquish the values",
       "revId": "3d842614e55aedf5fdaecbb05b8f3dfc73190b81",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae074741_7a92a1cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-05T15:11:07Z",
+      "side": 1,
+      "message": "Yes, seems OK this way. I am unsure if we should use our last available bit in the cflags for this, but I guess if we need something else it will be finally time to admit its time for symbol versioning and a new version of the structure with more space.",
+      "parentUuid": "89a24936_98c260a0",
+      "revId": "3d842614e55aedf5fdaecbb05b8f3dfc73190b81",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
