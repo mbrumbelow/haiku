@@ -70,6 +70,24 @@
       "parentUuid": "739cad15_b2a03c90",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9151ffd3_8bfdb51a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-06T02:50:48Z",
+      "side": 1,
+      "message": "Why do we need something better than \"some heuristic\"? What\u0027s wrong with `#if defined(CS5) \u0026\u0026 CS5 !\u003d CS6 \u0026\u0026 ...`? Clunky, maybe, but it works. Alternatively, you can just disable the warning on Haiku...",
+      "parentUuid": "220b0e57_ea916bb0",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
