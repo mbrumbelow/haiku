@@ -51,6 +51,23 @@
       "parentUuid": "672031ba_1d3cb610",
       "revId": "037f8ccf9139e8ee347cc269b4f26b9aa13d3b33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13cd8262_9fab4c8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2025-05-06T07:35:59Z",
+      "side": 1,
+      "message": "Hey, I wasn\u0027t involved in adding Stack\u0026Tile functionality. But it looks wrong to me that MoveBy() changes a Window\u0027s workspace. So my gut feeling is that this change is correct.",
+      "revId": "037f8ccf9139e8ee347cc269b4f26b9aa13d3b33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
