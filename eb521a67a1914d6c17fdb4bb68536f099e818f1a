@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "edb84322_009d297a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-06T21:50:42Z",
+      "side": 1,
+      "message": "FWIW: I rebased this change over hrev58837, build `i2c_hid` and installed it in a netbook running hrev58650. Boot freezed at the rocket icon, and hitting ctr+alt+del reliably sent me to KDL, where I got \"PANIC: common_snooze_etc(): called with interrupts disabled, timeout 500000\".\n\nWill try again after as soon as I\u0027m able to update it to a newer hrev, just in case.\n\nFor reference: My touchpad is a \"TPD1019\" (on an Intel Celeron N4020 based netbook). Installing unmodified `i2c_hid` from hrev58837 didn\u0027t affected boot, but also didn\u0027t changed much regarding my touchpad support 😊 (other than showing: \"i2c_hid:  unknown long item tag: 0xff\" and \"i2c_hid: no handlers for hid device\" in the syslog).",
+      "revId": "eb521a67a1914d6c17fdb4bb68536f099e818f1a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "15fb4b92_fccdc0f0",
         "filename": "src/add-ons/kernel/drivers/input/i2c_hid/HIDDevice.cpp",
         "patchSetId": 4
