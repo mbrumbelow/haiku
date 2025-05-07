@@ -68,6 +68,24 @@
       "message": "Hey, I wasn\u0027t involved in adding Stack\u0026Tile functionality. But it looks wrong to me that MoveBy() changes a Window\u0027s workspace. So my gut feeling is that this change is correct.",
       "revId": "037f8ccf9139e8ee347cc269b4f26b9aa13d3b33",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79660db7_9d803f5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000706
+      },
+      "writtenOn": "2025-05-07T20:31:56Z",
+      "side": 1,
+      "message": "The issue was that in the process of moving off-workspace tiled windows, SATWindow::CompleteWindowFrame and WindowArea::_MoveToSAT use the window\u0027s current workspace to determine offsets and the workspace to pass to Desktop::MoveWindowBy respectively; I\u0027ve added an invisible window member variable to Window and modified those functions to fail back to the invisible workspace if needed. \n\nDesktop::MoveWindowBy now sets the invisible workspace instead of the current workspace, so IsVisible never incorrectly returns true. So now the redraw glitch is fixed and moving tiled windows works properly again. This also fixed a minor graphical glitch that happened when moving off-workspace tiled windows, presumably from the switch from invisible to visible.",
+      "parentUuid": "13b0a299_4eeaf25d",
+      "revId": "037f8ccf9139e8ee347cc269b4f26b9aa13d3b33",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
