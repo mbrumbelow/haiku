@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46cb5e1c_090993be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000055
+      },
+      "writtenOn": "2025-05-07T10:58:47Z",
+      "side": 1,
+      "message": "Since #17374 has been fixed, I think we could abandon this.",
+      "revId": "d2f37fe1e417042542193fe7149439040ee3ea17",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
