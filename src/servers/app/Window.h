@@ -222,10 +222,16 @@ public:
 	inline	bool				IsMinimized() const { return fMinimized; }
 
 			void				SetCurrentWorkspace(int32 index)
-									{ fCurrentWorkspace = index; }
+									{ fCurrentWorkspace = index; fInvisibleWorkspace = index; }
 			int32				CurrentWorkspace() const
 									{ return fCurrentWorkspace; }
 			bool				IsVisible() const;
+
+			void				SetInvisibleWorkspace(int32 index)
+									{ fInvisibleWorkspace = index; }
+			int32				InvisibleWorkspace() const
+									{ return fInvisibleWorkspace; }
+
 
 			bool				IsDragging() const;
 			bool				IsResizing() const;
@@ -430,6 +436,7 @@ protected:
 			uint32				fFlags;
 			uint32				fWorkspaces;
 			int32				fCurrentWorkspace;
+			int32				fInvisibleWorkspace;
 
 			int32				fMinWidth;
 			int32				fMaxWidth;
