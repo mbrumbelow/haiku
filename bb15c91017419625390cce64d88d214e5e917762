@@ -88,6 +88,24 @@
       "parentUuid": "220b0e57_ea916bb0",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b32d137f_9c657c5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-08T15:39:44Z",
+      "side": 1,
+      "message": "Because we shpuld follow posix and not ask projects for some ridicilous workarounds?\n\nThese vars beeing the same is wrong. Simple as that.",
+      "parentUuid": "9151ffd3_8bfdb51a",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
