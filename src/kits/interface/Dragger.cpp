@@ -29,7 +29,7 @@
 
 #include <AutoLocker.h>
 
-#include <AppServerLink.h>
+#include <DesktopLink.h>
 #include <DragTrackingFilter.h>
 #include <binary_compatibility/Interface.h>
 #include <ServerProtocol.h>
@@ -378,7 +378,7 @@ BDragger::FrameResized(float newWidth, float newHeight)
 status_t
 BDragger::ShowAllDraggers()
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_SET_SHOW_ALL_DRAGGERS);
 	link.Attach<bool>(true);
 
@@ -397,7 +397,7 @@ BDragger::ShowAllDraggers()
 status_t
 BDragger::HideAllDraggers()
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_SET_SHOW_ALL_DRAGGERS);
 	link.Attach<bool>(false);
 
@@ -420,7 +420,7 @@ BDragger::AreDraggersDrawn()
 	AutoLocker<DraggerManager> locker(manager);
 
 	if (!manager->visibleInitialized) {
-		BPrivate::AppServerLink link;
+		BPrivate::DesktopLink link;
 		link.StartMessage(AS_GET_SHOW_ALL_DRAGGERS);
 
 		status_t status;

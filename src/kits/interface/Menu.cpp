@@ -40,10 +40,10 @@
 #include <UnicodeChar.h>
 #include <Window.h>
 
-#include <AppServerLink.h>
 #include <AutoDeleter.h>
 #include <binary_compatibility/Interface.h>
 #include <BMCPrivate.h>
+#include <DesktopLink.h>
 #include <MenuPrivate.h>
 #include <MenuWindow.h>
 #include <ServerProtocol.h>
@@ -3472,7 +3472,7 @@ set_menu_info(menu_info* info)
 	if (!info)
 		return B_BAD_VALUE;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_SET_MENU_INFO);
 	link.Attach<menu_info>(*info);
 
@@ -3491,7 +3491,7 @@ get_menu_info(menu_info* info)
 	if (!info)
 		return B_BAD_VALUE;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_MENU_INFO);
 
 	status_t status = B_ERROR;
