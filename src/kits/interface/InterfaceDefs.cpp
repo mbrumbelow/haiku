@@ -1040,7 +1040,7 @@ current_workspace()
 {
 	int32 index = 0;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_CURRENT_WORKSPACE);
 
 	int32 status;
@@ -1054,7 +1054,7 @@ current_workspace()
 void
 activate_workspace(int32 workspace)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_ACTIVATE_WORKSPACE);
 	link.Attach<int32>(workspace);
 	link.Attach<bool>(false);
@@ -1659,7 +1659,7 @@ status_t
 get_application_order(int32 workspace, team_id** _applications,
 	int32* _count)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_APPLICATION_ORDER);
 	link.Attach<int32>(workspace);
@@ -1687,7 +1687,7 @@ get_application_order(int32 workspace, team_id** _applications,
 status_t
 get_window_order(int32 workspace, int32** _tokens, int32* _count)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_WINDOW_ORDER);
 	link.Attach<int32>(workspace);
@@ -1723,7 +1723,7 @@ get_window_order(int32 workspace, int32** _tokens, int32* _count)
 void
 do_window_action(int32 windowToken, int32 action, BRect zoomRect, bool zoom)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_WINDOW_ACTION);
 	link.Attach<int32>(windowToken);
@@ -1737,7 +1737,7 @@ do_window_action(int32 windowToken, int32 action, BRect zoomRect, bool zoom)
 client_window_info*
 get_window_info(int32 serverToken)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_WINDOW_INFO);
 	link.Attach<int32>(serverToken);
@@ -1761,7 +1761,7 @@ get_window_info(int32 serverToken)
 int32*
 get_token_list(team_id team, int32* _count)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_WINDOW_LIST);
 	link.Attach<team_id>(team);
@@ -1786,7 +1786,7 @@ get_token_list(team_id team, int32* _count)
 void
 do_bring_to_front_team(BRect zoomRect, team_id team, bool zoom)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_BRING_TEAM_TO_FRONT);
 	link.Attach<team_id>(team);
@@ -1799,7 +1799,7 @@ do_bring_to_front_team(BRect zoomRect, team_id team, bool zoom)
 void
 do_minimize_team(BRect zoomRect, team_id team, bool zoom)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_MINIMIZE_TEAM);
 	link.Attach<team_id>(team);
