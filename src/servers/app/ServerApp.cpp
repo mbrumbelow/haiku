@@ -602,67 +602,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			break;
 		}
 
-		case AS_GET_WINDOW_LIST:
-		{
-			team_id team;
-			if (link.Read<team_id>(&team) == B_OK)
-				fDesktop->WriteWindowList(team, fLink.Sender());
-			break;
-		}
-
-		case AS_GET_WINDOW_INFO:
-		{
-			int32 serverToken;
-			if (link.Read<int32>(&serverToken) == B_OK)
-				fDesktop->WriteWindowInfo(serverToken, fLink.Sender());
-			break;
-		}
-
-		case AS_GET_WINDOW_ORDER:
-		{
-			int32 workspace;
-			if (link.Read<int32>(&workspace) == B_OK)
-				fDesktop->WriteWindowOrder(workspace, fLink.Sender());
-			break;
-		}
-
-		case AS_GET_APPLICATION_ORDER:
-		{
-			int32 workspace;
-			if (link.Read<int32>(&workspace) == B_OK)
-				fDesktop->WriteApplicationOrder(workspace, fLink.Sender());
-			break;
-		}
-
-		case AS_MINIMIZE_TEAM:
-		{
-			team_id team;
-			if (link.Read<team_id>(&team) == B_OK)
-				fDesktop->MinimizeApplication(team);
-			break;
-		}
-
-		case AS_BRING_TEAM_TO_FRONT:
-		{
-			team_id team;
-			if (link.Read<team_id>(&team) == B_OK)
-				fDesktop->BringApplicationToFront(team);
-			break;
-		}
-
-		case AS_WINDOW_ACTION:
-		{
-			int32 token;
-			int32 action;
-
-			link.Read<int32>(&token);
-			if (link.Read<int32>(&action) != B_OK)
-				break;
-
-			fDesktop->WindowAction(token, action);
-			break;
-		}
-
 		// Decorator commands
 
 		case AS_SET_DECORATOR:
@@ -973,34 +912,6 @@ ServerApp::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 				fLink.StartMessage(B_ERROR);
 
 			fLink.Flush();
-			break;
-		}
-
-		case AS_CURRENT_WORKSPACE:
-			STRACE(("ServerApp %s: get current workspace\n", Signature()));
-
-			if (fDesktop->LockSingleWindow()) {
-				fLink.StartMessage(B_OK);
-				fLink.Attach<int32>(fDesktop->CurrentWorkspace());
-				fDesktop->UnlockSingleWindow();
-			} else
-				fLink.StartMessage(B_ERROR);
-
-			fLink.Flush();
-			break;
-
-		case AS_ACTIVATE_WORKSPACE:
-		{
-			STRACE(("ServerApp %s: activate workspace\n", Signature()));
-
-			// TODO: See above
-			int32 index;
-			link.Read<int32>(&index);
-
-			bool takeFocusWindowThere;
-			link.Read<bool>(&takeFocusWindowThere);
-
-			fDesktop->SetWorkspace(index, takeFocusWindowThere);
 			break;
 		}
 

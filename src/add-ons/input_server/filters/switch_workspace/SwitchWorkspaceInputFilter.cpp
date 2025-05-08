@@ -101,7 +101,7 @@ SwitchWorkspaceInputFilter::Filter(BMessage* message, BList* _list)
 
 			int32 next = nextColumn + nextRow * columns;
 			if (next != current) {
-				BPrivate::AppServerLink link;
+				BPrivate::DesktopLink link;
 				link.StartMessage(AS_ACTIVATE_WORKSPACE);
 				link.Attach<int32>(next);
 				link.Attach<bool>(takeMeThere);
