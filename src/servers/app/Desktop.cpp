@@ -2851,6 +2851,471 @@ Desktop::_DispatchMessage(int32 code, BPrivate::LinkReceiver& link)
 			break;
 		}
 
+		case AS_CURRENT_WORKSPACE:
+			STRACE(("ServerApp %s: get current workspace\n", Signature()));
+
+			if (LockSingleWindow()) {
+				fLink.StartMessage(B_OK);
+				fLink.Attach<int32>(CurrentWorkspace());
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+
+		case AS_GET_WINDOW_LIST:
+		{
+			team_id team;
+			if (link.Read<team_id>(&team) == B_OK)
+				WriteWindowList(team, fLink.Sender());
+			break;
+		}
+
+		case AS_GET_WINDOW_INFO:
+		{
+			int32 serverToken;
+			if (link.Read<int32>(&serverToken) == B_OK)
+				WriteWindowInfo(serverToken, fLink.Sender());
+			break;
+		}
+
+		case AS_GET_WINDOW_ORDER:
+		{
+			int32 workspace;
+			if (link.Read<int32>(&workspace) == B_OK)
+				WriteWindowOrder(workspace, fLink.Sender());
+			break;
+		}
+
+		case AS_GET_APPLICATION_ORDER:
+		{
+			int32 workspace;
+			if (link.Read<int32>(&workspace) == B_OK)
+				WriteApplicationOrder(workspace, fLink.Sender());
+			break;
+		}
+
+		case AS_MINIMIZE_TEAM:
+		{
+			team_id team;
+			if (link.Read<team_id>(&team) == B_OK)
+				MinimizeApplication(team);
+			break;
+		}
+
+		case AS_BRING_TEAM_TO_FRONT:
+		{
+			team_id team;
+			if (link.Read<team_id>(&team) == B_OK)
+				BringApplicationToFront(team);
+			break;
+		}
+
+		case AS_WINDOW_ACTION:
+		{
+			int32 token;
+			int32 action;
+
+			link.Read<int32>(&token);
+			if (link.Read<int32>(&action) != B_OK)
+				break;
+
+			WindowAction(token, action);
+			break;
+		}
+
+		// Decorator commands
+
+		case AS_SET_DECORATOR:
+		{
+			// Attached Data:
+			// path to decorator add-on
+
+			BString path;
+			link.ReadString(path);
+
+			status_t error = gDecorManager.SetDecorator(path, this);
+
+			fLink.StartMessage(error);
+			fLink.Flush();
+
+			if (error == B_OK)
+				BroadcastToAllApps(AS_UPDATE_DECORATOR);
+			break;
+		}
+
+		case AS_GET_DECORATOR:
+		{
+			fLink.StartMessage(B_OK);
+			fLink.AttachString(gDecorManager.GetCurrentDecorator().String());
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_CONTROL_LOOK:
+		{
+			STRACE(("ServerApp %s: Set ControlLook\n", Signature()));
+
+			BString path;
+			status_t error = B_ERROR;
+			if (link.ReadString(path) == B_OK) {
+				LockedDesktopSettings settings(this);
+				error = settings.SetControlLook(path.String());
+			}
+
+			fLink.StartMessage(error);
+			fLink.Flush();
+			break;
+		}
+
+		case AS_GET_CONTROL_LOOK:
+		{
+			STRACE(("ServerApp %s: Get ControlLook\n", Signature()));
+
+			if (LockSingleWindow()) {
+				DesktopSettings settings(this);
+
+				fLink.StartMessage(B_OK);
+				fLink.AttachString(settings.ControlLook().String());
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_WORKSPACE_LAYOUT:
+		{
+			int32 newColumns;
+			int32 newRows;
+			if (link.Read<int32>(&newColumns) == B_OK
+				&& link.Read<int32>(&newRows) == B_OK)
+				SetWorkspacesLayout(newColumns, newRows);
+			break;
+		}
+
+		case AS_GET_WORKSPACE_LAYOUT:
+		{
+			if (LockSingleWindow()) {
+				DesktopSettings settings(this);
+
+				fLink.StartMessage(B_OK);
+				fLink.Attach<int32>(settings.WorkspacesColumns());
+				fLink.Attach<int32>(settings.WorkspacesRows());
+
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_IDLE_TIME:
+			STRACE(("ServerApp %s: idle time\n", Signature()));
+
+			fLink.StartMessage(B_OK);
+			fLink.Attach<bigtime_t>(EventDispatcher().IdleTime());
+			fLink.Flush();
+			break;
+
+		case AS_GET_SCROLLBAR_INFO:
+		{
+			STRACE(("ServerApp %s: Get ScrollBar info\n", Signature()));
+
+			if (LockSingleWindow()) {
+				scroll_bar_info info;
+				DesktopSettings settings(this);
+				settings.GetScrollBarInfo(info);
+
+				fLink.StartMessage(B_OK);
+				fLink.Attach<scroll_bar_info>(info);
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_SCROLLBAR_INFO:
+		{
+			STRACE(("ServerApp %s: Set ScrollBar info\n", Signature()));
+
+			// Attached Data:
+			// 1) scroll_bar_info scroll bar info structure
+
+			scroll_bar_info info;
+			if (link.Read<scroll_bar_info>(&info) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetScrollBarInfo(info);
+			}
+
+			fLink.StartMessage(B_OK);
+			fLink.Flush();
+			break;
+		}
+
+		case AS_GET_MENU_INFO:
+		{
+			STRACE(("ServerApp %s: Get menu info\n", Signature()));
+			if (LockSingleWindow()) {
+				menu_info info;
+				DesktopSettings settings(this);
+				settings.GetMenuInfo(info);
+
+				fLink.StartMessage(B_OK);
+				fLink.Attach<menu_info>(info);
+
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_MENU_INFO:
+		{
+			STRACE(("ServerApp %s: Set menu info\n", Signature()));
+			menu_info info;
+			if (link.Read<menu_info>(&info) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetMenuInfo(info);
+					// TODO: SetMenuInfo() should do some validity check, so
+					//	that the answer we're giving can actually be useful
+			}
+
+			fLink.StartMessage(B_OK);
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_MOUSE_MODE:
+		{
+			STRACE(("ServerApp %s: Set Mouse Focus mode\n",
+				Signature()));
+
+			// Attached Data:
+			// 1) enum mode_mouse mouse focus mode
+
+			mode_mouse mouseMode;
+			if (link.Read<mode_mouse>(&mouseMode) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetMouseMode(mouseMode);
+			}
+			break;
+		}
+
+		case AS_GET_MOUSE_MODE:
+		{
+			STRACE(("ServerApp %s: Get Mouse Focus mode\n",
+				Signature()));
+
+			if (LockSingleWindow()) {
+				DesktopSettings settings(this);
+
+				fLink.StartMessage(B_OK);
+				fLink.Attach<mode_mouse>(settings.MouseMode());
+
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_FOCUS_FOLLOWS_MOUSE_MODE:
+		{
+			STRACE(("ServerApp %s: Set Focus Follows Mouse mode\n", Signature()));
+
+			// Attached Data:
+			// 1) enum mode_focus_follows_mouse FFM mouse mode
+
+			mode_focus_follows_mouse focusFollowsMousMode;
+			if (link.Read<mode_focus_follows_mouse>(&focusFollowsMousMode) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetFocusFollowsMouseMode(focusFollowsMousMode);
+			}
+			break;
+		}
+
+		case AS_GET_FOCUS_FOLLOWS_MOUSE_MODE:
+		{
+			STRACE(("ServerApp %s: Get Focus Follows Mouse mode\n", Signature()));
+
+			if (LockSingleWindow()) {
+				DesktopSettings settings(this);
+
+				fLink.StartMessage(B_OK);
+				fLink.Attach<mode_focus_follows_mouse>(
+					settings.FocusFollowsMouseMode());
+
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_ACCEPT_FIRST_CLICK:
+		{
+			STRACE(("ServerApp %s: Set Accept First Click\n", Signature()));
+
+			// Attached Data:
+			// 1) bool accept_first_click
+
+			bool acceptFirstClick;
+			if (link.Read<bool>(&acceptFirstClick) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetAcceptFirstClick(acceptFirstClick);
+			}
+			break;
+		}
+
+		case AS_GET_ACCEPT_FIRST_CLICK:
+		{
+			STRACE(("ServerApp %s: Get Accept First Click\n", Signature()));
+
+			if (LockSingleWindow()) {
+				DesktopSettings settings(this);
+
+				fLink.StartMessage(B_OK);
+				fLink.Attach<bool>(settings.AcceptFirstClick());
+
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_GET_SHOW_ALL_DRAGGERS:
+		{
+			STRACE(("ServerApp %s: Get Show All Draggers\n", Signature()));
+
+			if (LockSingleWindow()) {
+				DesktopSettings settings(this);
+
+				fLink.StartMessage(B_OK);
+				fLink.Attach<bool>(settings.ShowAllDraggers());
+
+				UnlockSingleWindow();
+			} else
+				fLink.StartMessage(B_ERROR);
+
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_SHOW_ALL_DRAGGERS:
+		{
+			STRACE(("ServerApp %s: Set Show All Draggers\n", Signature()));
+
+			bool changed = false;
+			bool show;
+			if (link.Read<bool>(&show) == B_OK) {
+				LockedDesktopSettings settings(this);
+				if (show != settings.ShowAllDraggers()) {
+					settings.SetShowAllDraggers(show);
+					changed = true;
+				}
+			}
+
+			if (changed)
+				BroadcastToAllApps(kMsgUpdateShowAllDraggers);
+			break;
+		}
+
+		// Hinting and aliasing
+
+		case AS_SET_SUBPIXEL_ANTIALIASING:
+		{
+			bool subpix;
+			if (link.Read<bool>(&subpix) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetSubpixelAntialiasing(subpix);
+			}
+			Redraw();
+			break;
+		}
+
+		case AS_GET_SUBPIXEL_ANTIALIASING:
+		{
+			DesktopSettings settings(this);
+			fLink.StartMessage(B_OK);
+			fLink.Attach<bool>(settings.SubpixelAntialiasing());
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_HINTING:
+		{
+			uint8 hinting;
+			if (link.Read<uint8>(&hinting) == B_OK && hinting < 3) {
+				LockedDesktopSettings settings(this);
+				if (hinting != settings.Hinting()) {
+					settings.SetHinting(hinting);
+					Redraw();
+				}
+			}
+			break;
+		}
+
+		case AS_GET_HINTING:
+		{
+			DesktopSettings settings(this);
+			fLink.StartMessage(B_OK);
+			fLink.Attach<uint8>(settings.Hinting());
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_SUBPIXEL_AVERAGE_WEIGHT:
+		{
+			uint8 averageWeight;
+			if (link.Read<uint8>(&averageWeight) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetSubpixelAverageWeight(averageWeight);
+			}
+			Redraw();
+			break;
+		}
+
+		case AS_GET_SUBPIXEL_AVERAGE_WEIGHT:
+		{
+			DesktopSettings settings(this);
+			fLink.StartMessage(B_OK);
+			fLink.Attach<uint8>(settings.SubpixelAverageWeight());
+			fLink.Flush();
+			break;
+		}
+
+		case AS_SET_SUBPIXEL_ORDERING:
+		{
+			bool subpixelOrdering;
+			if (link.Read<bool>(&subpixelOrdering) == B_OK) {
+				LockedDesktopSettings settings(this);
+				settings.SetSubpixelOrderingRegular(subpixelOrdering);
+			}
+			Redraw();
+			break;
+		}
+
+		case AS_GET_SUBPIXEL_ORDERING:
+		{
+			DesktopSettings settings(this);
+			fLink.StartMessage(B_OK);
+			fLink.Attach<bool>(settings.IsSubpixelOrderingRegular());
+			fLink.Flush();
+			break;
+		}
+
 		// ToDo: Remove this again. It is a message sent by the
 		// invalidate_on_exit kernel debugger add-on to trigger a redraw
 		// after exiting a kernel debugger session.

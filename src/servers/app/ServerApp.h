@@ -39,6 +39,8 @@ namespace BPrivate {
 	class PortLink;
 };
 
+static const uint32 kMsgUpdateShowAllDraggers = '_adg';
+
 
 class ServerApp : public MessageLooper {
 public:

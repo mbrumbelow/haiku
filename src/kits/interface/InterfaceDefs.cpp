@@ -316,7 +316,7 @@ get_workspaces_layout(uint32* _columns, uint32* _rows)
 	int32 columns = 1;
 	int32 rows = 1;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_WORKSPACE_LAYOUT);
 
 	status_t status;
@@ -338,7 +338,7 @@ set_workspaces_layout(uint32 columns, uint32 rows)
 	if (columns < 1 || rows < 1)
 		return;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_SET_WORKSPACE_LAYOUT);
 	link.Attach<int32>(columns);
 	link.Attach<int32>(rows);
@@ -352,7 +352,7 @@ set_workspaces_layout(uint32 columns, uint32 rows)
 void
 set_subpixel_antialiasing(bool subpix)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_SET_SUBPIXEL_ANTIALIASING);
 	link.Attach<bool>(subpix);
@@ -363,7 +363,7 @@ set_subpixel_antialiasing(bool subpix)
 status_t
 get_subpixel_antialiasing(bool* subpix)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_SUBPIXEL_ANTIALIASING);
 	int32 status = B_ERROR;
@@ -377,7 +377,7 @@ get_subpixel_antialiasing(bool* subpix)
 void
 set_hinting_mode(uint8 hinting)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_SET_HINTING);
 	link.Attach<uint8>(hinting);
@@ -388,7 +388,7 @@ set_hinting_mode(uint8 hinting)
 status_t
 get_hinting_mode(uint8* hinting)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_HINTING);
 	int32 status = B_ERROR;
@@ -402,7 +402,7 @@ get_hinting_mode(uint8* hinting)
 void
 set_average_weight(uint8 averageWeight)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_SET_SUBPIXEL_AVERAGE_WEIGHT);
 	link.Attach<uint8>(averageWeight);
@@ -413,7 +413,7 @@ set_average_weight(uint8 averageWeight)
 status_t
 get_average_weight(uint8* averageWeight)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_SUBPIXEL_AVERAGE_WEIGHT);
 	int32 status = B_ERROR;
@@ -427,7 +427,7 @@ get_average_weight(uint8* averageWeight)
 void
 set_is_subpixel_ordering_regular(bool subpixelOrdering)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_SET_SUBPIXEL_ORDERING);
 	link.Attach<bool>(subpixelOrdering);
@@ -438,7 +438,7 @@ set_is_subpixel_ordering_regular(bool subpixelOrdering)
 status_t
 get_is_subpixel_ordering_regular(bool* subpixelOrdering)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_SUBPIXEL_ORDERING);
 	int32 status = B_ERROR;
@@ -489,7 +489,7 @@ get_scroll_bar_info(scroll_bar_info *info)
 	if (info == NULL)
 		return B_BAD_VALUE;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_SCROLLBAR_INFO);
 
 	int32 code;
@@ -509,7 +509,7 @@ set_scroll_bar_info(scroll_bar_info *info)
 	if (info == NULL)
 		return B_BAD_VALUE;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	int32 code;
 
 	link.StartMessage(AS_SET_SCROLLBAR_INFO);
@@ -1040,7 +1040,7 @@ current_workspace()
 {
 	int32 index = 0;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_CURRENT_WORKSPACE);
 
 	int32 status;
@@ -1054,7 +1054,7 @@ current_workspace()
 void
 activate_workspace(int32 workspace)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_ACTIVATE_WORKSPACE);
 	link.Attach<int32>(workspace);
 	link.Attach<bool>(false);
@@ -1067,7 +1067,7 @@ idle_time()
 {
 	bigtime_t idletime = 0;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_IDLE_TIME);
 
 	int32 code;
@@ -1127,7 +1127,7 @@ focus_follows_mouse()
 void
 set_mouse_mode(mode_mouse mode)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_SET_MOUSE_MODE);
 	link.Attach<mode_mouse>(mode);
 	link.Flush();
@@ -1141,7 +1141,7 @@ mouse_mode()
 	// focus to click, ...
 	mode_mouse mode = B_NORMAL_MOUSE;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_MOUSE_MODE);
 
 	int32 code;
@@ -1155,7 +1155,7 @@ mouse_mode()
 void
 set_focus_follows_mouse_mode(mode_focus_follows_mouse mode)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_SET_FOCUS_FOLLOWS_MOUSE_MODE);
 	link.Attach<mode_focus_follows_mouse>(mode);
 	link.Flush();
@@ -1167,7 +1167,7 @@ focus_follows_mouse_mode()
 {
 	mode_focus_follows_mouse mode = B_NORMAL_FOCUS_FOLLOWS_MOUSE;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_FOCUS_FOLLOWS_MOUSE_MODE);
 
 	int32 code;
@@ -1284,7 +1284,7 @@ get_mouse_bitmap(BBitmap** bitmap, BPoint* hotspot)
 void
 set_accept_first_click(bool acceptFirstClick)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_SET_ACCEPT_FIRST_CLICK);
 	link.Attach<bool>(acceptFirstClick);
 	link.Flush();
@@ -1297,7 +1297,7 @@ accept_first_click()
 	// Gets the accept first click status
 	bool acceptFirstClick = true;
 
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_ACCEPT_FIRST_CLICK);
 
 	int32 code;
@@ -1563,7 +1563,7 @@ namespace BPrivate {
 bool
 get_decorator(BString& path)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_DECORATOR);
 
 	int32 code;
@@ -1582,7 +1582,7 @@ get_decorator(BString& path)
 status_t
 set_decorator(const BString& path)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_SET_DECORATOR);
 
@@ -1622,7 +1622,7 @@ preview_decorator(const BString& path, BWindow* window)
 bool
 get_control_look(BString& path)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 	link.StartMessage(AS_GET_CONTROL_LOOK);
 
 	int32 code;
@@ -1641,7 +1641,7 @@ get_control_look(BString& path)
 status_t
 set_control_look(const BString& path)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_SET_CONTROL_LOOK);
 
@@ -1659,7 +1659,7 @@ status_t
 get_application_order(int32 workspace, team_id** _applications,
 	int32* _count)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_APPLICATION_ORDER);
 	link.Attach<int32>(workspace);
@@ -1687,7 +1687,7 @@ get_application_order(int32 workspace, team_id** _applications,
 status_t
 get_window_order(int32 workspace, int32** _tokens, int32* _count)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_WINDOW_ORDER);
 	link.Attach<int32>(workspace);
@@ -1723,7 +1723,7 @@ get_window_order(int32 workspace, int32** _tokens, int32* _count)
 void
 do_window_action(int32 windowToken, int32 action, BRect zoomRect, bool zoom)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_WINDOW_ACTION);
 	link.Attach<int32>(windowToken);
@@ -1737,7 +1737,7 @@ do_window_action(int32 windowToken, int32 action, BRect zoomRect, bool zoom)
 client_window_info*
 get_window_info(int32 serverToken)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_WINDOW_INFO);
 	link.Attach<int32>(serverToken);
@@ -1761,7 +1761,7 @@ get_window_info(int32 serverToken)
 int32*
 get_token_list(team_id team, int32* _count)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_GET_WINDOW_LIST);
 	link.Attach<team_id>(team);
@@ -1786,7 +1786,7 @@ get_token_list(team_id team, int32* _count)
 void
 do_bring_to_front_team(BRect zoomRect, team_id team, bool zoom)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_BRING_TEAM_TO_FRONT);
 	link.Attach<team_id>(team);
@@ -1799,7 +1799,7 @@ do_bring_to_front_team(BRect zoomRect, team_id team, bool zoom)
 void
 do_minimize_team(BRect zoomRect, team_id team, bool zoom)
 {
-	BPrivate::AppServerLink link;
+	BPrivate::DesktopLink link;
 
 	link.StartMessage(AS_MINIMIZE_TEAM);
 	link.Attach<team_id>(team);

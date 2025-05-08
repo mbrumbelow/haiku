@@ -14,7 +14,7 @@
 
 #include <new>
 
-#include <AppServerLink.h>
+#include <DesktopLink.h>
 #include <InterfaceDefs.h>
 #include <Message.h>
 #include <ServerProtocol.h>
@@ -73,7 +73,7 @@ SwitchWorkspaceInputFilter::Filter(BMessage* message, BList* _list)
 			else
 				break;
 
-			BPrivate::AppServerLink link;
+			BPrivate::DesktopLink link;
 			link.StartMessage(AS_GET_WORKSPACE_LAYOUT);
 
 			status_t status;
@@ -101,7 +101,7 @@ SwitchWorkspaceInputFilter::Filter(BMessage* message, BList* _list)
 
 			int32 next = nextColumn + nextRow * columns;
 			if (next != current) {
-				BPrivate::AppServerLink link;
+				BPrivate::DesktopLink link;
 				link.StartMessage(AS_ACTIVATE_WORKSPACE);
 				link.Attach<int32>(next);
 				link.Attach<bool>(takeMeThere);
