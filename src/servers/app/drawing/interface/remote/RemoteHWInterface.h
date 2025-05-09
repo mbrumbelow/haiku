@@ -9,6 +9,7 @@
 #define REMOTE_HW_INTERFACE_H
 
 #include "HWInterface.h"
+#include "CursorManager.h"
 
 #include <AutoDeleter.h>
 #include <Locker.h>

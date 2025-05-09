@@ -255,6 +255,10 @@ RemoteHWInterface::_EventThread()
 			{
 				RemoteMessage reply(NULL, fSendBuffer.Get());
 				reply.Start(RP_INIT_CONNECTION);
+				CursorManager *cursorManager = new CursorManager();
+				SetCursor(cursorManager->GetCursor(B_CURSOR_ID_SYSTEM_DEFAULT));
+				delete cursorManager;
+				SetCursorVisible(true);
 				status_t result = reply.Flush();
 				(void)result;
 				TRACE("init connection result: %s\n", strerror(result));
