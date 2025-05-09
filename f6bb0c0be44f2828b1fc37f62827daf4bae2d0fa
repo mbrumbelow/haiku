@@ -16,6 +16,24 @@
       "message": "Must we create a new CursorManager here? Is this even a fully legal use of it? CC madmax.",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4419587_4c70f76f",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-05-09T20:06:45Z",
+      "side": 1,
+      "message": "@Pulkomandy SetCursor() needs a ServerCursor as parameter. I tought to use CursorManager this way was the normal process to get one.",
+      "parentUuid": "8d51a063_da63e6f6",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
