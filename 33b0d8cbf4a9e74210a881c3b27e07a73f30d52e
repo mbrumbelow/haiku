@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aadc807_91f346f7",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-05-09T12:01:56Z",
+      "side": 1,
+      "message": "should be B_PRIx32",
+      "revId": "33b0d8cbf4a9e74210a881c3b27e07a73f30d52e",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
