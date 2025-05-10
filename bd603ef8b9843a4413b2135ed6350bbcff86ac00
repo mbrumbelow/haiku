@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a37c541_f65b95c5",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-05-10T11:28:42Z",
+      "side": 1,
+      "message": "Reduce dependencies by including headers where necessary. In this case, it would seem we don\u0027t need it here, but just in the cpp.",
+      "revId": "bd603ef8b9843a4413b2135ed6350bbcff86ac00",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

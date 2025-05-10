@@ -69,6 +69,24 @@
       "parentUuid": "8d51a063_da63e6f6",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b0f94f_68f3c3c5",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-05-10T11:28:42Z",
+      "side": 1,
+      "message": "You may have been thinking of someone else, I don\u0027t remember even having had a look at this code.\n\nFrom what I see, Desktop has a CursorManager throughout its life, and it sets the default cursor on init. I don\u0027t know how the remote desktop works, but I guess the proper place to do it would be the equivalent. Is that RemoteView? It seems it has an explicit empty cursor. If there\u0027s no reason for that, B_CURSOR_SYSTEM_DEFAULT may be used instead.",
+      "parentUuid": "d4419587_4c70f76f",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
