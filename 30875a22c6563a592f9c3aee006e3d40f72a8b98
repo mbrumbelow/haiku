@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e232b42_79c857d3",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "I noticed that I forgot to initialize fXid. I\u0027m trying to generate a somewhat unique id by using the Mac address and system_time()",
+      "revId": "30875a22c6563a592f9c3aee006e3d40f72a8b98",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "374ad3d8_4acb518a",
+        "filename": "headers/private/kernel/boot/net/DHCP.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e3ac0c4_12cd24f1",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e0240af_01dfa1f8",
@@ -124,6 +142,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c18f3d29_2c514997",
+        "filename": "headers/private/kernel/boot/net/DHCP.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e0240af_01dfa1f8",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c956d04_2a6100ac",
@@ -137,6 +173,24 @@
       "writtenOn": "2025-05-01T15:17:51Z",
       "side": 1,
       "message": "should be fXid or something like that according to our naming convention",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a44033_5e80d799",
+        "filename": "headers/private/kernel/boot/net/DHCP.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c956d04_2a6100ac",
       "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -191,6 +245,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9431cda6_4119012d",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae51bec0_4a41b152",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a2fc28e7_7ad6b15e",
         "filename": "src/system/boot/loader/net/DHCP.cpp",
         "patchSetId": 5
@@ -230,6 +308,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ccb2e6_c6fe429b",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "283c16f1_866bacb9",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b73944c4_634c0e08",
@@ -243,6 +339,24 @@
       "writtenOn": "2025-05-01T15:17:51Z",
       "side": 1,
       "message": "there should be two blank lines here",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d73e6dc_91633d9f",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b73944c4_634c0e08",
       "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -285,6 +399,30 @@
       "side": 1,
       "message": "two blank lines between blocks (functions, delcarations, etc)",
       "parentUuid": "06991314_8403d249",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20958b9a_73095020",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb568b33_4990923f",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -343,6 +481,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af2032fb_1d764338",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c634460_a1c9f9cc",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "595255f4_7db91cc3",
@@ -356,6 +518,24 @@
       "writtenOn": "2025-05-01T15:17:51Z",
       "side": 1,
       "message": "two blank lines between blocks (functions, delcarations, etc)",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf63992b_cc999266",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595255f4_7db91cc3",
       "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -398,6 +578,30 @@
       "side": 1,
       "message": "two blank lines between blocks (functions, delcarations, etc)",
       "parentUuid": "6460e81b_2732ee0d",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 0
+      },
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b57c746_1bf80845",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc63bc8f_b39803e9",
       "range": {
         "startLine": 189,
         "startChar": 0,
@@ -456,6 +660,30 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7144514_920b5f7a",
+        "filename": "src/system/boot/loader/net/DHCP.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa76ac98_f9a68437",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 0
+      },
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d5fa9c5_f3f06584",
@@ -473,6 +701,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf51c1dd_b6ba956a",
+        "filename": "src/system/boot/platform/openfirmware/network.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d5fa9c5_f3f06584",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d70776e6_ec785deb",
@@ -486,6 +732,24 @@
       "writtenOn": "2025-05-01T15:17:51Z",
       "side": 1,
       "message": "This part should have already found a DHCP response from a request made by the firmware. If there are limitations to this (for example it\u0027s not supported in this way on Sun Openboot as mentionned in the comment above), it would be nice to updaet the comment with some more knowledge about that (which machines support it), and also add a corresponding comment in the DHCP client on our side that this is not really how things \"should\" work, but not all firmwares provide us with a way to get an IP and we need to do it ourselves.\n\nI\u0027m happy to document this myself if you want, but I would appreciate if you have pointers to relevant info about this or original research about it (in other words: what hardware are you testing with and do you know if it support this or not?)",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b203693e_55dd4b12",
+        "filename": "src/system/boot/platform/openfirmware/network.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "I\u0027ve updated the comment a bit, hope that it is a bit more descriptive. I\u0027m using an iMac G3 and an eMac G4. Openfirmware only gets an IP if you netboot which my G3 cannot do (properly).",
+      "parentUuid": "d70776e6_ec785deb",
       "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -544,6 +808,24 @@
       "writtenOn": "2025-05-01T15:17:51Z",
       "side": 1,
       "message": "```suggestion\n\t\t\tdprintf(\"\\tCouldn\u0027t initialize the Ethernet Interface!\\n\");\n```",
+      "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c59c8c_f754f7f5",
+        "filename": "src/system/boot/platform/openfirmware/network.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000674
+      },
+      "writtenOn": "2025-05-11T22:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6b0be5a_272c8fde",
       "revId": "55a18121ba12ff3329551f88f6ba93f5b2fa6a64",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
