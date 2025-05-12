@@ -123,6 +123,24 @@
       "parentUuid": "79b0f94f_68f3c3c5",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73dbcdbf_a9294c2e",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-12T21:27:37Z",
+      "side": 1,
+      "message": "I think the distinction does not matter here, if for some reason the remote wants a default other than \"DEFAULT\" it should send that, but I don\u0027t know when that would be the case. So the client should start out with DEFAULT and then we don\u0027t need to do anything different on the server.",
+      "parentUuid": "7f41c64d_72bf2e55",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
