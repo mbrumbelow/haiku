@@ -33,6 +33,24 @@
       "message": "at least this one is not correct:\n\nPRIu32 is to be used with uint32_t\n\nFor uint32 you want to use B_PRIu32. I suspect that\u0027s the case for most of the other places, as the C99 types are rarely used in Haiku.\n\nUnfortunately, the types without _t (inherited from BeOS) are slightly different from the C99 ones on 32 bit systems. In particular the 32 bit types are defined as \"long int\" instead of \"int\" there.\n\nSo, your change fixes problems on 64 bit systems, but breaks 32 bit ones.",
       "revId": "ecf89caceeb1db1a036836bb8c294a7396a76a72",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed7eb520_fd75fb49",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-12T21:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac1798a_86551d01",
+      "revId": "ecf89caceeb1db1a036836bb8c294a7396a76a72",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
