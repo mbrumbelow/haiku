@@ -36,6 +36,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4ef540b_f62e6046",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-05-12T08:33:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f61d048e_98471933",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d51a063_da63e6f6",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "You may have been thinking of someone else, I don\u0027t remember even having had a look at this code.\n\nFrom what I see, Desktop has a CursorManager throughout its life, and it sets the default cursor on init. I don\u0027t know how the remote desktop works, but I guess the proper place to do it would be the equivalent. Is that RemoteView? It seems it has an explicit empty cursor. If there\u0027s no reason for that, B_CURSOR_SYSTEM_DEFAULT may be used instead.",
       "parentUuid": "d4419587_4c70f76f",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f41c64d_72bf2e55",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-05-12T08:33:15Z",
+      "side": 1,
+      "message": "@antiswen@yahoo.es I thought to use B_CURSOR_SYSTEM_DEFAULT  in RemoteView instead of the default empty cursor. What leads me to use the CursorManager is that i wanted the RemoteView to display the *remote* default cursor instead of the *local* one. What do you think of this distinction remote/local cursor (though on haiku i guess very few people redefine cursors so they will always be identical...).",
+      "parentUuid": "79b0f94f_68f3c3c5",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
