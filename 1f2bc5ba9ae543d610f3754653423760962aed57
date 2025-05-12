@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4f2fc6_9fca9177",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-12T12:23:14Z",
+      "side": 1,
+      "message": "I think this is ok.\n\nIt would be nice however to teach makefile engine and jamfile engine respectively how to make a package so these vars are less needed.",
+      "revId": "1f2bc5ba9ae543d610f3754653423760962aed57",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
