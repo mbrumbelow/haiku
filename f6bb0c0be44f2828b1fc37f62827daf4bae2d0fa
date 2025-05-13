@@ -177,6 +177,24 @@
       "parentUuid": "a778ff73_86394c03",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36189d4f_927d48e1",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-05-13T16:06:36Z",
+      "side": 1,
+      "message": "Finally managed to setup two VMs to talk to each other. Without patches, HTML client shows the cursor and RemoteDesktop doesn\u0027t.\n\nIn both remote desktop clients the cursor is just another bitmap the view draws, and that\u0027s the reason an empty view cursor is set: to not show both.\n\nWhy is the remote cursor not shown? Because the desktop set it up on init, when the client was not connected. Why is it shown in the HTML client? Well, it\u0027s not, that\u0027s the one from the browser until it changes and a RP_SET_CURSOR message is received.\n\nSo I think your first idea was correct: send the current state on client connection. But it should be the current cursor in use, not the default one: open StyledEdit, move the cursor inside, close connection, reconnect and you should get the I-beam, not the hand. Visibility should be included, as you did, but again with the current value. For some reason HTML client initializes with visibility on and RemoteDesktop with it off. So I think we should probably do just the part `SetCursor` and `SetCursorVisible` do for sending the data, instead of calling them to change it.",
+      "parentUuid": "c9ec37e2_d343139f",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
