@@ -159,6 +159,24 @@
       "parentUuid": "73dbcdbf_a9294c2e",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9ec37e2_d343139f",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000223
+      },
+      "writtenOn": "2025-05-13T13:32:14Z",
+      "side": 1,
+      "message": "Well, I didn\u0027t know how this all worked, and RemoteView was just a guess. After a little more digging, I see a new Desktop object is created and RemoteView is in fact the view in the client. That Desktop loads the cursors and sets the default one, so none of this should be necessary. I\u0027ve tried to reproduce the issue and I do get a cursor both with RemoteDesktop app and HTML5 client without any patches, though I\u0027m using just one machine. I guess this latest patch (v4) wouldn\u0027t do anything for the HTML client?",
+      "parentUuid": "a778ff73_86394c03",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
