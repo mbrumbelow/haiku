@@ -141,6 +141,24 @@
       "parentUuid": "7f41c64d_72bf2e55",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a778ff73_86394c03",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-05-13T06:13:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "73dbcdbf_a9294c2e",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
