@@ -195,6 +195,24 @@
       "parentUuid": "c9ec37e2_d343139f",
       "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ed5a9f6_d54f4602",
+        "filename": "src/servers/app/drawing/interface/remote/RemoteHWInterface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000198
+      },
+      "writtenOn": "2025-05-13T20:06:29Z",
+      "side": 1,
+      "message": "@antiswen@yahoo.es, indeed when i tested my patch with WebPositive, i got 2 cursors, and the click didn\u0027t work on some buttons.",
+      "parentUuid": "36189d4f_927d48e1",
+      "revId": "f6bb0c0be44f2828b1fc37f62827daf4bae2d0fa",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
