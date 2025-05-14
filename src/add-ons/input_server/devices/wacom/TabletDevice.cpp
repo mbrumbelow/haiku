@@ -228,6 +228,15 @@ TabletDevice::DetectDevice(const DeviceReader* reader)
 		case 0xB7:  // Wacom PTZ-431W Intuos3 4x6
 			SetDevice(31496.0, 19685.0, DEVICE_INTUOS3);
 			break;
+		case 0xB8: // Wacom Intuos4S PTK-440 (S)
+			SetDevice(15748.0, 9842.5, DEVICE_INTUOS); // resolution factor 1/2 (31496, 19685)
+			break;
+		case 0xB9: // Wacom Intuos4 PTK-640 (M)
+			SetDevice(22352.0, 13970.0, DEVICE_INTUOS); // resolution factor 1/2 (44704, 27940)
+			break;
+		case 0xBA: // Wacom Intuos4L PTK-840 (L)
+			SetDevice(31500.0, 19700.0, DEVICE_INTUOS); // resolution factor 1/2 (63000, 39400)
+			break;
 		case 0xD0:	// Wacom Bamboo 2FG (from Linux Wacom Project)
 			SetDevice(14720.0, 9200.0, DEVICE_BAMBOO_PT);
 			break;
@@ -848,6 +857,16 @@ TabletDevice::_GetName(uint16 productID, const char** name) const
 			break;
 		case 0xB2:
 			*name = "Wacom Intuos3 9x12 USB";
+			break;
+
+		case 0xB8:
+			*name = "Wacom Intuos4 Small 4x6 (PTK-440)";
+			break;
+		case 0xB9:
+			*name = "Wacom Intuos4 Medium 6x9 (PTK-640)";
+			break;
+		case 0xBA:
+			*name = "Wacom Intuos4 Large 8x13 (PTK-840)";
 			break;
 
 		case 0xD0:
