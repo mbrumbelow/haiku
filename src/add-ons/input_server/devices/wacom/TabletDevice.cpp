@@ -264,6 +264,15 @@ TabletDevice::DetectDevice(const DeviceReader* reader)
 		case 0xDE:	// Wacom Bamboo Fun Pen & Touch (CTH-470)
 			SetDevice(14720.0, 9200.0, DEVICE_BAMBOO_PT);
 			break;
+		case 0x00b8: // Wacom Intuos4S PTK-440 (S)
+			SetDevice(15748.0, 9842.5, DEVICE_INTUOS4S); // resolution factor 1/2 (31496, 19685)
+			break;
+		case 0x00b9: // Wacom Intuos4 PTK-640 (M)
+			SetDevice(22352.0, 13970.0, DEVICE_INTUOS4); // resolution factor 1/2 (44704, 27940)
+			break;
+		case 0x00ba: // Wacom Intuos4L PTK-840 (L)
+			SetDevice(31500.0, 19700.0, DEVICE_INTUOS4L); // resolution factor 1/2 (63000, 39400)
+			break;
 		case 0x0301: // One by Wacom CTL-671
 			SetDevice(21648.0, 13530.0, DEVICE_BAMBOO_PT);
 			break;
@@ -373,6 +382,9 @@ TabletDevice::ReadData(const uchar* data, int dataBytes, bool& hasContact,
 		}
 		case DEVICE_INTUOS:
 		case DEVICE_INTUOS3:
+		case DEVICE_INTUOS4S:
+		case DEVICE_INTUOS4:
+		case DEVICE_INTUOS4L:
 		case DEVICE_CINTIQ:
 			if ((data[0] == 0x02) && !(((data[1] >> 5) & 0x03) == 0x02)) {
 				if (fDeviceMode == DEVICE_INTUOS3) {
@@ -885,6 +897,15 @@ TabletDevice::_GetName(uint16 productID, const char** name) const
 			break;
 		case 0xDE:
 			*name = "Wacom Bamboo Fun Pen & Touch (CTH-470)";
+			break;
+		case 0x00b8:
+			*name = "Wacom Intuos4 Small 4x6 (PTK-440)";
+			break;
+		case 0x00b9:
+			*name = "Wacom Intuos4 Medium 6x9 (PTK-640)";
+			break;
+		case 0x00ba:
+			*name = "Wacom Intuos4 Large 8x13 (PTK-840)";
 			break;
 		case 0x0301:
 			*name = "One by Wacom (CTL-671)";
