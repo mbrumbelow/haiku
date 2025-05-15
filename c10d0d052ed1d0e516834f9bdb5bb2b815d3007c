@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad08a68_fbe2b9ae",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-15T14:23:38Z",
+      "side": 1,
+      "message": "unnecessary blank line",
+      "revId": "c10d0d052ed1d0e516834f9bdb5bb2b815d3007c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75de9800_f8277a18",
+        "filename": "src/kits/interface/InterfaceDefs.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-15T14:23:38Z",
+      "side": 1,
+      "message": "may as well delete this if debugger() is getting called",
+      "revId": "c10d0d052ed1d0e516834f9bdb5bb2b815d3007c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
