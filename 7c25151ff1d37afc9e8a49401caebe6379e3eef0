@@ -227,6 +227,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "436c8fb0_52da6156",
+        "filename": "src/servers/net/NetServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-15T22:26:56Z",
+      "side": 1,
+      "message": "Why is this code handled here in any case? I would pop up the notification that a captive portal exists, but leave the rest out of this. (especially contacting the portal over http to figure out the user-portal-url and later venue url)\n\nClicking the notif should send a message to net server and then do the contacting the portal then only.\nWe can also add a state of \"Captive\" to the network status preference panel which will show the button to open the captive portal, and when that is accepted and went though display the info from the venue in-line. \nSo, show the remaining time/data if metered in the network preferences directly, not requiring a webview.",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "36b3b6ab_f09838c7",
