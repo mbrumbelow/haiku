@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55a2a827_37945fc0",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-15T10:21:09Z",
+      "side": 1,
+      "message": "where does this resolution factor come from? where are these values from?",
+      "parentUuid": "48c3ecad_9efd067c",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70dbc2d1_d8caefc6",
         "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
         "patchSetId": 1
