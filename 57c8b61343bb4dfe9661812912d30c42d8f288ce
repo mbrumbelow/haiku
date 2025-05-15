@@ -88,6 +88,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "652c2cfe_7d74e6de",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-15T21:49:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "177c871b_ef5d6a74",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70dbc2d1_d8caefc6",
@@ -105,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f28a21b_549e15d5",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-15T21:49:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70dbc2d1_d8caefc6",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bb1aa6c_7bf06fdc",
@@ -118,6 +154,24 @@
       "writtenOn": "2025-05-15T06:44:11Z",
       "side": 1,
       "message": "These aren\u0027t needed.",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bf61d2a_9e573307",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-15T21:49:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bb1aa6c_7bf06fdc",
       "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
