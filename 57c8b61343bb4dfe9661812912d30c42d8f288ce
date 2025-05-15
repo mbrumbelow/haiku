@@ -18,6 +18,23 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8dd07c_fb5c5c5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-15T21:43:05Z",
+      "side": 1,
+      "message": "reference source provided",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48c3ecad_9efd067c",
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "where does this resolution factor come from? where are these values from?",
       "parentUuid": "48c3ecad_9efd067c",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "177c871b_ef5d6a74",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-15T21:43:05Z",
+      "side": 1,
+      "message": "https://codebrowser.dev/linux/linux/drivers/hid/wacom_wac.c.html",
+      "parentUuid": "55a2a827_37945fc0",
       "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
