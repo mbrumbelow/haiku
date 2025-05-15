@@ -106,6 +106,24 @@
       "parentUuid": "9151ffd3_8bfdb51a",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97848c47_1e1d0c33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-15T09:17:20Z",
+      "side": 1,
+      "message": "\u003e Because we shpuld follow posix and not ask projects for some ridicilous workarounds?\n\nAs already discussed, POSIX does not require these constants to have different values, and also explicitly does not require us to correctly implement them (it does require us to define them, that\u0027s all, and it is very clear about that).\n\nSo, the argument about POSIX support is not valid here. You have already argued that this is \"following the letter and not the spirit\" of the spec, but that argument isn\u0027t acceptable. The specification is what\u0027s written in the specification, there is no \"spirit\".\n\nSo, you have to find another way to justfiy this. The argument that CS5 and CS6 are silently converted to CS7, instead of returning errors, is a valid one, for example, but as waddlesplash says, POSIX doesn\u0027t agree on that. You can bring that complaint to POSIX and have them fix the next version of the spec.\n\n\u003e we have lots of ncurses applications and TUI tools but they don\u0027t seem to\n\nThese flags are for serial port management, not for pseudo-ttys. So you are looking at the wrong place here. Tools like minicom, gtkterm, ... and any other that uses serial ports will surely want to use these flags in some way. TUI apps have no reason to do so.\n\n\u003e Using symbol versioning with this structure may not be sufficient because if other libraries pass it around between them and applications\n\nI am confused by this argument. We use symbol versioning for struct stat, which is very similar and just as likely to suffer from the same problem. And that appears to not cause a lot of problems.\n\n\u003e These vars beeing the same is wrong. Simple as that.\n\nIt is actually allowed by POSIX. So there is nothing \"wrong\" here. It is annoying, maybe, but it is not wrong.",
+      "parentUuid": "b32d137f_9c657c5d",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
