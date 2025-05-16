@@ -125,6 +125,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a271a55_88fb8526",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-16T14:57:36Z",
+      "side": 1,
+      "message": "\u003e My point is that you leak less information by using the same service as everyone else, than using a Haiku-specific one that would make your network traffic easier to detect and fingerprint.\n\nNo, I do not.\nI leak less info by not needlessly contacting a third-party server \"just in case\" for an extremely unlikely case. This doesn\u0027t even check if this is a wifi network.\nHey, if it was a wifi network that wasn\u0027t encrypted, or uses OWE I could almost understand that concern.\n\nAs for HTTP/HTTPS. HTTPS can\u0027t be intercepted, that\u0027s it\u0027s whole point. HTTP on the other hand can, and if you connect over HTTP with personal data, on an *unencrypted* wifi network you have a much bigger problem. Even if you did phone home to mozilla, everyone in your vacinity can eavesdrop on this data anyway. So using http for this in public is not a good idea in *any* case, and not a good justification for phoning home, this doesn\u0027t really save you anything. If we want to tackle this issue we should rather investigate https upgrades on the connection, warning users when the context is http for password fields or other forms that carry personal data, etc.\n\nDHCP, DNS, NTP etc. Dispite beeing needed for most devices, Are all optional in Haiku and aren\u0027t hardcoded in a server with no way to turn it off. DHCP and DNS for my case are also self-hosted with a local machine serving those.",
+      "parentUuid": "f0b24999_d4ee200e",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c95a0eb9_dc4582be",
