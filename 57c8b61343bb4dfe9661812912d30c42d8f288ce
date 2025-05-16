@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22c61895_e36fd823",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-16T00:37:03Z",
+      "side": 1,
+      "message": "Please don\u0027t set the comment thread as resolved if the questions aren\u0027t answered. : )\n\nThe resolution factor is still not explained. Did you look up these values in the linux driver, if so why did you devide them?",
+      "parentUuid": "652c2cfe_7d74e6de",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70dbc2d1_d8caefc6",
         "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
         "patchSetId": 1
