@@ -107,6 +107,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0b24999_d4ee200e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-16T11:44:59Z",
+      "side": 1,
+      "message": "Things that are network requests without user input:\n\n- DHCP requests\n- NTP synchronization\n\nI would say this fits in the same \"needed for network access\" category? And it may be a good idea to use it as well to determine if the internet is reachable through some network, and thus determine if it should be used as a default route or not.\n\nSo, design-wise, to me this seems reasonable.\n\nNow about the discussion on what server to use for detecting if we\u0027re really online:\n\n\u003e I\u0027m not sure what your point is. Are you suggesting we should use their service solely because it costs them money? why in that case we should pick a more evil company to leach off!\n\nMy point is that you leak less information by using the same service as everyone else, than using a Haiku-specific one that would make your network traffic easier to detect and fingerprint.\n\nAll the info Mozilla (or whoever) gets is \"there is some machine connected to the internet using that IP address\". There is not much they could do with that. There\u0027s no cookie, there\u0027s no MAC address, there\u0027s nothing that could allow to uniquely identify a machine in the request. There is the user agent (which will be the default services kit one), so we could use a less noticeable one here.\n\nI just wanted to mention that. I personally don\u0027t care who gets that type of info about my computer. But if you want to minimize the leak, it\u0027s better to behave like other systems.\n\nNow, if there was a way to do this without any network traffic, that would be better. But I don\u0027t see one.\n\n\nSo, to ask the question differently: how is this different from sending DHCP, DNS or NTP requests? Why does this one make people feel bad about it, while these others don\u0027t?\n\n\u003e Maybe we should add some logic for captive portal detection to the web browsers, but not to net_server.\n\nThe captive portal will not just block HTTP and HTTPS. Until you are logged in, nothing will work except maybe DNS requests (it depends how the portal is configured). This is something that the net_server should care about, not each application trying to do network access.\n\nIn the specific case of HTTP and HTTPS, your requests will be intercepted and redirected until you log in. These requests will include cookies that your web browser may send. Which means, if you don\u0027t implement this check by first sending an \"empty\" request, there is a real risk that the portal may intercept your actual personal data. So, in that regard, this change makes things better, not worse?",
+      "parentUuid": "c1a959cc_b54c1c36",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c95a0eb9_dc4582be",
