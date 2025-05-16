@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac040c42_db43be9e",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-16T05:54:46Z",
+      "side": 1,
+      "message": "Ok I\u0027ve identified the piece of code to have the correct resolution on INTUOS4.\nIt\u0027s the same than for INTUOS3, so my proposal is to set the device to INTUOS3 or introduce INTUOS4 put it in the case below: \n\n\t\tcase DEVICE_INTUOS:\n\t\tcase DEVICE_INTUOS3:\n\t\tcase DEVICE_CINTIQ:\n\t\t\tif ((data[0] \u003d\u003d 0x02) \u0026\u0026 !(((data[1] \u003e\u003e 5) \u0026 0x03) \u003d\u003d 0x02)) {\n\t\t\t\tif (fDeviceMode \u003d\u003d DEVICE_INTUOS3) {\n\t\t\t\t\txPos \u003d (data[2] \u003c\u003c 9) | (data[3] \u003c\u003c 1)\n\t\t\t\t\t\t| ((data[9] \u003e\u003e 1) \u0026 1);\n\t\t\t\t\tyPos \u003d (data[4] \u003c\u003c 9) | (data[5] \u003c\u003c 1) | (data[9] \u0026 1);\n\t\t\t\t} else {\n\t\t\t\t\txPos \u003d (data[2] \u003c\u003c 8) | data[3];\n\t\t\t\t\tyPos \u003d (data[4] \u003c\u003c 8) | data[5];\n\t\t\t\t}",
+      "parentUuid": "22c61895_e36fd823",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70dbc2d1_d8caefc6",
         "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
         "patchSetId": 1
