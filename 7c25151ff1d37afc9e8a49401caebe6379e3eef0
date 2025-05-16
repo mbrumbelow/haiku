@@ -145,6 +145,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8d54df1c_1865b581",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-05-16T18:29:35Z",
+      "side": 1,
+      "message": "This at least should be configurable and possible to disable in some config file.",
+      "revId": "7c25151ff1d37afc9e8a49401caebe6379e3eef0",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c95a0eb9_dc4582be",
         "filename": "src/servers/net/DHCPClient.cpp",
         "patchSetId": 1
