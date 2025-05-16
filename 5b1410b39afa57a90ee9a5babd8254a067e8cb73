@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff29ed1_7452ff33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-16T06:41:36Z",
+      "side": 1,
+      "message": "Proposal sent, should be OK this version (tested fine with my Intuos4)",
+      "revId": "5b1410b39afa57a90ee9a5babd8254a067e8cb73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
