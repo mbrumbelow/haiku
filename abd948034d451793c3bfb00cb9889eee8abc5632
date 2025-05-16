@@ -33,6 +33,23 @@
       "message": "Indeed this takes it over 80 columns. I think we should stick with \u003c\u003d 80 here ideally.",
       "revId": "abd948034d451793c3bfb00cb9889eee8abc5632",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb462412_8685eb60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2025-05-16T15:17:09Z",
+      "side": 1,
+      "message": "I agree that making the default output wider goes a bit far, but I do like the extra lines in `df /boot`. Usage % seems a bit misaligned here:\n\n```\n   Device No.: 3\n   Mounted at: /boot\n  Volume Name: \"Haiku\"\n  File System: bfs\n       Device: /dev/disk/usb/0/0/1\n        Flags: QAM-P-W\n     I/O Size:   64.0 KiB (65536 byte)\n   Block Size:    2.0 KiB (2048 byte)\n Total Blocks:   64.0 GiB (33554432 blocks)\n  Used Blocks:   15.3 GiB (8037440 blocks)\n  Free Blocks:   48.7 GiB (25516992 blocks)\n      Usage %:  23%\n  Total Nodes: 0\n   Used Nodes: 0\n   Free Nodes: 0\n   Root Inode: 524288\n```",
+      "revId": "abd948034d451793c3bfb00cb9889eee8abc5632",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
