@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a603621a_de0731dd",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-17T03:29:16Z",
+      "side": 1,
+      "message": "This results in a slightly larger than necessary vertical gap between the TextViews and the \"show lines\" checkbox, but I really have no clue what I\u0027m doing here (as usual), so... this was the best I could do. Suggestions welcomed, as always.",
+      "range": {
+        "startLine": 591,
+        "startChar": 1,
+        "endLine": 596,
+        "endChar": 2
+      },
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b23fc69b_4ef5f4f9",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-17T03:29:16Z",
+      "side": 1,
+      "message": "Not sure if `fGlobText` following the same what is done for `fSearchText` (disabling/enabling change notifications) is really necessary/desirable.\n\nSeemed like a good idea at the moment. Let me know if I should remove these lines.",
+      "range": {
+        "startLine": 757,
+        "startChar": 1,
+        "endLine": 757,
+        "endChar": 42
+      },
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
