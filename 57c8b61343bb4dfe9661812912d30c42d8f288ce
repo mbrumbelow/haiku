@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f6148ae_922c60bb",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2025-05-17T06:34:41Z",
+      "side": 1,
+      "message": "Yes I was thinking first about a scale factor, but instead the way the data are read must be taken into account for INTUOS4 (like INTUOS3)",
+      "parentUuid": "c42cd8b0_fb3c451d",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70dbc2d1_d8caefc6",
         "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
         "patchSetId": 1
