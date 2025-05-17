@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c42cd8b0_fb3c451d",
+        "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-17T00:04:20Z",
+      "side": 1,
+      "message": "Ah okay. That makes a lot more sense, so before the resolution was devided because it read the data wrong? It\u0027s probably better to read it properly like this.\n\nI am fine with adding a DEVICE_INTUOS4 here since there is a functional difference.",
+      "parentUuid": "ac040c42_db43be9e",
+      "revId": "57c8b61343bb4dfe9661812912d30c42d8f288ce",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70dbc2d1_d8caefc6",
         "filename": "src/add-ons/input_server/devices/wacom/TabletDevice.cpp",
         "patchSetId": 1
