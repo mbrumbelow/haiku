@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78af9833_f9ab967f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-17T21:07:17Z",
+      "side": 1,
+      "message": "Looks much better now. Thanks a bunch @humdinger@mailbox.org!",
+      "revId": "60ff5a67ef2ea53d6025ecfca88782fae55818ef",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}

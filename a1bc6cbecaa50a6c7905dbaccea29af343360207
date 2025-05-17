@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86974e5f_07cacb86",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-17T21:07:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fcf805a_513e11fa",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4002f831_1806fe31",
@@ -66,6 +84,24 @@
       "writtenOn": "2025-05-17T08:33:58Z",
       "side": 1,
       "message": "Let\u0027s add a tooltip:\n```\n\tfGlobText-\u003eSetToolTip(B_TRANSLATE(\"Only show files matching a pattern, e.g. \\\"*.h\\\"\"));\n```",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19430b14_c05afd18",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-17T21:07:17Z",
+      "side": 1,
+      "message": "Used a slightly different wording. Let me know if it reads OK.",
+      "parentUuid": "4002f831_1806fe31",
       "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
@@ -87,6 +123,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce9b0d57_6530585d",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-17T21:07:17Z",
+      "side": 1,
+      "message": "Done. Appplied layout code suggestion verbatim. Thanks!",
+      "parentUuid": "536b2045_0f2d390d",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a603621a_de0731dd",
@@ -100,6 +154,30 @@
       "writtenOn": "2025-05-17T03:29:16Z",
       "side": 1,
       "message": "This results in a slightly larger than necessary vertical gap between the TextViews and the \"show lines\" checkbox, but I really have no clue what I\u0027m doing here (as usual), so... this was the best I could do. Suggestions welcomed, as always.",
+      "range": {
+        "startLine": 591,
+        "startChar": 1,
+        "endLine": 596,
+        "endChar": 2
+      },
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84c39b1a_453c5236",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-17T21:07:17Z",
+      "side": 1,
+      "message": "Done. (by adopting Humdinger\u0027s much better layout).",
+      "parentUuid": "a603621a_de0731dd",
       "range": {
         "startLine": 591,
         "startChar": 1,
