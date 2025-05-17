@@ -1,6 +1,74 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa6bd746_24e79d47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-05-17T08:33:58Z",
+      "side": 1,
+      "message": "I like the idea!\n\nAs illustration for my suggested layout, here\u0027s a screenshot: https://0x0.st/8vte.png",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fcf805a_513e11fa",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-05-17T08:33:58Z",
+      "side": 1,
+      "message": "It\u0027s a bit long for a label, and needlessly technical by using the grep specific parameter \"glob\". How about:\n\n```suggestion\n\t\t\"GlobFilter\", B_TRANSLATE(\"File filter:\"), NULL, NULL,\n```",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4002f831_1806fe31",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-05-17T08:33:58Z",
+      "side": 1,
+      "message": "Let\u0027s add a tooltip:\n```\n\tfGlobText-\u003eSetToolTip(B_TRANSLATE(\"Only show files matching a pattern, e.g. \\\"*.h\\\"\"));\n```",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "536b2045_0f2d390d",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000570
+      },
+      "writtenOn": "2025-05-17T08:33:58Z",
+      "side": 1,
+      "message": "Having the search field without label, but the filter box without one looks a bit weird to my eyes. How about keeping the full width search box in the first row, a put the rest in the second row?\nNo need for a grid either, so for example:\n\n```\n\tBLayoutBuilder::Group\u003c\u003e(this, B_VERTICAL, 0)\n\t\t.SetInsets(0, 0, -1, -1)\n\t\t.Add(fMenuBar)\n\t\t.AddGroup(B_VERTICAL, B_USE_SMALL_SPACING)\n\t\t\t.SetInsets(B_USE_WINDOW_SPACING, B_USE_WINDOW_SPACING,\n\t\t\t\tB_USE_WINDOW_SPACING, B_USE_DEFAULT_SPACING)\n\t\t\t.Add(fSearchText)\n\t\t\t.AddGroup(B_HORIZONTAL, B_USE_DEFAULT_SPACING)\n\t\t\t\t.Add(fGlobText, 1.0)\n\t\t\t\t.Add(fShowLinesCheckbox)\n\t\t\t\t.AddGlue(0.5)\n\t\t\t\t.Add(fButton)\n\t\t\t.End()\n\t\t.End()\n\t\t.AddGroup(B_VERTICAL, 0)\n\t\t\t.SetInsets(-2, 0, -1, -1)\n\t\t\t.Add(scroller)\n\t\t.End()\n\t.End();\n```",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a603621a_de0731dd",
