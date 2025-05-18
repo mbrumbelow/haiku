@@ -116,48 +116,16 @@ BColorListView::InitiateDrag(BPoint where, int32 index, bool wasSelected)
 
 
 void
-BColorListView::MessageReceived(BMessage* message)
+BColorListView::MouseUp(BPoint where)
 {
-	// if we received a dropped message, see if it contains color data
-	if (!message->WasDropped())
-		return BListView::MessageReceived(message);
-		
-	BPoint dropPoint = message->DropPoint();
-	ConvertFromScreen(&dropPoint);
-	int32 index = IndexOf(dropPoint);
-	BColorItem* item = dynamic_cast<BColorItem*>(ItemAt(index));
-	if (item == NULL)
-		return BListView::MessageReceived(message);
+	// TODO drag and drop from an external view should not alter selection
+	int32 index = CurrentSelection();
 
-	char* name;
-	type_code type;
-	rgb_color* color;
-	ssize_t size;
-	if (message->GetInfo(B_RGB_COLOR_TYPE, 0, &name, &type) == B_OK
-		&& message->FindData(name, type, (const void**)&color, &size) == B_OK) {
-		// set message command to set current color or new
-		bool current = index == CurrentSelection();
-		uint32 command = (current ? BColorListView::B_MESSAGE_SET_CURRENT_COLOR
-			: BColorListView::B_MESSAGE_SET_COLOR);
-		message->what = command;
+	BListView::MouseUp(where);
 
-		// if setting different color, add which color to set
-		if (current)
-			message->AddBool("current", true);
-		else
-			message->AddUInt32("which", (uint32)item->ColorWhich());
-
-		// build messenger and send message
-		BMessenger messenger = BMessenger(Parent());
-		if (messenger.IsValid())
-			messenger.SendMessage(message);
-
-		// set current color redraws for us
-		if (!current) {
-			item->SetColor(*color);
-			InvalidateItem(index);
-		}
-	}
+	// restore previous selection
+	if (index >= 0 && index <= CountItems())
+		Select(index);
 }
 
 
