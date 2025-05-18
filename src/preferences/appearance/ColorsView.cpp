@@ -109,14 +109,23 @@ void
 ColorsView::MessageReceived(BMessage* message)
 {
 	if (message->WasDropped()) {
-		// Received from color preview when dropped on
+		// Received from color preview and color list view when dropped on
 		char* name;
 		type_code type;
 		rgb_color* color;
 		ssize_t size;
+		color_which which;
+
 		if (message->GetInfo(B_RGB_COLOR_TYPE, 0, &name, &type) == B_OK
 			&& message->FindData(name, type, (const void**)&color, &size) == B_OK) {
-			_SetCurrentColor(*color);
+			if (message->what == BColorListView::B_MESSAGE_SET_COLOR
+				&& message->FindUInt32("which", (uint32*)&which) == B_OK) {
+				_SetColor(which, *color);
+			} else {
+				// otherwise assume dropped messages set current color
+				_SetCurrentColor(*color);
+			}
+
 			Window()->PostMessage(kMsgUpdate);
 		}
 
