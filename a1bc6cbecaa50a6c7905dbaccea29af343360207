@@ -124,6 +124,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad05bad3_c46f042e",
+        "filename": "src/apps/text_search/GrepWindow.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1000311
+      },
+      "writtenOn": "2025-05-18T18:41:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cc39ade_99f7dbc7",
+      "revId": "a1bc6cbecaa50a6c7905dbaccea29af343360207",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "536b2045_0f2d390d",
