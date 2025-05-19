@@ -16,6 +16,23 @@
       "message": "Proposal sent, should be OK this version (tested fine with my Intuos4)",
       "revId": "5b1410b39afa57a90ee9a5babd8254a067e8cb73",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34f52c2c_a8ac1859",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-19T10:03:50Z",
+      "side": 1,
+      "message": "I don\u0027t have these specific devices, but it looks good now.",
+      "revId": "5b1410b39afa57a90ee9a5babd8254a067e8cb73",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
