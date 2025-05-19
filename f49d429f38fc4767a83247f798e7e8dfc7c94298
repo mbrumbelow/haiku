@@ -16,6 +16,23 @@
       "message": "hold off, similar problem remains in Terminal",
       "revId": "f49d429f38fc4767a83247f798e7e8dfc7c94298",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "538eb9cb_d5e5435e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-19T10:00:32Z",
+      "side": 1,
+      "message": "I\u0027m confused, why does this fix the issue?",
+      "revId": "f49d429f38fc4767a83247f798e7e8dfc7c94298",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
