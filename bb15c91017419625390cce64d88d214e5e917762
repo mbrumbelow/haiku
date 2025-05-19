@@ -142,6 +142,24 @@
       "parentUuid": "9151ffd3_8bfdb51a",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b8196cc_89cdd4ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-19T15:15:45Z",
+      "side": 1,
+      "message": "\u003e We use symbol versioning for struct stat, which is very similar and just as likely to suffer from the same problem. And that appears to not cause a lot of problems.\n\nThe symbol versioning for struct stat is for BeOS vs. Haiku, so the problem I noted is only potentially an issue if Haiku binaries are linked to BeOS-built binaries, which isn\u0027t too likely anymore. This on the other hand would be symbol versioning for Haiku vs. later Haiku, which is much more risky.\n\nMaybe the right thing to do here is to just not define CS5 and CS6. This violates POSIX, but it would expose problems more easily. Or, maybe, we can not define them only if `_DEFAULT_SOURCE` is set, since we do other non-POSIX things when that\u0027s enabled?",
+      "parentUuid": "32f5563f_5105544c",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
