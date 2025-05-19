@@ -16,6 +16,24 @@
       "message": "line too long, same below",
       "revId": "8e49a093fc71e14d6b41b32f600e77c91c81d953",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcc49d5a_60dd7d34",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000885
+      },
+      "writtenOn": "2025-05-19T20:26:48Z",
+      "side": 1,
+      "message": "fixed now. Note that this revision is only compile tested, not run tested.",
+      "parentUuid": "bad5c8bf_52853a21",
+      "revId": "8e49a093fc71e14d6b41b32f600e77c91c81d953",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
