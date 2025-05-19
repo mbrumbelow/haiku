@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e352546_70abdaa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000013
+      },
+      "writtenOn": "2025-05-19T22:05:55Z",
+      "side": 1,
+      "message": "This patch set got a bit bigger but hopefully it is more clear why this fixes the bug. None of the message handling was working outside of WasDropped(). This fixes the color drop handling in WasDropped() in Appearance and Terminal and removes the rest. There is a separate bug pertaining to changing the selection on mouse up when dragging from an external view to a color list view that I worked around.",
+      "revId": "9c5eef2d5e5b28b787512514e63881eb8cbad63a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
