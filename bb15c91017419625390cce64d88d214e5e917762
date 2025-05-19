@@ -124,6 +124,24 @@
       "parentUuid": "b32d137f_9c657c5d",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f5563f_5105544c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000886
+      },
+      "writtenOn": "2025-05-19T12:50:49Z",
+      "side": 1,
+      "message": "Hello! I\u0027m interested in Haiku support from Wine too.\n\nIf tcgetattr() returns 0 for CSIZE, how should we interpret this value? Is the serial port in CS5? CS6? CS7?\n\nShould we hard-code that 0 means CS7 in Haiku, not CS5 or CS6 (which are equally 0)?",
+      "parentUuid": "9151ffd3_8bfdb51a",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
