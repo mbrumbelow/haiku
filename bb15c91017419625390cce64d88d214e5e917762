@@ -160,6 +160,24 @@
       "parentUuid": "32f5563f_5105544c",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92a945d6_68f27924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-20T14:51:58Z",
+      "side": 1,
+      "message": "\u003e The symbol versioning for struct stat is for BeOS vs. Haiku, so the problem I noted is only potentially an issue if Haiku binaries are linked to BeOS-built binaries\n\nThis is the struct termios from BeOS. We have never changed the meaning of existing bits in it until now. I know because I spent quite some effort trying to fit things in here in unconventional ways (for custom baudrates support) bacause there\u0027s not enough space.\n\nSince there is no R1 release yet, it is still time to introduce symbol versioning here, and have an Haiku specific version of this struct. It would make things a lot cleaner for sure.\n\nIf the symbol versioning is done right, this should not be a problem. The case where it would break seems sufficiently unlikely (wrappers around serial ports usually don\u0027t expose termios strutures directly to applications, since that would not make sense on Windows for example). We can simply rebuild things if anything breaks (it wouldn\u0027t be the first time, and I\u0027d say the current work on updating glibc is causing quite a lot of temporary breakage as well, without it being considered such a big problem).\n\n\u003e Or, maybe, we can not define them only if _DEFAULT_SOURCE is set, since we do other non-POSIX things when that\u0027s enabled?\n\nThat\u0027s an option too.\n\n\u003e Should we hard-code that 0 means CS7 in Haiku, not CS5 or CS6 (which are equally 0)?\n\nYes, currently there is no support for 5 and 6 bit serial ports, so that\u0027s safe to do.\n\nIndeed the most logical thing to do (not define CS5 and CS6 at all) goes against POSIX. I guess they wanted to make really sure the code would compile, even in cases where it wouldn\u0027t work? So it may be worth reporting an issue to them. I\u0027ll see about doing that.",
+      "parentUuid": "4b8196cc_89cdd4ba",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
