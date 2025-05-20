@@ -17,7 +17,6 @@ set -o errexit
 # package
 # rc
 # rmAttrs
-# unzip
 #
 
 if [ $# -le 1 ]; then
@@ -72,7 +71,7 @@ extractFile()
 
 	case "$archiveFile" in
 		*.zip)
-			$unzip -q -d "$extractDir" "$archiveFile"
+			unzip -q -d "$extractDir" "$archiveFile"
 			;;
 		*.tgz|*.tar.gz)
 			tar -C "$extractDir" -xf "$archiveFile"

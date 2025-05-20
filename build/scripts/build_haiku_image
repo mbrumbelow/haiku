@@ -29,7 +29,6 @@ set -o errexit
 # package
 # rc
 # rmAttrs
-# unzip
 # The following are only for image types:
 # bfsShell
 # fsShellCommand
@@ -176,7 +175,7 @@ extractFile()
 	case "$archiveFile" in
 		*.zip)
 			echo "Extracting $archiveFile ..."
-			$unzip -q -d "$extractDir" "$archiveFile"
+			unzip -q -d "$extractDir" "$archiveFile"
 			;;
 		*.tgz|*.tar.gz)
 			echo "Extracting $archiveFile ..."
