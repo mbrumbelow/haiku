@@ -33,6 +33,24 @@
       "message": "Random thought... this unzip tool looks to have beos-specific mime type calls.  Do we depend on those somehow in the build_haiku_* scripts?",
       "revId": "14911d496803f52f6894df89cbb3d44ae1513390",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb1a4883_e69215c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-20T14:25:00Z",
+      "side": 1,
+      "message": "All of our changes to unzip have been upstreamed a few years ago.\n\nBut, yes, this very much needs xattrs to work with the xattr compatibility layer, for example to extract WebPositiveBookmarks.zip correctly into the image (with the icon and URL for each bookmark).\n\nI think the host unzip will not be able to do that correctly.\n\nDo we use unzip for anything else? If not, I would be very happy to replace WebPositiveBookmarks with some jam rules and rdef files.",
+      "parentUuid": "f53e6db4_fefbcb76",
+      "revId": "14911d496803f52f6894df89cbb3d44ae1513390",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
