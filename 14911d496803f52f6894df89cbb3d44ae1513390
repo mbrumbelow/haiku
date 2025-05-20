@@ -16,6 +16,23 @@
       "message": "This was erroring out gcc 15 with antique function call warnings. (see https://dev.haiku-os.org/ticket/19584#comment:1)\n\nRealized the whole build tool was used so our build system provided an unzip binary. (which exists on every host system, and our docs require the host to install unzip anyway)\n\nInstead of relying on antique code, lets just use the host tools and do away with it.\n\nNo consumers of libzip in code, and we already have an unzip port in our image.",
       "revId": "14911d496803f52f6894df89cbb3d44ae1513390",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53e6db4_fefbcb76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-05-20T13:32:38Z",
+      "side": 1,
+      "message": "Random thought... this unzip tool looks to have beos-specific mime type calls.  Do we depend on those somehow in the build_haiku_* scripts?",
+      "revId": "14911d496803f52f6894df89cbb3d44ae1513390",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
