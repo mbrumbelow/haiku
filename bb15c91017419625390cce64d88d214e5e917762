@@ -178,6 +178,24 @@
       "parentUuid": "4b8196cc_89cdd4ba",
       "revId": "bb15c91017419625390cce64d88d214e5e917762",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abb8e358_02367222",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000886
+      },
+      "writtenOn": "2025-05-20T15:19:04Z",
+      "side": 1,
+      "message": "\u003e \u003e Should we hard-code that 0 means CS7 in Haiku, not CS5 or CS6 (which are equally 0)?\n\u003e \n\u003e Yes, currently there is no support for 5 and 6 bit serial ports, so that\u0027s safe to do.\n\nI see, thanks for clarifying.\n\nFWIW if I had to add my two cents, such Haiku-specific hack sounds non-POSIX which would be harder to justify Wine upstream. Let me explain:\n\nIf CS5 \u003d\u003d CS6 \u003d\u003d CS7, then (c_cflag \u0026 CSIZE) would equal CS5 *as well as* CS6 and CS7. A POSIX-compliant interpretation is that the serial port is simultaneously 5-bit, 6-bit, *and* 7-bit. I guess that might be physically possible under some unconventional definition of a \"serial port,\" but the Win32 API cannot represent that, so Wine must either give up or use Haiku-specific logic to disambiguate it to mean 7-bit.\n\nGiven all this, I somewhat feel like adding the unused MSB to CSIZE is the way to go, especially since I think POSIX is very unlikely to add more bits to CSIZE (the RS-232 and Unix TTY disciplines are effectively a frozen technology from decades ago).",
+      "parentUuid": "92a945d6_68f27924",
+      "revId": "bb15c91017419625390cce64d88d214e5e917762",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
