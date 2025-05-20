@@ -197,7 +197,6 @@ rule BuildHaikuPackage package : packageInfo
 	AddTargetVariableToScript $(script) : <build>package ;
 	AddTargetVariableToScript $(script) : <build>rc ;
 	AddTargetVariableToScript $(script) : <build>resattr ;
-	AddTargetVariableToScript $(script) : <build>unzip ;
 	if $(HOST_RM_ATTRS_TARGET) {
 		AddTargetVariableToScript $(script) : $(HOST_RM_ATTRS_TARGET)
 			: rmAttrs ;

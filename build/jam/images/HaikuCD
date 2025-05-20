@@ -25,7 +25,6 @@ AddTargetVariableToScript $(script) : <build>addattr ;
 AddTargetVariableToScript $(script) : <build>copyattr ;
 AddTargetVariableToScript $(script) : <build>rc ;
 AddTargetVariableToScript $(script) : <build>resattr ;
-AddTargetVariableToScript $(script) : <build>unzip ;
 AddTargetVariableToScript $(script) : <build>generate_attribute_stores ;
 if $(HOST_RM_ATTRS_TARGET) {
 	AddTargetVariableToScript $(script) : $(HOST_RM_ATTRS_TARGET) : rmAttrs ;
