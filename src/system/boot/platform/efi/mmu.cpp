@@ -123,6 +123,7 @@ platform_allocate_region(void **_address, size_t size, uint8 protection)
 		return B_NO_MEMORY;
 	}
 
+	#ifndef __riscv
 	if (*_address != NULL) {
 		// This is only useful for mapping the kernel itself.
 		// Validate base and size, but don't check for duplicates.
@@ -136,6 +137,7 @@ platform_allocate_region(void **_address, size_t size, uint8 protection)
 
 		region->vaddr = virtualAddress;
 	}
+	#endif
 
 #ifdef TRACE_MMU
 	//region->dprint("Allocated");
