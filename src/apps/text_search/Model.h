@@ -30,6 +30,8 @@ enum {
 	MSG_SEARCH_TEXT,
 	MSG_INVOKE_ITEM,
 	MSG_SELECT_HISTORY,
+	MSG_PREV_HISTORY,
+	MSG_NEXT_HISTORY,
 	MSG_NODE_MONITOR_PULSE,
 	MSG_START_NODE_MONITORING,
 
@@ -68,6 +70,7 @@ public:
 
 			void				AddToHistory(const char* text);
 			void				FillHistoryMenu(BMenu* menu) const;
+			BString				GetHistoryItem(int32 index);
 
 public:
 			// The directory we were invoked from.
