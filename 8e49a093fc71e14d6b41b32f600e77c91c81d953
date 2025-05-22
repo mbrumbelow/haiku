@@ -34,6 +34,24 @@
       "parentUuid": "bad5c8bf_52853a21",
       "revId": "8e49a093fc71e14d6b41b32f600e77c91c81d953",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dadcb2a2_0df9a2e9",
+        "filename": "src/system/boot/platform/bios_ia32/devices.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1000023
+      },
+      "writtenOn": "2025-05-22T11:58:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcc49d5a_60dd7d34",
+      "revId": "8e49a093fc71e14d6b41b32f600e77c91c81d953",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
