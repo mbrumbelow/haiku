@@ -34,6 +34,24 @@
       "parentUuid": "7fe2c9ef_41f0a520",
       "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fdce2f4_8a59b528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-05-26T21:14:54Z",
+      "side": 1,
+      "message": "Yes, it break reading flattened BPicture\u0027s recorded by older Haiku versions.\n\nI do not know use cases of long term stored BPicture in Haiku ecosystem except for testing. In current use cases flattened BPicture\u0027s are short-lived, it are used when printing for example. So I think it should be fine to fix it.\n\nHaiku do not increment BPicture version, so there are no way to distinguish it.",
+      "parentUuid": "5c2cb9ca_a0bf39ba",
+      "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
