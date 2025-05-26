@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fe2c9ef_41f0a520",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-26T18:28:22Z",
+      "side": 1,
+      "message": "I guess this will break compatibility with pictures written on earlier versions of Haiku. Is that a problem?",
+      "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    }
+  ]
+}
