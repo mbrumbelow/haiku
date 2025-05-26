@@ -52,6 +52,23 @@
       "parentUuid": "5c2cb9ca_a0bf39ba",
       "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b63065a4_274821ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000172
+      },
+      "writtenOn": "2025-05-26T22:36:58Z",
+      "side": 1,
+      "message": "Flattened BPicture samples recorded in BeOS and their decoded content are attached to ticket https://dev.haiku-os.org/ticket/1133.",
+      "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
