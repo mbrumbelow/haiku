@@ -35,6 +35,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c8e57c_8ab207c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000605
+      },
+      "writtenOn": "2025-05-26T20:41:36Z",
+      "side": 1,
+      "message": "Just because it allows use of command line tools to do it doesn\u0027t mean that it can\u0027t be added to the GUI.  There is no reason drag \u0026 drop support can\u0027t be added later using this same code.  This change was kept as minimal as possible since many developers, such as yourself, don\u0027t seem to want any customization at all.\n\nI\u0027m not sure what you mean by \"arcane commands\", `addattr` is a standard command and should be usable for any power user, which is the target audience for this change.  This change wasn\u0027t meant to expose any features to the average user.",
+      "parentUuid": "70a33a91_69494f48",
+      "revId": "acc79553b78fbbf5151f9aefdb3fadb075f7b055",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "77610c28_1f5a0e2e",
