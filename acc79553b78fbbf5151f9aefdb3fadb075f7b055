@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "70a33a91_69494f48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-26T20:07:07Z",
+      "side": 1,
+      "message": "This isn\u0027t a good way to go about this. Customization in Haiku is not like in linux, it should not involve a commandline or some arcane commands. :)\n\nIf this is done this should be more in the style of \"Drag and Drop image onto the DeskBar button\", and if the position then needs to be adjusted this should also be done in a GUI way... if nothing else atleast in a \"settings\" window.\n\nBesides this however, I don\u0027t think this should be customizable. The entire Deskbar should be swappable by the user if they want to customize their desktop more. But the default deskbar should not offer more curomization options than it does now. (Although such drag and drop customization might still be \"ok\" since this doesn\u0027t add any more Settings the user needs to care about if they don\u0027t use it)",
+      "revId": "acc79553b78fbbf5151f9aefdb3fadb075f7b055",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "77610c28_1f5a0e2e",
         "filename": "src/apps/deskbar/BarMenuBar.cpp",
         "patchSetId": 2
