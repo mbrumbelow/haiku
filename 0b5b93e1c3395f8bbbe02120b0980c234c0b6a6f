@@ -376,6 +376,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cdc5bcd8_a68f1f1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-26T10:01:03Z",
+      "side": 1,
+      "message": "Okay, I think the way forward here would be the private header method. This should make it clear when searching the code where we intended to use black or white in UI code. Where should such a header be declared?",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b422435c_e2386ac3",
         "filename": "headers/os/interface/InterfaceDefs.h",
         "patchSetId": 1
