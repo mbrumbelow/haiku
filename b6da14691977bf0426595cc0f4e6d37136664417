@@ -38,6 +38,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "83b1270d_d23e5998",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-26T09:58:19Z",
+      "side": 1,
+      "message": "This is still marked as failing build by gerrit\n\n{\"jambuild\": [[411, 0, \"...failed C++ objects/linux/x86_64/release/build/libpackage/PackageInfoParser.o ...\"], [9225, 0, \"...failed updating 1 target(s)...\"]], \"src/kits/package/PackageInfoParser.cpp\": [[397, 1207, \"call of overloaded \\u2018BUrl(const BString\u0026)\\u2019 is ambiguous\"]]}",
+      "revId": "b6da14691977bf0426595cc0f4e6d37136664417",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "77ad58a6_1c9f3866",
         "filename": "src/tests/kits/net/service/UrlTest.cpp",
         "patchSetId": 7
