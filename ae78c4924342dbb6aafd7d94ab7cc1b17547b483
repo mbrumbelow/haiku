@@ -69,6 +69,23 @@
       "message": "Flattened BPicture samples recorded in BeOS and their decoded content are attached to ticket https://dev.haiku-os.org/ticket/1133.",
       "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c418f313_5c592b59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2025-05-27T07:07:26Z",
+      "side": 1,
+      "message": "Looks plausible to me. Not sure if there are any apps using BPicture for long-term storage of anything. So backwards compatibility with Haiku might not be as relevant, but I\u0027m also not very much in the loop anymore what apps exist and what they do. Just my 2 cents.",
+      "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
