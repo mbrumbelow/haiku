@@ -86,6 +86,24 @@
       "message": "Looks plausible to me. Not sure if there are any apps using BPicture for long-term storage of anything. So backwards compatibility with Haiku might not be as relevant, but I\u0027m also not very much in the loop anymore what apps exist and what they do. Just my 2 cents.",
       "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f93320e_5dfa263d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2025-05-27T10:50:01Z",
+      "side": 1,
+      "message": "\u003e Haiku compatibility seems like a more important issue than BeOS compatibility\n\nIf there are no apps hitting any problems with that, it should be fine. If we find that something is broken, we can always revert the change or add support for Haiku format. It seems detecting which format is used could be difficult.\n\nMore generally this is a reason we\u0027re still in beta, it \"allows\" us to occasionally break things and not accumulate too much workarounds and backwards compatibility.",
+      "parentUuid": "6fdce2f4_8a59b528",
+      "revId": "ae78c4924342dbb6aafd7d94ab7cc1b17547b483",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
