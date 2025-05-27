@@ -53,6 +53,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0ccd9d_12067b69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-27T15:00:54Z",
+      "side": 1,
+      "message": "You need highly domain specific knowledge to chane this, while the target of this is clearly casual users who want to theme their desktop. Haiku should be simpke to use, and this isn\u0027t simple.\nSettings don\u0027t belong in file attributes to more easily be editable by commandline tools. Settings are done in the GUI, and normally as flattened Bmessages on the disk (though that format can still be improved somewhat) is used for user settings.\n\nAdding stuff normal users have no chance of using does not make Haiku easier to use. This will just lead to users beeing forced to try and learn this stuff if they want this cusomizations. If it is available it should be properly accesible, not hidden.\n\nAnd yes, I argue it should not be available instead. hiding stuff somewhere is not the way to go about this regardless...",
+      "parentUuid": "01c8e57c_8ab207c4",
+      "revId": "acc79553b78fbbf5151f9aefdb3fadb075f7b055",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "77610c28_1f5a0e2e",
