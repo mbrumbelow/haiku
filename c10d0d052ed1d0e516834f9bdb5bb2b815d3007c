@@ -50,6 +50,24 @@
       "message": "are you sure about this?\n\nIf we have 5 colors (kColorWhichCount \u003d 5), we want index to take the values 0, 1, 2, 3, 4, and stop when it is 5. The code previously did that, but now it will stop at 3 and exit the loop at 4 (because 4 is equal to 5 - 1, not less than it).",
       "revId": "c10d0d052ed1d0e516834f9bdb5bb2b815d3007c",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "350c173b_3e5824ba",
+        "filename": "src/preferences/appearance/Colors.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-27T14:25:00Z",
+      "side": 1,
+      "message": "The previous code would trigger the wrong color warning each time because it iterated one time too many. Hence the -1.\n\nMaybe the value of kColorWhichCount is off by one. It has been a bit since I touched this.",
+      "parentUuid": "3803c012_e46ab1e2",
+      "revId": "c10d0d052ed1d0e516834f9bdb5bb2b815d3007c",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
