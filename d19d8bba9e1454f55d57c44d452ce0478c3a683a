@@ -33,6 +33,24 @@
       "message": "Since these results are often dependant on specific hardware it would be nicer if we had both versions in tree, that would be easier to compare then or to compile the other version on specific hardware",
       "revId": "d19d8bba9e1454f55d57c44d452ce0478c3a683a",
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8a7cc0b_35f41088",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2025-05-28T17:44:14Z",
+      "side": 1,
+      "message": "There are only two PCI devices this driver supports: 0x4222 and 0x4227. And based on the tickets I\u0027ve seen over the years, I\u0027m not sure the FreeBSD driver works properly at all anymore. So if the OpenBSD driver is proven to work on at least one device, let\u0027s just switch to it.",
+      "parentUuid": "4c9e9307_44d37912",
+      "revId": "d19d8bba9e1454f55d57c44d452ce0478c3a683a",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     }
   ]
 }
