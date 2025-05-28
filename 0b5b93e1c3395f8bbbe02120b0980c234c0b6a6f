@@ -408,6 +408,24 @@
       "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a853ab8_f236dac4",
+        "filename": "headers/os/interface/InterfaceDefs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000390
+      },
+      "writtenOn": "2025-05-28T09:25:24Z",
+      "side": 1,
+      "message": "Please read the existing comments before pointlessly opening a new review.",
+      "parentUuid": "f2bc27b2_d0e87e2f",
+      "revId": "0b5b93e1c3395f8bbbe02120b0980c234c0b6a6f",
+      "serverId": "40b9299a-d8a8-485d-9b01-e6d3f45eefb5"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b422435c_e2386ac3",
