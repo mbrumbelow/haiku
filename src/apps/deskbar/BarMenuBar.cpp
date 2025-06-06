@@ -123,8 +123,8 @@ TBarMenuBar::TBarMenuBar(BRect frame, const char* name, TBarView* barView)
 		R_LeafLogoBitmap, &dataSize);
 	if (data != NULL) {
 		// seems valid, scale bitmap according to be_bold_font size
-		float width = std::max(63.f, ceilf(63 * be_bold_font->Size() / 12.f));
-		float height = std::max(22.f, ceilf(22 * be_bold_font->Size() / 12.f));
+		float width = std::max(78.f, ceilf(78 * be_bold_font->Size() / 12.f));
+		float height = std::max(23.f, ceilf(23 * be_bold_font->Size() / 12.f));
 		icon = new BBitmap(BRect(0, 0, width - 1, height - 1), B_RGBA32);
 		if (icon->InitCheck() != B_OK
 			|| BIconUtils::GetVectorIcon((const uint8*)data, dataSize, icon)
